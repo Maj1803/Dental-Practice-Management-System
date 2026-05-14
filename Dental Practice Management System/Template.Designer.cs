@@ -32,11 +32,13 @@
             // 
             // Template
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dental_Practice_Management_System.Properties.Resources.System_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.HelpButton = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Template";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Template_Load);
