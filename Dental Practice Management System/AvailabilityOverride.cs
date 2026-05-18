@@ -59,9 +59,9 @@ namespace Dental_Practice_Management_System
 
         private void btnPatients_Click(object sender, EventArgs e)
         {
-            //Patients patientsForm = new Patients();
-            //patientsForm.Show();
-            //this.Close();
+            Patients patientsForm = new Patients();
+            patientsForm.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
