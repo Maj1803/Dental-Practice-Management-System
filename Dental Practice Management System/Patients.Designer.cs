@@ -36,15 +36,7 @@
             this.btnDeletePatients = new System.Windows.Forms.Button();
             this.btnCreatePatients = new System.Windows.Forms.Button();
             this.pnlViewPatients = new System.Windows.Forms.Panel();
-            this.grpViewFilters = new System.Windows.Forms.GroupBox();
-            this.lblSearchPatients = new System.Windows.Forms.Label();
-            this.txtSearchPatients = new System.Windows.Forms.TextBox();
-            this.btnSearchPatients = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.searchNameToolStrip = new System.Windows.Forms.ToolStrip();
-            this.firstNameToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.firstNameToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.searchNameToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,13 +50,21 @@
             this.patientDOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dsDentist = new Dental_Practice_Management_System.dsDentist();
+            this.grpViewFilters = new System.Windows.Forms.GroupBox();
+            this.btnSearchPatients = new System.Windows.Forms.Button();
+            this.txtSearchPatients = new System.Windows.Forms.TextBox();
+            this.lblSearchPatients = new System.Windows.Forms.Label();
+            this.searchNameToolStrip = new System.Windows.Forms.ToolStrip();
+            this.firstNameToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.firstNameToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.searchNameToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.patientTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
             this.pnlViewPatients.SuspendLayout();
-            this.grpViewFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.searchNameToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
+            this.grpViewFilters.SuspendLayout();
+            this.searchNameToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -128,7 +128,7 @@
             // 
             this.btnCreatePatients.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnCreatePatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreatePatients.Location = new System.Drawing.Point(420, 186);
+            this.btnCreatePatients.Location = new System.Drawing.Point(439, 186);
             this.btnCreatePatients.Name = "btnCreatePatients";
             this.btnCreatePatients.Size = new System.Drawing.Size(151, 37);
             this.btnCreatePatients.TabIndex = 6;
@@ -143,55 +143,6 @@
             this.pnlViewPatients.Name = "pnlViewPatients";
             this.pnlViewPatients.Size = new System.Drawing.Size(881, 447);
             this.pnlViewPatients.TabIndex = 7;
-            // 
-            // grpViewFilters
-            // 
-            this.grpViewFilters.BackColor = System.Drawing.SystemColors.Control;
-            this.grpViewFilters.Controls.Add(this.btnSearchPatients);
-            this.grpViewFilters.Controls.Add(this.txtSearchPatients);
-            this.grpViewFilters.Controls.Add(this.lblSearchPatients);
-            this.grpViewFilters.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpViewFilters.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpViewFilters.Location = new System.Drawing.Point(23, 17);
-            this.grpViewFilters.Name = "grpViewFilters";
-            this.grpViewFilters.Size = new System.Drawing.Size(838, 112);
-            this.grpViewFilters.TabIndex = 0;
-            this.grpViewFilters.TabStop = false;
-            this.grpViewFilters.Text = "Patients";
-            // 
-            // lblSearchPatients
-            // 
-            this.lblSearchPatients.AutoSize = true;
-            this.lblSearchPatients.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchPatients.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblSearchPatients.Location = new System.Drawing.Point(6, 30);
-            this.lblSearchPatients.Name = "lblSearchPatients";
-            this.lblSearchPatients.Size = new System.Drawing.Size(215, 21);
-            this.lblSearchPatients.TabIndex = 1;
-            this.lblSearchPatients.Text = "Search Patient (Patient Name)";
-            this.lblSearchPatients.Click += new System.EventHandler(this.lblSearchAppointments_Click);
-            // 
-            // txtSearchPatients
-            // 
-            this.txtSearchPatients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchPatients.Location = new System.Drawing.Point(10, 63);
-            this.txtSearchPatients.Name = "txtSearchPatients";
-            this.txtSearchPatients.Size = new System.Drawing.Size(244, 34);
-            this.txtSearchPatients.TabIndex = 2;
-            // 
-            // btnSearchPatients
-            // 
-            this.btnSearchPatients.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnSearchPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchPatients.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchPatients.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSearchPatients.Location = new System.Drawing.Point(275, 63);
-            this.btnSearchPatients.Name = "btnSearchPatients";
-            this.btnSearchPatients.Size = new System.Drawing.Size(75, 34);
-            this.btnSearchPatients.TabIndex = 3;
-            this.btnSearchPatients.Text = "Search";
-            this.btnSearchPatients.UseVisualStyleBackColor = true;
-            this.btnSearchPatients.Click += new System.EventHandler(this.btnSearchPatients_Click);
             // 
             // dataGridView1
             // 
@@ -216,41 +167,6 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(838, 281);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // searchNameToolStrip
-            // 
-            this.searchNameToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.searchNameToolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.searchNameToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.firstNameToolStripLabel1,
-            this.firstNameToolStripTextBox1,
-            this.searchNameToolStripButton});
-            this.searchNameToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.searchNameToolStrip.Name = "searchNameToolStrip";
-            this.searchNameToolStrip.Size = new System.Drawing.Size(1133, 34);
-            this.searchNameToolStrip.TabIndex = 11;
-            this.searchNameToolStrip.Text = "searchNameToolStrip";
-            this.searchNameToolStrip.Visible = false;
-            // 
-            // firstNameToolStripLabel1
-            // 
-            this.firstNameToolStripLabel1.Name = "firstNameToolStripLabel1";
-            this.firstNameToolStripLabel1.Size = new System.Drawing.Size(96, 29);
-            this.firstNameToolStripLabel1.Text = "FirstName:";
-            // 
-            // firstNameToolStripTextBox1
-            // 
-            this.firstNameToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.firstNameToolStripTextBox1.Name = "firstNameToolStripTextBox1";
-            this.firstNameToolStripTextBox1.Size = new System.Drawing.Size(100, 34);
-            // 
-            // searchNameToolStripButton
-            // 
-            this.searchNameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.searchNameToolStripButton.Name = "searchNameToolStripButton";
-            this.searchNameToolStripButton.Size = new System.Drawing.Size(115, 29);
-            this.searchNameToolStripButton.Text = "SearchName";
-            this.searchNameToolStripButton.Click += new System.EventHandler(this.searchNameToolStripButton_Click);
             // 
             // patientIDDataGridViewTextBoxColumn
             // 
@@ -351,6 +267,90 @@
             this.dsDentist.DataSetName = "dsDentist";
             this.dsDentist.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // grpViewFilters
+            // 
+            this.grpViewFilters.BackColor = System.Drawing.SystemColors.Control;
+            this.grpViewFilters.Controls.Add(this.btnSearchPatients);
+            this.grpViewFilters.Controls.Add(this.txtSearchPatients);
+            this.grpViewFilters.Controls.Add(this.lblSearchPatients);
+            this.grpViewFilters.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpViewFilters.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpViewFilters.Location = new System.Drawing.Point(23, 17);
+            this.grpViewFilters.Name = "grpViewFilters";
+            this.grpViewFilters.Size = new System.Drawing.Size(838, 112);
+            this.grpViewFilters.TabIndex = 0;
+            this.grpViewFilters.TabStop = false;
+            this.grpViewFilters.Text = "Patients";
+            // 
+            // btnSearchPatients
+            // 
+            this.btnSearchPatients.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSearchPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchPatients.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchPatients.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSearchPatients.Location = new System.Drawing.Point(275, 63);
+            this.btnSearchPatients.Name = "btnSearchPatients";
+            this.btnSearchPatients.Size = new System.Drawing.Size(75, 34);
+            this.btnSearchPatients.TabIndex = 3;
+            this.btnSearchPatients.Text = "Search";
+            this.btnSearchPatients.UseVisualStyleBackColor = true;
+            this.btnSearchPatients.Click += new System.EventHandler(this.btnSearchPatients_Click);
+            // 
+            // txtSearchPatients
+            // 
+            this.txtSearchPatients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchPatients.Location = new System.Drawing.Point(10, 63);
+            this.txtSearchPatients.Name = "txtSearchPatients";
+            this.txtSearchPatients.Size = new System.Drawing.Size(244, 34);
+            this.txtSearchPatients.TabIndex = 2;
+            // 
+            // lblSearchPatients
+            // 
+            this.lblSearchPatients.AutoSize = true;
+            this.lblSearchPatients.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchPatients.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblSearchPatients.Location = new System.Drawing.Point(6, 30);
+            this.lblSearchPatients.Name = "lblSearchPatients";
+            this.lblSearchPatients.Size = new System.Drawing.Size(215, 21);
+            this.lblSearchPatients.TabIndex = 1;
+            this.lblSearchPatients.Text = "Search Patient (Patient Name)";
+            this.lblSearchPatients.Click += new System.EventHandler(this.lblSearchAppointments_Click);
+            // 
+            // searchNameToolStrip
+            // 
+            this.searchNameToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchNameToolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.searchNameToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.firstNameToolStripLabel1,
+            this.firstNameToolStripTextBox1,
+            this.searchNameToolStripButton});
+            this.searchNameToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.searchNameToolStrip.Name = "searchNameToolStrip";
+            this.searchNameToolStrip.Size = new System.Drawing.Size(1133, 34);
+            this.searchNameToolStrip.TabIndex = 11;
+            this.searchNameToolStrip.Text = "searchNameToolStrip";
+            this.searchNameToolStrip.Visible = false;
+            // 
+            // firstNameToolStripLabel1
+            // 
+            this.firstNameToolStripLabel1.Name = "firstNameToolStripLabel1";
+            this.firstNameToolStripLabel1.Size = new System.Drawing.Size(96, 29);
+            this.firstNameToolStripLabel1.Text = "FirstName:";
+            // 
+            // firstNameToolStripTextBox1
+            // 
+            this.firstNameToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.firstNameToolStripTextBox1.Name = "firstNameToolStripTextBox1";
+            this.firstNameToolStripTextBox1.Size = new System.Drawing.Size(100, 34);
+            // 
+            // searchNameToolStripButton
+            // 
+            this.searchNameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchNameToolStripButton.Name = "searchNameToolStripButton";
+            this.searchNameToolStripButton.Size = new System.Drawing.Size(115, 29);
+            this.searchNameToolStripButton.Text = "SearchName";
+            this.searchNameToolStripButton.Click += new System.EventHandler(this.searchNameToolStripButton_Click);
+            // 
             // patientTableAdapter1
             // 
             this.patientTableAdapter1.ClearBeforeFill = true;
@@ -373,13 +373,13 @@
             this.Text = "Patients";
             this.Load += new System.EventHandler(this.Patients_Load);
             this.pnlViewPatients.ResumeLayout(false);
-            this.grpViewFilters.ResumeLayout(false);
-            this.grpViewFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.searchNameToolStrip.ResumeLayout(false);
-            this.searchNameToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).EndInit();
+            this.grpViewFilters.ResumeLayout(false);
+            this.grpViewFilters.PerformLayout();
+            this.searchNameToolStrip.ResumeLayout(false);
+            this.searchNameToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
