@@ -52,6 +52,17 @@
     <Compile Include="Appointments.Designer.cs">
       <DependentUpon>Appointments.cs</DependentUpon>
     </Compile>
+    <Compile Include="AvailabilityOverride.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AvailabilityOverride.Designer.cs">
+      <DependentUpon>AvailabilityOverride.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsDentist.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDentist.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Template.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +80,9 @@
     <EmbeddedResource Include="Appointments.resx">
       <DependentUpon>Appointments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AvailabilityOverride.resx">
+      <DependentUpon>AvailabilityOverride.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -85,6 +99,17 @@
     <EmbeddedResource Include="TreatmentMedicine.resx">
       <DependentUpon>TreatmentMedicine.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dsDentist.xsc">
+      <DependentUpon>dsDentist.xsd</DependentUpon>
+    </None>
+    <None Include="dsDentist.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDentist.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsDentist.xss">
+      <DependentUpon>dsDentist.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
