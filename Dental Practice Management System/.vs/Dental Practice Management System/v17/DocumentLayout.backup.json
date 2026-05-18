@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\mahdiya\\desktop\\ukzn\\year 3\\semester 1\\istn3as\\github\\dental-practice-management-system\\dental practice management system\\availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\treatmentmedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:treatmentmedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\mahdiya\\desktop\\ukzn\\year 3\\semester 1\\istn3as\\github\\dental-practice-management-system\\dental practice management system\\availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\mahdiya\\desktop\\ukzn\\year 3\\semester 1\\istn3as\\github\\dental-practice-management-system\\dental practice management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\mahdiya\\desktop\\ukzn\\year 3\\semester 1\\istn3as\\github\\dental-practice-management-system\\dental practice management system\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\mahdiya\\desktop\\ukzn\\year 3\\semester 1\\istn3as\\github\\dental-practice-management-system\\dental practice management system\\treatmentmedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:treatmentmedicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\mahdiya\\desktop\\ukzn\\year 3\\semester 1\\istn3as\\github\\dental-practice-management-system\\dental practice management system\\dsdentist.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:dsdentist.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,33 +42,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "dsDentist.xsd",
+              "DocumentMoniker": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\dsDentist.xsd",
+              "RelativeDocumentMoniker": "dsDentist.xsd",
+              "ToolTip": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\dsDentist.xsd",
+              "RelativeToolTip": "dsDentist.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2026-05-18T00:07:57.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBIAAAA0AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBIAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-17T23:47:06.254Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AvailabilityOverride.cs",
               "DocumentMoniker": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\AvailabilityOverride.cs",
               "RelativeDocumentMoniker": "AvailabilityOverride.cs",
               "ToolTip": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\AvailabilityOverride.cs",
               "RelativeToolTip": "AvailabilityOverride.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAuwGIAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAwwGIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-17T23:36:39.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AvailabilityOverride.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\AvailabilityOverride.cs",
               "RelativeDocumentMoniker": "AvailabilityOverride.cs",
@@ -76,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Appointments.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.cs",
               "RelativeDocumentMoniker": "Appointments.cs",
@@ -88,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "TreatmentMedicine.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Mahdiya\\Desktop\\UKZN\\Year 3\\Semester 1\\ISTN3AS\\GitHub\\Dental-Practice-Management-System\\Dental Practice Management System\\TreatmentMedicine.cs",
               "RelativeDocumentMoniker": "TreatmentMedicine.cs",
