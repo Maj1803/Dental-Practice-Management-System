@@ -58,16 +58,16 @@
     <Compile Include="AvailabilityOverride.Designer.cs">
       <DependentUpon>AvailabilityOverride.cs</DependentUpon>
     </Compile>
+    <Compile Include="Billing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billing.Designer.cs">
+      <DependentUpon>Billing.cs</DependentUpon>
+    </Compile>
     <Compile Include="dsDentist.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDentist.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Patients.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Patients.Designer.cs">
-      <DependentUpon>Patients.cs</DependentUpon>
     </Compile>
     <Compile Include="Template.cs">
       <SubType>Form</SubType>
@@ -89,8 +89,8 @@
     <EmbeddedResource Include="AvailabilityOverride.resx">
       <DependentUpon>AvailabilityOverride.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patients.resx">
-      <DependentUpon>Patients.cs</DependentUpon>
+    <EmbeddedResource Include="Billing.resx">
+      <DependentUpon>Billing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
