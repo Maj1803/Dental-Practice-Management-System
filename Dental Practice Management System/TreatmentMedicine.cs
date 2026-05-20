@@ -16,5 +16,7 @@ namespace Dental_Practice_Management_System
         {
             InitializeComponent();
         }
+
+        
     }
 }
