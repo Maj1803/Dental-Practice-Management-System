@@ -58,6 +58,9 @@
     <Compile Include="AvailabilityOverride.Designer.cs">
       <DependentUpon>AvailabilityOverride.cs</DependentUpon>
     </Compile>
+    <Compile Include="dsDentist.cs">
+      <DependentUpon>dsDentist.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsDentist.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
