@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\admin\\desktop\\major project\\dental-practice-management-system\\dental practice management system\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\admin\\desktop\\major project\\dental-practice-management-system\\dental practice management system\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\appointments.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:appointments.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,13 +70,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Appointments.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.cs",
               "RelativeDocumentMoniker": "Appointments.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.cs",
               "RelativeToolTip": "Appointments.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIBAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAFcBAAAAAAAAAAAUwGkBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-18T17:29:47.804Z",
               "EditorCaption": ""
@@ -91,12 +91,11 @@
               "RelativeToolTip": "AvailabilityOverride.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAIwEAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T14:04:25.837Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T14:04:25.837Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Appointments.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.cs",
               "RelativeDocumentMoniker": "Appointments.cs",
@@ -108,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -121,13 +120,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Appointments.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.Designer.cs",
               "RelativeDocumentMoniker": "Appointments.Designer.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.Designer.cs",
               "RelativeToolTip": "Appointments.Designer.cs",
-              "ViewState": "AgIAAAEBAAAAAAAAAAAMwA8BAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAK0DAAAAAAAAAAAcwLgDAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-22T22:54:35.041Z",
               "EditorCaption": ""
@@ -141,8 +140,7 @@
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\AvailabilityOverride.cs [Design]",
               "RelativeToolTip": "AvailabilityOverride.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T14:50:48.524Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-18T14:50:48.524Z"
             },
             {
               "$type": "Document",

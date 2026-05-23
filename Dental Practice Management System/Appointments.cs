@@ -352,6 +352,15 @@ namespace Dental_Practice_Management_System
             //this.Hide();
         }
 
-        
+        private void cmbUpdateAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool reschedule =
+                cmbUpdateAction.SelectedItem.ToString() == "Reschedule";
+
+            dtpNewDate.Enabled = reschedule;
+            cmbNewTimeSlot.Enabled = reschedule;
+        }
+
+
     }
 }
