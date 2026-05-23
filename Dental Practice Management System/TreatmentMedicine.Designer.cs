@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddTreatment = new System.Windows.Forms.Button();
@@ -38,7 +39,51 @@
             this.grpViewPatientDetails = new System.Windows.Forms.GroupBox();
             this.pnlAddTreatment = new System.Windows.Forms.Panel();
             this.grpTreatment = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnSaveTreatment = new System.Windows.Forms.Button();
+            this.txtTreatmentNotes = new System.Windows.Forms.RichTextBox();
+            this.cmbTreatment = new System.Windows.Forms.ComboBox();
+            this.treatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsDentist1 = new Dental_Practice_Management_System.dsDentist();
+            this.lblTreatment = new System.Windows.Forms.Label();
+            this.txtDuration = new System.Windows.Forms.TextBox();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.lblNotes = new System.Windows.Forms.Label();
+            this.txtCost = new System.Windows.Forms.TextBox();
+            this.lblCost = new System.Windows.Forms.Label();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.cmbAppointment = new System.Windows.Forms.ComboBox();
+            this.appointmentViewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsDentist = new Dental_Practice_Management_System.dsDentist();
+            this.lblSelectAppointment = new System.Windows.Forms.Label();
+            this.txtFollowUpDate = new System.Windows.Forms.TextBox();
+            this.txtAppointmentID = new System.Windows.Forms.TextBox();
+            this.lblAppointmentID = new System.Windows.Forms.Label();
+            this.txtPatientID = new System.Windows.Forms.TextBox();
+            this.lblPatientID = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblFollowUpDate = new System.Windows.Forms.Label();
+            this.txtPatientName = new System.Windows.Forms.TextBox();
+            this.lblPatientName = new System.Windows.Forms.Label();
             this.pnlPrescribeMedication = new System.Windows.Forms.Panel();
+            this.pnlTreatmentHistory = new System.Windows.Forms.Panel();
+            this.pnlAddDiagnosis = new System.Windows.Forms.Panel();
+            this.grpAddDiagnosis = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbAppointmentDiag = new System.Windows.Forms.ComboBox();
+            this.txtPatientNameDiag = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveDiagnosis = new System.Windows.Forms.Button();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.cmbDiagnosis = new System.Windows.Forms.ComboBox();
+            this.patientTreatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblAppointment = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.grpPrescribeMedication = new System.Windows.Forms.GroupBox();
             this.txtDosage = new System.Windows.Forms.TextBox();
             this.lblDosage = new System.Windows.Forms.Label();
@@ -52,78 +97,35 @@
             this.lblCode = new System.Windows.Forms.Label();
             this.txtAllergies = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnSaveTreatment = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.cmbTreatment = new System.Windows.Forms.ComboBox();
-            this.lblTreatment = new System.Windows.Forms.Label();
-            this.txtDuration = new System.Windows.Forms.TextBox();
-            this.lblDuration = new System.Windows.Forms.Label();
-            this.lblNotes = new System.Windows.Forms.Label();
-            this.txtCost = new System.Windows.Forms.TextBox();
-            this.lblCost = new System.Windows.Forms.Label();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.cmbAppointment = new System.Windows.Forms.ComboBox();
-            this.lblSelectAppointment = new System.Windows.Forms.Label();
-            this.txtFollowUpDate = new System.Windows.Forms.TextBox();
-            this.txtAppointmentID = new System.Windows.Forms.TextBox();
-            this.lblAppointmentID = new System.Windows.Forms.Label();
-            this.txtPatientID = new System.Windows.Forms.TextBox();
-            this.lblPatientID = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.lblFollowUpDate = new System.Windows.Forms.Label();
-            this.txtPatientName = new System.Windows.Forms.TextBox();
-            this.lblPatientName = new System.Windows.Forms.Label();
-            this.pnlAddDiagnosis = new System.Windows.Forms.Panel();
-            this.grpAddDiagnosis = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnSaveDiagnosis = new System.Windows.Forms.Button();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblAppointment = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPatientNameDiag = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pnlTreatmentHistory = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.grpTreatmentHistory = new System.Windows.Forms.GroupBox();
-            this.txtSearchPatient = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblRecordCount = new System.Windows.Forms.Label();
+            this.txtSearchPatient = new System.Windows.Forms.TextBox();
+            this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentViewTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentViewTableAdapter();
+            this.treatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.TreatmentTableAdapter();
+            this.patientTreatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTreatmentTableAdapter();
+            this.dgvTreatmentHistory = new System.Windows.Forms.DataGridView();
             this.pnlPatientDetails.SuspendLayout();
             this.grpViewPatientDetails.SuspendLayout();
             this.pnlAddTreatment.SuspendLayout();
             this.grpTreatment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
             this.pnlPrescribeMedication.SuspendLayout();
-            this.grpPrescribeMedication.SuspendLayout();
+            this.pnlTreatmentHistory.SuspendLayout();
             this.pnlAddDiagnosis.SuspendLayout();
             this.grpAddDiagnosis.SuspendLayout();
-            this.pnlTreatmentHistory.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientTreatmentBindingSource)).BeginInit();
+            this.grpPrescribeMedication.SuspendLayout();
             this.grpTreatmentHistory.SuspendLayout();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTreatmentHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -159,6 +161,7 @@
             this.btnAddTreatment.TabIndex = 3;
             this.btnAddTreatment.Text = "Add Treatment";
             this.btnAddTreatment.UseVisualStyleBackColor = true;
+            this.btnAddTreatment.Click += new System.EventHandler(this.btnAddTreatment_Click);
             // 
             // btnPrescribeMedication
             // 
@@ -170,6 +173,7 @@
             this.btnPrescribeMedication.TabIndex = 4;
             this.btnPrescribeMedication.Text = "Prescribe Medication";
             this.btnPrescribeMedication.UseVisualStyleBackColor = true;
+            this.btnPrescribeMedication.Click += new System.EventHandler(this.btnPrescribeMedication_Click);
             // 
             // btnTreatmentHistory
             // 
@@ -181,6 +185,7 @@
             this.btnTreatmentHistory.TabIndex = 5;
             this.btnTreatmentHistory.Text = "Treatment History";
             this.btnTreatmentHistory.UseVisualStyleBackColor = true;
+            this.btnTreatmentHistory.Click += new System.EventHandler(this.btnTreatmentHistory_Click);
             // 
             // btnAddDiagnosis
             // 
@@ -192,20 +197,20 @@
             this.btnAddDiagnosis.TabIndex = 6;
             this.btnAddDiagnosis.Text = "Add diagnosis";
             this.btnAddDiagnosis.UseVisualStyleBackColor = true;
+            this.btnAddDiagnosis.Click += new System.EventHandler(this.btnAddDiagnosis_Click);
             // 
             // pnlPatientDetails
             // 
             this.pnlPatientDetails.Controls.Add(this.grpViewPatientDetails);
-            this.pnlPatientDetails.Location = new System.Drawing.Point(176, 233);
+            this.pnlPatientDetails.Controls.Add(this.pnlPrescribeMedication);
+            this.pnlPatientDetails.Location = new System.Drawing.Point(176, 214);
             this.pnlPatientDetails.Name = "pnlPatientDetails";
-            this.pnlPatientDetails.Size = new System.Drawing.Size(854, 476);
+            this.pnlPatientDetails.Size = new System.Drawing.Size(872, 580);
             this.pnlPatientDetails.TabIndex = 7;
             // 
             // grpViewPatientDetails
             // 
             this.grpViewPatientDetails.AutoSize = true;
-            this.grpViewPatientDetails.Controls.Add(this.panel1);
-            this.grpViewPatientDetails.Controls.Add(this.pnlPrescribeMedication);
             this.grpViewPatientDetails.Controls.Add(this.pnlAddTreatment);
             this.grpViewPatientDetails.Controls.Add(this.txtStatus);
             this.grpViewPatientDetails.Controls.Add(this.cmbAppointment);
@@ -221,9 +226,9 @@
             this.grpViewPatientDetails.Controls.Add(this.lblPatientName);
             this.grpViewPatientDetails.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpViewPatientDetails.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpViewPatientDetails.Location = new System.Drawing.Point(13, 13);
+            this.grpViewPatientDetails.Location = new System.Drawing.Point(3, 3);
             this.grpViewPatientDetails.Name = "grpViewPatientDetails";
-            this.grpViewPatientDetails.Size = new System.Drawing.Size(885, 507);
+            this.grpViewPatientDetails.Size = new System.Drawing.Size(847, 522);
             this.grpViewPatientDetails.TabIndex = 1;
             this.grpViewPatientDetails.TabStop = false;
             this.grpViewPatientDetails.Text = "Patient and Appointment details";
@@ -231,9 +236,9 @@
             // pnlAddTreatment
             // 
             this.pnlAddTreatment.Controls.Add(this.grpTreatment);
-            this.pnlAddTreatment.Location = new System.Drawing.Point(21, 20);
+            this.pnlAddTreatment.Location = new System.Drawing.Point(-13, 20);
             this.pnlAddTreatment.Name = "pnlAddTreatment";
-            this.pnlAddTreatment.Size = new System.Drawing.Size(693, 401);
+            this.pnlAddTreatment.Size = new System.Drawing.Size(854, 476);
             this.pnlAddTreatment.TabIndex = 15;
             // 
             // grpTreatment
@@ -241,7 +246,7 @@
             this.grpTreatment.AutoSize = true;
             this.grpTreatment.Controls.Add(this.btnClear);
             this.grpTreatment.Controls.Add(this.btnSaveTreatment);
-            this.grpTreatment.Controls.Add(this.richTextBox1);
+            this.grpTreatment.Controls.Add(this.txtTreatmentNotes);
             this.grpTreatment.Controls.Add(this.cmbTreatment);
             this.grpTreatment.Controls.Add(this.lblTreatment);
             this.grpTreatment.Controls.Add(this.txtDuration);
@@ -251,162 +256,12 @@
             this.grpTreatment.Controls.Add(this.lblCost);
             this.grpTreatment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTreatment.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpTreatment.Location = new System.Drawing.Point(6, 3);
+            this.grpTreatment.Location = new System.Drawing.Point(8, 18);
             this.grpTreatment.Name = "grpTreatment";
             this.grpTreatment.Size = new System.Drawing.Size(620, 430);
             this.grpTreatment.TabIndex = 2;
             this.grpTreatment.TabStop = false;
             this.grpTreatment.Text = "Treatment Details";
-            // 
-            // pnlPrescribeMedication
-            // 
-            this.pnlPrescribeMedication.Controls.Add(this.pnlAddDiagnosis);
-            this.pnlPrescribeMedication.Controls.Add(this.grpPrescribeMedication);
-            this.pnlPrescribeMedication.Location = new System.Drawing.Point(70, 17);
-            this.pnlPrescribeMedication.Name = "pnlPrescribeMedication";
-            this.pnlPrescribeMedication.Size = new System.Drawing.Size(602, 404);
-            this.pnlPrescribeMedication.TabIndex = 17;
-            // 
-            // grpPrescribeMedication
-            // 
-            this.grpPrescribeMedication.AutoSize = true;
-            this.grpPrescribeMedication.Controls.Add(this.txtDosage);
-            this.grpPrescribeMedication.Controls.Add(this.lblDosage);
-            this.grpPrescribeMedication.Controls.Add(this.txtQuantity);
-            this.grpPrescribeMedication.Controls.Add(this.cmbMedicine);
-            this.grpPrescribeMedication.Controls.Add(this.btnClearPrescription);
-            this.grpPrescribeMedication.Controls.Add(this.btnSavePrescription);
-            this.grpPrescribeMedication.Controls.Add(this.lblAllergies);
-            this.grpPrescribeMedication.Controls.Add(this.txtCode);
-            this.grpPrescribeMedication.Controls.Add(this.lblQuantity);
-            this.grpPrescribeMedication.Controls.Add(this.lblCode);
-            this.grpPrescribeMedication.Controls.Add(this.txtAllergies);
-            this.grpPrescribeMedication.Controls.Add(this.label5);
-            this.grpPrescribeMedication.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPrescribeMedication.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpPrescribeMedication.Location = new System.Drawing.Point(17, 26);
-            this.grpPrescribeMedication.Name = "grpPrescribeMedication";
-            this.grpPrescribeMedication.Size = new System.Drawing.Size(638, 389);
-            this.grpPrescribeMedication.TabIndex = 3;
-            this.grpPrescribeMedication.TabStop = false;
-            this.grpPrescribeMedication.Text = "Prescribe Medication Details";
-            // 
-            // txtDosage
-            // 
-            this.txtDosage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDosage.Location = new System.Drawing.Point(103, 186);
-            this.txtDosage.Name = "txtDosage";
-            this.txtDosage.Size = new System.Drawing.Size(72, 27);
-            this.txtDosage.TabIndex = 20;
-            // 
-            // lblDosage
-            // 
-            this.lblDosage.AutoSize = true;
-            this.lblDosage.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDosage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDosage.Location = new System.Drawing.Point(26, 186);
-            this.lblDosage.Name = "lblDosage";
-            this.lblDosage.Size = new System.Drawing.Size(53, 17);
-            this.lblDosage.TabIndex = 19;
-            this.lblDosage.Text = "Dosage";
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuantity.Location = new System.Drawing.Point(312, 141);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(72, 27);
-            this.txtQuantity.TabIndex = 18;
-            // 
-            // cmbMedicine
-            // 
-            this.cmbMedicine.FormattingEnabled = true;
-            this.cmbMedicine.Location = new System.Drawing.Point(107, 87);
-            this.cmbMedicine.Name = "cmbMedicine";
-            this.cmbMedicine.Size = new System.Drawing.Size(168, 28);
-            this.cmbMedicine.TabIndex = 17;
-            // 
-            // btnClearPrescription
-            // 
-            this.btnClearPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnClearPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearPrescription.Location = new System.Drawing.Point(221, 278);
-            this.btnClearPrescription.Name = "btnClearPrescription";
-            this.btnClearPrescription.Size = new System.Drawing.Size(74, 37);
-            this.btnClearPrescription.TabIndex = 16;
-            this.btnClearPrescription.Text = "Clear";
-            this.btnClearPrescription.UseVisualStyleBackColor = true;
-            // 
-            // btnSavePrescription
-            // 
-            this.btnSavePrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnSavePrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSavePrescription.Location = new System.Drawing.Point(29, 278);
-            this.btnSavePrescription.Name = "btnSavePrescription";
-            this.btnSavePrescription.Size = new System.Drawing.Size(151, 37);
-            this.btnSavePrescription.TabIndex = 15;
-            this.btnSavePrescription.Text = "Save Prescription";
-            this.btnSavePrescription.UseVisualStyleBackColor = true;
-            // 
-            // lblAllergies
-            // 
-            this.lblAllergies.AutoSize = true;
-            this.lblAllergies.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAllergies.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAllergies.Location = new System.Drawing.Point(26, 41);
-            this.lblAllergies.Name = "lblAllergies";
-            this.lblAllergies.Size = new System.Drawing.Size(65, 17);
-            this.lblAllergies.TabIndex = 12;
-            this.lblAllergies.Text = "Allergies: ";
-            // 
-            // txtCode
-            // 
-            this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCode.Location = new System.Drawing.Point(103, 141);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(72, 27);
-            this.txtCode.TabIndex = 8;
-            // 
-            // lblQuantity
-            // 
-            this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblQuantity.Location = new System.Drawing.Point(235, 141);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(56, 17);
-            this.lblQuantity.TabIndex = 7;
-            this.lblQuantity.Text = "Quantity";
-            // 
-            // lblCode
-            // 
-            this.lblCode.AutoSize = true;
-            this.lblCode.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCode.Location = new System.Drawing.Point(26, 141);
-            this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(39, 17);
-            this.lblCode.TabIndex = 3;
-            this.lblCode.Text = "Code";
-            // 
-            // txtAllergies
-            // 
-            this.txtAllergies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAllergies.Location = new System.Drawing.Point(107, 37);
-            this.txtAllergies.Name = "txtAllergies";
-            this.txtAllergies.Size = new System.Drawing.Size(186, 27);
-            this.txtAllergies.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(26, 92);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 17);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Medicine";
             // 
             // btnClear
             // 
@@ -418,6 +273,7 @@
             this.btnClear.TabIndex = 16;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSaveTreatment
             // 
@@ -429,23 +285,38 @@
             this.btnSaveTreatment.TabIndex = 15;
             this.btnSaveTreatment.Text = "Save Treatment";
             this.btnSaveTreatment.UseVisualStyleBackColor = true;
+            this.btnSaveTreatment.Click += new System.EventHandler(this.btnSaveTreatment_Click);
             // 
-            // richTextBox1
+            // txtTreatmentNotes
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(23, 253);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(193, 96);
-            this.richTextBox1.TabIndex = 14;
-            this.richTextBox1.Text = "";
+            this.txtTreatmentNotes.Location = new System.Drawing.Point(23, 253);
+            this.txtTreatmentNotes.Name = "txtTreatmentNotes";
+            this.txtTreatmentNotes.Size = new System.Drawing.Size(193, 96);
+            this.txtTreatmentNotes.TabIndex = 14;
+            this.txtTreatmentNotes.Text = "";
             // 
             // cmbTreatment
             // 
+            this.cmbTreatment.DataSource = this.treatmentBindingSource;
+            this.cmbTreatment.DisplayMember = "TreatmentName";
             this.cmbTreatment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTreatment.FormattingEnabled = true;
             this.cmbTreatment.Location = new System.Drawing.Point(29, 72);
             this.cmbTreatment.Name = "cmbTreatment";
             this.cmbTreatment.Size = new System.Drawing.Size(225, 28);
             this.cmbTreatment.TabIndex = 13;
+            this.cmbTreatment.ValueMember = "TreatmentID";
+            this.cmbTreatment.SelectedIndexChanged += new System.EventHandler(this.cmbTreatment_SelectedIndexChanged);
+            // 
+            // treatmentBindingSource
+            // 
+            this.treatmentBindingSource.DataMember = "Treatment";
+            this.treatmentBindingSource.DataSource = this.dsDentist1;
+            // 
+            // dsDentist1
+            // 
+            this.dsDentist1.DataSetName = "dsDentist";
+            this.dsDentist1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblTreatment
             // 
@@ -463,6 +334,7 @@
             this.txtDuration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDuration.Location = new System.Drawing.Point(236, 164);
             this.txtDuration.Name = "txtDuration";
+            this.txtDuration.ReadOnly = true;
             this.txtDuration.Size = new System.Drawing.Size(72, 27);
             this.txtDuration.TabIndex = 8;
             // 
@@ -493,6 +365,7 @@
             this.txtCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCost.Location = new System.Drawing.Point(18, 164);
             this.txtCost.Name = "txtCost";
+            this.txtCost.ReadOnly = true;
             this.txtCost.Size = new System.Drawing.Size(94, 27);
             this.txtCost.TabIndex = 1;
             // 
@@ -518,12 +391,26 @@
             // 
             // cmbAppointment
             // 
+            this.cmbAppointment.DataSource = this.appointmentViewBindingSource1;
+            this.cmbAppointment.DisplayMember = "Patient_First_Name";
             this.cmbAppointment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAppointment.FormattingEnabled = true;
             this.cmbAppointment.Location = new System.Drawing.Point(29, 72);
             this.cmbAppointment.Name = "cmbAppointment";
             this.cmbAppointment.Size = new System.Drawing.Size(225, 28);
             this.cmbAppointment.TabIndex = 13;
+            this.cmbAppointment.ValueMember = "Appointment_ID";
+            this.cmbAppointment.SelectedIndexChanged += new System.EventHandler(this.cmbAppointment_SelectedIndexChanged);
+            // 
+            // appointmentViewBindingSource1
+            // 
+            this.appointmentViewBindingSource1.DataMember = "AppointmentView";
+            this.appointmentViewBindingSource1.DataSource = this.dsDentist;
+            // 
+            // dsDentist
+            // 
+            this.dsDentist.DataSetName = "dsDentist";
+            this.dsDentist.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblSelectAppointment
             // 
@@ -627,26 +514,42 @@
             this.lblPatientName.TabIndex = 0;
             this.lblPatientName.Text = "Patient Name";
             // 
+            // pnlPrescribeMedication
+            // 
+            this.pnlPrescribeMedication.Controls.Add(this.pnlTreatmentHistory);
+            this.pnlPrescribeMedication.Location = new System.Drawing.Point(3, 77);
+            this.pnlPrescribeMedication.Name = "pnlPrescribeMedication";
+            this.pnlPrescribeMedication.Size = new System.Drawing.Size(861, 490);
+            this.pnlPrescribeMedication.TabIndex = 17;
+            // 
+            // pnlTreatmentHistory
+            // 
+            this.pnlTreatmentHistory.Controls.Add(this.pnlAddDiagnosis);
+            this.pnlTreatmentHistory.Controls.Add(this.grpPrescribeMedication);
+            this.pnlTreatmentHistory.Location = new System.Drawing.Point(16, 3);
+            this.pnlTreatmentHistory.Name = "pnlTreatmentHistory";
+            this.pnlTreatmentHistory.Size = new System.Drawing.Size(764, 425);
+            this.pnlTreatmentHistory.TabIndex = 21;
+            // 
             // pnlAddDiagnosis
             // 
-            this.pnlAddDiagnosis.Controls.Add(this.pnlTreatmentHistory);
             this.pnlAddDiagnosis.Controls.Add(this.grpAddDiagnosis);
-            this.pnlAddDiagnosis.Location = new System.Drawing.Point(24, 10);
+            this.pnlAddDiagnosis.Location = new System.Drawing.Point(29, 28);
             this.pnlAddDiagnosis.Name = "pnlAddDiagnosis";
-            this.pnlAddDiagnosis.Size = new System.Drawing.Size(567, 361);
+            this.pnlAddDiagnosis.Size = new System.Drawing.Size(796, 472);
             this.pnlAddDiagnosis.TabIndex = 4;
             // 
             // grpAddDiagnosis
             // 
             this.grpAddDiagnosis.AutoSize = true;
             this.grpAddDiagnosis.Controls.Add(this.label7);
-            this.grpAddDiagnosis.Controls.Add(this.comboBox2);
+            this.grpAddDiagnosis.Controls.Add(this.cmbAppointmentDiag);
             this.grpAddDiagnosis.Controls.Add(this.txtPatientNameDiag);
             this.grpAddDiagnosis.Controls.Add(this.label1);
             this.grpAddDiagnosis.Controls.Add(this.button1);
             this.grpAddDiagnosis.Controls.Add(this.btnSaveDiagnosis);
             this.grpAddDiagnosis.Controls.Add(this.richTextBox2);
-            this.grpAddDiagnosis.Controls.Add(this.comboBox1);
+            this.grpAddDiagnosis.Controls.Add(this.cmbDiagnosis);
             this.grpAddDiagnosis.Controls.Add(this.lblAppointment);
             this.grpAddDiagnosis.Controls.Add(this.textBox1);
             this.grpAddDiagnosis.Controls.Add(this.label3);
@@ -655,12 +558,51 @@
             this.grpAddDiagnosis.Controls.Add(this.label6);
             this.grpAddDiagnosis.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpAddDiagnosis.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpAddDiagnosis.Location = new System.Drawing.Point(9, 11);
+            this.grpAddDiagnosis.Location = new System.Drawing.Point(21, 22);
             this.grpAddDiagnosis.Name = "grpAddDiagnosis";
-            this.grpAddDiagnosis.Size = new System.Drawing.Size(620, 430);
+            this.grpAddDiagnosis.Size = new System.Drawing.Size(676, 557);
             this.grpAddDiagnosis.TabIndex = 3;
             this.grpAddDiagnosis.TabStop = false;
             this.grpAddDiagnosis.Text = "Diagnosis Details";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(20, 176);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(126, 17);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Diagnosis/Condition";
+            // 
+            // cmbAppointmentDiag
+            // 
+            this.cmbAppointmentDiag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAppointmentDiag.FormattingEnabled = true;
+            this.cmbAppointmentDiag.Location = new System.Drawing.Point(22, 196);
+            this.cmbAppointmentDiag.Name = "cmbAppointmentDiag";
+            this.cmbAppointmentDiag.Size = new System.Drawing.Size(225, 28);
+            this.cmbAppointmentDiag.TabIndex = 19;
+            // 
+            // txtPatientNameDiag
+            // 
+            this.txtPatientNameDiag.Location = new System.Drawing.Point(291, 61);
+            this.txtPatientNameDiag.Name = "txtPatientNameDiag";
+            this.txtPatientNameDiag.ReadOnly = true;
+            this.txtPatientNameDiag.Size = new System.Drawing.Size(206, 27);
+            this.txtPatientNameDiag.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(288, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Patient Name";
             // 
             // button1
             // 
@@ -692,14 +634,20 @@
             this.richTextBox2.TabIndex = 14;
             this.richTextBox2.Text = "";
             // 
-            // comboBox1
+            // cmbDiagnosis
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 61);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(225, 28);
-            this.comboBox1.TabIndex = 13;
+            this.cmbDiagnosis.DataSource = this.patientTreatmentBindingSource;
+            this.cmbDiagnosis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDiagnosis.FormattingEnabled = true;
+            this.cmbDiagnosis.Location = new System.Drawing.Point(18, 61);
+            this.cmbDiagnosis.Name = "cmbDiagnosis";
+            this.cmbDiagnosis.Size = new System.Drawing.Size(225, 28);
+            this.cmbDiagnosis.TabIndex = 13;
+            // 
+            // patientTreatmentBindingSource
+            // 
+            this.patientTreatmentBindingSource.DataMember = "PatientTreatment";
+            this.patientTreatmentBindingSource.DataSource = this.dsDentist1;
             // 
             // lblAppointment
             // 
@@ -763,233 +711,203 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Patient ID";
             // 
-            // label1
+            // grpPrescribeMedication
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(288, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 17);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Patient Name";
+            this.grpPrescribeMedication.AutoSize = true;
+            this.grpPrescribeMedication.Controls.Add(this.txtDosage);
+            this.grpPrescribeMedication.Controls.Add(this.lblDosage);
+            this.grpPrescribeMedication.Controls.Add(this.txtQuantity);
+            this.grpPrescribeMedication.Controls.Add(this.cmbMedicine);
+            this.grpPrescribeMedication.Controls.Add(this.btnClearPrescription);
+            this.grpPrescribeMedication.Controls.Add(this.btnSavePrescription);
+            this.grpPrescribeMedication.Controls.Add(this.lblAllergies);
+            this.grpPrescribeMedication.Controls.Add(this.txtCode);
+            this.grpPrescribeMedication.Controls.Add(this.lblQuantity);
+            this.grpPrescribeMedication.Controls.Add(this.lblCode);
+            this.grpPrescribeMedication.Controls.Add(this.txtAllergies);
+            this.grpPrescribeMedication.Controls.Add(this.label5);
+            this.grpPrescribeMedication.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPrescribeMedication.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpPrescribeMedication.Location = new System.Drawing.Point(16, 13);
+            this.grpPrescribeMedication.Name = "grpPrescribeMedication";
+            this.grpPrescribeMedication.Size = new System.Drawing.Size(734, 609);
+            this.grpPrescribeMedication.TabIndex = 3;
+            this.grpPrescribeMedication.TabStop = false;
+            this.grpPrescribeMedication.Text = "Prescribe Medication Details";
             // 
-            // txtPatientNameDiag
+            // txtDosage
             // 
-            this.txtPatientNameDiag.Location = new System.Drawing.Point(291, 61);
-            this.txtPatientNameDiag.Name = "txtPatientNameDiag";
-            this.txtPatientNameDiag.ReadOnly = true;
-            this.txtPatientNameDiag.Size = new System.Drawing.Size(206, 27);
-            this.txtPatientNameDiag.TabIndex = 18;
+            this.txtDosage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDosage.Location = new System.Drawing.Point(103, 186);
+            this.txtDosage.Name = "txtDosage";
+            this.txtDosage.Size = new System.Drawing.Size(72, 27);
+            this.txtDosage.TabIndex = 20;
             // 
-            // comboBox2
+            // lblDosage
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(22, 196);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(225, 28);
-            this.comboBox2.TabIndex = 19;
+            this.lblDosage.AutoSize = true;
+            this.lblDosage.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDosage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblDosage.Location = new System.Drawing.Point(26, 186);
+            this.lblDosage.Name = "lblDosage";
+            this.lblDosage.Size = new System.Drawing.Size(53, 17);
+            this.lblDosage.TabIndex = 19;
+            this.lblDosage.Text = "Dosage";
             // 
-            // label7
+            // txtQuantity
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(20, 176);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 17);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Diagnosis/Condition";
+            this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQuantity.Location = new System.Drawing.Point(312, 141);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(72, 27);
+            this.txtQuantity.TabIndex = 18;
             // 
-            // pnlTreatmentHistory
+            // cmbMedicine
             // 
-            this.pnlTreatmentHistory.Controls.Add(this.groupBox1);
-            this.pnlTreatmentHistory.Location = new System.Drawing.Point(20, 16);
-            this.pnlTreatmentHistory.Name = "pnlTreatmentHistory";
-            this.pnlTreatmentHistory.Size = new System.Drawing.Size(513, 342);
-            this.pnlTreatmentHistory.TabIndex = 21;
+            this.cmbMedicine.FormattingEnabled = true;
+            this.cmbMedicine.Location = new System.Drawing.Point(107, 87);
+            this.cmbMedicine.Name = "cmbMedicine";
+            this.cmbMedicine.Size = new System.Drawing.Size(168, 28);
+            this.cmbMedicine.TabIndex = 17;
+            this.cmbMedicine.SelectedIndexChanged += new System.EventHandler(this.cmbMedicine_SelectedIndexChanged);
             // 
-            // groupBox1
+            // btnClearPrescription
             // 
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox1.Location = new System.Drawing.Point(-118, -45);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(749, 433);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Patient and Appointment details";
+            this.btnClearPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnClearPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearPrescription.Location = new System.Drawing.Point(221, 278);
+            this.btnClearPrescription.Name = "btnClearPrescription";
+            this.btnClearPrescription.Size = new System.Drawing.Size(74, 37);
+            this.btnClearPrescription.TabIndex = 16;
+            this.btnClearPrescription.Text = "Clear";
+            this.btnClearPrescription.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // btnSavePrescription
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Location = new System.Drawing.Point(245, 256);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(93, 27);
-            this.textBox5.TabIndex = 14;
+            this.btnSavePrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSavePrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSavePrescription.Location = new System.Drawing.Point(29, 278);
+            this.btnSavePrescription.Name = "btnSavePrescription";
+            this.btnSavePrescription.Size = new System.Drawing.Size(151, 37);
+            this.btnSavePrescription.TabIndex = 15;
+            this.btnSavePrescription.Text = "Save Prescription";
+            this.btnSavePrescription.UseVisualStyleBackColor = true;
+            this.btnSavePrescription.Click += new System.EventHandler(this.btnSavePrescription_Click);
             // 
-            // comboBox4
+            // lblAllergies
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(29, 72);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(225, 28);
-            this.comboBox4.TabIndex = 13;
+            this.lblAllergies.AutoSize = true;
+            this.lblAllergies.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAllergies.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblAllergies.Location = new System.Drawing.Point(26, 41);
+            this.lblAllergies.Name = "lblAllergies";
+            this.lblAllergies.Size = new System.Drawing.Size(65, 17);
+            this.lblAllergies.TabIndex = 12;
+            this.lblAllergies.Text = "Allergies: ";
             // 
-            // label12
+            // txtCode
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(26, 41);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(124, 17);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Select Appointment:";
+            this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCode.Location = new System.Drawing.Point(103, 141);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(72, 27);
+            this.txtCode.TabIndex = 8;
             // 
-            // textBox6
+            // lblQuantity
             // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Location = new System.Drawing.Point(18, 256);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(161, 27);
-            this.textBox6.TabIndex = 11;
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblQuantity.Location = new System.Drawing.Point(235, 141);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(56, 17);
+            this.lblQuantity.TabIndex = 7;
+            this.lblQuantity.Text = "Quantity";
             // 
-            // textBox7
+            // lblCode
             // 
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox7.Location = new System.Drawing.Point(372, 164);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(72, 27);
-            this.textBox7.TabIndex = 10;
+            this.lblCode.AutoSize = true;
+            this.lblCode.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCode.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCode.Location = new System.Drawing.Point(26, 141);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(39, 17);
+            this.lblCode.TabIndex = 3;
+            this.lblCode.Text = "Code";
             // 
-            // label13
+            // txtAllergies
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(369, 132);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(99, 17);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Appointment ID";
+            this.txtAllergies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAllergies.Location = new System.Drawing.Point(107, 37);
+            this.txtAllergies.Name = "txtAllergies";
+            this.txtAllergies.Size = new System.Drawing.Size(186, 27);
+            this.txtAllergies.TabIndex = 1;
             // 
-            // textBox8
+            // label5
             // 
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox8.Location = new System.Drawing.Point(236, 164);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(72, 27);
-            this.textBox8.TabIndex = 8;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(233, 132);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 17);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Patient ID";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(242, 223);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(43, 17);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Status";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(15, 223);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(97, 17);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "Follow Up Date";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox9.Location = new System.Drawing.Point(18, 164);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(179, 27);
-            this.textBox9.TabIndex = 1;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(15, 132);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(86, 17);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Patient Name";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(26, 92);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Medicine";
             // 
             // grpTreatmentHistory
             // 
             this.grpTreatmentHistory.AutoSize = true;
+            this.grpTreatmentHistory.Controls.Add(this.dgvTreatmentHistory);
             this.grpTreatmentHistory.Controls.Add(this.btnSearch);
             this.grpTreatmentHistory.Controls.Add(this.button2);
             this.grpTreatmentHistory.Controls.Add(this.btnClose);
             this.grpTreatmentHistory.Controls.Add(this.label8);
-            this.grpTreatmentHistory.Controls.Add(this.label10);
+            this.grpTreatmentHistory.Controls.Add(this.lblRecordCount);
             this.grpTreatmentHistory.Controls.Add(this.txtSearchPatient);
             this.grpTreatmentHistory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTreatmentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpTreatmentHistory.Location = new System.Drawing.Point(44, 29);
+            this.grpTreatmentHistory.Location = new System.Drawing.Point(224, 96);
             this.grpTreatmentHistory.Name = "grpTreatmentHistory";
-            this.grpTreatmentHistory.Size = new System.Drawing.Size(525, 375);
+            this.grpTreatmentHistory.Size = new System.Drawing.Size(877, 789);
             this.grpTreatmentHistory.TabIndex = 2;
             this.grpTreatmentHistory.TabStop = false;
             this.grpTreatmentHistory.Text = "Treatment History";
             // 
-            // txtSearchPatient
+            // btnSearch
             // 
-            this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchPatient.Location = new System.Drawing.Point(111, 36);
-            this.txtSearchPatient.Name = "txtSearchPatient";
-            this.txtSearchPatient.Size = new System.Drawing.Size(162, 27);
-            this.txtSearchPatient.TabIndex = 1;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Location = new System.Drawing.Point(300, 31);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(121, 37);
+            this.btnSearch.TabIndex = 17;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // label10
+            // button2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(26, 322);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(131, 17);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Total Records Found:";
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(433, 32);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(74, 37);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(282, 302);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(99, 37);
+            this.btnClose.TabIndex = 15;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label8
             // 
@@ -1002,46 +920,51 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Search by:";
             // 
-            // btnClose
+            // lblRecordCount
             // 
-            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(282, 302);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(99, 37);
-            this.btnClose.TabIndex = 15;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.lblRecordCount.AutoSize = true;
+            this.lblRecordCount.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblRecordCount.Location = new System.Drawing.Point(26, 322);
+            this.lblRecordCount.Name = "lblRecordCount";
+            this.lblRecordCount.Size = new System.Drawing.Size(131, 17);
+            this.lblRecordCount.TabIndex = 3;
+            this.lblRecordCount.Text = "Total Records Found:";
             // 
-            // button2
+            // txtSearchPatient
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(433, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(74, 37);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
+            this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchPatient.Location = new System.Drawing.Point(111, 36);
+            this.txtSearchPatient.Name = "txtSearchPatient";
+            this.txtSearchPatient.Size = new System.Drawing.Size(162, 27);
+            this.txtSearchPatient.TabIndex = 1;
             // 
-            // btnSearch
+            // appointmentViewBindingSource
             // 
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(300, 31);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(121, 37);
-            this.btnSearch.TabIndex = 17;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.appointmentViewBindingSource.DataMember = "AppointmentView";
+            this.appointmentViewBindingSource.DataSource = this.dsDentist;
             // 
-            // panel1
+            // appointmentViewTableAdapter
             // 
-            this.panel1.Controls.Add(this.grpTreatmentHistory);
-            this.panel1.Location = new System.Drawing.Point(24, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(667, 464);
-            this.panel1.TabIndex = 15;
+            this.appointmentViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // treatmentTableAdapter
+            // 
+            this.treatmentTableAdapter.ClearBeforeFill = true;
+            // 
+            // patientTreatmentTableAdapter
+            // 
+            this.patientTreatmentTableAdapter.ClearBeforeFill = true;
+            // 
+            // dgvTreatmentHistory
+            // 
+            this.dgvTreatmentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTreatmentHistory.Location = new System.Drawing.Point(43, 100);
+            this.dgvTreatmentHistory.Name = "dgvTreatmentHistory";
+            this.dgvTreatmentHistory.RowHeadersWidth = 51;
+            this.dgvTreatmentHistory.RowTemplate.Height = 24;
+            this.dgvTreatmentHistory.Size = new System.Drawing.Size(678, 179);
+            this.dgvTreatmentHistory.TabIndex = 18;
             // 
             // TreatmentMedicine
             // 
@@ -1049,7 +972,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dental_Practice_Management_System.Properties.Resources.System_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1148, 721);
+            this.ClientSize = new System.Drawing.Size(1148, 808);
+            this.Controls.Add(this.grpTreatmentHistory);
             this.Controls.Add(this.pnlPatientDetails);
             this.Controls.Add(this.btnAddDiagnosis);
             this.Controls.Add(this.btnTreatmentHistory);
@@ -1059,6 +983,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "TreatmentMedicine";
             this.Text = "TreatmentMedicine";
+            this.Load += new System.EventHandler(this.TreatmentMedicine_Load);
             this.pnlPatientDetails.ResumeLayout(false);
             this.pnlPatientDetails.PerformLayout();
             this.grpViewPatientDetails.ResumeLayout(false);
@@ -1067,22 +992,24 @@
             this.pnlAddTreatment.PerformLayout();
             this.grpTreatment.ResumeLayout(false);
             this.grpTreatment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).EndInit();
             this.pnlPrescribeMedication.ResumeLayout(false);
-            this.pnlPrescribeMedication.PerformLayout();
-            this.grpPrescribeMedication.ResumeLayout(false);
-            this.grpPrescribeMedication.PerformLayout();
+            this.pnlTreatmentHistory.ResumeLayout(false);
+            this.pnlTreatmentHistory.PerformLayout();
             this.pnlAddDiagnosis.ResumeLayout(false);
             this.pnlAddDiagnosis.PerformLayout();
             this.grpAddDiagnosis.ResumeLayout(false);
             this.grpAddDiagnosis.PerformLayout();
-            this.pnlTreatmentHistory.ResumeLayout(false);
-            this.pnlTreatmentHistory.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientTreatmentBindingSource)).EndInit();
+            this.grpPrescribeMedication.ResumeLayout(false);
+            this.grpPrescribeMedication.PerformLayout();
             this.grpTreatmentHistory.ResumeLayout(false);
             this.grpTreatmentHistory.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTreatmentHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1121,7 +1048,7 @@
         private System.Windows.Forms.Label lblCost;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSaveTreatment;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtTreatmentNotes;
         private System.Windows.Forms.Panel pnlPrescribeMedication;
         private System.Windows.Forms.GroupBox grpPrescribeMedication;
         private System.Windows.Forms.Button btnClearPrescription;
@@ -1141,7 +1068,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSaveDiagnosis;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbDiagnosis;
         private System.Windows.Forms.Label lblAppointment;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
@@ -1151,28 +1078,24 @@
         private System.Windows.Forms.TextBox txtPatientNameDiag;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbAppointmentDiag;
         private System.Windows.Forms.Panel pnlTreatmentHistory;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox grpTreatmentHistory;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblRecordCount;
         private System.Windows.Forms.TextBox txtSearchPatient;
+        private dsDentist dsDentist;
+        private System.Windows.Forms.BindingSource appointmentViewBindingSource;
+        private dsDentistTableAdapters.AppointmentViewTableAdapter appointmentViewTableAdapter;
+        private System.Windows.Forms.BindingSource appointmentViewBindingSource1;
+        private dsDentist dsDentist1;
+        private System.Windows.Forms.BindingSource treatmentBindingSource;
+        private dsDentistTableAdapters.TreatmentTableAdapter treatmentTableAdapter;
+        private System.Windows.Forms.BindingSource patientTreatmentBindingSource;
+        private dsDentistTableAdapters.PatientTreatmentTableAdapter patientTreatmentTableAdapter;
+        private System.Windows.Forms.DataGridView dgvTreatmentHistory;
     }
 }
