@@ -7,9 +7,16 @@
     }
 }
 
-namespace Dental_Practice_Management_System.dsDentistTableAdapters {
-    
-    
+namespace Dental_Practice_Management_System.dsDentistTableAdapters
+{
+    partial class AppointmentTableAdapter
+    {
+    }
+
+    partial class AppointmentViewTableAdapter
+    {
+    }
+
     public partial class GetAvailableSlotsTableAdapter {
     }
 }

@@ -64,6 +64,10 @@ namespace Dental_Practice_Management_System {
         
         private global::System.Data.DataRelation relationFK_Prescription_Medicine;
         
+        private global::System.Data.DataRelation relationFK__Appointme__Emplo__5BE2A6F21;
+        
+        private global::System.Data.DataRelation relationFK_Appointment_Timeslot1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -503,6 +507,8 @@ namespace Dental_Practice_Management_System {
             this.relationFK_AvailabilityOverride_Employee = this.Relations["FK_AvailabilityOverride_Employee"];
             this.relationFK_PatientTreatment_Treatment = this.Relations["FK_PatientTreatment_Treatment"];
             this.relationFK_Prescription_Medicine = this.Relations["FK_Prescription_Medicine"];
+            this.relationFK__Appointme__Emplo__5BE2A6F21 = this.Relations["FK__Appointme__Emplo__5BE2A6F21"];
+            this.relationFK_Appointment_Timeslot1 = this.Relations["FK_Appointment_Timeslot1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -567,6 +573,14 @@ namespace Dental_Practice_Management_System {
                         this.tableMedicine.MedicineIDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePrescription.MedicineIDColumn}, false);
             this.Relations.Add(this.relationFK_Prescription_Medicine);
+            this.relationFK__Appointme__Emplo__5BE2A6F21 = new global::System.Data.DataRelation("FK__Appointme__Emplo__5BE2A6F21", new global::System.Data.DataColumn[] {
+                        this.tableEmployee.Employee_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAppointmentView.Employee_IDColumn}, false);
+            this.Relations.Add(this.relationFK__Appointme__Emplo__5BE2A6F21);
+            this.relationFK_Appointment_Timeslot1 = new global::System.Data.DataRelation("FK_Appointment_Timeslot1", new global::System.Data.DataColumn[] {
+                        this.tableTimeslot.Timeslot_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAppointmentView.Timeslot_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Appointment_Timeslot1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4829,6 +4843,10 @@ namespace Dental_Practice_Management_System {
             
             private global::System.Data.DataColumn columnAppointment_Status;
             
+            private global::System.Data.DataColumn columnEmployee_ID;
+            
+            private global::System.Data.DataColumn columnTimeslot_ID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public AppointmentViewDataTable() {
@@ -4928,6 +4946,22 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Employee_IDColumn {
+                get {
+                    return this.columnEmployee_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Timeslot_IDColumn {
+                get {
+                    return this.columnTimeslot_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4963,7 +4997,7 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AppointmentViewRow AddAppointmentViewRow(string Patient_First_Name, string Patient_Last_Name, string Employee_First_Name, string Employee_Last_Name, System.TimeSpan Slot_Start_Time, System.DateTime Appointment_Date, string Appointment_Status) {
+            public AppointmentViewRow AddAppointmentViewRow(string Patient_First_Name, string Patient_Last_Name, string Employee_First_Name, string Employee_Last_Name, System.TimeSpan Slot_Start_Time, System.DateTime Appointment_Date, string Appointment_Status, EmployeeRow parentEmployeeRowByFK__Appointme__Emplo__5BE2A6F21) {
                 AppointmentViewRow rowAppointmentViewRow = ((AppointmentViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4973,7 +5007,12 @@ namespace Dental_Practice_Management_System {
                         Employee_Last_Name,
                         Slot_Start_Time,
                         Appointment_Date,
-                        Appointment_Status};
+                        Appointment_Status,
+                        null,
+                        null};
+                if ((parentEmployeeRowByFK__Appointme__Emplo__5BE2A6F21 != null)) {
+                    columnValuesArray[8] = parentEmployeeRowByFK__Appointme__Emplo__5BE2A6F21[0];
+                }
                 rowAppointmentViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAppointmentViewRow);
                 return rowAppointmentViewRow;
@@ -5011,6 +5050,8 @@ namespace Dental_Practice_Management_System {
                 this.columnSlot_Start_Time = base.Columns["Slot_Start_Time"];
                 this.columnAppointment_Date = base.Columns["Appointment_Date"];
                 this.columnAppointment_Status = base.Columns["Appointment_Status"];
+                this.columnEmployee_ID = base.Columns["Employee_ID"];
+                this.columnTimeslot_ID = base.Columns["Timeslot_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5032,6 +5073,10 @@ namespace Dental_Practice_Management_System {
                 base.Columns.Add(this.columnAppointment_Date);
                 this.columnAppointment_Status = new global::System.Data.DataColumn("Appointment_Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAppointment_Status);
+                this.columnEmployee_ID = new global::System.Data.DataColumn("Employee_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployee_ID);
+                this.columnTimeslot_ID = new global::System.Data.DataColumn("Timeslot_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTimeslot_ID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAppointment_ID}, true));
                 this.columnAppointment_ID.AutoIncrement = true;
@@ -5052,6 +5097,12 @@ namespace Dental_Practice_Management_System {
                 this.columnAppointment_Date.AllowDBNull = false;
                 this.columnAppointment_Status.AllowDBNull = false;
                 this.columnAppointment_Status.MaxLength = 20;
+                this.columnEmployee_ID.AllowDBNull = false;
+                this.columnTimeslot_ID.AutoIncrement = true;
+                this.columnTimeslot_ID.AutoIncrementSeed = -1;
+                this.columnTimeslot_ID.AutoIncrementStep = -1;
+                this.columnTimeslot_ID.AllowDBNull = false;
+                this.columnTimeslot_ID.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5680,6 +5731,17 @@ namespace Dental_Practice_Management_System {
                 }
                 else {
                     return ((Availability_OverrideRow[])(base.GetChildRows(this.Table.ChildRelations["FK_AvailabilityOverride_Employee"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AppointmentViewRow[] GetAppointmentViewRows() {
+                if ((this.Table.ChildRelations["FK__Appointme__Emplo__5BE2A6F21"] == null)) {
+                    return new AppointmentViewRow[0];
+                }
+                else {
+                    return ((AppointmentViewRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Appointme__Emplo__5BE2A6F21"])));
                 }
             }
         }
@@ -6524,6 +6586,17 @@ namespace Dental_Practice_Management_System {
                     return ((Availability_OverrideRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Availability_Override_Timeslot_ID"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AppointmentViewRow[] GetAppointmentViewRows() {
+                if ((this.Table.ChildRelations["FK_Appointment_Timeslot1"] == null)) {
+                    return new AppointmentViewRow[0];
+                }
+                else {
+                    return ((AppointmentViewRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Appointment_Timeslot1"])));
+                }
+            }
         }
         
         /// <summary>
@@ -6738,6 +6811,50 @@ namespace Dental_Practice_Management_System {
                 }
                 set {
                     this[this.tableAppointmentView.Appointment_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Employee_ID {
+                get {
+                    return ((int)(this[this.tableAppointmentView.Employee_IDColumn]));
+                }
+                set {
+                    this[this.tableAppointmentView.Employee_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Timeslot_ID {
+                get {
+                    return ((int)(this[this.tableAppointmentView.Timeslot_IDColumn]));
+                }
+                set {
+                    this[this.tableAppointmentView.Timeslot_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public EmployeeRow EmployeeRow {
+                get {
+                    return ((EmployeeRow)(this.GetParentRow(this.Table.ParentRelations["FK__Appointme__Emplo__5BE2A6F21"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Appointme__Emplo__5BE2A6F21"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public TimeslotRow TimeslotRow {
+                get {
+                    return ((TimeslotRow)(this.GetParentRow(this.Table.ParentRelations["FK_Appointment_Timeslot1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Appointment_Timeslot1"]);
                 }
             }
         }
@@ -7390,15 +7507,15 @@ SELECT Appointment_ID, Patient_ID, Employee_ID, Timeslot_ID, Appointment_Date, A
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Appointment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE Appointment\r\nSET          Appointment_Date = @Appointment_Date, Timeslot_I" +
-                "D = @Timeslot_ID, Appointment_Notes = @Appointment_Notes, Appointment_Status = @" +
-                "Appointment_Status\r\nWHERE  (Appointment_ID = @Appointment_ID)";
+            this._commandCollection[2].CommandText = "UPDATE Appointment \r\nSET Appointment_Date = @Appointment_Date, \r\n    Timeslot_ID " +
+                "= @Timeslot_ID, \r\n    Appointment_Notes = @Appointment_Notes,\r\n    Appointment_S" +
+                "tatus = @Appointment_Status\r\nWHERE Appointment_ID = @Original_Appointment_ID";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Appointment_Date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Timeslot_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Timeslot_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Appointment_Notes", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Appointment_Status", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Appointment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Appointment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7636,14 +7753,9 @@ SELECT Appointment_ID, Patient_ID, Employee_ID, Timeslot_ID, Appointment_Date, A
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateAppointment(string Appointment_Date, int Timeslot_ID, string Appointment_Notes, string Appointment_Status, int Appointment_ID) {
+        public virtual int UpdateAppointment(System.DateTime Appointment_Date, int Timeslot_ID, string Appointment_Notes, string Appointment_Status, int Original_Appointment_ID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
-            if ((Appointment_Date == null)) {
-                throw new global::System.ArgumentNullException("Appointment_Date");
-            }
-            else {
-                command.Parameters[0].Value = ((string)(Appointment_Date));
-            }
+            command.Parameters[0].Value = ((System.DateTime)(Appointment_Date));
             command.Parameters[1].Value = ((int)(Timeslot_ID));
             if ((Appointment_Notes == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
@@ -7657,7 +7769,7 @@ SELECT Appointment_ID, Patient_ID, Employee_ID, Timeslot_ID, Appointment_Date, A
             else {
                 command.Parameters[3].Value = ((string)(Appointment_Status));
             }
-            command.Parameters[4].Value = ((int)(Appointment_ID));
+            command.Parameters[4].Value = ((int)(Original_Appointment_ID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11393,36 +11505,19 @@ SELECT Timeslot_ID, Slot_Start_Time, Duration_Minutes, Day_Of_Week, Is_Active FR
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT Timeslot_ID, Slot_Start_Time
-FROM Timeslot
-WHERE Is_Active = 1
-
-AND Timeslot_ID NOT IN
-(
-    SELECT Timeslot_ID
-    FROM Appointment
-    WHERE Appointment_Date = @date
-    AND Appointment_Status = 'Booked'
-)
-
-AND Timeslot_ID NOT IN
-(
-    SELECT Timeslot_ID
-    FROM Availability_Override
-    WHERE Target_Date = @date
-    AND Employee_ID = @employeeID
-    AND Is_Full_Day = 0
-)
-
-AND NOT EXISTS
-(
-    SELECT *
-    FROM Availability_Override
-    WHERE Target_Date = @date
-    AND Employee_ID = @employeeID
-    AND Is_Full_Day = 1
-)";
+FROM     Timeslot
+WHERE  (Is_Active = 1) AND (Timeslot_ID NOT IN
+                      (SELECT Timeslot_ID
+                       FROM      Appointment
+                       WHERE   (Appointment_Date = @date) AND (Appointment_Status = 'Booked'))) AND (Timeslot_ID NOT IN
+                      (SELECT Timeslot_ID
+                       FROM      Availability_Override
+                       WHERE   (Target_Date = @date) AND (Employee_ID = @employeeID) AND (Is_Full_Day = 0))) AND (NOT EXISTS
+                      (SELECT Override_ID, Target_Date, Timeslot_ID, Is_Full_Day, Reason, Employee_ID
+                       FROM      Availability_Override AS Availability_Override_1
+                       WHERE   (Target_Date = @date) AND (Employee_ID = @employeeID) AND (Is_Full_Day = 1)))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -11454,14 +11549,9 @@ AND NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAvailableSlots(dsDentist.TimeslotDataTable dataTable, string date, global::System.Nullable<int> employeeID) {
+        public virtual int FillByAvailableSlots(dsDentist.TimeslotDataTable dataTable, System.DateTime date, global::System.Nullable<int> employeeID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((date == null)) {
-                throw new global::System.ArgumentNullException("date");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(date));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
             if ((employeeID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(employeeID.Value));
             }
@@ -11479,14 +11569,9 @@ AND NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsDentist.TimeslotDataTable GetDataBy(string date, global::System.Nullable<int> employeeID) {
+        public virtual dsDentist.TimeslotDataTable GetDataBy(System.DateTime date, global::System.Nullable<int> employeeID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((date == null)) {
-                throw new global::System.ArgumentNullException("date");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(date));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
             if ((employeeID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(employeeID.Value));
             }
@@ -12299,6 +12384,8 @@ SELECT TreatmentID, TreatmentName, TreatmentDescription, TreatmentCost, Treatmen
             tableMapping.ColumnMappings.Add("Slot_Start_Time", "Slot_Start_Time");
             tableMapping.ColumnMappings.Add("Appointment_Date", "Appointment_Date");
             tableMapping.ColumnMappings.Add("Appointment_Status", "Appointment_Status");
+            tableMapping.ColumnMappings.Add("Employee_ID", "Employee_ID");
+            tableMapping.ColumnMappings.Add("Timeslot_ID", "Timeslot_ID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12315,11 +12402,21 @@ SELECT TreatmentID, TreatmentName, TreatmentDescription, TreatmentCost, Treatmen
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT A.Appointment_ID, P.Patient_First_Name, P.Patient_Last_Name, E.Employee_First_Name, E.Employee_Last_Name, T.Slot_Start_Time, A.Appointment_Date, A.Appointment_Status
-FROM     Appointment AS A INNER JOIN
-                  Patient AS P ON A.Patient_ID = P.Patient_ID INNER JOIN
-                  Employee AS E ON A.Employee_ID = E.Employee_ID INNER JOIN
-                  Timeslot AS T ON A.Timeslot_ID = T.Timeslot_ID";
+            this._commandCollection[0].CommandText = @"SELECT 
+    A.Appointment_ID, 
+    P.Patient_First_Name, 
+    P.Patient_Last_Name, 
+    E.Employee_ID,              
+    E.Employee_First_Name, 
+    E.Employee_Last_Name, 
+    T.Timeslot_ID,              
+    T.Slot_Start_Time, 
+    A.Appointment_Date, 
+    A.Appointment_Status
+FROM Appointment AS A 
+INNER JOIN Patient AS P ON A.Patient_ID = P.Patient_ID 
+INNER JOIN Employee AS E ON A.Employee_ID = E.Employee_ID 
+INNER JOIN Timeslot AS T ON A.Timeslot_ID = T.Timeslot_ID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

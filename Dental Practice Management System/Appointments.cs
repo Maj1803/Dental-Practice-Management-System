@@ -21,6 +21,7 @@ namespace Dental_Practice_Management_System
         public Appointments()
         {
             InitializeComponent();
+            pnlContent.Visible = true;
             ShowPanel(pnlViewAppointments);
         }
 
@@ -38,17 +39,21 @@ namespace Dental_Practice_Management_System
         private void LoadAvailableSlots()
         {
             if (cmbDentist.SelectedValue == null) return;
-            if (!(cmbDentist.SelectedValue is int)) return;
+            if (cmbDentist.SelectedValue is System.Data.DataRowView) return;
 
             try
             {
+                int employeeID = Convert.ToInt32(cmbDentist.SelectedValue);
+
+                dsDentist.EnforceConstraints = false;
+
                 timeslotTableAdapter.FillByAvailableSlots(
                     dsDentist.Timeslot,
-                    dtpAppointmentDate.Value.ToShortDateString(),
-                    Convert.ToInt32(cmbDentist.SelectedValue));
+                    dtpAppointmentDate.Value.Date,
+                    employeeID);
 
                 cmbTimeSlot.DataSource = dsDentist.Timeslot;
-                cmbTimeSlot.DisplayMember = "Slot_StartTime";
+                cmbTimeSlot.DisplayMember = "Slot_Start_Time";
                 cmbTimeSlot.ValueMember = "Timeslot_ID";
             }
             catch (Exception ex)
@@ -57,8 +62,32 @@ namespace Dental_Practice_Management_System
             }
         }
 
+        // loads timeslots for the update panel
+        private void LoadNewSlotsForUpdate(int employeeID)
+        {
+            try
+            {
+                dsDentist.EnforceConstraints = false;
+
+                timeslotTableAdapter.FillByAvailableSlots(
+                    dsDentist.Timeslot,
+                    dtpNewDate.Value.Date,
+                    employeeID);
+
+                cmbNewTimeSlot.DataSource = dsDentist.Timeslot;
+                cmbNewTimeSlot.DisplayMember = "Slot_Start_Time";
+                cmbNewTimeSlot.ValueMember = "Timeslot_ID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not load slots: " + ex.Message);
+            }
+        }
+
         private void Appointments_Load(object sender, EventArgs e)
         {
+
+            cmbUpdateAction.SelectedIndexChanged += cmbUpdateAction_SelectedIndexChanged;
             // fill all tables into the dataset on startup
             patientTableAdapter.Fill(dsDentist.Patient);
             employeeTableAdapter.Fill(dsDentist.Employee);
@@ -69,7 +98,7 @@ namespace Dental_Practice_Management_System
 
             // view panel - status filter options
             cmbStatusFilter.Items.Add("All");
-            cmbStatusFilter.Items.Add("Booked");
+            cmbStatusFilter.Items.Add("Scheduled");
             cmbStatusFilter.Items.Add("Completed");
             cmbStatusFilter.Items.Add("Cancelled");
             cmbStatusFilter.SelectedIndex = 0;
@@ -85,6 +114,9 @@ namespace Dental_Practice_Management_System
 
             // update panel - bind grid to same inner join table
             dgvUpdateAppointments.DataSource = dsDentist.AppointmentView;
+
+            dtpNewDate.Enabled = false;
+            cmbNewTimeSlot.Enabled = false;
         }
 
         private void btnViewAppointments_Click(object sender, EventArgs e)
@@ -112,7 +144,7 @@ namespace Dental_Practice_Management_System
             else
                 dsDentist.AppointmentView.DefaultView.RowFilter =
                     $"Patient_First_Name LIKE '%{search}%' OR " +
-                    $"Patient_Last_Name  LIKE '%{search}%'";
+                    $"Patient_Last_Name LIKE '%{search}%'";
 
             dgvAppointments.DataSource = dsDentist.AppointmentView.DefaultView;
         }
@@ -127,10 +159,10 @@ namespace Dental_Practice_Management_System
             else
                 dsDentist.AppointmentView.DefaultView.RowFilter =
                     $"Patient_First_Name LIKE '%{search}%' OR " +
-                    $"Patient_Last_Name  LIKE '%{search}%'";
+                    $"Patient_Last_Name LIKE '%{search}%'";
 
             dgvUpdateAppointments.DataSource = dsDentist.AppointmentView.DefaultView;
-        
+
         }
 
         private void dgvPatientResults_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -187,7 +219,7 @@ namespace Dental_Practice_Management_System
 
             if (confirm == DialogResult.OK)
             {
-                // insert new appointment with status Booked
+                // insert new appointment with status Scheduled
                 appointmentTableAdapter.Insert(
                     selectedPatientID,
                     Convert.ToInt32(cmbDentist.SelectedValue),
@@ -195,7 +227,7 @@ namespace Dental_Practice_Management_System
                     dtpAppointmentDate.Value.Date,
                     txtAppointmentNotes.Text,
                     null,
-                    "Booked");
+                    "Scheduled");
 
                 MessageBox.Show("Appointment booked successfully.");
 
@@ -222,10 +254,23 @@ namespace Dental_Practice_Management_System
             if (e.RowIndex < 0) return;
 
             selectedAppointmentID = Convert.ToInt32(
-                dgvUpdateAppointments.CurrentRow.Cells[0].Value);
+                dgvUpdateAppointments.CurrentRow.Cells["Appointment_ID"].Value);
+
+            int employeeID = Convert.ToInt32(
+                dgvUpdateAppointments.CurrentRow.Cells["Employee_ID"].Value);
 
             lblSelectedAppointment.Text =
                 "Selected Appointment ID: " + selectedAppointmentID;
+
+            LoadNewSlotsForUpdate(employeeID);
+
+            try
+            {
+                int currentTimeslotID = Convert.ToInt32(
+                    dgvUpdateAppointments.CurrentRow.Cells["Timeslot_ID"].Value);
+                cmbNewTimeSlot.SelectedValue = currentTimeslotID;
+            }
+            catch { }
         }
 
         private void btnSearchPatient_Click(object sender, EventArgs e)
@@ -263,25 +308,36 @@ namespace Dental_Practice_Management_System
 
                     // always refill after cancel so grids update automatically
                     appointmentViewTableAdapter.Fill(dsDentist.AppointmentView);
-                    LoadAvailableSlots();
                 }
             }
             else
             {
+                // reschedule path
+                if (cmbNewTimeSlot.SelectedValue == null)
+                {
+                    MessageBox.Show("Please select a new time slot.");
+                    return;
+                }
+
+                if (dtpNewDate.Value.Date < DateTime.Today)
+                {
+                    MessageBox.Show("Cannot reschedule to a past date.");
+                    return;
+                }
+
                 // reschedule path - uses our UpdateAppointment query
-                // updates date, timeslot, notes and keeps status as Booked
+                // updates date, timeslot, notes and keeps status as Scheduled
                 appointmentTableAdapter.UpdateAppointment(
-                    dtpNewDate.Value.ToShortDateString(),
+                    dtpNewDate.Value.Date,
                     Convert.ToInt32(cmbNewTimeSlot.SelectedValue),
                     txtUpdateReason.Text,
-                    "Booked",
+                    "Scheduled",
                     selectedAppointmentID);
 
                 MessageBox.Show("Appointment updated successfully.");
 
                 // always refill after update so grids update automatically
                 appointmentViewTableAdapter.Fill(dsDentist.AppointmentView);
-                LoadAvailableSlots();
             }
         }
 
@@ -292,8 +348,21 @@ namespace Dental_Practice_Management_System
             lblSelectedAppointment.Text = "No appointment selected.";
             txtUpdateReason.Clear();
             cmbUpdateAction.SelectedIndex = -1;
+            cmbNewTimeSlot.DataSource = null;
+            dtpNewDate.Enabled = false;
+            cmbNewTimeSlot.Enabled = false;
             dsDentist.AppointmentView.DefaultView.RowFilter = "";
             dgvUpdateAppointments.DataSource = dsDentist.AppointmentView;
+        }
+
+        private void dtpNewDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (selectedAppointmentID != -1 && dgvUpdateAppointments.CurrentRow != null)
+            {
+                int employeeID = Convert.ToInt32(
+                    dgvUpdateAppointments.CurrentRow.Cells["Employee_ID"].Value);
+                LoadNewSlotsForUpdate(employeeID);
+            }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -326,9 +395,9 @@ namespace Dental_Practice_Management_System
 
         private void btnBilling_Click(object sender, EventArgs e)
         {
-           // Billing billingForm = new Billing();
-           //billingForm.Show();
-           //this.Hide();
+            // Billing billingForm = new Billing();
+            //billingForm.Show();
+            //this.Hide();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
@@ -354,13 +423,25 @@ namespace Dental_Practice_Management_System
 
         private void cmbUpdateAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool reschedule =
-                cmbUpdateAction.SelectedItem.ToString() == "Reschedule";
+            if (cmbUpdateAction.SelectedItem == null) return;
 
-            dtpNewDate.Enabled = reschedule;
-            cmbNewTimeSlot.Enabled = reschedule;
+            bool isReschedule = cmbUpdateAction.SelectedItem.ToString() == "Reschedule";
+
+            dtpNewDate.Enabled = isReschedule;
+            cmbNewTimeSlot.Enabled = isReschedule;
+
+            if (!isReschedule)
+            {
+                cmbNewTimeSlot.DataSource = null;
+                cmbNewTimeSlot.Items.Clear();
+                cmbNewTimeSlot.Text = "";
+            }
+            else if (selectedAppointmentID != -1 && dgvUpdateAppointments.CurrentRow != null)
+            {
+                int employeeID = Convert.ToInt32(
+                    dgvUpdateAppointments.CurrentRow.Cells["Employee_ID"].Value);
+                LoadNewSlotsForUpdate(employeeID);
+            }
         }
-
-
     }
 }
