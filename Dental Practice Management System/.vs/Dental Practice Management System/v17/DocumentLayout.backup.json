@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\dsdentist.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:dsdentist.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\admin\\desktop\\major project\\dental-practice-management-system\\dental practice management system\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|c:\\users\\admin\\desktop\\major project\\dental-practice-management-system\\dental practice management system\\dsdentist.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:dsdentist.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\appointments.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:appointments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|solutionrelative:availabilityoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBFA7CC7-70F4-4DB3-981A-9A146697BBB1}|Dental Practice Management System.csproj|C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,20 +70,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Appointments.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.cs",
               "RelativeDocumentMoniker": "Appointments.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.cs",
               "RelativeToolTip": "Appointments.cs",
-              "ViewState": "AgIAADsBAAAAAAAAAAAowEoBAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwDMAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-18T17:29:47.804Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "AvailabilityOverride.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\AvailabilityOverride.cs",
               "RelativeDocumentMoniker": "AvailabilityOverride.cs",
@@ -91,23 +91,23 @@
               "RelativeToolTip": "AvailabilityOverride.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAIwEAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T14:04:25.837Z"
+              "WhenOpened": "2026-05-18T14:04:25.837Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Appointments.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.cs",
               "RelativeDocumentMoniker": "Appointments.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.cs [Design]",
               "RelativeToolTip": "Appointments.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T14:02:47.236Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-18T14:02:47.236Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Appointments.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\Appointments.Designer.cs",
               "RelativeDocumentMoniker": "Appointments.Designer.cs",
@@ -120,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "dsDentist.xsd",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\dsDentist.xsd",
               "RelativeDocumentMoniker": "dsDentist.xsd",
@@ -151,7 +151,8 @@
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MAJOR PROJECT\\Dental-Practice-Management-System\\Dental Practice Management System\\AvailabilityOverride.cs [Design]",
               "RelativeToolTip": "AvailabilityOverride.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T14:50:48.524Z"
+              "WhenOpened": "2026-05-18T14:50:48.524Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
