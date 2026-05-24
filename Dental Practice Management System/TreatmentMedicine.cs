@@ -13,10 +13,19 @@ namespace Dental_Practice_Management_System
 {
     public partial class TreatmentMedicine : Form
     {
+        private bool isMedicineLoading = false; // Flag to prevent event firing during loading
+        private DataTable medicineData; // Store medicine data for easy access
+        private dsDentistTableAdapters.MedicineTableAdapter medicineTableAdapter = new dsDentistTableAdapters.MedicineTableAdapter();
+        private bool isDiagnosisLoading = false; // Flag to prevent event firing during loading
+        private DataTable diagnosisData; // Store diagnosis data for easy access
         public TreatmentMedicine()
         {
             InitializeComponent();
-            pnlPatientDetails.Visible = true;
+            HideAllPanels();
+        }
+        private void HideAllPanels()
+        {
+            pnlPatientDetails.Visible = false;
             pnlAddTreatment.Visible = false;
             pnlPrescribeMedication.Visible = false;
             pnlTreatmentHistory.Visible = false;
@@ -25,23 +34,79 @@ namespace Dental_Practice_Management_System
 
         private void btnAddTreatment_Click(object sender, EventArgs e)
         {
+            if(cmbAppointment.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an appointment before adding treatment details.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            HideAllPanels();
             pnlAddTreatment.Visible = true;
 
         }
 
+        private DataTable treatmentData;
         private void TreatmentMedicine_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsDentist.vw_PatientAppointmentDetails' table. You can move, or remove it, as needed.
+            this.vw_PatientAppointmentDetailsTableAdapter.Fill(this.dsDentist.vw_PatientAppointmentDetails);
             // TODO: This line of code loads data into the 'dsDentist1.PatientTreatment' table. You can move, or remove it, as needed.
             this.patientTreatmentTableAdapter.Fill(this.dsDentist1.PatientTreatment);
             // TODO: This line of code loads data into the 'dsDentist1.Treatment' table. You can move, or remove it, as needed.
             this.treatmentTableAdapter.Fill(this.dsDentist1.Treatment);
-            // TODO: This line of code loads data into the 'dsDentist.AppointmentView' table. You can move, or remove it, as needed.
-            this.appointmentViewTableAdapter.Fill(this.dsDentist.AppointmentView);
+            this.vw_PatientAppointmentDetailsTableAdapter.Fill(this.dsDentist.vw_PatientAppointmentDetails);
+           // this.medicineTableAdapter.Fill(this.dsDentist1.Medicine);
 
-            
+            //LoadAppointments();
+            LoadTreatments();
+
+            HideAllPanels();
+            pnlPatientDetails.Visible = true;
+             //pnlAddTreatment.Visible = false;
+             LoadMedicines();
+
+
 
         }
+        private void LoadMedicines()
+        {
+            try
+            {
+                isMedicineLoading = true; // Set flag to prevent event firing
+                medicineData = medicineTableAdapter.GetData();
+                cmbMedicine.DataSource = null;
+                cmbMedicine.Items.Clear();
+                cmbMedicine.DataSource = medicineData;
+                cmbMedicine.DisplayMember = "MedicineName";
+                cmbMedicine.ValueMember = "MedicineID";
+                cmbMedicine.SelectedIndex = -1; // No selection by default
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading medicines: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                isMedicineLoading = false; // Reset flag after loading
+            }
+        }
+        private void LoadTreatments()
+        {
+            try
+            {
 
+            
+            treatmentData = treatmentTableAdapter.GetData();
+            cmbTreatment.DataSource = treatmentData;
+            cmbTreatment.DisplayMember = "TreatmentName";
+            cmbTreatment.ValueMember = "TreatmentID";
+            cmbTreatment.SelectedIndex = -1;
+        }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading treatments: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
         private void cmbAppointment_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbAppointment.SelectedItem != null)
@@ -52,82 +117,98 @@ namespace Dental_Practice_Management_System
                 DataRowView row = (DataRowView)cmbAppointment.SelectedItem;
                 // Populate patient details based on the selected appointment
                 txtPatientName.Text = row["Patient_First_Name"].ToString();
-                //txtPatientID.Text = row["PatientID"].ToString();
+                txtPatientID.Text = row["Patient_ID"].ToString();
                 txtAppointmentID.Text = row["Appointment_ID"].ToString();
-                txtFollowUpDate.Text = row["Appointment_Date"].ToString();
+                //txtFollowUpDate.Text = row["Appointment_Date"].ToString();
                 txtStatus.Text = row["Appointment_Status"].ToString();
-                //txtAllergies.Text = row["Allergies"].ToString();
+                txtPresciptionAllergies.Text = row["Patient_Allergies"].ToString();
 
-                //if(!string.IsNullOrEmpty(txtAllergies.Text))
-                //{
-                 //   MessageBox.Show("Patient has allergies: " + txtAllergies.Text, "Allergy Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-               // }
+                if (DateTime.TryParse(row["Appointment_Date"].ToString(), out DateTime appointmentDate))
+                {
+                    txtFollowUpDate.Text = appointmentDate.ToShortDateString();
+                }
+                else
+                {
+                    txtFollowUpDate.Text = "N/A";
+                }
+
+                if (!string.IsNullOrEmpty(txtPresciptionAllergies.Text))
+                {
+                    MessageBox.Show("Patient has allergies: " + txtPresciptionAllergies.Text, "Allergy Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
         private void cmbTreatment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbTreatment.SelectedItem != null)
+            if(cmbTreatment.SelectedIndex == -1) return;
+            if (cmbTreatment.SelectedItem == null) return;
+            if (cmbTreatment.SelectedIndex == -1) return;
+
+            try
             {
-                // Get the selected treatment's ID
-                int selectedTreatmentId = (int)cmbTreatment.SelectedValue;
-                DataRowView row = (DataRowView)cmbTreatment.SelectedItem;
-                // Populate treatment details based on the selected treatment
-               // txtTreatmentID.Text = row["Treatment_ID"].ToString();
-               // txtTreatmentDescription.Text = row["Treatment_Description"].ToString();
-                txtCost.Text = row["TreatmentCost"].ToString();
-                txtDuration.Text = row["TreatmentDuration"].ToString();
+                int selectedIndex = cmbTreatment.SelectedIndex;
+                DataRow row = treatmentData.Rows[selectedIndex];
+                if (row == null) return;
+                txtCost.Text = "R " + row["TreatmentCost"].ToString();
+                txtDuration.Text = row["TreatmentDuration"].ToString() + " mins";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading treatment details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void cmbMedicine_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbMedicine.SelectedItem != null)
+            if(isMedicineLoading) return; // Prevent event from firing during loading
+            if(cmbMedicine.SelectedIndex == -1) return; // No selection
+            if(cmbMedicine.SelectedItem == null) return; // Safety check
+            try
             {
-                // Get the selected medicine's ID
-                int selectedMedicineId = (int)cmbMedicine.SelectedValue;
-                DataRowView row = (DataRowView)cmbMedicine.SelectedItem;
-                // Populate medicine details based on the selected medicine
-               // txtMedicineID.Text = row["Medicine_ID"].ToString();
-               // txtMedicineName.Text = row["Medicine_Name"].ToString();
-                txtCode.Text = row["MedicineCode"].ToString();
-                //txtFrequency.Text = row["Frequency"].ToString();
+                DataRow row = medicineData.Rows[cmbMedicine.SelectedIndex];
+                txtCodeMedicine.Text= row["MedicineCode"].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading medicine details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnSaveTreatment_Click(object sender, EventArgs e)
         {
-            if (cmbAppointment.SelectedItem == null || cmbTreatment.SelectedItem == null || cmbMedicine.SelectedItem == null)
+            if (cmbAppointment.SelectedIndex == -1 || cmbTreatment.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select an appointment, treatment, and medicine before saving.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select both an appointment and a treatment before saving.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }
-            if (cmbTreatment.SelectedItem != null && cmbMedicine.SelectedItem != null)
-            {
-                // Get the selected treatment and medicine IDs
-                int selectedTreatmentId = (int)cmbTreatment.SelectedValue;
-                int selectedMedicineId = (int)cmbMedicine.SelectedValue;
-                // Here you would typically save the treatment and medicine details to the database
-                // For example, you might call a method like SaveTreatmentDetails(selectedTreatmentId, selectedMedicineId);
-                MessageBox.Show("Treatment and medicine details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             try
             {
-                patientTreatmentTableAdapter.InsertQuery(
-                    Convert.ToInt32(cmbAppointment.SelectedValue),
-                    Convert.ToInt32(cmbTreatment.SelectedValue),
-                    cmbDiagnosis.Text, // Diagnosis
-                    " ", // Diagnosis_Notes (empty or provide a value if available)
-                    txtTreatmentNotes.Text, // Treatment_Notes
-                    DateTime.Now // Date_Recorded (or use a value from a control if available)
-                    
-                );
-                MessageBox.Show("Treatment details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataTable dt = patientTreatmentTableAdapter.GetData();
+                DataRow[] rows = dt.Select("Appointment_ID = " + cmbAppointment.SelectedValue.ToString());
+                if (rows.Length == 0)
+                {
+                    MessageBox.Show("No treatment record found for the selected appointment. Please add treatment details first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving treatment details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            if(!string.IsNullOrEmpty(txtPresciptionAllergies.Text))
+            {
+                txtPresciptionAllergies.Text = "Allergies: " + txtPresciptionAllergies.Text;
+            }
+            else
+            {
+                txtPresciptionAllergies.Text = "No known allergies";
+
+            }
+            HideAllPanels();
+            pnlPrescribeMedication.Visible = true;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -164,7 +245,23 @@ namespace Dental_Practice_Management_System
 
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
+            if(cmbAppointment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an appointment before adding a diagnosis.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            CopyAppointmentToDiagnosisPanel();
+                         HideAllPanels();
+
             pnlAddDiagnosis.Visible = true;
+        }
+        private void CopyAppointmentToDiagnosisPanel()
+        {
+            txtPatientNameDiag = txtPatientName.Text;
+            txtPatientIDDiag = txtPatientID.Text;
+            txtAppointmentDateDiag = txtFollowUpDate.Text;
+            cmbAppointmentDiagnosis.Text = cmbAppointment.Text; // Assuming you want to copy the appointment details to the diagnosis panel's ComboBox for selection
+
         }
         private void LoadTreatmentHistory()
         {
@@ -188,10 +285,10 @@ namespace Dental_Practice_Management_System
                 return;
             }
             DataTable dt = patientTreatmentTableAdapter.GetData();
-            DataView dv = dt.DefaultView;
-            dv.RowFilter= "PatientName LIKE '%" + txtSearchPatient.Text + "%'";
-            dgvTreatmentHistory.DataSource = dv.ToTable();
-             lblRecordCount.Text = "Total Records: " + dv.Count.ToString();
+            if (!dt.Columns.Contains("PatientName"))
+                dt.Columns.Add("PatientName", typeof(string));
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -231,12 +328,12 @@ namespace Dental_Practice_Management_System
                     MessageBox.Show("No treatment record found for the selected appointment. Please save treatment details first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                int patientTreatmentId = Convert.ToInt32(rows[0]["PatientTreatmentID"]);
+                int patientTreatmentId = Convert.ToInt32(rows[0]["PatientTreatment_ID"]);
                 prescriptionTableAdapter.InsertPrescription(
                     patientTreatmentId,
                     Convert.ToInt32(cmbMedicine.SelectedValue),
-                    txtQuantity.Text,
-                    txtDosage.Text, // Dosage_Instructions
+                    txtQuantity.Text.Trim(),
+                    txtDosage.Text.Trim(), // Dosage_Instructions
                     DateTime.Now // Date_Issued (or use a value from a control if available)
                 );
                 MessageBox.Show("Prescription details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -248,5 +345,53 @@ namespace Dental_Practice_Management_System
                 MessageBox.Show("Error saving prescription details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnClearPrescription_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to clear the prescription details?", "Confirm Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                cmbMedicine.SelectedIndex = -1;
+                txtQuantity.Clear();
+                txtDosage.Clear();
+            }
+        }
+
+        private void cmbAppointmentDiagnosis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(isDiagnosisLoading) return; // Prevent event from firing during loading
+            if(cmbAppointmentDiagnosis.SelectedItem == null) return; // No selection
+            if(cmbAppointmentDiagnosis.SelectedIndex == -1) return; // No selection
+            try
+            {
+                DataRowView row = (DataRowView)cmbAppointmentDiagnosis.SelectedItem;
+                txtPatientNameDiag.Text = row["PatientFullName"].ToString();
+                txtPatientIDDiag.Text = row["Patient_ID"].ToString();
+                txtAppointmentDateDiag.Text = row["Appointment_Follow_Up_Date"].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading diagnosis details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
     }
-}
+
+        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                patientTreatmentTableAdapter.InsertDiagnosis(
+                    Convert.ToInt32(cmbAppointmentDiagnosis.SelectedValue), // Appointment_ID
+                    DBNull.Value, // Patient_ID (or use a value from a control if available)
+                    cmbDiagnosis.Text, // Diagnosis_Code
+                    txtDiagnosisNotes.Text.Trim(), // Diagnosis_Notes
+                    " ",
+                    DateTime.Now // Diagnosis_Date (or use a value from a control if available)
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving diagnosis details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        }
+    }

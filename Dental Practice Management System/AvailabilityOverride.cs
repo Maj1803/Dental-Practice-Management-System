@@ -75,7 +75,7 @@ namespace Dental_Practice_Management_System
         {
             TreatmentMedicine treatmentMedicineForm = new TreatmentMedicine();
             treatmentMedicineForm.Show();
-            this.Close();
+            //this.Close();
         }
 
         private void btnBilling_Click(object sender, EventArgs e)
