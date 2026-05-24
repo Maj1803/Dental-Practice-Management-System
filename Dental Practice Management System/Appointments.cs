@@ -44,12 +44,19 @@ namespace Dental_Practice_Management_System
             try
             {
                 int employeeID = Convert.ToInt32(cmbDentist.SelectedValue);
+                DateTime chosenDate = dtpAppointmentDate.Value.Date;
+
+                // SQL Server DATEPART(dw) is 1=Sunday, 2=Monday ... 7=Saturday
+                // C# DayOfWeek is 0=Sunday, 1=Monday ... 6=Saturday
+                // so just add 1 to match SQL Server
+                int dayOfWeek = (int)chosenDate.DayOfWeek + 1;
 
                 dsDentist.EnforceConstraints = false;
 
                 timeslotTableAdapter.FillByAvailableSlots(
                     dsDentist.Timeslot,
-                    dtpAppointmentDate.Value.Date,
+                    dayOfWeek,
+                    chosenDate,
                     employeeID);
 
                 cmbTimeSlot.DataSource = dsDentist.Timeslot;
@@ -67,12 +74,14 @@ namespace Dental_Practice_Management_System
         {
             try
             {
-                dsDentist.EnforceConstraints = false;
+                int dayOfWeek = (int)dtpNewDate.Value.Date.DayOfWeek + 1;
 
+                dsDentist.EnforceConstraints = false;
                 timeslotTableAdapter.FillByAvailableSlots(
                     dsDentist.Timeslot,
-                    dtpNewDate.Value.Date,
-                    employeeID);
+                    dayOfWeek,              // @dayOfWeek
+                    dtpNewDate.Value.Date,  // @date
+                    employeeID);            // @employeeID
 
                 cmbNewTimeSlot.DataSource = dsDentist.Timeslot;
                 cmbNewTimeSlot.DisplayMember = "Slot_Start_Time";
