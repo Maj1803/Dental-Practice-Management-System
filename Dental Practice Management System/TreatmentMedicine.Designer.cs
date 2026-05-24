@@ -99,13 +99,13 @@
             this.btnSaveDiagnosis = new System.Windows.Forms.Button();
             this.txtDiagnosisNotes = new System.Windows.Forms.RichTextBox();
             this.cmbAppointmentDiagnosis = new System.Windows.Forms.ComboBox();
-            this.patientTreatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblAppointment = new System.Windows.Forms.Label();
             this.txtAppointmentDateDiag = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPatientIDDiag = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.patientTreatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentViewTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentViewTableAdapter();
             this.treatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.TreatmentTableAdapter();
@@ -158,7 +158,7 @@
             // 
             this.btnAddTreatment.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnAddTreatment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTreatment.Location = new System.Drawing.Point(176, 163);
+            this.btnAddTreatment.Location = new System.Drawing.Point(179, 163);
             this.btnAddTreatment.Name = "btnAddTreatment";
             this.btnAddTreatment.Size = new System.Drawing.Size(151, 37);
             this.btnAddTreatment.TabIndex = 3;
@@ -170,9 +170,9 @@
             // 
             this.btnPrescribeMedication.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnPrescribeMedication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrescribeMedication.Location = new System.Drawing.Point(369, 163);
+            this.btnPrescribeMedication.Location = new System.Drawing.Point(361, 163);
             this.btnPrescribeMedication.Name = "btnPrescribeMedication";
-            this.btnPrescribeMedication.Size = new System.Drawing.Size(151, 37);
+            this.btnPrescribeMedication.Size = new System.Drawing.Size(162, 37);
             this.btnPrescribeMedication.TabIndex = 4;
             this.btnPrescribeMedication.Text = "Prescribe Medication";
             this.btnPrescribeMedication.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             // 
             this.btnTreatmentHistory.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnTreatmentHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTreatmentHistory.Location = new System.Drawing.Point(553, 163);
+            this.btnTreatmentHistory.Location = new System.Drawing.Point(730, 163);
             this.btnTreatmentHistory.Name = "btnTreatmentHistory";
             this.btnTreatmentHistory.Size = new System.Drawing.Size(151, 37);
             this.btnTreatmentHistory.TabIndex = 5;
@@ -194,7 +194,7 @@
             // 
             this.btnAddDiagnosis.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnAddDiagnosis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDiagnosis.Location = new System.Drawing.Point(742, 163);
+            this.btnAddDiagnosis.Location = new System.Drawing.Point(550, 163);
             this.btnAddDiagnosis.Name = "btnAddDiagnosis";
             this.btnAddDiagnosis.Size = new System.Drawing.Size(151, 37);
             this.btnAddDiagnosis.TabIndex = 6;
@@ -520,7 +520,7 @@
             // pnlPrescribeMedication
             // 
             this.pnlPrescribeMedication.Controls.Add(this.grpPrescribeMedication);
-            this.pnlPrescribeMedication.Location = new System.Drawing.Point(327, 722);
+            this.pnlPrescribeMedication.Location = new System.Drawing.Point(219, 218);
             this.pnlPrescribeMedication.Name = "pnlPrescribeMedication";
             this.pnlPrescribeMedication.Size = new System.Drawing.Size(662, 479);
             this.pnlPrescribeMedication.TabIndex = 17;
@@ -672,10 +672,11 @@
             // pnlTreatmentHistory
             // 
             this.pnlTreatmentHistory.Controls.Add(this.grpTreatmentHistory);
-            this.pnlTreatmentHistory.Location = new System.Drawing.Point(1014, 173);
+            this.pnlTreatmentHistory.Location = new System.Drawing.Point(219, 206);
             this.pnlTreatmentHistory.Name = "pnlTreatmentHistory";
-            this.pnlTreatmentHistory.Size = new System.Drawing.Size(805, 425);
+            this.pnlTreatmentHistory.Size = new System.Drawing.Size(805, 500);
             this.pnlTreatmentHistory.TabIndex = 21;
+            this.pnlTreatmentHistory.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTreatmentHistory_Paint);
             // 
             // grpTreatmentHistory
             // 
@@ -689,7 +690,7 @@
             this.grpTreatmentHistory.Controls.Add(this.txtSearchPatient);
             this.grpTreatmentHistory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTreatmentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpTreatmentHistory.Location = new System.Drawing.Point(22, 9);
+            this.grpTreatmentHistory.Location = new System.Drawing.Point(31, 39);
             this.grpTreatmentHistory.Name = "grpTreatmentHistory";
             this.grpTreatmentHistory.Size = new System.Drawing.Size(727, 365);
             this.grpTreatmentHistory.TabIndex = 2;
@@ -866,6 +867,7 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Clear";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSaveDiagnosis
             // 
@@ -889,19 +891,16 @@
             // 
             // cmbAppointmentDiagnosis
             // 
-            this.cmbAppointmentDiagnosis.DataSource = this.patientTreatmentBindingSource;
+            this.cmbAppointmentDiagnosis.DataSource = this.vwPatientAppointmentDetailsBindingSource;
+            this.cmbAppointmentDiagnosis.DisplayMember = "Appointment_ID";
             this.cmbAppointmentDiagnosis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAppointmentDiagnosis.FormattingEnabled = true;
             this.cmbAppointmentDiagnosis.Location = new System.Drawing.Point(18, 61);
             this.cmbAppointmentDiagnosis.Name = "cmbAppointmentDiagnosis";
             this.cmbAppointmentDiagnosis.Size = new System.Drawing.Size(225, 28);
             this.cmbAppointmentDiagnosis.TabIndex = 13;
+            this.cmbAppointmentDiagnosis.ValueMember = "Appointment_ID";
             this.cmbAppointmentDiagnosis.SelectedIndexChanged += new System.EventHandler(this.cmbAppointmentDiagnosis_SelectedIndexChanged);
-            // 
-            // patientTreatmentBindingSource
-            // 
-            this.patientTreatmentBindingSource.DataMember = "PatientTreatment";
-            this.patientTreatmentBindingSource.DataSource = this.dsDentist1;
             // 
             // lblAppointment
             // 
@@ -965,6 +964,11 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Patient ID";
             // 
+            // patientTreatmentBindingSource
+            // 
+            this.patientTreatmentBindingSource.DataMember = "PatientTreatment";
+            this.patientTreatmentBindingSource.DataSource = this.dsDentist1;
+            // 
             // appointmentViewBindingSource
             // 
             this.appointmentViewBindingSource.DataMember = "AppointmentView";
@@ -992,10 +996,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dental_Practice_Management_System.Properties.Resources.System_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1775, 808);
+            this.ClientSize = new System.Drawing.Size(1082, 716);
+            this.Controls.Add(this.pnlTreatmentHistory);
             this.Controls.Add(this.pnlPrescribeMedication);
             this.Controls.Add(this.pnlAddDiagnosis);
-            this.Controls.Add(this.pnlTreatmentHistory);
             this.Controls.Add(this.pnlAddTreatment);
             this.Controls.Add(this.pnlPatientDetails);
             this.Controls.Add(this.btnAddDiagnosis);

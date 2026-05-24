@@ -10998,7 +10998,7 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_Not" +
@@ -11006,26 +11006,36 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[PatientTreatment] ([Appointment_ID], [TreatmentID], [Diagnosis], [Diagnosis_Notes], [Treatment_Notes], [Date_Recorded]) VALUES (@Appointment_ID, @TreatmentID, @Diagnosis, @Diagnosis_Notes, @Treatment_Notes, @Date_Recorded);
-SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_Notes, Treatment_Notes, Date_Recorded FROM PatientTreatment WHERE (PatientTreatment_ID = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandText = @"SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_Notes, Treatment_Notes, Date_Recorded
+FROM     PatientTreatment
+WHERE  (PatientTreatment_ID IN
+                      (SELECT PatientTreatment.PatientTreatment_ID
+                       FROM      vw_PatientAppointmentDetails
+                       WHERE   (PatientFullName LIKE '%' + @SearchText + '%')))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Appointment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TreatmentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TreatmentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Diagnosis", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Diagnosis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Diagnosis_Notes", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Diagnosis_Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Treatment_Notes", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Treatment_Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Recorded", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Recorded", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchText", global::System.Data.SqlDbType.VarChar, 101, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"INSERT INTO PatientTreatment
-                  (Appointment_ID, TreatmentID, Treatment_Notes, Date_Recorded)
-VALUES (@Appointment_ID,@TreatmentID,@Treatment_Notes,@Date_Recorded); 
+            this._commandCollection[2].CommandText = @"INSERT INTO [dbo].[PatientTreatment] ([Appointment_ID], [TreatmentID], [Diagnosis], [Diagnosis_Notes], [Treatment_Notes], [Date_Recorded]) VALUES (@Appointment_ID, @TreatmentID, @Diagnosis, @Diagnosis_Notes, @Treatment_Notes, @Date_Recorded);
 SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_Notes, Treatment_Notes, Date_Recorded FROM PatientTreatment WHERE (PatientTreatment_ID = SCOPE_IDENTITY())";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Appointment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TreatmentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TreatmentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Diagnosis", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Diagnosis", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Diagnosis_Notes", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Diagnosis_Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Treatment_Notes", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Treatment_Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Recorded", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Recorded", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"INSERT INTO PatientTreatment
+                  (Appointment_ID, TreatmentID, Treatment_Notes, Date_Recorded)
+VALUES (@Appointment_ID,@TreatmentID,@Treatment_Notes,@Date_Recorded); 
+SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_Notes, Treatment_Notes, Date_Recorded FROM PatientTreatment WHERE (PatientTreatment_ID = SCOPE_IDENTITY())";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Appointment_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TreatmentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TreatmentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Treatment_Notes", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Treatment_Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_Recorded", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Date_Recorded", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11047,6 +11057,42 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsDentist.PatientTreatmentDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsDentist.PatientTreatmentDataTable dataTable = new dsDentist.PatientTreatmentDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPatientName(dsDentist.PatientTreatmentDataTable dataTable, string SearchText) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((SearchText == null)) {
+                throw new global::System.ArgumentNullException("SearchText");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(SearchText));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsDentist.PatientTreatmentDataTable GetDataByPatientName(string SearchText) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((SearchText == null)) {
+                throw new global::System.ArgumentNullException("SearchText");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(SearchText));
+            }
             dsDentist.PatientTreatmentDataTable dataTable = new dsDentist.PatientTreatmentDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -11280,7 +11326,7 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertDiagnosis(int Appointment_ID, int TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             command.Parameters[0].Value = ((int)(Appointment_ID));
             command.Parameters[1].Value = ((int)(TreatmentID));
             if ((Diagnosis == null)) {
@@ -11329,7 +11375,7 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertTreatment(int Appointment_ID, int TreatmentID, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((int)(Appointment_ID));
             command.Parameters[1].Value = ((int)(TreatmentID));
             if ((Treatment_Notes == null)) {
