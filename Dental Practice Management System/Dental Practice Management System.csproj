@@ -60,6 +60,12 @@
     <Compile Include="AvailabilityOverride.Designer.cs">
       <DependentUpon>AvailabilityOverride.cs</DependentUpon>
     </Compile>
+    <Compile Include="BillingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillingForm.Designer.cs">
+      <DependentUpon>BillingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="dsDentist.cs">
       <DependentUpon>dsDentist.xsd</DependentUpon>
     </Compile>
@@ -68,10 +74,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDentist.xsd</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs" />
     <Compile Include="Patients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,7 +100,9 @@
     <EmbeddedResource Include="AvailabilityOverride.resx">
       <DependentUpon>AvailabilityOverride.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx" />
+    <EmbeddedResource Include="BillingForm.resx">
+      <DependentUpon>BillingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
     </EmbeddedResource>
