@@ -1,0 +1,8 @@
+   .vs/
+   bin/
+   obj/
+   *.vsidx
+   *.suo
+   *.user
+   *.dtbcache*
+   *.cache
