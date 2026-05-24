@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Dental_Practice_Management_System
 {
-    public partial class Billing : Form
+    public partial class BillingForm : Form
     {
-        public Billing()
+        public BillingForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Dental_Practice_Management_System
 {
-    partial class Billing
+    partial class BillingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Billing
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Dental_Practice_Management_System.Properties.Resources.System_Background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(842, 510);
-            this.Name = "Billing";
-            this.Text = "Billing";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "BillingForm";
         }
 
         #endregion
