@@ -22,13 +22,12 @@ namespace Dental_Practice_Management_System
         private void ShowPanel(Panel panelToShow)
         {
             // Hide all panels
-            pnlViewPatients.Visible = false;
-            pnlUpdatePatients.Visible = false;
-            pnlCreatePatients.Visible = false;
+           /* pnlBookAppointment.Visible = false;
+            pnlViewAppointments.Visible = false;
+            pnlUpdateAppointment.Visible = false; */
             // Show the selected panel
             panelToShow.Visible = true;
-        } 
-            
+        }
 
 
         private void lblSearchAppointments_Click(object sender, EventArgs e)
@@ -47,83 +46,77 @@ namespace Dental_Practice_Management_System
 
         private void btnViewPatients_Click(object sender, EventArgs e)
         {
-            ShowPanel(pnlViewPatients);
-            this.patientTableAdapter1.Fill(this.dsDentist.Patient);
 
         }
 
-
-        private void txtSearchPatients_TextChanged(object sender, EventArgs e)
+        private void searchPatientToolStripButton_Click(object sender, EventArgs e)
         {
-            patientTableAdapter1.FillByName(dsDentist.Patient, txtSearchPatients.Text);
-            if (dsDentist.Patient.Rows.Count <= 0)
+            try
             {
-                MessageBox.Show("Patient Not Found.");
+               
             }
-        }
-
-        private void btnUpdatePatients_Click(object sender, EventArgs e)
-        {
-            ShowPanel(pnlUpdatePatients);
-
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (gvUpdatePatient.CurrentRow == null)
+            catch (System.Exception ex)
             {
-                MessageBox.Show("Please select a patient to update.");
-                return;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
-            patientTableAdapter1.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, txtAllergies.Text, txtDOB.Text, Convert.ToInt32(gvUpdatePatient.CurrentRow.Cells[0].Value));
-            MessageBox.Show("Patient updated successfully.");
-            patientTableAdapter1.Fill(this.dsDentist.Patient);
         }
 
-        private void btnCreatePatients_Click(object sender, EventArgs e)
+        private void btnSearchPatients_Click(object sender, EventArgs e)
         {
-            ShowPanel(pnlCreatePatients);
-        }
-
-        private void btnDeletePatient_Click(object sender, EventArgs e)
-        {
-            if (gvUpdatePatient.CurrentRow == null)
+            string FirstName = txtSearchPatients.Text;
+            if (txtSearchPatients.Text.Length == 0)
             {
-                MessageBox.Show("Please select a patient to delete.");
-                return;
+                MessageBox.Show("Please input a name of a patient");
+            }
+            else
+            {
+                this.patientTableAdapter1.SearchName(this.dsDentist.Patient, FirstName);
+                if (dsDentist.Patient.Rows.Count <= 0)
+                {
+                    MessageBox.Show("Patient Not Found.");
+                }
+            }
+               
+        }
+
+        private void searchPatientToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
-            patientTableAdapter1.DeleteQuery(Convert.ToInt32(gvUpdatePatient.CurrentRow.Cells[0].Value));
-            MessageBox.Show("Patient deleted successfully.");
-            patientTableAdapter1.Fill(this.dsDentist.Patient);
-
         }
 
-        private void gvUpdatePatient_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            txtFirstName.Text = gvUpdatePatient.CurrentRow.Cells[1].Value.ToString();
-            txtSurname.Text = gvUpdatePatient.CurrentRow.Cells[2].Value.ToString();
-            txtContactNo.Text = gvUpdatePatient.CurrentRow.Cells[3].Value.ToString();
-            txtStreet.Text = gvUpdatePatient.CurrentRow.Cells[4].Value.ToString();
-            txtSuburb.Text = gvUpdatePatient.CurrentRow.Cells[5].Value.ToString();
-            txtCity.Text = gvUpdatePatient.CurrentRow.Cells[6].Value.ToString();
-            txtCode.Text = gvUpdatePatient.CurrentRow.Cells[7].Value.ToString();
-            txtEmail.Text = gvUpdatePatient.CurrentRow.Cells[8].Value.ToString();
-            txtAllergies.Text = gvUpdatePatient.CurrentRow.Cells[9].Value.ToString();
-            txtDOB.Text = gvUpdatePatient.CurrentRow.Cells[10].Value.ToString();
 
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void searchPatientsNameToolStripButton_Click(object sender, EventArgs e)
         {
-            if (txtFirstName.Text == "" || txtSurname.Text == "" || txtContactNo.Text == "" || txtStreet.Text == "" || txtSuburb.Text == "" || txtCity.Text == "" || txtCode.Text == "" || txtEmail.Text == "" || txtAllergies.Text == "" || txtDOB.Text == "")
+            try
             {
-                MessageBox.Show("Please fill in all fields.");
-                return;
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
-            patientTableAdapter1.CreateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, txtAllergies.Text, txtDOB.Text);
+        }
+
+        private void searchNameToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //this.patientTableAdapter1.SearchName(this.dsDentist.Patient, firstNameToolStripTextBox1.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -39,24 +39,6 @@
             this.cmbDentist = new System.Windows.Forms.ComboBox();
             this.lblDentist = new System.Windows.Forms.Label();
             this.grpPatientInfo = new System.Windows.Forms.GroupBox();
-<<<<<<< Updated upstream
-=======
-            this.lblSelectedPatient = new System.Windows.Forms.Label();
-            this.dgvPatientResults = new System.Windows.Forms.DataGridView();
-            this.btnSearchPatient = new System.Windows.Forms.Button();
-            this.txtSearchPatient = new System.Windows.Forms.TextBox();
-            this.lblSearchPatient = new System.Windows.Forms.Label();
-            this.pnlViewAppointments = new System.Windows.Forms.Panel();
-            this.dgvAppointments = new System.Windows.Forms.DataGridView();
-            this.grpViewFilters = new System.Windows.Forms.GroupBox();
-            this.cmbStatusFilter = new System.Windows.Forms.ComboBox();
-            this.lblStatusFilter = new System.Windows.Forms.Label();
-            this.dtpFilterDate = new System.Windows.Forms.DateTimePicker();
-            this.lblFilterDate = new System.Windows.Forms.Label();
-            this.btnSearchAppointments = new System.Windows.Forms.Button();
-            this.txtSearchAppointments = new System.Windows.Forms.TextBox();
-            this.lblSearchAppointments = new System.Windows.Forms.Label();
->>>>>>> Stashed changes
             this.pnlUpdateAppointment = new System.Windows.Forms.Panel();
             this.grpUpdateDetails = new System.Windows.Forms.GroupBox();
             this.btnClearUpdate = new System.Windows.Forms.Button();
@@ -75,7 +57,6 @@
             this.btnUpdateSearch = new System.Windows.Forms.Button();
             this.txtUpdateSearch = new System.Windows.Forms.TextBox();
             this.lblUpdateSearch = new System.Windows.Forms.Label();
-<<<<<<< Updated upstream
             this.lblSelectedPatient = new System.Windows.Forms.Label();
             this.dgvPatientResults = new System.Windows.Forms.DataGridView();
             this.btnSearchPatient = new System.Windows.Forms.Button();
@@ -103,26 +84,14 @@
             this.pnlBookAppointment.SuspendLayout();
             this.grpAppointmentDetails.SuspendLayout();
             this.grpPatientInfo.SuspendLayout();
-=======
-            this.pnlBookAppointment.SuspendLayout();
-            this.grpAppointmentDetails.SuspendLayout();
-            this.grpPatientInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).BeginInit();
-            this.pnlViewAppointments.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
-            this.grpViewFilters.SuspendLayout();
->>>>>>> Stashed changes
             this.pnlUpdateAppointment.SuspendLayout();
             this.grpUpdateDetails.SuspendLayout();
             this.grpFindAppointment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateAppointments)).BeginInit();
-<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).BeginInit();
             this.pnlViewAppointments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.grpViewFilters.SuspendLayout();
-=======
->>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // lblTitle
@@ -132,7 +101,7 @@
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(152, 65);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(201, 32);
+            this.lblTitle.Size = new System.Drawing.Size(172, 29);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Appointments";
             // 
@@ -144,7 +113,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(154, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(232, 20);
+            this.label2.Size = new System.Drawing.Size(195, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Manage Appointment Bookings";
             // 
@@ -207,10 +176,7 @@
             this.pnlBookAppointment.Name = "pnlBookAppointment";
             this.pnlBookAppointment.Size = new System.Drawing.Size(900, 418);
             this.pnlBookAppointment.TabIndex = 0;
-<<<<<<< Updated upstream
             this.pnlBookAppointment.Visible = false;
-=======
->>>>>>> Stashed changes
             // 
             // grpAppointmentDetails
             // 
@@ -236,7 +202,6 @@
             this.grpAppointmentDetails.Text = "Appointment Details";
             // 
             // btnClearBooking
-<<<<<<< Updated upstream
             // 
             this.btnClearBooking.BackColor = System.Drawing.Color.MistyRose;
             this.btnClearBooking.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -274,101 +239,42 @@
             this.txtAppointmentNotes.Name = "txtAppointmentNotes";
             this.txtAppointmentNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtAppointmentNotes.Size = new System.Drawing.Size(254, 77);
-=======
-            // 
-            this.btnClearBooking.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnClearBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearBooking.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearBooking.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnClearBooking.Location = new System.Drawing.Point(298, 351);
-            this.btnClearBooking.Name = "btnClearBooking";
-            this.btnClearBooking.Size = new System.Drawing.Size(75, 31);
-            this.btnClearBooking.TabIndex = 11;
-            this.btnClearBooking.Text = "Clear";
-            this.btnClearBooking.UseVisualStyleBackColor = true;
-            // 
-            // btnConfirmBooking
-            // 
-            this.btnConfirmBooking.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnConfirmBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmBooking.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmBooking.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConfirmBooking.Location = new System.Drawing.Point(118, 351);
-            this.btnConfirmBooking.Name = "btnConfirmBooking";
-            this.btnConfirmBooking.Size = new System.Drawing.Size(165, 31);
-            this.btnConfirmBooking.TabIndex = 10;
-            this.btnConfirmBooking.Text = "Book Appointment";
-            this.btnConfirmBooking.UseVisualStyleBackColor = true;
-            // 
-            // txtAppointmentNotes
-            // 
-            this.txtAppointmentNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAppointmentNotes.Location = new System.Drawing.Point(10, 213);
-            this.txtAppointmentNotes.Multiline = true;
-            this.txtAppointmentNotes.Name = "txtAppointmentNotes";
-            this.txtAppointmentNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAppointmentNotes.Size = new System.Drawing.Size(363, 98);
->>>>>>> Stashed changes
             this.txtAppointmentNotes.TabIndex = 9;
             // 
             // lblAppointmentNotes
             // 
             this.lblAppointmentNotes.AutoSize = true;
-<<<<<<< Updated upstream
             this.lblAppointmentNotes.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblAppointmentNotes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblAppointmentNotes.Location = new System.Drawing.Point(508, 30);
             this.lblAppointmentNotes.Name = "lblAppointmentNotes";
             this.lblAppointmentNotes.Size = new System.Drawing.Size(45, 19);
-=======
-            this.lblAppointmentNotes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppointmentNotes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAppointmentNotes.Location = new System.Drawing.Point(6, 190);
-            this.lblAppointmentNotes.Name = "lblAppointmentNotes";
-            this.lblAppointmentNotes.Size = new System.Drawing.Size(59, 25);
->>>>>>> Stashed changes
             this.lblAppointmentNotes.TabIndex = 8;
             this.lblAppointmentNotes.Text = "Notes";
             // 
             // cmbTimeSlot
             // 
             this.cmbTimeSlot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-<<<<<<< Updated upstream
             this.cmbTimeSlot.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.cmbTimeSlot.FormattingEnabled = true;
             this.cmbTimeSlot.Location = new System.Drawing.Point(298, 108);
             this.cmbTimeSlot.Name = "cmbTimeSlot";
             this.cmbTimeSlot.Size = new System.Drawing.Size(150, 25);
-=======
-            this.cmbTimeSlot.FormattingEnabled = true;
-            this.cmbTimeSlot.Location = new System.Drawing.Point(223, 147);
-            this.cmbTimeSlot.Name = "cmbTimeSlot";
-            this.cmbTimeSlot.Size = new System.Drawing.Size(150, 33);
->>>>>>> Stashed changes
             this.cmbTimeSlot.TabIndex = 7;
             // 
             // lblTimeSlot
             // 
             this.lblTimeSlot.AutoSize = true;
-<<<<<<< Updated upstream
             this.lblTimeSlot.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblTimeSlot.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblTimeSlot.Location = new System.Drawing.Point(294, 86);
             this.lblTimeSlot.Name = "lblTimeSlot";
             this.lblTimeSlot.Size = new System.Drawing.Size(65, 19);
-=======
-            this.lblTimeSlot.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeSlot.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTimeSlot.Location = new System.Drawing.Point(219, 124);
-            this.lblTimeSlot.Name = "lblTimeSlot";
-            this.lblTimeSlot.Size = new System.Drawing.Size(86, 25);
->>>>>>> Stashed changes
             this.lblTimeSlot.TabIndex = 6;
             this.lblTimeSlot.Text = "Time Slot";
             // 
             // dtpAppointmentDate
             // 
-<<<<<<< Updated upstream
             this.dtpAppointmentDate.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
             this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpAppointmentDate.Location = new System.Drawing.Point(9, 105);
@@ -376,74 +282,42 @@
             this.dtpAppointmentDate.Size = new System.Drawing.Size(185, 25);
             this.dtpAppointmentDate.TabIndex = 5;
             this.dtpAppointmentDate.ValueChanged += new System.EventHandler(this.dtpAppointmentDate_ValueChanged);
-=======
-            this.dtpAppointmentDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAppointmentDate.Location = new System.Drawing.Point(10, 147);
-            this.dtpAppointmentDate.Name = "dtpAppointmentDate";
-            this.dtpAppointmentDate.Size = new System.Drawing.Size(185, 31);
-            this.dtpAppointmentDate.TabIndex = 5;
->>>>>>> Stashed changes
             // 
             // lblAppointmentDate
             // 
             this.lblAppointmentDate.AutoSize = true;
-<<<<<<< Updated upstream
             this.lblAppointmentDate.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblAppointmentDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblAppointmentDate.Location = new System.Drawing.Point(6, 83);
             this.lblAppointmentDate.Name = "lblAppointmentDate";
             this.lblAppointmentDate.Size = new System.Drawing.Size(38, 19);
-=======
-            this.lblAppointmentDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppointmentDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAppointmentDate.Location = new System.Drawing.Point(6, 124);
-            this.lblAppointmentDate.Name = "lblAppointmentDate";
-            this.lblAppointmentDate.Size = new System.Drawing.Size(49, 25);
->>>>>>> Stashed changes
             this.lblAppointmentDate.TabIndex = 4;
             this.lblAppointmentDate.Text = "Date";
             // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-<<<<<<< Updated upstream
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(298, 52);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 25);
-=======
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(129, 72);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 33);
->>>>>>> Stashed changes
             this.comboBox1.TabIndex = 3;
             // 
             // lblAssistant
             // 
             this.lblAssistant.AutoSize = true;
-<<<<<<< Updated upstream
             this.lblAssistant.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblAssistant.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblAssistant.Location = new System.Drawing.Point(294, 31);
             this.lblAssistant.Name = "lblAssistant";
             this.lblAssistant.Size = new System.Drawing.Size(68, 19);
-=======
-            this.lblAssistant.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssistant.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAssistant.Location = new System.Drawing.Point(6, 72);
-            this.lblAssistant.Name = "lblAssistant";
-            this.lblAssistant.Size = new System.Drawing.Size(88, 25);
->>>>>>> Stashed changes
             this.lblAssistant.TabIndex = 2;
             this.lblAssistant.Text = "Assistant ";
             // 
             // cmbDentist
             // 
             this.cmbDentist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-<<<<<<< Updated upstream
             this.cmbDentist.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.cmbDentist.FormattingEnabled = true;
             this.cmbDentist.Location = new System.Drawing.Point(10, 52);
@@ -451,30 +325,15 @@
             this.cmbDentist.Size = new System.Drawing.Size(185, 25);
             this.cmbDentist.TabIndex = 1;
             this.cmbDentist.SelectedIndexChanged += new System.EventHandler(this.cmbDentist_SelectedIndexChanged);
-=======
-            this.cmbDentist.FormattingEnabled = true;
-            this.cmbDentist.Location = new System.Drawing.Point(129, 32);
-            this.cmbDentist.Name = "cmbDentist";
-            this.cmbDentist.Size = new System.Drawing.Size(220, 33);
-            this.cmbDentist.TabIndex = 1;
->>>>>>> Stashed changes
             // 
             // lblDentist
             // 
             this.lblDentist.AutoSize = true;
-<<<<<<< Updated upstream
             this.lblDentist.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblDentist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblDentist.Location = new System.Drawing.Point(6, 30);
             this.lblDentist.Name = "lblDentist";
             this.lblDentist.Size = new System.Drawing.Size(53, 19);
-=======
-            this.lblDentist.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDentist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDentist.Location = new System.Drawing.Point(6, 32);
-            this.lblDentist.Name = "lblDentist";
-            this.lblDentist.Size = new System.Drawing.Size(68, 25);
->>>>>>> Stashed changes
             this.lblDentist.TabIndex = 0;
             this.lblDentist.Text = "Dentist";
             // 
@@ -489,16 +348,11 @@
             this.grpPatientInfo.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpPatientInfo.Location = new System.Drawing.Point(3, 4);
             this.grpPatientInfo.Name = "grpPatientInfo";
-<<<<<<< Updated upstream
             this.grpPatientInfo.Size = new System.Drawing.Size(888, 194);
-=======
-            this.grpPatientInfo.Size = new System.Drawing.Size(390, 395);
->>>>>>> Stashed changes
             this.grpPatientInfo.TabIndex = 0;
             this.grpPatientInfo.TabStop = false;
             this.grpPatientInfo.Text = "Patient Information";
             // 
-<<<<<<< Updated upstream
             // pnlUpdateAppointment
             // 
             this.pnlUpdateAppointment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -728,16 +582,6 @@
             this.lblSelectedPatient.Location = new System.Drawing.Point(756, 170);
             this.lblSelectedPatient.Name = "lblSelectedPatient";
             this.lblSelectedPatient.Size = new System.Drawing.Size(126, 16);
-=======
-            // lblSelectedPatient
-            // 
-            this.lblSelectedPatient.AutoSize = true;
-            this.lblSelectedPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedPatient.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSelectedPatient.Location = new System.Drawing.Point(7, 365);
-            this.lblSelectedPatient.Name = "lblSelectedPatient";
-            this.lblSelectedPatient.Size = new System.Drawing.Size(169, 22);
->>>>>>> Stashed changes
             this.lblSelectedPatient.TabIndex = 4;
             this.lblSelectedPatient.Text = "No patient selected.";
             // 
@@ -753,14 +597,9 @@
             this.dgvPatientResults.RowHeadersWidth = 51;
             this.dgvPatientResults.RowTemplate.Height = 24;
             this.dgvPatientResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-<<<<<<< Updated upstream
             this.dgvPatientResults.Size = new System.Drawing.Size(876, 72);
             this.dgvPatientResults.TabIndex = 3;
             this.dgvPatientResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientResults_CellClick);
-=======
-            this.dgvPatientResults.Size = new System.Drawing.Size(364, 263);
-            this.dgvPatientResults.TabIndex = 3;
->>>>>>> Stashed changes
             // 
             // btnSearchPatient
             // 
@@ -772,21 +611,14 @@
             this.btnSearchPatient.TabIndex = 2;
             this.btnSearchPatient.Text = "Search";
             this.btnSearchPatient.UseVisualStyleBackColor = true;
-<<<<<<< Updated upstream
             this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
-=======
->>>>>>> Stashed changes
             // 
             // txtSearchPatient
             // 
             this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearchPatient.Location = new System.Drawing.Point(10, 49);
             this.txtSearchPatient.Name = "txtSearchPatient";
-<<<<<<< Updated upstream
             this.txtSearchPatient.Size = new System.Drawing.Size(235, 27);
-=======
-            this.txtSearchPatient.Size = new System.Drawing.Size(235, 31);
->>>>>>> Stashed changes
             this.txtSearchPatient.TabIndex = 1;
             // 
             // lblSearchPatient
@@ -796,11 +628,7 @@
             this.lblSearchPatient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblSearchPatient.Location = new System.Drawing.Point(7, 29);
             this.lblSearchPatient.Name = "lblSearchPatient";
-<<<<<<< Updated upstream
             this.lblSearchPatient.Size = new System.Drawing.Size(193, 15);
-=======
-            this.lblSearchPatient.Size = new System.Drawing.Size(242, 20);
->>>>>>> Stashed changes
             this.lblSearchPatient.TabIndex = 0;
             this.lblSearchPatient.Text = "Search Patient (Patient Name or ID)";
             // 
@@ -815,7 +643,6 @@
             this.pnlViewAppointments.TabIndex = 5;
             // 
             // dgvAppointments
-<<<<<<< Updated upstream
             // 
             this.dgvAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAppointments.BackgroundColor = System.Drawing.SystemColors.Menu;
@@ -948,8 +775,6 @@
             this.btnPatients.Click += new System.EventHandler(this.btnPatients_Click);
             // 
             // btnAppointments
-=======
->>>>>>> Stashed changes
             // 
             this.btnAppointments.BackColor = System.Drawing.Color.Transparent;
             this.btnAppointments.FlatAppearance.BorderSize = 0;
@@ -962,101 +787,7 @@
             this.btnAppointments.UseVisualStyleBackColor = false;
             this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
             // 
-<<<<<<< Updated upstream
             // btnTreatments
-=======
-            // grpViewFilters
-            // 
-            this.grpViewFilters.AutoSize = true;
-            this.grpViewFilters.Controls.Add(this.cmbStatusFilter);
-            this.grpViewFilters.Controls.Add(this.lblStatusFilter);
-            this.grpViewFilters.Controls.Add(this.dtpFilterDate);
-            this.grpViewFilters.Controls.Add(this.lblFilterDate);
-            this.grpViewFilters.Controls.Add(this.btnSearchAppointments);
-            this.grpViewFilters.Controls.Add(this.txtSearchAppointments);
-            this.grpViewFilters.Controls.Add(this.lblSearchAppointments);
-            this.grpViewFilters.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpViewFilters.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpViewFilters.Location = new System.Drawing.Point(15, 19);
-            this.grpViewFilters.Name = "grpViewFilters";
-            this.grpViewFilters.Size = new System.Drawing.Size(760, 117);
-            this.grpViewFilters.TabIndex = 0;
-            this.grpViewFilters.TabStop = false;
-            this.grpViewFilters.Text = "Appointments";
-            // 
-            // cmbStatusFilter
-            // 
-            this.cmbStatusFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatusFilter.FormattingEnabled = true;
-            this.cmbStatusFilter.Location = new System.Drawing.Point(622, 54);
-            this.cmbStatusFilter.Name = "cmbStatusFilter";
-            this.cmbStatusFilter.Size = new System.Drawing.Size(121, 33);
-            this.cmbStatusFilter.TabIndex = 6;
-            // 
-            // lblStatusFilter
-            // 
-            this.lblStatusFilter.AutoSize = true;
-            this.lblStatusFilter.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusFilter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblStatusFilter.Location = new System.Drawing.Point(619, 30);
-            this.lblStatusFilter.Name = "lblStatusFilter";
-            this.lblStatusFilter.Size = new System.Drawing.Size(52, 21);
-            this.lblStatusFilter.TabIndex = 5;
-            this.lblStatusFilter.Text = "Status";
-            // 
-            // dtpFilterDate
-            // 
-            this.dtpFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFilterDate.Location = new System.Drawing.Point(468, 55);
-            this.dtpFilterDate.Name = "dtpFilterDate";
-            this.dtpFilterDate.Size = new System.Drawing.Size(121, 31);
-            this.dtpFilterDate.TabIndex = 4;
-            // 
-            // lblFilterDate
-            // 
-            this.lblFilterDate.AutoSize = true;
-            this.lblFilterDate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilterDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblFilterDate.Location = new System.Drawing.Point(465, 30);
-            this.lblFilterDate.Name = "lblFilterDate";
-            this.lblFilterDate.Size = new System.Drawing.Size(42, 21);
-            this.lblFilterDate.TabIndex = 3;
-            this.lblFilterDate.Text = "Date";
-            // 
-            // btnSearchAppointments
-            // 
-            this.btnSearchAppointments.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnSearchAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchAppointments.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchAppointments.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSearchAppointments.Location = new System.Drawing.Point(268, 53);
-            this.btnSearchAppointments.Name = "btnSearchAppointments";
-            this.btnSearchAppointments.Size = new System.Drawing.Size(75, 25);
-            this.btnSearchAppointments.TabIndex = 2;
-            this.btnSearchAppointments.Text = "Search";
-            this.btnSearchAppointments.UseVisualStyleBackColor = true;
-            // 
-            // txtSearchAppointments
-            // 
-            this.txtSearchAppointments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchAppointments.Location = new System.Drawing.Point(18, 53);
-            this.txtSearchAppointments.Name = "txtSearchAppointments";
-            this.txtSearchAppointments.Size = new System.Drawing.Size(244, 31);
-            this.txtSearchAppointments.TabIndex = 1;
-            // 
-            // lblSearchAppointments
-            // 
-            this.lblSearchAppointments.AutoSize = true;
-            this.lblSearchAppointments.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchAppointments.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblSearchAppointments.Location = new System.Drawing.Point(15, 30);
-            this.lblSearchAppointments.Name = "lblSearchAppointments";
-            this.lblSearchAppointments.Size = new System.Drawing.Size(392, 21);
-            this.lblSearchAppointments.TabIndex = 0;
-            this.lblSearchAppointments.Text = "Search Appointment (Patient Name or Appointment ID)";
-            // 
-            // pnlUpdateAppointment
->>>>>>> Stashed changes
             // 
             this.btnTreatments.BackColor = System.Drawing.Color.Transparent;
             this.btnTreatments.FlatAppearance.BorderSize = 0;
@@ -1069,7 +800,6 @@
             this.btnTreatments.UseVisualStyleBackColor = false;
             this.btnTreatments.Click += new System.EventHandler(this.btnTreatments_Click);
             // 
-<<<<<<< Updated upstream
             // btnBilling
             // 
             this.btnBilling.BackColor = System.Drawing.Color.Transparent;
@@ -1121,213 +851,10 @@
             this.btnLogin.TabIndex = 22;
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-=======
-            // grpUpdateDetails
-            // 
-            this.grpUpdateDetails.Controls.Add(this.btnClearUpdate);
-            this.grpUpdateDetails.Controls.Add(this.btnSaveUpdate);
-            this.grpUpdateDetails.Controls.Add(this.txtUpdateReason);
-            this.grpUpdateDetails.Controls.Add(this.lblUpdateReason);
-            this.grpUpdateDetails.Controls.Add(this.cmbNewTimeSlot);
-            this.grpUpdateDetails.Controls.Add(this.lblNewTimeSlot);
-            this.grpUpdateDetails.Controls.Add(this.dtpNewDate);
-            this.grpUpdateDetails.Controls.Add(this.lblNewDate);
-            this.grpUpdateDetails.Controls.Add(this.cmbUpdateAction);
-            this.grpUpdateDetails.Controls.Add(this.label1);
-            this.grpUpdateDetails.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpUpdateDetails.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpUpdateDetails.Location = new System.Drawing.Point(419, 15);
-            this.grpUpdateDetails.Name = "grpUpdateDetails";
-            this.grpUpdateDetails.Size = new System.Drawing.Size(370, 384);
-            this.grpUpdateDetails.TabIndex = 1;
-            this.grpUpdateDetails.TabStop = false;
-            this.grpUpdateDetails.Text = "Update Details";
-            // 
-            // btnClearUpdate
-            // 
-            this.btnClearUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnClearUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnClearUpdate.Location = new System.Drawing.Point(276, 341);
-            this.btnClearUpdate.Name = "btnClearUpdate";
-            this.btnClearUpdate.Size = new System.Drawing.Size(80, 32);
-            this.btnClearUpdate.TabIndex = 9;
-            this.btnClearUpdate.Text = "Clear";
-            this.btnClearUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveUpdate
-            // 
-            this.btnSaveUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnSaveUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSaveUpdate.Location = new System.Drawing.Point(133, 342);
-            this.btnSaveUpdate.Name = "btnSaveUpdate";
-            this.btnSaveUpdate.Size = new System.Drawing.Size(130, 32);
-            this.btnSaveUpdate.TabIndex = 8;
-            this.btnSaveUpdate.Text = "Save Changes";
-            this.btnSaveUpdate.UseVisualStyleBackColor = true;
-            // 
-            // txtUpdateReason
-            // 
-            this.txtUpdateReason.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpdateReason.Location = new System.Drawing.Point(24, 226);
-            this.txtUpdateReason.Multiline = true;
-            this.txtUpdateReason.Name = "txtUpdateReason";
-            this.txtUpdateReason.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtUpdateReason.Size = new System.Drawing.Size(332, 95);
-            this.txtUpdateReason.TabIndex = 7;
-            // 
-            // lblUpdateReason
-            // 
-            this.lblUpdateReason.AutoSize = true;
-            this.lblUpdateReason.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateReason.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUpdateReason.Location = new System.Drawing.Point(20, 203);
-            this.lblUpdateReason.Name = "lblUpdateReason";
-            this.lblUpdateReason.Size = new System.Drawing.Size(153, 25);
-            this.lblUpdateReason.TabIndex = 6;
-            this.lblUpdateReason.Text = "Reason (Optional)";
-            // 
-            // cmbNewTimeSlot
-            // 
-            this.cmbNewTimeSlot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNewTimeSlot.FormattingEnabled = true;
-            this.cmbNewTimeSlot.Location = new System.Drawing.Point(203, 132);
-            this.cmbNewTimeSlot.Name = "cmbNewTimeSlot";
-            this.cmbNewTimeSlot.Size = new System.Drawing.Size(147, 33);
-            this.cmbNewTimeSlot.TabIndex = 5;
-            // 
-            // lblNewTimeSlot
-            // 
-            this.lblNewTimeSlot.AutoSize = true;
-            this.lblNewTimeSlot.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewTimeSlot.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNewTimeSlot.Location = new System.Drawing.Point(199, 109);
-            this.lblNewTimeSlot.Name = "lblNewTimeSlot";
-            this.lblNewTimeSlot.Size = new System.Drawing.Size(126, 25);
-            this.lblNewTimeSlot.TabIndex = 4;
-            this.lblNewTimeSlot.Text = "New Time Slot";
-            // 
-            // dtpNewDate
-            // 
-            this.dtpNewDate.CalendarFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNewDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNewDate.Location = new System.Drawing.Point(24, 133);
-            this.dtpNewDate.Name = "dtpNewDate";
-            this.dtpNewDate.Size = new System.Drawing.Size(150, 31);
-            this.dtpNewDate.TabIndex = 3;
-            // 
-            // lblNewDate
-            // 
-            this.lblNewDate.AutoSize = true;
-            this.lblNewDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNewDate.Location = new System.Drawing.Point(20, 109);
-            this.lblNewDate.Name = "lblNewDate";
-            this.lblNewDate.Size = new System.Drawing.Size(89, 25);
-            this.lblNewDate.TabIndex = 2;
-            this.lblNewDate.Text = "New Date";
-            // 
-            // cmbUpdateAction
-            // 
-            this.cmbUpdateAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbUpdateAction.FormattingEnabled = true;
-            this.cmbUpdateAction.Location = new System.Drawing.Point(24, 58);
-            this.cmbUpdateAction.Name = "cmbUpdateAction";
-            this.cmbUpdateAction.Size = new System.Drawing.Size(180, 33);
-            this.cmbUpdateAction.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(20, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Action";
-            // 
-            // grpFindAppointment
-            // 
-            this.grpFindAppointment.Controls.Add(this.lblSelectedAppointment);
-            this.grpFindAppointment.Controls.Add(this.dgvUpdateAppointments);
-            this.grpFindAppointment.Controls.Add(this.btnUpdateSearch);
-            this.grpFindAppointment.Controls.Add(this.txtUpdateSearch);
-            this.grpFindAppointment.Controls.Add(this.lblUpdateSearch);
-            this.grpFindAppointment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpFindAppointment.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpFindAppointment.Location = new System.Drawing.Point(15, 15);
-            this.grpFindAppointment.Name = "grpFindAppointment";
-            this.grpFindAppointment.Size = new System.Drawing.Size(398, 384);
-            this.grpFindAppointment.TabIndex = 0;
-            this.grpFindAppointment.TabStop = false;
-            this.grpFindAppointment.Text = "Find Appointment";
-            // 
-            // lblSelectedAppointment
-            // 
-            this.lblSelectedAppointment.AutoSize = true;
-            this.lblSelectedAppointment.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedAppointment.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSelectedAppointment.Location = new System.Drawing.Point(15, 354);
-            this.lblSelectedAppointment.Name = "lblSelectedAppointment";
-            this.lblSelectedAppointment.Size = new System.Drawing.Size(229, 25);
-            this.lblSelectedAppointment.TabIndex = 4;
-            this.lblSelectedAppointment.Text = "No appointment selected.";
-            // 
-            // dgvUpdateAppointments
-            // 
-            this.dgvUpdateAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUpdateAppointments.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dgvUpdateAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUpdateAppointments.Location = new System.Drawing.Point(15, 89);
-            this.dgvUpdateAppointments.MultiSelect = false;
-            this.dgvUpdateAppointments.Name = "dgvUpdateAppointments";
-            this.dgvUpdateAppointments.ReadOnly = true;
-            this.dgvUpdateAppointments.RowHeadersWidth = 51;
-            this.dgvUpdateAppointments.RowTemplate.Height = 24;
-            this.dgvUpdateAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUpdateAppointments.Size = new System.Drawing.Size(373, 258);
-            this.dgvUpdateAppointments.TabIndex = 3;
-            // 
-            // btnUpdateSearch
-            // 
-            this.btnUpdateSearch.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnUpdateSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateSearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnUpdateSearch.Location = new System.Drawing.Point(256, 55);
-            this.btnUpdateSearch.Name = "btnUpdateSearch";
-            this.btnUpdateSearch.Size = new System.Drawing.Size(75, 27);
-            this.btnUpdateSearch.TabIndex = 2;
-            this.btnUpdateSearch.Text = "Search";
-            this.btnUpdateSearch.UseVisualStyleBackColor = true;
-            // 
-            // txtUpdateSearch
-            // 
-            this.txtUpdateSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpdateSearch.Location = new System.Drawing.Point(15, 55);
-            this.txtUpdateSearch.Name = "txtUpdateSearch";
-            this.txtUpdateSearch.Size = new System.Drawing.Size(235, 31);
-            this.txtUpdateSearch.TabIndex = 1;
-            // 
-            // lblUpdateSearch
-            // 
-            this.lblUpdateSearch.AutoSize = true;
-            this.lblUpdateSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateSearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUpdateSearch.Location = new System.Drawing.Point(15, 30);
-            this.lblUpdateSearch.Name = "lblUpdateSearch";
-            this.lblUpdateSearch.Size = new System.Drawing.Size(287, 25);
-            this.lblUpdateSearch.TabIndex = 0;
-            this.lblUpdateSearch.Text = "Search Patient (Patient Name or ID)";
->>>>>>> Stashed changes
             // 
             // Appointments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = global::Dental_Practice_Management_System.Properties.Resources.System_Background;
@@ -1358,30 +885,18 @@
             this.grpAppointmentDetails.PerformLayout();
             this.grpPatientInfo.ResumeLayout(false);
             this.grpPatientInfo.PerformLayout();
-<<<<<<< Updated upstream
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).EndInit();
-            this.pnlViewAppointments.ResumeLayout(false);
-            this.pnlViewAppointments.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
-            this.grpViewFilters.ResumeLayout(false);
-            this.grpViewFilters.PerformLayout();
->>>>>>> Stashed changes
             this.pnlUpdateAppointment.ResumeLayout(false);
             this.grpUpdateDetails.ResumeLayout(false);
             this.grpUpdateDetails.PerformLayout();
             this.grpFindAppointment.ResumeLayout(false);
             this.grpFindAppointment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateAppointments)).EndInit();
-<<<<<<< Updated upstream
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).EndInit();
             this.pnlViewAppointments.ResumeLayout(false);
             this.pnlViewAppointments.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
             this.grpViewFilters.ResumeLayout(false);
             this.grpViewFilters.PerformLayout();
-=======
->>>>>>> Stashed changes
             this.ResumeLayout(false);
             this.PerformLayout();
 
