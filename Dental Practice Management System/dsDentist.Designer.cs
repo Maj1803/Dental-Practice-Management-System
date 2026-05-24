@@ -12402,29 +12402,28 @@ SELECT Timeslot_ID, Slot_Start_Time, Duration_Minutes, Day_Of_Week, Is_Active FR
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT Timeslot_ID, Slot_Start_Time
+            this._commandCollection[1].CommandText = @"SELECT   Timeslot_ID, Slot_Start_Time
 FROM     Timeslot
-WHERE  (Is_Active = 1) 
-AND (Timeslot_ID NOT IN
-    (SELECT Timeslot_ID
-     FROM Appointment
-     WHERE (Appointment_Date = @date) 
-     AND (Employee_ID = @employeeID)           -- ADD THIS
-     AND (Appointment_Status = 'Scheduled')))  -- CHANGE THIS from 'Booked'
-AND (Timeslot_ID NOT IN
-    (SELECT Timeslot_ID
-     FROM Availability_Override
-     WHERE (Target_Date = @date) 
-     AND (Employee_ID = @employeeID) 
-     AND (Is_Full_Day = 0))) 
-AND (NOT EXISTS
-    (SELECT 1
-     FROM Availability_Override AS AO
-     WHERE (AO.Target_Date = @date) 
-     AND (AO.Employee_ID = @employeeID) 
-     AND (AO.Is_Full_Day = 1)))
+WHERE    Is_Active = 1
+AND      Day_Of_Week = @dayOfWeek
+AND      Timeslot_ID NOT IN
+             (SELECT Timeslot_ID FROM Appointment
+              WHERE  Appointment_Date = @date
+              AND    Employee_ID = @employeeID
+              AND    Appointment_Status = 'Scheduled')
+AND      Timeslot_ID NOT IN
+             (SELECT Timeslot_ID FROM Availability_Override
+              WHERE  Target_Date = @date
+              AND    Employee_ID = @employeeID
+              AND    Is_Full_Day = 0)
+AND      NOT EXISTS
+             (SELECT 1 FROM Availability_Override AS AO
+              WHERE  AO.Target_Date = @date
+              AND    AO.Employee_ID = @employeeID
+              AND    AO.Is_Full_Day = 1)
 ORDER BY Slot_Start_Time";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dayOfWeek", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Day_Of_Week", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -12457,10 +12456,11 @@ ORDER BY Slot_Start_Time";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAvailableSlots(dsDentist.TimeslotDataTable dataTable, System.DateTime date, int employeeID) {
+        public virtual int FillByAvailableSlots(dsDentist.TimeslotDataTable dataTable, int dayOfWeek, System.DateTime date, int employeeID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(employeeID));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(dayOfWeek));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(date));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(employeeID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -12472,10 +12472,11 @@ ORDER BY Slot_Start_Time";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsDentist.TimeslotDataTable GetDataBy(System.DateTime date, int employeeID) {
+        public virtual dsDentist.TimeslotDataTable GetDataBy(int dayOfWeek, System.DateTime date, int employeeID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(employeeID));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(dayOfWeek));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(date));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(employeeID));
             dsDentist.TimeslotDataTable dataTable = new dsDentist.TimeslotDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
