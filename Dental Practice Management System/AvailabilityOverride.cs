@@ -54,7 +54,7 @@ namespace Dental_Practice_Management_System
         {
             Appointments appointmentsForm = new Appointments();
             appointmentsForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnPatients_Click(object sender, EventArgs e)
@@ -68,35 +68,35 @@ namespace Dental_Practice_Management_System
         {
             //Dashboard dashboardForm = new Dashboard();
             //dashboardForm.Show();
-            //this.Close();
+            //this.Hide();
         }
 
         private void btnTreatmentMedicine_Click(object sender, EventArgs e)
         {
             TreatmentMedicine treatmentMedicineForm = new TreatmentMedicine();
             treatmentMedicineForm.Show();
-            //this.Close();
+            //this.Hide();
         }
 
         private void btnBilling_Click(object sender, EventArgs e)
         {
             //Billing billingForm = new Billing();
             //billingForm.Show();
-            //this.Close();
+            //this.Hide();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
             //Reports reportsForm = new Reports();
             //reportsForm.Show();
-            //this.Close();
+            //this.Hide();
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
             //Staff staffForm = new Staff();
             //staffForm.Show();
-            //this.Close();
+            //this.Hide();
         }
     }
 }
