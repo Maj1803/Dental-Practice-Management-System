@@ -257,9 +257,9 @@ namespace Dental_Practice_Management_System
         }
         private void CopyAppointmentToDiagnosisPanel()
         {
-            txtPatientNameDiag = txtPatientName.Text;
-            txtPatientIDDiag = txtPatientID.Text;
-            txtAppointmentDateDiag = txtFollowUpDate.Text;
+            txtPatientNameDiag.Text = txtPatientName.Text;
+            txtPatientIDDiag.Text = txtPatientID.Text;
+            txtAppointmentDateDiag.Text = txtFollowUpDate.Text;
             cmbAppointmentDiagnosis.Text = cmbAppointment.Text; // Assuming you want to copy the appointment details to the diagnosis panel's ComboBox for selection
 
         }
@@ -381,7 +381,7 @@ namespace Dental_Practice_Management_System
             {
                 patientTreatmentTableAdapter.InsertDiagnosis(
                     Convert.ToInt32(cmbAppointmentDiagnosis.SelectedValue), // Appointment_ID
-                    DBNull.Value, // Patient_ID (or use a value from a control if available)
+                    0,
                     cmbDiagnosis.Text, // Diagnosis_Code
                     txtDiagnosisNotes.Text.Trim(), // Diagnosis_Notes
                     " ",

@@ -13436,7 +13436,7 @@ INNER JOIN Timeslot AS T ON A.Timeslot_ID = T.Timeslot_ID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Dental_Practice_Management_System.Properties.Settings.Default.GroupWst33ConnectionString;
+            this._connection.ConnectionString = global::Dental_Practice_Management_System.Properties.Settings.Default.dentistConnStr;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
