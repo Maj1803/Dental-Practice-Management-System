@@ -40,7 +40,7 @@ namespace Dental_Practice_Management_System
             // TODO: This line of code loads data into the 'dsDentist.Appointment' table. You can move, or remove it, as needed.
             this.appointmentTableAdapter.Fill(this.dsDentist.Appointment);
 
-            
+
             cmbMethod.Items.Clear();
             cmbMethod.Items.Add("Cash");
             cmbMethod.Items.Add("Card");
@@ -49,44 +49,29 @@ namespace Dental_Practice_Management_System
 
             lblTotal.Text = "R0.00";
 
-            dateTimePicker1.Value =DateTime.Today;
+            dateTimePicker1.Value = DateTime.Today;
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
         {
             if (txtApptID.Text == "")
             {
-                dgvPatient.DataSource = null;
-                dgvTreatment.DataSource = null;
-                lblTotal.Text = "R0.00";
+                patientBindingSource.DataSource = null;
+
+                dgvPatient.DataSource = patientBindingSource;
                 return;
             }
 
             try
             {
 
-                SqlDataAdapter da =new SqlDataAdapter(
-
-                @"SELECTP Patient.Patient_First,Patient.Patient_Last,Patient.Patient_Phone_Number
-                  FROM Appointment 
-                  INNER JOIN Patient 
-                  ON Appointment.Patient_ID=Patient.Patient_ID
-                  WHERE
-                  Appointment.Appointment_ID=@id", con);
-
-                  da.SelectCommand.Parameters.AddWithValue("@id",txtApptID.Text);
-
-                DataTable dt =new DataTable();
-
-                da.Fill(dt);
-
-                dgvPatient.DataSource =dt;
+                patientTableAdapter.FillByAppointmentID(dsDentist.Patient, Convert.ToInt32(txtApptID.Text));
+                dgvPatient.DataSource = patientBindingSource;
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                ex.Message);
+                dgvPatient.DataSource = null;
             }
         }
 
@@ -102,39 +87,149 @@ namespace Dental_Practice_Management_System
             try
             {
 
-                SqlDataAdapter da =new SqlDataAdapter(@"SELECT Treatment.TreatmentName,Treatment.TreatmentCost
-                FROM PatientTreatment 
-                INNER JOIN Treatment 
-                ON PatientTreatment.TreatmentID=Treatment.TreatmentID
-                WHERE PatientTreatment.Appointment_ID=@id",con);
+                treatmentTableAdapter.FillByAppointmentID(dsDentist.Treatment, Convert.ToInt32(txtApptID.Text));
 
-                da.SelectCommand.Parameters.AddWithValue("@id", txtApptID.Text);
-
-                DataTable dt =new DataTable();
-
-                da.Fill(dt);
-
-                dgvTreatment.DataSource =dt;
+                dgvTreatment.DataSource = treatmentBindingSource1;
 
                 total = 0;
 
-                foreach (DataRow rowin dt.Rows)
+                foreach (DataGridViewRow row in dgvTreatment.Rows)
                 {
 
-                 total += Convert.ToDecimal(row["Treatment_Cost"]);
-                }
-                lblTotal.Text ="R" +total.ToString();
+                    if (row.Cells"TreatmentCost.Value != null);
+                       {
+
+                        total += Convert.ToDecimal(row.Cells["TreatmentCost"].Value);
+
+                    }
 
                 }
-                catch (Exception ex)
-               {
+
+                lblTotal.Text = "R" + total;
+
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(
                 ex.Message);
 
-               }
-}
+            }
+        }
 
         private void btnInvoice_Click(object sender, EventArgs e)
         {
-            
+            if (dgvTreatment.Rows.Count == 0)
+            {
+                MessageBox.Show("Error:Load treatment first");
+
+                return;
+            }
+
+            Invoice frm = new Invoice();
+
+            frm.lblApptID.Text = lblApptID.Text;
+
+            frm.lblDateToday.Text = DateTime.Now.ToShortDateString();
+
+            frm.lblTotal.Text = "R" + total;
+
+            frm.lblBalDue.Text = "R" + total;
+
+            frm.dgvInvoiceTreatment.DataSource = dgvTreatment.DataSource;
+
+            frm.ShowDialog();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            // validate payment amount 
+
+
+            decimal amount;
+
+            if (txtPaymentAmount.Text != "" && !decimal.TryParse(txtPaymentAmount.Text, out amount))
+            {
+
+                MessageBox.Show("Error:Enter numbers only");
+
+                txtPaymentAmount.Focus();
+
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (txtInvoiceID.Text == "")
+            {
+                MessageBox.Show("Error:Enter Invoice ID");
+
+                return;
+            }
+
+            if (cmbMethod.SelectedIndex == -1)
+            {
+                MessageBox.Show("Error:Select payment method");
+
+                return;
+            }
+
+            decimal amount;
+
+            if (!decimal.TryParse(txtPaymentAmount.Text, out amount))
+            {
+                MessageBox.Show("Error:Enter a valid amount");
+
+                return;
+            }
+
+            if (amount <= 0)
+            {
+                MessageBox.Show("Amount must greater than 0");
+
+                return;
+            }
+
+            try
+            {
+
+                paymentTableAdapter.Insert(Convert.ToInt32(txtInvoiceID.Text), cmbMethod.Text, amount, dateTimePicker1.Value);
+
+                MessageBox.Show("Payment has been saved");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtApptID.Clear();
+
+            txtInvoiceID.Clear();
+
+            txtPaymentAmount.Clear();
+
+            cmbMethod.SelectedIndex = -1;
+
+            dateTimePicker1.Value = DateTime.Today;
+
+            dgvPatient.DataSource = null;
+
+            dgvTreatment.DataSource = null;
+
+            lblTotal.Text = "R0.00";
+
+            total = 0;
+
+            txtApptID.Focus();
+
+            patientBindingSource.DataSource = null;
+
+            treatmentBindingSource1.DataSource = null;
+        }
+    

@@ -38,9 +38,9 @@
             this.treatmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dsDentist = new Dental_Practice_Management_System.dsDentist();
             this.btnInvoice = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPaymentAmount = new System.Windows.Forms.TextBox();
             this.cmbMethod = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtInvoiceID = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -66,11 +66,11 @@
             this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvPatient = new System.Windows.Forms.DataGridView();
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
             this.patientFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
             this.lblTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
@@ -153,52 +153,55 @@
             this.btnInvoice.UseVisualStyleBackColor = true;
             this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
             // 
-            // textBox2
+            // txtPaymentAmount
             // 
-            this.textBox2.Location = new System.Drawing.Point(543, 115);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 5;
+            this.txtPaymentAmount.Location = new System.Drawing.Point(657, 257);
+            this.txtPaymentAmount.Name = "txtPaymentAmount";
+            this.txtPaymentAmount.Size = new System.Drawing.Size(100, 22);
+            this.txtPaymentAmount.TabIndex = 5;
+            this.txtPaymentAmount.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // cmbMethod
             // 
             this.cmbMethod.FormattingEnabled = true;
-            this.cmbMethod.Location = new System.Drawing.Point(543, 199);
+            this.cmbMethod.Location = new System.Drawing.Point(636, 199);
             this.cmbMethod.Name = "cmbMethod";
             this.cmbMethod.Size = new System.Drawing.Size(121, 24);
             this.cmbMethod.TabIndex = 6;
             // 
-            // textBox3
+            // txtInvoiceID
             // 
-            this.textBox3.Location = new System.Drawing.Point(543, 274);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 7;
+            this.txtInvoiceID.Location = new System.Drawing.Point(657, 161);
+            this.txtInvoiceID.Name = "txtInvoiceID";
+            this.txtInvoiceID.Size = new System.Drawing.Size(100, 22);
+            this.txtInvoiceID.TabIndex = 7;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(543, 354);
+            this.dateTimePicker1.Location = new System.Drawing.Point(557, 349);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 8;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(579, 441);
+            this.btnSave.Location = new System.Drawing.Point(622, 408);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(826, 526);
+            this.btnClear.Location = new System.Drawing.Point(807, 471);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 10;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // appointmentBindingSource
             // 
@@ -264,7 +267,7 @@
             this.appointmentBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.appointmentBindingNavigator.Name = "appointmentBindingNavigator";
             this.appointmentBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.appointmentBindingNavigator.Size = new System.Drawing.Size(921, 31);
+            this.appointmentBindingNavigator.Size = new System.Drawing.Size(921, 27);
             this.appointmentBindingNavigator.TabIndex = 11;
             this.appointmentBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -274,7 +277,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
@@ -389,15 +392,6 @@
             this.dgvPatient.Size = new System.Drawing.Size(325, 90);
             this.dgvPatient.TabIndex = 12;
             // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataMember = "Patient";
-            this.patientBindingSource.DataSource = this.dsDentist;
-            // 
-            // patientTableAdapter
-            // 
-            this.patientTableAdapter.ClearBeforeFill = true;
-            // 
             // patientFirstNameDataGridViewTextBoxColumn
             // 
             this.patientFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Patient_First_Name";
@@ -422,6 +416,15 @@
             this.patientPhoneNumberDataGridViewTextBoxColumn.Name = "patientPhoneNumberDataGridViewTextBoxColumn";
             this.patientPhoneNumberDataGridViewTextBoxColumn.Width = 125;
             // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataMember = "Patient";
+            this.patientBindingSource.DataSource = this.dsDentist;
+            // 
+            // patientTableAdapter
+            // 
+            this.patientTableAdapter.ClearBeforeFill = true;
+            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
@@ -442,9 +445,9 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtInvoiceID);
             this.Controls.Add(this.cmbMethod);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPaymentAmount);
             this.Controls.Add(this.btnInvoice);
             this.Controls.Add(this.dgvTreatment);
             this.Controls.Add(this.btnTreatment);
@@ -474,9 +477,9 @@
         private System.Windows.Forms.Button btnTreatment;
         private System.Windows.Forms.DataGridView dgvTreatment;
         private System.Windows.Forms.Button btnInvoice;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPaymentAmount;
         private System.Windows.Forms.ComboBox cmbMethod;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtInvoiceID;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClear;
