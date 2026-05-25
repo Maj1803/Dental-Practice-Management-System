@@ -72,6 +72,18 @@
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblInvoiceTotal = new System.Windows.Forms.Label();
+            this.lblnvoiceTotal = new System.Windows.Forms.Label();
+            this.lblTotall = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -82,11 +94,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.paymentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtApptID
             // 
-            this.txtApptID.Location = new System.Drawing.Point(211, 106);
+            this.txtApptID.Location = new System.Drawing.Point(28, 82);
             this.txtApptID.Name = "txtApptID";
             this.txtApptID.Size = new System.Drawing.Size(100, 22);
             this.txtApptID.TabIndex = 0;
@@ -94,9 +108,11 @@
             // 
             // btnTreatment
             // 
-            this.btnTreatment.Location = new System.Drawing.Point(211, 244);
+            this.btnTreatment.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTreatment.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnTreatment.Location = new System.Drawing.Point(90, 288);
             this.btnTreatment.Name = "btnTreatment";
-            this.btnTreatment.Size = new System.Drawing.Size(137, 23);
+            this.btnTreatment.Size = new System.Drawing.Size(156, 36);
             this.btnTreatment.TabIndex = 1;
             this.btnTreatment.Text = "Load Treatment";
             this.btnTreatment.UseVisualStyleBackColor = true;
@@ -110,11 +126,11 @@
             this.treatmentNameDataGridViewTextBoxColumn,
             this.treatmentCostDataGridViewTextBoxColumn});
             this.dgvTreatment.DataSource = this.treatmentBindingSource1;
-            this.dgvTreatment.Location = new System.Drawing.Point(211, 291);
+            this.dgvTreatment.Location = new System.Drawing.Point(28, 350);
             this.dgvTreatment.Name = "dgvTreatment";
             this.dgvTreatment.RowHeadersWidth = 51;
             this.dgvTreatment.RowTemplate.Height = 24;
-            this.dgvTreatment.Size = new System.Drawing.Size(286, 140);
+            this.dgvTreatment.Size = new System.Drawing.Size(301, 140);
             this.dgvTreatment.TabIndex = 2;
             // 
             // treatmentNameDataGridViewTextBoxColumn
@@ -145,9 +161,11 @@
             // 
             // btnInvoice
             // 
-            this.btnInvoice.Location = new System.Drawing.Point(220, 471);
+            this.btnInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvoice.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnInvoice.Location = new System.Drawing.Point(114, 554);
             this.btnInvoice.Name = "btnInvoice";
-            this.btnInvoice.Size = new System.Drawing.Size(75, 23);
+            this.btnInvoice.Size = new System.Drawing.Size(100, 36);
             this.btnInvoice.TabIndex = 4;
             this.btnInvoice.Text = "Invoice";
             this.btnInvoice.UseVisualStyleBackColor = true;
@@ -155,39 +173,40 @@
             // 
             // txtPaymentAmount
             // 
-            this.txtPaymentAmount.Location = new System.Drawing.Point(657, 257);
+            this.txtPaymentAmount.Location = new System.Drawing.Point(191, 133);
             this.txtPaymentAmount.Name = "txtPaymentAmount";
-            this.txtPaymentAmount.Size = new System.Drawing.Size(100, 22);
+            this.txtPaymentAmount.Size = new System.Drawing.Size(121, 22);
             this.txtPaymentAmount.TabIndex = 5;
             this.txtPaymentAmount.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // cmbMethod
             // 
             this.cmbMethod.FormattingEnabled = true;
-            this.cmbMethod.Location = new System.Drawing.Point(636, 199);
+            this.cmbMethod.Location = new System.Drawing.Point(191, 77);
             this.cmbMethod.Name = "cmbMethod";
             this.cmbMethod.Size = new System.Drawing.Size(121, 24);
             this.cmbMethod.TabIndex = 6;
             // 
             // txtInvoiceID
             // 
-            this.txtInvoiceID.Location = new System.Drawing.Point(657, 161);
+            this.txtInvoiceID.Location = new System.Drawing.Point(191, 33);
             this.txtInvoiceID.Name = "txtInvoiceID";
-            this.txtInvoiceID.Size = new System.Drawing.Size(100, 22);
+            this.txtInvoiceID.Size = new System.Drawing.Size(121, 22);
             this.txtInvoiceID.TabIndex = 7;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(557, 349);
+            this.dateTimePicker1.Location = new System.Drawing.Point(191, 187);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(251, 22);
             this.dateTimePicker1.TabIndex = 8;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(622, 408);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnSave.Location = new System.Drawing.Point(175, 244);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(100, 36);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -195,9 +214,10 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(807, 471);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(867, 722);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(100, 36);
             this.btnClear.TabIndex = 10;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -225,6 +245,7 @@
             this.tableAdapterManager.PaymentTableAdapter = this.paymentTableAdapter;
             this.tableAdapterManager.PrescriptionTableAdapter = null;
             this.tableAdapterManager.TimeslotTableAdapter = null;
+            this.tableAdapterManager.Treatment1TableAdapter = null;
             this.tableAdapterManager.TreatmentTableAdapter = this.treatmentTableAdapter;
             this.tableAdapterManager.UpdateOrder = Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
@@ -267,7 +288,7 @@
             this.appointmentBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.appointmentBindingNavigator.Name = "appointmentBindingNavigator";
             this.appointmentBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.appointmentBindingNavigator.Size = new System.Drawing.Size(921, 27);
+            this.appointmentBindingNavigator.Size = new System.Drawing.Size(1016, 31);
             this.appointmentBindingNavigator.TabIndex = 11;
             this.appointmentBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -277,13 +298,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -293,7 +314,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -302,7 +323,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -311,13 +332,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -332,7 +353,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -340,7 +361,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -349,20 +370,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // appointmentBindingNavigatorSaveItem
             // 
             this.appointmentBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.appointmentBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("appointmentBindingNavigatorSaveItem.Image")));
             this.appointmentBindingNavigatorSaveItem.Name = "appointmentBindingNavigatorSaveItem";
-            this.appointmentBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.appointmentBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
             this.appointmentBindingNavigatorSaveItem.Text = "Save Data";
             this.appointmentBindingNavigatorSaveItem.Click += new System.EventHandler(this.appointmentBindingNavigatorSaveItem_Click);
             // 
@@ -385,11 +406,11 @@
             this.patientLastNameDataGridViewTextBoxColumn,
             this.patientPhoneNumberDataGridViewTextBoxColumn});
             this.dgvPatient.DataSource = this.patientBindingSource;
-            this.dgvPatient.Location = new System.Drawing.Point(172, 148);
+            this.dgvPatient.Location = new System.Drawing.Point(28, 133);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.RowHeadersWidth = 51;
             this.dgvPatient.RowTemplate.Height = 24;
-            this.dgvPatient.Size = new System.Drawing.Size(325, 90);
+            this.dgvPatient.Size = new System.Drawing.Size(301, 90);
             this.dgvPatient.TabIndex = 12;
             // 
             // patientFirstNameDataGridViewTextBoxColumn
@@ -433,25 +454,162 @@
             this.lblTotal.Size = new System.Drawing.Size(0, 16);
             this.lblTotal.TabIndex = 13;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtInvoiceID);
+            this.groupBox1.Controls.Add(this.cmbMethod);
+            this.groupBox1.Controls.Add(this.txtPaymentAmount);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.groupBox1.Location = new System.Drawing.Point(556, 179);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(448, 302);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Payment";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label1.Location = new System.Drawing.Point(18, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 18);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Enter Invoice ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label2.Location = new System.Drawing.Point(18, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(165, 18);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Select Payment Method";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label3.Location = new System.Drawing.Point(23, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 18);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Enter Payment Amount";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label4.Location = new System.Drawing.Point(23, 190);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 18);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Select Date";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblTotall);
+            this.groupBox2.Controls.Add(this.lblnvoiceTotal);
+            this.groupBox2.Controls.Add(this.lblInvoiceTotal);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.btnInvoice);
+            this.groupBox2.Controls.Add(this.dgvTreatment);
+            this.groupBox2.Controls.Add(this.btnTreatment);
+            this.groupBox2.Controls.Add(this.dgvPatient);
+            this.groupBox2.Controls.Add(this.txtApptID);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.groupBox2.Location = new System.Drawing.Point(153, 179);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(374, 605);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Invoice";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label5.Location = new System.Drawing.Point(25, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 18);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Enter Appointment ID";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(161, 92);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 29);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Billing";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(163, 130);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(207, 18);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Manage invoice and payments";
+            // 
+            // lblInvoiceTotal
+            // 
+            this.lblInvoiceTotal.AutoSize = true;
+            this.lblInvoiceTotal.Location = new System.Drawing.Point(259, 509);
+            this.lblInvoiceTotal.Name = "lblInvoiceTotal";
+            this.lblInvoiceTotal.Size = new System.Drawing.Size(0, 16);
+            this.lblInvoiceTotal.TabIndex = 14;
+            // 
+            // lblnvoiceTotal
+            // 
+            this.lblnvoiceTotal.AutoSize = true;
+            this.lblnvoiceTotal.Location = new System.Drawing.Point(250, 247);
+            this.lblnvoiceTotal.Name = "lblnvoiceTotal";
+            this.lblnvoiceTotal.Size = new System.Drawing.Size(11, 16);
+            this.lblnvoiceTotal.TabIndex = 15;
+            this.lblnvoiceTotal.Text = ".";
+            // 
+            // lblTotall
+            // 
+            this.lblTotall.AutoSize = true;
+            this.lblTotall.Location = new System.Drawing.Point(258, 519);
+            this.lblTotall.Name = "lblTotall";
+            this.lblTotall.Size = new System.Drawing.Size(50, 16);
+            this.lblTotall.TabIndex = 16;
+            this.lblTotall.Text = "label8";
+            // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dental_Practice_Management_System.Properties.Resources.System_Background;
-            this.ClientSize = new System.Drawing.Size(921, 796);
+            this.ClientSize = new System.Drawing.Size(1016, 796);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.dgvPatient);
             this.Controls.Add(this.appointmentBindingNavigator);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.txtInvoiceID);
-            this.Controls.Add(this.cmbMethod);
-            this.Controls.Add(this.txtPaymentAmount);
-            this.Controls.Add(this.btnInvoice);
-            this.Controls.Add(this.dgvTreatment);
-            this.Controls.Add(this.btnTreatment);
-            this.Controls.Add(this.txtApptID);
             this.Name = "BillingForm";
             this.Text = "BillingForm";
             this.Load += new System.EventHandler(this.BillingForm_Load);
@@ -466,6 +624,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.paymentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,5 +677,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn patientLastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientPhoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblInvoiceTotal;
+        private System.Windows.Forms.Label lblnvoiceTotal;
+        private System.Windows.Forms.Label lblTotall;
     }
 }

@@ -69,7 +69,7 @@ namespace Dental_Practice_Management_System
                 dgvPatient.DataSource = patientBindingSource;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 dgvPatient.DataSource = null;
             }
@@ -96,7 +96,9 @@ namespace Dental_Practice_Management_System
                 foreach (DataGridViewRow row in dgvTreatment.Rows)
                 {
 
-                    if (row.Cells"TreatmentCost.Value != null);
+                    if (row.Cells["TreatmentCost"].Value != null);
+
+
                        {
 
                         total += Convert.ToDecimal(row.Cells["TreatmentCost"].Value);
@@ -105,13 +107,12 @@ namespace Dental_Practice_Management_System
 
                 }
 
-                lblTotal.Text = "R" + total;
+                lblTotall.Text = "R" + total;
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                ex.Message);
+                MessageBox.Show(ex.Message);
 
             }
         }
@@ -127,11 +128,11 @@ namespace Dental_Practice_Management_System
 
             Invoice frm = new Invoice();
 
-            frm.lblApptID.Text = lblApptID.Text;
+            frm.lblApptID.Text = txtApptID.Text;
 
             frm.lblDateToday.Text = DateTime.Now.ToShortDateString();
 
-            frm.lblTotal.Text = "R" + total;
+            frm.lblInvoiceTotal.Text = "R" + total;
 
             frm.lblBalDue.Text = "R" + total;
 
@@ -222,7 +223,7 @@ namespace Dental_Practice_Management_System
 
             dgvTreatment.DataSource = null;
 
-            lblTotal.Text = "R0.00";
+            lblTotall.Text = "R0.00";
 
             total = 0;
 

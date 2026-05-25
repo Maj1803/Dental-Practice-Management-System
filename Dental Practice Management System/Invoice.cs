@@ -26,7 +26,24 @@ namespace Dental_Practice_Management_System
         {
             // TODO: This line of code loads data into the 'dsDentist.Treatment' table. You can move, or remove it, as needed.
             this.treatmentTableAdapter.Fill(this.dsDentist.Treatment);
+            // TODO: This line of code loads data into the 'dsDentist.Treatment' table. You can move, or remove it, as needed.
+            this.treatmentTableAdapter.Fill(this.dsDentist.Treatment);
             dgvInvoiceTreatment.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;
+
+        }
+
+        private void lblBalDue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblApptID_Click(object sender, EventArgs e)
+        {
 
         }
     }
