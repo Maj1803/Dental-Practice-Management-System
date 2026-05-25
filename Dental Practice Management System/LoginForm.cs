@@ -12,65 +12,26 @@ namespace Dental_Practice_Management_System
         public LoginForm()
         {
             InitializeComponent();
-            SetupForm();
-        }
-
-        private void SetupForm()
-        {
-            groupBox1.Visible = false;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // intentionally empty
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            // intentionally empty
-        }
-
-        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                txtPassword.Focus();
-        }
-
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                btnLogin_Click(sender, e);
         }
 
         private void btnReceptionist_Click(object sender, EventArgs e)
         {
             selectedRole = "Receptionist";
             HighlightButton(btnReceptionist, btnDentist);
-            ShowLoginFields();
         }
 
         private void btnDentist_Click(object sender, EventArgs e)
         {
             selectedRole = "Dentist";
             HighlightButton(btnDentist, btnReceptionist);
-            ShowLoginFields();
         }
 
         private void HighlightButton(Button selected, Button other)
         {
             selected.BackColor = Color.FromArgb(26, 58, 143);
             selected.ForeColor = Color.White;
-
             other.BackColor = Color.White;
             other.ForeColor = Color.FromArgb(26, 58, 143);
-        }
-
-        private void ShowLoginFields()
-        {
-            groupBox1.Visible = true;
-            txtUsername.Clear();
-            txtPassword.Clear();
-            txtUsername.Focus();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -119,8 +80,9 @@ namespace Dental_Practice_Management_System
                         MessageBox.Show("Login Successful!\n\nWelcome, " + fullName + "!\nLogged in as: " + role,
                             "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Uncomment once MDIParent1 is ready
-                        // MDIParent1 mainForm = new MDIParent1(fullName, role);
+                        // I Will Uncomment once MDIParent is ready. 
+                        //For now there is success messages.
+                        // MDIParent mainForm = new MDIParent(fullName, role);
                         // mainForm.Show();
                         // this.Hide();
                     }
