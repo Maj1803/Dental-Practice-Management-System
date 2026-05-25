@@ -20,6 +20,16 @@ namespace Dental_Practice_Management_System
             groupBox1.Visible = false;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // intentionally empty
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            // intentionally empty
+        }
+
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
