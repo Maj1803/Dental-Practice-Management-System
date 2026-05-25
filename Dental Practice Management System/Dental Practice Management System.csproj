@@ -84,6 +84,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs" />
+    <Compile Include="MDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent.Designer.cs" />
     <Compile Include="Patients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +121,7 @@
       <DependentUpon>Invoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx" />
+    <EmbeddedResource Include="MDIParent.resx" />
     <EmbeddedResource Include="Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
     </EmbeddedResource>
