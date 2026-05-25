@@ -82,9 +82,9 @@ namespace Dental_Practice_Management_System
 
                         // I Will Uncomment once MDIParent is ready. 
                         //For now there is success messages.
-                        // MDIParent mainForm = new MDIParent(fullName, role);
-                        // mainForm.Show();
-                        // this.Hide();
+                        MDIParent mainForm = new MDIParent(fullName, role);
+                        mainForm.Show();
+                        this.Hide();
                     }
                     else
                     {
