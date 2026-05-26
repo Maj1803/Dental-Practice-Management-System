@@ -112,5 +112,10 @@ namespace Dental_Practice_Management_System
             loginForm.Show();
             this.Close();
         }
+
+        private void MDIParent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
