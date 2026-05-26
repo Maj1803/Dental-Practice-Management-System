@@ -12,7 +12,7 @@ namespace Dental_Practice_Management_System
 {
     public partial class BillingForm : Form
     {
-        SqlConnection con;
+        
         decimal total = 0;
         public BillingForm()
         {
@@ -96,10 +96,10 @@ namespace Dental_Practice_Management_System
                 foreach (DataGridViewRow row in dgvTreatment.Rows)
                 {
 
-                    if (row.Cells["TreatmentCost"].Value != null);
+                    if (row.Cells["TreatmentCost"].Value != null) 
 
 
-                       {
+                    {
 
                         total += Convert.ToDecimal(row.Cells["TreatmentCost"].Value);
 
@@ -193,7 +193,7 @@ namespace Dental_Practice_Management_System
             try
             {
 
-                paymentTableAdapter.Insert(Convert.ToInt32(txtInvoiceID.Text), cmbMethod.Text, amount, dateTimePicker1.Value);
+                paymentTableAdapter.Insert(Convert.ToInt32(txtInvoiceID.Text), Convert.ToInt32(txtApptID.Text), amount, cmbMethod.Text, dateTimePicker1.Value);
 
                 MessageBox.Show("Payment has been saved");
 
@@ -232,5 +232,8 @@ namespace Dental_Practice_Management_System
             patientBindingSource.DataSource = null;
 
             treatmentBindingSource1.DataSource = null;
+
+        }
+    }
         }
     
