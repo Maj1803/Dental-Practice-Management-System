@@ -77,8 +77,8 @@ namespace Dental_Practice_Management_System
                         string fullName = reader["Employee_First_Name"].ToString() + " " + reader["Employee_Last_Name"].ToString();
                         string role = reader["Employee_Role"].ToString();
 
-                        MessageBox.Show("Login Successful!\n\nWelcome, " + fullName + "!\nLogged in as: " + role,
-                            "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Login Successful!\n\nWelcome, " + fullName + "!\nLogged in as: " + role,
+                            //"Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // I Will Uncomment once MDIParent is ready. 
                         //For now there is success messages.
