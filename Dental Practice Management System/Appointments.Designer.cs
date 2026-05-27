@@ -24,6 +24,16 @@
             this.btnBookAppointment = new System.Windows.Forms.Button();
             this.btnUpdateAppointment = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.pnlViewAppointments = new System.Windows.Forms.Panel();
+            this.dgvAppointments = new System.Windows.Forms.DataGridView();
+            this.grpViewFilters = new System.Windows.Forms.GroupBox();
+            this.cmbStatusFilter = new System.Windows.Forms.ComboBox();
+            this.lblStatusFilter = new System.Windows.Forms.Label();
+            this.dtpFilterDate = new System.Windows.Forms.DateTimePicker();
+            this.lblFilterDate = new System.Windows.Forms.Label();
+            this.btnSearchAppointments = new System.Windows.Forms.Button();
+            this.txtSearchAppointments = new System.Windows.Forms.TextBox();
+            this.lblSearchAppointments = new System.Windows.Forms.Label();
             this.pnlBookAppointment = new System.Windows.Forms.Panel();
             this.grpAppointmentDetails = new System.Windows.Forms.GroupBox();
             this.btnClearBooking = new System.Windows.Forms.Button();
@@ -39,6 +49,11 @@
             this.cmbDentist = new System.Windows.Forms.ComboBox();
             this.lblDentist = new System.Windows.Forms.Label();
             this.grpPatientInfo = new System.Windows.Forms.GroupBox();
+            this.lblSelectedPatient = new System.Windows.Forms.Label();
+            this.dgvPatientResults = new System.Windows.Forms.DataGridView();
+            this.btnSearchPatient = new System.Windows.Forms.Button();
+            this.txtSearchPatient = new System.Windows.Forms.TextBox();
+            this.lblSearchPatient = new System.Windows.Forms.Label();
             this.pnlUpdateAppointment = new System.Windows.Forms.Panel();
             this.grpUpdateDetails = new System.Windows.Forms.GroupBox();
             this.btnClearUpdate = new System.Windows.Forms.Button();
@@ -57,41 +72,18 @@
             this.btnUpdateSearch = new System.Windows.Forms.Button();
             this.txtUpdateSearch = new System.Windows.Forms.TextBox();
             this.lblUpdateSearch = new System.Windows.Forms.Label();
-            this.lblSelectedPatient = new System.Windows.Forms.Label();
-            this.dgvPatientResults = new System.Windows.Forms.DataGridView();
-            this.btnSearchPatient = new System.Windows.Forms.Button();
-            this.txtSearchPatient = new System.Windows.Forms.TextBox();
-            this.lblSearchPatient = new System.Windows.Forms.Label();
-            this.pnlViewAppointments = new System.Windows.Forms.Panel();
-            this.dgvAppointments = new System.Windows.Forms.DataGridView();
-            this.grpViewFilters = new System.Windows.Forms.GroupBox();
-            this.cmbStatusFilter = new System.Windows.Forms.ComboBox();
-            this.lblStatusFilter = new System.Windows.Forms.Label();
-            this.dtpFilterDate = new System.Windows.Forms.DateTimePicker();
-            this.lblFilterDate = new System.Windows.Forms.Label();
-            this.btnSearchAppointments = new System.Windows.Forms.Button();
-            this.txtSearchAppointments = new System.Windows.Forms.TextBox();
-            this.lblSearchAppointments = new System.Windows.Forms.Label();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnPatients = new System.Windows.Forms.Button();
-            this.btnAppointments = new System.Windows.Forms.Button();
-            this.btnTreatments = new System.Windows.Forms.Button();
-            this.btnBilling = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
-            this.btnStaff = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
+            this.pnlViewAppointments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
+            this.grpViewFilters.SuspendLayout();
             this.pnlBookAppointment.SuspendLayout();
             this.grpAppointmentDetails.SuspendLayout();
             this.grpPatientInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).BeginInit();
             this.pnlUpdateAppointment.SuspendLayout();
             this.grpUpdateDetails.SuspendLayout();
             this.grpFindAppointment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateAppointments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).BeginInit();
-            this.pnlViewAppointments.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
-            this.grpViewFilters.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -99,7 +91,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(152, 65);
+            this.lblTitle.Location = new System.Drawing.Point(81, 43);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(172, 29);
             this.lblTitle.TabIndex = 0;
@@ -111,7 +103,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(154, 96);
+            this.label2.Location = new System.Drawing.Point(83, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 16);
             this.label2.TabIndex = 1;
@@ -119,40 +111,43 @@
             // 
             // btnViewAppointments
             // 
+            this.btnViewAppointments.BackColor = System.Drawing.Color.Azure;
             this.btnViewAppointments.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnViewAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewAppointments.Location = new System.Drawing.Point(157, 128);
+            this.btnViewAppointments.Location = new System.Drawing.Point(251, 106);
             this.btnViewAppointments.Name = "btnViewAppointments";
             this.btnViewAppointments.Size = new System.Drawing.Size(151, 37);
             this.btnViewAppointments.TabIndex = 2;
             this.btnViewAppointments.Text = "View Appointments";
-            this.btnViewAppointments.UseVisualStyleBackColor = true;
+            this.btnViewAppointments.UseVisualStyleBackColor = false;
             this.btnViewAppointments.Click += new System.EventHandler(this.btnViewAppointments_Click);
             // 
             // btnBookAppointment
             // 
+            this.btnBookAppointment.BackColor = System.Drawing.Color.Azure;
             this.btnBookAppointment.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnBookAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBookAppointment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBookAppointment.Location = new System.Drawing.Point(330, 128);
+            this.btnBookAppointment.Location = new System.Drawing.Point(87, 106);
             this.btnBookAppointment.Name = "btnBookAppointment";
             this.btnBookAppointment.Size = new System.Drawing.Size(142, 37);
             this.btnBookAppointment.TabIndex = 3;
             this.btnBookAppointment.Text = "Book Appointment";
-            this.btnBookAppointment.UseVisualStyleBackColor = true;
+            this.btnBookAppointment.UseVisualStyleBackColor = false;
             this.btnBookAppointment.Click += new System.EventHandler(this.btnBookAppointment_Click);
             // 
             // btnUpdateAppointment
             // 
+            this.btnUpdateAppointment.BackColor = System.Drawing.Color.Azure;
             this.btnUpdateAppointment.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnUpdateAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateAppointment.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateAppointment.Location = new System.Drawing.Point(501, 128);
+            this.btnUpdateAppointment.Location = new System.Drawing.Point(430, 106);
             this.btnUpdateAppointment.Name = "btnUpdateAppointment";
             this.btnUpdateAppointment.Size = new System.Drawing.Size(151, 37);
             this.btnUpdateAppointment.TabIndex = 4;
             this.btnUpdateAppointment.Text = "Update Appointment";
-            this.btnUpdateAppointment.UseVisualStyleBackColor = true;
+            this.btnUpdateAppointment.UseVisualStyleBackColor = false;
             this.btnUpdateAppointment.Click += new System.EventHandler(this.btnUpdateAppointment_Click);
             // 
             // pnlContent
@@ -161,11 +156,127 @@
             this.pnlContent.Controls.Add(this.pnlViewAppointments);
             this.pnlContent.Controls.Add(this.pnlBookAppointment);
             this.pnlContent.Controls.Add(this.pnlUpdateAppointment);
-            this.pnlContent.Location = new System.Drawing.Point(157, 171);
+            this.pnlContent.Location = new System.Drawing.Point(86, 149);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(900, 418);
             this.pnlContent.TabIndex = 5;
             this.pnlContent.Visible = false;
+            // 
+            // pnlViewAppointments
+            // 
+            this.pnlViewAppointments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlViewAppointments.Controls.Add(this.dgvAppointments);
+            this.pnlViewAppointments.Controls.Add(this.grpViewFilters);
+            this.pnlViewAppointments.Location = new System.Drawing.Point(0, 0);
+            this.pnlViewAppointments.Name = "pnlViewAppointments";
+            this.pnlViewAppointments.Size = new System.Drawing.Size(900, 418);
+            this.pnlViewAppointments.TabIndex = 5;
+            // 
+            // dgvAppointments
+            // 
+            this.dgvAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAppointments.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointments.Location = new System.Drawing.Point(15, 129);
+            this.dgvAppointments.MultiSelect = false;
+            this.dgvAppointments.Name = "dgvAppointments";
+            this.dgvAppointments.ReadOnly = true;
+            this.dgvAppointments.RowHeadersWidth = 51;
+            this.dgvAppointments.RowTemplate.Height = 24;
+            this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAppointments.Size = new System.Drawing.Size(876, 265);
+            this.dgvAppointments.TabIndex = 1;
+            // 
+            // grpViewFilters
+            // 
+            this.grpViewFilters.AutoSize = true;
+            this.grpViewFilters.Controls.Add(this.cmbStatusFilter);
+            this.grpViewFilters.Controls.Add(this.lblStatusFilter);
+            this.grpViewFilters.Controls.Add(this.dtpFilterDate);
+            this.grpViewFilters.Controls.Add(this.lblFilterDate);
+            this.grpViewFilters.Controls.Add(this.btnSearchAppointments);
+            this.grpViewFilters.Controls.Add(this.txtSearchAppointments);
+            this.grpViewFilters.Controls.Add(this.lblSearchAppointments);
+            this.grpViewFilters.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpViewFilters.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpViewFilters.Location = new System.Drawing.Point(15, 19);
+            this.grpViewFilters.Name = "grpViewFilters";
+            this.grpViewFilters.Size = new System.Drawing.Size(1059, 617);
+            this.grpViewFilters.TabIndex = 0;
+            this.grpViewFilters.TabStop = false;
+            this.grpViewFilters.Text = "Appointments";
+            // 
+            // cmbStatusFilter
+            // 
+            this.cmbStatusFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatusFilter.FormattingEnabled = true;
+            this.cmbStatusFilter.Location = new System.Drawing.Point(622, 54);
+            this.cmbStatusFilter.Name = "cmbStatusFilter";
+            this.cmbStatusFilter.Size = new System.Drawing.Size(121, 28);
+            this.cmbStatusFilter.TabIndex = 6;
+            // 
+            // lblStatusFilter
+            // 
+            this.lblStatusFilter.AutoSize = true;
+            this.lblStatusFilter.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusFilter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblStatusFilter.Location = new System.Drawing.Point(619, 30);
+            this.lblStatusFilter.Name = "lblStatusFilter";
+            this.lblStatusFilter.Size = new System.Drawing.Size(43, 17);
+            this.lblStatusFilter.TabIndex = 5;
+            this.lblStatusFilter.Text = "Status";
+            // 
+            // dtpFilterDate
+            // 
+            this.dtpFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFilterDate.Location = new System.Drawing.Point(468, 55);
+            this.dtpFilterDate.Name = "dtpFilterDate";
+            this.dtpFilterDate.Size = new System.Drawing.Size(121, 27);
+            this.dtpFilterDate.TabIndex = 4;
+            // 
+            // lblFilterDate
+            // 
+            this.lblFilterDate.AutoSize = true;
+            this.lblFilterDate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilterDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblFilterDate.Location = new System.Drawing.Point(465, 30);
+            this.lblFilterDate.Name = "lblFilterDate";
+            this.lblFilterDate.Size = new System.Drawing.Size(35, 17);
+            this.lblFilterDate.TabIndex = 3;
+            this.lblFilterDate.Text = "Date";
+            // 
+            // btnSearchAppointments
+            // 
+            this.btnSearchAppointments.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSearchAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchAppointments.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchAppointments.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSearchAppointments.Location = new System.Drawing.Point(268, 53);
+            this.btnSearchAppointments.Name = "btnSearchAppointments";
+            this.btnSearchAppointments.Size = new System.Drawing.Size(75, 25);
+            this.btnSearchAppointments.TabIndex = 2;
+            this.btnSearchAppointments.Text = "Search";
+            this.btnSearchAppointments.UseVisualStyleBackColor = true;
+            this.btnSearchAppointments.Click += new System.EventHandler(this.btnSearchAppointments_Click);
+            // 
+            // txtSearchAppointments
+            // 
+            this.txtSearchAppointments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchAppointments.Location = new System.Drawing.Point(18, 53);
+            this.txtSearchAppointments.Name = "txtSearchAppointments";
+            this.txtSearchAppointments.Size = new System.Drawing.Size(244, 27);
+            this.txtSearchAppointments.TabIndex = 1;
+            // 
+            // lblSearchAppointments
+            // 
+            this.lblSearchAppointments.AutoSize = true;
+            this.lblSearchAppointments.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchAppointments.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblSearchAppointments.Location = new System.Drawing.Point(15, 30);
+            this.lblSearchAppointments.Name = "lblSearchAppointments";
+            this.lblSearchAppointments.Size = new System.Drawing.Size(328, 17);
+            this.lblSearchAppointments.TabIndex = 0;
+            this.lblSearchAppointments.Text = "Search Appointment (Patient Name or Appointment ID)";
             // 
             // pnlBookAppointment
             // 
@@ -352,6 +463,64 @@
             this.grpPatientInfo.TabIndex = 0;
             this.grpPatientInfo.TabStop = false;
             this.grpPatientInfo.Text = "Patient Information";
+            // 
+            // lblSelectedPatient
+            // 
+            this.lblSelectedPatient.AutoSize = true;
+            this.lblSelectedPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectedPatient.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblSelectedPatient.Location = new System.Drawing.Point(756, 170);
+            this.lblSelectedPatient.Name = "lblSelectedPatient";
+            this.lblSelectedPatient.Size = new System.Drawing.Size(126, 16);
+            this.lblSelectedPatient.TabIndex = 4;
+            this.lblSelectedPatient.Text = "No patient selected.";
+            // 
+            // dgvPatientResults
+            // 
+            this.dgvPatientResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPatientResults.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dgvPatientResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPatientResults.Location = new System.Drawing.Point(6, 95);
+            this.dgvPatientResults.MultiSelect = false;
+            this.dgvPatientResults.Name = "dgvPatientResults";
+            this.dgvPatientResults.ReadOnly = true;
+            this.dgvPatientResults.RowHeadersWidth = 51;
+            this.dgvPatientResults.RowTemplate.Height = 24;
+            this.dgvPatientResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPatientResults.Size = new System.Drawing.Size(876, 72);
+            this.dgvPatientResults.TabIndex = 3;
+            this.dgvPatientResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientResults_CellClick);
+            // 
+            // btnSearchPatient
+            // 
+            this.btnSearchPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnSearchPatient.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchPatient.Location = new System.Drawing.Point(251, 49);
+            this.btnSearchPatient.Name = "btnSearchPatient";
+            this.btnSearchPatient.Size = new System.Drawing.Size(70, 25);
+            this.btnSearchPatient.TabIndex = 2;
+            this.btnSearchPatient.Text = "Search";
+            this.btnSearchPatient.UseVisualStyleBackColor = true;
+            this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
+            // 
+            // txtSearchPatient
+            // 
+            this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchPatient.Location = new System.Drawing.Point(10, 49);
+            this.txtSearchPatient.Name = "txtSearchPatient";
+            this.txtSearchPatient.Size = new System.Drawing.Size(235, 27);
+            this.txtSearchPatient.TabIndex = 1;
+            // 
+            // lblSearchPatient
+            // 
+            this.lblSearchPatient.AutoSize = true;
+            this.lblSearchPatient.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchPatient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblSearchPatient.Location = new System.Drawing.Point(7, 29);
+            this.lblSearchPatient.Name = "lblSearchPatient";
+            this.lblSearchPatient.Size = new System.Drawing.Size(193, 15);
+            this.lblSearchPatient.TabIndex = 0;
+            this.lblSearchPatient.Text = "Search Patient (Patient Name or ID)";
             // 
             // pnlUpdateAppointment
             // 
@@ -574,300 +743,13 @@
             this.lblUpdateSearch.TabIndex = 0;
             this.lblUpdateSearch.Text = "Search Patient (Patient Name or ID)";
             // 
-            // lblSelectedPatient
-            // 
-            this.lblSelectedPatient.AutoSize = true;
-            this.lblSelectedPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedPatient.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSelectedPatient.Location = new System.Drawing.Point(756, 170);
-            this.lblSelectedPatient.Name = "lblSelectedPatient";
-            this.lblSelectedPatient.Size = new System.Drawing.Size(126, 16);
-            this.lblSelectedPatient.TabIndex = 4;
-            this.lblSelectedPatient.Text = "No patient selected.";
-            // 
-            // dgvPatientResults
-            // 
-            this.dgvPatientResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPatientResults.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dgvPatientResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPatientResults.Location = new System.Drawing.Point(6, 95);
-            this.dgvPatientResults.MultiSelect = false;
-            this.dgvPatientResults.Name = "dgvPatientResults";
-            this.dgvPatientResults.ReadOnly = true;
-            this.dgvPatientResults.RowHeadersWidth = 51;
-            this.dgvPatientResults.RowTemplate.Height = 24;
-            this.dgvPatientResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPatientResults.Size = new System.Drawing.Size(876, 72);
-            this.dgvPatientResults.TabIndex = 3;
-            this.dgvPatientResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientResults_CellClick);
-            // 
-            // btnSearchPatient
-            // 
-            this.btnSearchPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnSearchPatient.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchPatient.Location = new System.Drawing.Point(251, 49);
-            this.btnSearchPatient.Name = "btnSearchPatient";
-            this.btnSearchPatient.Size = new System.Drawing.Size(70, 25);
-            this.btnSearchPatient.TabIndex = 2;
-            this.btnSearchPatient.Text = "Search";
-            this.btnSearchPatient.UseVisualStyleBackColor = true;
-            this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
-            // 
-            // txtSearchPatient
-            // 
-            this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchPatient.Location = new System.Drawing.Point(10, 49);
-            this.txtSearchPatient.Name = "txtSearchPatient";
-            this.txtSearchPatient.Size = new System.Drawing.Size(235, 27);
-            this.txtSearchPatient.TabIndex = 1;
-            // 
-            // lblSearchPatient
-            // 
-            this.lblSearchPatient.AutoSize = true;
-            this.lblSearchPatient.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchPatient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblSearchPatient.Location = new System.Drawing.Point(7, 29);
-            this.lblSearchPatient.Name = "lblSearchPatient";
-            this.lblSearchPatient.Size = new System.Drawing.Size(193, 15);
-            this.lblSearchPatient.TabIndex = 0;
-            this.lblSearchPatient.Text = "Search Patient (Patient Name or ID)";
-            // 
-            // pnlViewAppointments
-            // 
-            this.pnlViewAppointments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlViewAppointments.Controls.Add(this.dgvAppointments);
-            this.pnlViewAppointments.Controls.Add(this.grpViewFilters);
-            this.pnlViewAppointments.Location = new System.Drawing.Point(0, 0);
-            this.pnlViewAppointments.Name = "pnlViewAppointments";
-            this.pnlViewAppointments.Size = new System.Drawing.Size(900, 418);
-            this.pnlViewAppointments.TabIndex = 5;
-            // 
-            // dgvAppointments
-            // 
-            this.dgvAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAppointments.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAppointments.Location = new System.Drawing.Point(15, 129);
-            this.dgvAppointments.MultiSelect = false;
-            this.dgvAppointments.Name = "dgvAppointments";
-            this.dgvAppointments.ReadOnly = true;
-            this.dgvAppointments.RowHeadersWidth = 51;
-            this.dgvAppointments.RowTemplate.Height = 24;
-            this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAppointments.Size = new System.Drawing.Size(876, 265);
-            this.dgvAppointments.TabIndex = 1;
-            // 
-            // grpViewFilters
-            // 
-            this.grpViewFilters.AutoSize = true;
-            this.grpViewFilters.Controls.Add(this.cmbStatusFilter);
-            this.grpViewFilters.Controls.Add(this.lblStatusFilter);
-            this.grpViewFilters.Controls.Add(this.dtpFilterDate);
-            this.grpViewFilters.Controls.Add(this.lblFilterDate);
-            this.grpViewFilters.Controls.Add(this.btnSearchAppointments);
-            this.grpViewFilters.Controls.Add(this.txtSearchAppointments);
-            this.grpViewFilters.Controls.Add(this.lblSearchAppointments);
-            this.grpViewFilters.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpViewFilters.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpViewFilters.Location = new System.Drawing.Point(15, 19);
-            this.grpViewFilters.Name = "grpViewFilters";
-            this.grpViewFilters.Size = new System.Drawing.Size(1059, 617);
-            this.grpViewFilters.TabIndex = 0;
-            this.grpViewFilters.TabStop = false;
-            this.grpViewFilters.Text = "Appointments";
-            // 
-            // cmbStatusFilter
-            // 
-            this.cmbStatusFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatusFilter.FormattingEnabled = true;
-            this.cmbStatusFilter.Location = new System.Drawing.Point(622, 54);
-            this.cmbStatusFilter.Name = "cmbStatusFilter";
-            this.cmbStatusFilter.Size = new System.Drawing.Size(121, 28);
-            this.cmbStatusFilter.TabIndex = 6;
-            // 
-            // lblStatusFilter
-            // 
-            this.lblStatusFilter.AutoSize = true;
-            this.lblStatusFilter.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusFilter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblStatusFilter.Location = new System.Drawing.Point(619, 30);
-            this.lblStatusFilter.Name = "lblStatusFilter";
-            this.lblStatusFilter.Size = new System.Drawing.Size(43, 17);
-            this.lblStatusFilter.TabIndex = 5;
-            this.lblStatusFilter.Text = "Status";
-            // 
-            // dtpFilterDate
-            // 
-            this.dtpFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFilterDate.Location = new System.Drawing.Point(468, 55);
-            this.dtpFilterDate.Name = "dtpFilterDate";
-            this.dtpFilterDate.Size = new System.Drawing.Size(121, 27);
-            this.dtpFilterDate.TabIndex = 4;
-            // 
-            // lblFilterDate
-            // 
-            this.lblFilterDate.AutoSize = true;
-            this.lblFilterDate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilterDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblFilterDate.Location = new System.Drawing.Point(465, 30);
-            this.lblFilterDate.Name = "lblFilterDate";
-            this.lblFilterDate.Size = new System.Drawing.Size(35, 17);
-            this.lblFilterDate.TabIndex = 3;
-            this.lblFilterDate.Text = "Date";
-            // 
-            // btnSearchAppointments
-            // 
-            this.btnSearchAppointments.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnSearchAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchAppointments.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchAppointments.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSearchAppointments.Location = new System.Drawing.Point(268, 53);
-            this.btnSearchAppointments.Name = "btnSearchAppointments";
-            this.btnSearchAppointments.Size = new System.Drawing.Size(75, 25);
-            this.btnSearchAppointments.TabIndex = 2;
-            this.btnSearchAppointments.Text = "Search";
-            this.btnSearchAppointments.UseVisualStyleBackColor = true;
-            this.btnSearchAppointments.Click += new System.EventHandler(this.btnSearchAppointments_Click);
-            // 
-            // txtSearchAppointments
-            // 
-            this.txtSearchAppointments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchAppointments.Location = new System.Drawing.Point(18, 53);
-            this.txtSearchAppointments.Name = "txtSearchAppointments";
-            this.txtSearchAppointments.Size = new System.Drawing.Size(244, 27);
-            this.txtSearchAppointments.TabIndex = 1;
-            // 
-            // lblSearchAppointments
-            // 
-            this.lblSearchAppointments.AutoSize = true;
-            this.lblSearchAppointments.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchAppointments.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblSearchAppointments.Location = new System.Drawing.Point(15, 30);
-            this.lblSearchAppointments.Name = "lblSearchAppointments";
-            this.lblSearchAppointments.Size = new System.Drawing.Size(328, 17);
-            this.lblSearchAppointments.TabIndex = 0;
-            this.lblSearchAppointments.Text = "Search Appointment (Patient Name or Appointment ID)";
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.BackColor = System.Drawing.Color.Transparent;
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Location = new System.Drawing.Point(-1, 54);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(125, 75);
-            this.btnDashboard.TabIndex = 15;
-            this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
-            // btnPatients
-            // 
-            this.btnPatients.BackColor = System.Drawing.Color.Transparent;
-            this.btnPatients.FlatAppearance.BorderSize = 0;
-            this.btnPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPatients.Location = new System.Drawing.Point(-1, 128);
-            this.btnPatients.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPatients.Name = "btnPatients";
-            this.btnPatients.Size = new System.Drawing.Size(125, 75);
-            this.btnPatients.TabIndex = 16;
-            this.btnPatients.UseVisualStyleBackColor = false;
-            this.btnPatients.Click += new System.EventHandler(this.btnPatients_Click);
-            // 
-            // btnAppointments
-            // 
-            this.btnAppointments.BackColor = System.Drawing.Color.Transparent;
-            this.btnAppointments.FlatAppearance.BorderSize = 0;
-            this.btnAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAppointments.Location = new System.Drawing.Point(-1, 206);
-            this.btnAppointments.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAppointments.Name = "btnAppointments";
-            this.btnAppointments.Size = new System.Drawing.Size(125, 75);
-            this.btnAppointments.TabIndex = 17;
-            this.btnAppointments.UseVisualStyleBackColor = false;
-            this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
-            // 
-            // btnTreatments
-            // 
-            this.btnTreatments.BackColor = System.Drawing.Color.Transparent;
-            this.btnTreatments.FlatAppearance.BorderSize = 0;
-            this.btnTreatments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTreatments.Location = new System.Drawing.Point(-1, 289);
-            this.btnTreatments.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTreatments.Name = "btnTreatments";
-            this.btnTreatments.Size = new System.Drawing.Size(125, 75);
-            this.btnTreatments.TabIndex = 18;
-            this.btnTreatments.UseVisualStyleBackColor = false;
-            this.btnTreatments.Click += new System.EventHandler(this.btnTreatments_Click);
-            // 
-            // btnBilling
-            // 
-            this.btnBilling.BackColor = System.Drawing.Color.Transparent;
-            this.btnBilling.FlatAppearance.BorderSize = 0;
-            this.btnBilling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBilling.Location = new System.Drawing.Point(-1, 372);
-            this.btnBilling.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBilling.Name = "btnBilling";
-            this.btnBilling.Size = new System.Drawing.Size(125, 75);
-            this.btnBilling.TabIndex = 19;
-            this.btnBilling.UseVisualStyleBackColor = false;
-            this.btnBilling.Click += new System.EventHandler(this.btnBilling_Click);
-            // 
-            // btnReports
-            // 
-            this.btnReports.BackColor = System.Drawing.Color.Transparent;
-            this.btnReports.FlatAppearance.BorderSize = 0;
-            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Location = new System.Drawing.Point(-1, 455);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(125, 75);
-            this.btnReports.TabIndex = 20;
-            this.btnReports.UseVisualStyleBackColor = false;
-            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
-            // 
-            // btnStaff
-            // 
-            this.btnStaff.BackColor = System.Drawing.Color.Transparent;
-            this.btnStaff.FlatAppearance.BorderSize = 0;
-            this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStaff.Location = new System.Drawing.Point(-1, 530);
-            this.btnStaff.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(125, 75);
-            this.btnStaff.TabIndex = 21;
-            this.btnStaff.UseVisualStyleBackColor = false;
-            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(947, 13);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(108, 32);
-            this.btnLogin.TabIndex = 22;
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
             // Appointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BackgroundImage = global::Dental_Practice_Management_System.Properties.Resources.System_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1082, 603);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.btnStaff);
-            this.Controls.Add(this.btnReports);
-            this.Controls.Add(this.btnBilling);
-            this.Controls.Add(this.btnTreatments);
-            this.Controls.Add(this.btnAppointments);
-            this.Controls.Add(this.btnPatients);
-            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.btnUpdateAppointment);
             this.Controls.Add(this.btnBookAppointment);
@@ -875,28 +757,30 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Appointments";
             this.Text = "Appointments";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Appointments_Load);
             this.pnlContent.ResumeLayout(false);
+            this.pnlViewAppointments.ResumeLayout(false);
+            this.pnlViewAppointments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
+            this.grpViewFilters.ResumeLayout(false);
+            this.grpViewFilters.PerformLayout();
             this.pnlBookAppointment.ResumeLayout(false);
             this.grpAppointmentDetails.ResumeLayout(false);
             this.grpAppointmentDetails.PerformLayout();
             this.grpPatientInfo.ResumeLayout(false);
             this.grpPatientInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).EndInit();
             this.pnlUpdateAppointment.ResumeLayout(false);
             this.grpUpdateDetails.ResumeLayout(false);
             this.grpUpdateDetails.PerformLayout();
             this.grpFindAppointment.ResumeLayout(false);
             this.grpFindAppointment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateAppointments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).EndInit();
-            this.pnlViewAppointments.ResumeLayout(false);
-            this.pnlViewAppointments.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
-            this.grpViewFilters.ResumeLayout(false);
-            this.grpViewFilters.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -958,13 +842,5 @@
         private System.Windows.Forms.Label lblUpdateReason;
         private System.Windows.Forms.Button btnClearUpdate;
         private System.Windows.Forms.Button btnSaveUpdate;
-        private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Button btnPatients;
-        private System.Windows.Forms.Button btnAppointments;
-        private System.Windows.Forms.Button btnTreatments;
-        private System.Windows.Forms.Button btnBilling;
-        private System.Windows.Forms.Button btnReports;
-        private System.Windows.Forms.Button btnStaff;
-        private System.Windows.Forms.Button btnLogin;
     }
 }

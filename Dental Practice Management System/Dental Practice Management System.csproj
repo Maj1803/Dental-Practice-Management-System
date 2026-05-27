@@ -84,6 +84,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs" />
+    <Compile Include="MainMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMDI.Designer.cs">
+      <DependentUpon>MainMDI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIParent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,8 +126,17 @@
     <EmbeddedResource Include="Invoice.resx">
       <DependentUpon>Invoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx" />
-    <EmbeddedResource Include="MDIParent.resx" />
+    <EmbeddedResource Include="LoginForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginForm1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMDI.resx">
+      <DependentUpon>MainMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MDIParent1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
     </EmbeddedResource>
