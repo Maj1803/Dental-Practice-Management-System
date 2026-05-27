@@ -25,7 +25,7 @@ namespace Dental_Practice_Management_System
 
             this.IsMdiContainer = true;
 
-            lblRole.Text = lblRole.Text = role + " | " + fullName;
+            lblRole.Text = role + " | " + fullName;
 
             foreach (Control ctl in this.Controls)
             {
