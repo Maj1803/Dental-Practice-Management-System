@@ -9,7 +9,7 @@ namespace Dental_Practice_Management_System
         public Dashboard()
         {
             InitializeComponent();
-            lblDate.Text = "Welcome back! - " + DateTime.Now.ToString("dddd dd MMMM yyyy");
+            lblDate.Text = "Today is - " + DateTime.Now.ToString("dddd dd MMMM yyyy");
             LoadDashboardData();
         }
 
@@ -38,11 +38,15 @@ namespace Dental_Practice_Management_System
 
                     // Today's schedule
                     SqlCommand cmd4 = new SqlCommand(
-                        @"SELECT t.Slot_Start_Time, 
-                          p.Patient_First_Name + ' ' + p.Patient_Last_Name AS PatientName
+                        @"SELECT t.Slot_Start_Time,
+                          p.Patient_First_Name + ' ' + p.Patient_Last_Name AS PatientName,
+                          tr.TreatmentName,
+                          a.Appointment_Status
                           FROM Appointment a
                           JOIN Patient p ON a.Patient_ID = p.Patient_ID
                           JOIN Timeslot t ON a.Timeslot_ID = t.Timeslot_ID
+                          LEFT JOIN PatientTreatment pt ON a.Appointment_ID = pt.Appointment_ID
+                          LEFT JOIN Treatment tr ON pt.TreatmentID = tr.TreatmentID
                           WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
                           ORDER BY t.Slot_Start_Time", conn);
 
@@ -52,7 +56,9 @@ namespace Dental_Practice_Management_System
                     {
                         dgvSchedule.Rows.Add(
                             reader["Slot_Start_Time"].ToString(),
-                            reader["PatientName"].ToString()
+                            reader["PatientName"].ToString(),
+                            reader["TreatmentName"] == DBNull.Value ? "No Treatment" : reader["TreatmentName"].ToString(),
+                            reader["Appointment_Status"].ToString()
                         );
                     }
                 }
@@ -62,6 +68,10 @@ namespace Dental_Practice_Management_System
                 MessageBox.Show("Error loading dashboard: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
         }
     }
 }
