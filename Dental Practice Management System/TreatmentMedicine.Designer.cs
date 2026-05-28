@@ -994,8 +994,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Dental_Practice_Management_System.Properties.Resources.System_Background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1082, 716);
             this.Controls.Add(this.pnlTreatmentHistory);
             this.Controls.Add(this.pnlPrescribeMedication);
@@ -1010,6 +1009,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "TreatmentMedicine";
             this.Text = "TreatmentMedicine";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TreatmentMedicine_Load);
             this.pnlPatientDetails.ResumeLayout(false);
             this.pnlPatientDetails.PerformLayout();
