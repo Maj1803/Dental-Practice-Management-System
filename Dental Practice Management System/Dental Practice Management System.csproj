@@ -66,6 +66,12 @@
     <Compile Include="BillingForm.Designer.cs">
       <DependentUpon>BillingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="dsDentist.cs">
       <DependentUpon>dsDentist.xsd</DependentUpon>
     </Compile>
@@ -90,10 +96,6 @@
     <Compile Include="MainMDI.Designer.cs">
       <DependentUpon>MainMDI.cs</DependentUpon>
     </Compile>
-    <Compile Include="MDIParent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MDIParent.Designer.cs" />
     <Compile Include="Patients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,10 +134,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMDI.resx">
       <DependentUpon>MainMDI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MDIParent.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MDIParent1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
