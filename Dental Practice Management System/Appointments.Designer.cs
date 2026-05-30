@@ -91,10 +91,10 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(81, 43);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(84, 35);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(138, 24);
+            this.lblTitle.Size = new System.Drawing.Size(237, 39);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Appointments";
             // 
@@ -104,9 +104,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(83, 74);
+            this.label2.Location = new System.Drawing.Point(87, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 13);
+            this.label2.Size = new System.Drawing.Size(195, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Manage Appointment Bookings";
             // 
@@ -115,7 +115,7 @@
             this.btnViewAppointments.BackColor = System.Drawing.Color.Azure;
             this.btnViewAppointments.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnViewAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewAppointments.Location = new System.Drawing.Point(251, 106);
+            this.btnViewAppointments.Location = new System.Drawing.Point(255, 106);
             this.btnViewAppointments.Name = "btnViewAppointments";
             this.btnViewAppointments.Size = new System.Drawing.Size(151, 37);
             this.btnViewAppointments.TabIndex = 2;
@@ -129,7 +129,7 @@
             this.btnBookAppointment.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnBookAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBookAppointment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBookAppointment.Location = new System.Drawing.Point(87, 106);
+            this.btnBookAppointment.Location = new System.Drawing.Point(91, 106);
             this.btnBookAppointment.Name = "btnBookAppointment";
             this.btnBookAppointment.Size = new System.Drawing.Size(142, 37);
             this.btnBookAppointment.TabIndex = 3;
@@ -143,7 +143,7 @@
             this.btnUpdateAppointment.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnUpdateAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateAppointment.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateAppointment.Location = new System.Drawing.Point(430, 106);
+            this.btnUpdateAppointment.Location = new System.Drawing.Point(434, 106);
             this.btnUpdateAppointment.Name = "btnUpdateAppointment";
             this.btnUpdateAppointment.Size = new System.Drawing.Size(151, 37);
             this.btnUpdateAppointment.TabIndex = 4;
@@ -157,7 +157,7 @@
             this.pnlContent.Controls.Add(this.pnlViewAppointments);
             this.pnlContent.Controls.Add(this.pnlBookAppointment);
             this.pnlContent.Controls.Add(this.pnlUpdateAppointment);
-            this.pnlContent.Location = new System.Drawing.Point(86, 149);
+            this.pnlContent.Location = new System.Drawing.Point(90, 149);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(900, 418);
             this.pnlContent.TabIndex = 5;
@@ -213,7 +213,7 @@
             this.cmbStatusFilter.FormattingEnabled = true;
             this.cmbStatusFilter.Location = new System.Drawing.Point(622, 54);
             this.cmbStatusFilter.Name = "cmbStatusFilter";
-            this.cmbStatusFilter.Size = new System.Drawing.Size(121, 23);
+            this.cmbStatusFilter.Size = new System.Drawing.Size(121, 28);
             this.cmbStatusFilter.TabIndex = 6;
             // 
             // lblStatusFilter
@@ -223,7 +223,7 @@
             this.lblStatusFilter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblStatusFilter.Location = new System.Drawing.Point(619, 30);
             this.lblStatusFilter.Name = "lblStatusFilter";
-            this.lblStatusFilter.Size = new System.Drawing.Size(39, 13);
+            this.lblStatusFilter.Size = new System.Drawing.Size(43, 17);
             this.lblStatusFilter.TabIndex = 5;
             this.lblStatusFilter.Text = "Status";
             // 
@@ -232,7 +232,7 @@
             this.dtpFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFilterDate.Location = new System.Drawing.Point(468, 55);
             this.dtpFilterDate.Name = "dtpFilterDate";
-            this.dtpFilterDate.Size = new System.Drawing.Size(121, 23);
+            this.dtpFilterDate.Size = new System.Drawing.Size(121, 27);
             this.dtpFilterDate.TabIndex = 4;
             // 
             // lblFilterDate
@@ -242,7 +242,7 @@
             this.lblFilterDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblFilterDate.Location = new System.Drawing.Point(465, 30);
             this.lblFilterDate.Name = "lblFilterDate";
-            this.lblFilterDate.Size = new System.Drawing.Size(31, 13);
+            this.lblFilterDate.Size = new System.Drawing.Size(35, 17);
             this.lblFilterDate.TabIndex = 3;
             this.lblFilterDate.Text = "Date";
             // 
@@ -265,7 +265,7 @@
             this.txtSearchAppointments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearchAppointments.Location = new System.Drawing.Point(18, 53);
             this.txtSearchAppointments.Name = "txtSearchAppointments";
-            this.txtSearchAppointments.Size = new System.Drawing.Size(244, 23);
+            this.txtSearchAppointments.Size = new System.Drawing.Size(244, 27);
             this.txtSearchAppointments.TabIndex = 1;
             // 
             // lblSearchAppointments
@@ -275,9 +275,9 @@
             this.lblSearchAppointments.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblSearchAppointments.Location = new System.Drawing.Point(15, 30);
             this.lblSearchAppointments.Name = "lblSearchAppointments";
-            this.lblSearchAppointments.Size = new System.Drawing.Size(288, 13);
+            this.lblSearchAppointments.Size = new System.Drawing.Size(220, 17);
             this.lblSearchAppointments.TabIndex = 0;
-            this.lblSearchAppointments.Text = "Search Appointment (Patient Name or Appointment ID)";
+            this.lblSearchAppointments.Text = "Search Appointment (Patient Name )";
             // 
             // pnlBookAppointment
             // 
@@ -360,7 +360,7 @@
             this.lblAppointmentNotes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblAppointmentNotes.Location = new System.Drawing.Point(508, 30);
             this.lblAppointmentNotes.Name = "lblAppointmentNotes";
-            this.lblAppointmentNotes.Size = new System.Drawing.Size(37, 13);
+            this.lblAppointmentNotes.Size = new System.Drawing.Size(45, 19);
             this.lblAppointmentNotes.TabIndex = 8;
             this.lblAppointmentNotes.Text = "Notes";
             // 
@@ -371,7 +371,7 @@
             this.cmbTimeSlot.FormattingEnabled = true;
             this.cmbTimeSlot.Location = new System.Drawing.Point(298, 108);
             this.cmbTimeSlot.Name = "cmbTimeSlot";
-            this.cmbTimeSlot.Size = new System.Drawing.Size(150, 21);
+            this.cmbTimeSlot.Size = new System.Drawing.Size(150, 25);
             this.cmbTimeSlot.TabIndex = 7;
             // 
             // lblTimeSlot
@@ -381,7 +381,7 @@
             this.lblTimeSlot.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblTimeSlot.Location = new System.Drawing.Point(294, 86);
             this.lblTimeSlot.Name = "lblTimeSlot";
-            this.lblTimeSlot.Size = new System.Drawing.Size(53, 13);
+            this.lblTimeSlot.Size = new System.Drawing.Size(65, 19);
             this.lblTimeSlot.TabIndex = 6;
             this.lblTimeSlot.Text = "Time Slot";
             // 
@@ -391,7 +391,7 @@
             this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpAppointmentDate.Location = new System.Drawing.Point(9, 105);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
-            this.dtpAppointmentDate.Size = new System.Drawing.Size(185, 22);
+            this.dtpAppointmentDate.Size = new System.Drawing.Size(185, 25);
             this.dtpAppointmentDate.TabIndex = 5;
             this.dtpAppointmentDate.ValueChanged += new System.EventHandler(this.dtpAppointmentDate_ValueChanged);
             // 
@@ -402,7 +402,7 @@
             this.lblAppointmentDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblAppointmentDate.Location = new System.Drawing.Point(6, 83);
             this.lblAppointmentDate.Name = "lblAppointmentDate";
-            this.lblAppointmentDate.Size = new System.Drawing.Size(31, 13);
+            this.lblAppointmentDate.Size = new System.Drawing.Size(38, 19);
             this.lblAppointmentDate.TabIndex = 4;
             this.lblAppointmentDate.Text = "Date";
             // 
@@ -413,7 +413,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(298, 52);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 21);
+            this.comboBox1.Size = new System.Drawing.Size(150, 25);
             this.comboBox1.TabIndex = 3;
             // 
             // lblAssistant
@@ -423,7 +423,7 @@
             this.lblAssistant.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblAssistant.Location = new System.Drawing.Point(294, 31);
             this.lblAssistant.Name = "lblAssistant";
-            this.lblAssistant.Size = new System.Drawing.Size(56, 13);
+            this.lblAssistant.Size = new System.Drawing.Size(68, 19);
             this.lblAssistant.TabIndex = 2;
             this.lblAssistant.Text = "Assistant ";
             // 
@@ -434,7 +434,7 @@
             this.cmbDentist.FormattingEnabled = true;
             this.cmbDentist.Location = new System.Drawing.Point(10, 52);
             this.cmbDentist.Name = "cmbDentist";
-            this.cmbDentist.Size = new System.Drawing.Size(185, 21);
+            this.cmbDentist.Size = new System.Drawing.Size(185, 25);
             this.cmbDentist.TabIndex = 1;
             this.cmbDentist.SelectedIndexChanged += new System.EventHandler(this.cmbDentist_SelectedIndexChanged);
             // 
@@ -445,7 +445,7 @@
             this.lblDentist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblDentist.Location = new System.Drawing.Point(6, 30);
             this.lblDentist.Name = "lblDentist";
-            this.lblDentist.Size = new System.Drawing.Size(44, 13);
+            this.lblDentist.Size = new System.Drawing.Size(53, 19);
             this.lblDentist.TabIndex = 0;
             this.lblDentist.Text = "Dentist";
             // 
@@ -472,7 +472,7 @@
             this.lblSelectedPatient.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lblSelectedPatient.Location = new System.Drawing.Point(756, 170);
             this.lblSelectedPatient.Name = "lblSelectedPatient";
-            this.lblSelectedPatient.Size = new System.Drawing.Size(102, 13);
+            this.lblSelectedPatient.Size = new System.Drawing.Size(126, 16);
             this.lblSelectedPatient.TabIndex = 4;
             this.lblSelectedPatient.Text = "No patient selected.";
             // 
@@ -509,7 +509,7 @@
             this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearchPatient.Location = new System.Drawing.Point(10, 49);
             this.txtSearchPatient.Name = "txtSearchPatient";
-            this.txtSearchPatient.Size = new System.Drawing.Size(235, 23);
+            this.txtSearchPatient.Size = new System.Drawing.Size(235, 27);
             this.txtSearchPatient.TabIndex = 1;
             // 
             // lblSearchPatient
@@ -519,9 +519,9 @@
             this.lblSearchPatient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblSearchPatient.Location = new System.Drawing.Point(7, 29);
             this.lblSearchPatient.Name = "lblSearchPatient";
-            this.lblSearchPatient.Size = new System.Drawing.Size(160, 12);
+            this.lblSearchPatient.Size = new System.Drawing.Size(165, 15);
             this.lblSearchPatient.TabIndex = 0;
-            this.lblSearchPatient.Text = "Search Patient (Patient Name or ID)";
+            this.lblSearchPatient.Text = "Search Patient (Patient Name)";
             // 
             // pnlUpdateAppointment
             // 
@@ -602,7 +602,7 @@
             this.lblUpdateReason.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblUpdateReason.Location = new System.Drawing.Point(20, 93);
             this.lblUpdateReason.Name = "lblUpdateReason";
-            this.lblUpdateReason.Size = new System.Drawing.Size(100, 13);
+            this.lblUpdateReason.Size = new System.Drawing.Size(118, 19);
             this.lblUpdateReason.TabIndex = 6;
             this.lblUpdateReason.Text = "Reason (Optional)";
             // 
@@ -612,7 +612,7 @@
             this.cmbNewTimeSlot.FormattingEnabled = true;
             this.cmbNewTimeSlot.Location = new System.Drawing.Point(248, 59);
             this.cmbNewTimeSlot.Name = "cmbNewTimeSlot";
-            this.cmbNewTimeSlot.Size = new System.Drawing.Size(147, 21);
+            this.cmbNewTimeSlot.Size = new System.Drawing.Size(147, 25);
             this.cmbNewTimeSlot.TabIndex = 5;
             // 
             // lblNewTimeSlot
@@ -622,7 +622,7 @@
             this.lblNewTimeSlot.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblNewTimeSlot.Location = new System.Drawing.Point(244, 37);
             this.lblNewTimeSlot.Name = "lblNewTimeSlot";
-            this.lblNewTimeSlot.Size = new System.Drawing.Size(79, 13);
+            this.lblNewTimeSlot.Size = new System.Drawing.Size(96, 19);
             this.lblNewTimeSlot.TabIndex = 4;
             this.lblNewTimeSlot.Text = "New Time Slot";
             // 
@@ -632,7 +632,7 @@
             this.dtpNewDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNewDate.Location = new System.Drawing.Point(432, 57);
             this.dtpNewDate.Name = "dtpNewDate";
-            this.dtpNewDate.Size = new System.Drawing.Size(150, 22);
+            this.dtpNewDate.Size = new System.Drawing.Size(150, 25);
             this.dtpNewDate.TabIndex = 3;
             // 
             // lblNewDate
@@ -642,7 +642,7 @@
             this.lblNewDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblNewDate.Location = new System.Drawing.Point(434, 35);
             this.lblNewDate.Name = "lblNewDate";
-            this.lblNewDate.Size = new System.Drawing.Size(57, 13);
+            this.lblNewDate.Size = new System.Drawing.Size(69, 19);
             this.lblNewDate.TabIndex = 2;
             this.lblNewDate.Text = "New Date";
             // 
@@ -653,7 +653,7 @@
             this.cmbUpdateAction.FormattingEnabled = true;
             this.cmbUpdateAction.Location = new System.Drawing.Point(24, 57);
             this.cmbUpdateAction.Name = "cmbUpdateAction";
-            this.cmbUpdateAction.Size = new System.Drawing.Size(180, 21);
+            this.cmbUpdateAction.Size = new System.Drawing.Size(180, 25);
             this.cmbUpdateAction.TabIndex = 1;
             // 
             // label1
@@ -663,7 +663,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(20, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(48, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Action";
             // 
@@ -690,7 +690,7 @@
             this.lblSelectedAppointment.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lblSelectedAppointment.Location = new System.Drawing.Point(710, 173);
             this.lblSelectedAppointment.Name = "lblSelectedAppointment";
-            this.lblSelectedAppointment.Size = new System.Drawing.Size(124, 12);
+            this.lblSelectedAppointment.Size = new System.Drawing.Size(144, 15);
             this.lblSelectedAppointment.TabIndex = 4;
             this.lblSelectedAppointment.Text = "No appointment selected.";
             // 
@@ -730,7 +730,7 @@
             this.txtUpdateSearch.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
             this.txtUpdateSearch.Location = new System.Drawing.Point(15, 55);
             this.txtUpdateSearch.Name = "txtUpdateSearch";
-            this.txtUpdateSearch.Size = new System.Drawing.Size(235, 20);
+            this.txtUpdateSearch.Size = new System.Drawing.Size(235, 23);
             this.txtUpdateSearch.TabIndex = 1;
             // 
             // lblUpdateSearch
@@ -740,7 +740,7 @@
             this.lblUpdateSearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblUpdateSearch.Location = new System.Drawing.Point(15, 30);
             this.lblUpdateSearch.Name = "lblUpdateSearch";
-            this.lblUpdateSearch.Size = new System.Drawing.Size(185, 13);
+            this.lblUpdateSearch.Size = new System.Drawing.Size(226, 19);
             this.lblUpdateSearch.TabIndex = 0;
             this.lblUpdateSearch.Text = "Search Patient (Patient Name or ID)";
             // 
@@ -750,7 +750,7 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(608, 106);
+            this.button1.Location = new System.Drawing.Point(612, 106);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 37);
             this.button1.TabIndex = 6;
@@ -760,11 +760,11 @@
             // 
             // Appointments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1082, 603);
+            this.ClientSize = new System.Drawing.Size(1435, 750);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.btnUpdateAppointment);
@@ -777,7 +777,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Appointments";
             this.Text = "Appointments";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Appointments_Load);
             this.pnlContent.ResumeLayout(false);
             this.pnlViewAppointments.ResumeLayout(false);
