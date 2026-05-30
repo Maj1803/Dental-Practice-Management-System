@@ -46,5 +46,20 @@ namespace Dental_Practice_Management_System
         {
 
         }
+
+        private void lblInvoiceTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

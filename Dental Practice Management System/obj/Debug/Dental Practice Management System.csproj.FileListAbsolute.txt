@@ -39,7 +39,6 @@ C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Denta
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MDIParent.resources
 C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
 C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe
 C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.pdb
@@ -51,3 +50,5 @@ C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Pr
 C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
 C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
 C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
