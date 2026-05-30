@@ -452,5 +452,32 @@ namespace Dental_Practice_Management_System
                 LoadNewSlotsForUpdate(employeeID);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (this.MdiParent != null)
+            {
+                Form openForm = Application.OpenForms["AvailabilityOverride"];
+
+                if (openForm != null)
+                {
+                    openForm.BringToFront();
+                    openForm.Focus();
+                }
+                else
+                {
+                    AvailabilityOverride overrideForm = new AvailabilityOverride();
+
+                    overrideForm.MdiParent = this.MdiParent;
+
+                    overrideForm.Show();
+                }
+            }
+            else
+            {
+                AvailabilityOverride overrideForm = new AvailabilityOverride();
+                overrideForm.Show();
+            }
+        }
     }
 }
