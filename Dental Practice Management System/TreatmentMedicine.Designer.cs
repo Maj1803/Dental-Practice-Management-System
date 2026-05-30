@@ -37,6 +37,7 @@
             this.btnAddDiagnosis = new System.Windows.Forms.Button();
             this.pnlPatientDetails = new System.Windows.Forms.Panel();
             this.grpViewPatientDetails = new System.Windows.Forms.GroupBox();
+            this.lblAllergyWarning = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.cmbAppointment = new System.Windows.Forms.ComboBox();
             this.vwPatientAppointmentDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -218,6 +219,7 @@
             // grpViewPatientDetails
             // 
             this.grpViewPatientDetails.AutoSize = true;
+            this.grpViewPatientDetails.Controls.Add(this.lblAllergyWarning);
             this.grpViewPatientDetails.Controls.Add(this.txtStatus);
             this.grpViewPatientDetails.Controls.Add(this.cmbAppointment);
             this.grpViewPatientDetails.Controls.Add(this.lblSelectAppointment);
@@ -238,6 +240,15 @@
             this.grpViewPatientDetails.TabIndex = 1;
             this.grpViewPatientDetails.TabStop = false;
             this.grpViewPatientDetails.Text = "Patient and Appointment details";
+            // 
+            // lblAllergyWarning
+            // 
+            this.lblAllergyWarning.AutoSize = true;
+            this.lblAllergyWarning.ForeColor = System.Drawing.Color.Red;
+            this.lblAllergyWarning.Location = new System.Drawing.Point(281, 80);
+            this.lblAllergyWarning.Name = "lblAllergyWarning";
+            this.lblAllergyWarning.Size = new System.Drawing.Size(0, 20);
+            this.lblAllergyWarning.TabIndex = 15;
             // 
             // txtStatus
             // 
@@ -1002,9 +1013,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1292, 712);
-            this.Controls.Add(this.pnlTreatmentHistory);
+            this.ClientSize = new System.Drawing.Size(1415, 708);
             this.Controls.Add(this.pnlPatientDetails);
+            this.Controls.Add(this.pnlTreatmentHistory);
             this.Controls.Add(this.pnlAddTreatment);
             this.Controls.Add(this.pnlPrescribeMedication);
             this.Controls.Add(this.pnlAddDiagnosis);
@@ -1017,7 +1028,7 @@
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TreatmentMedicine";
-            this.Text = "TreatmentMedicine";
+            this.Text = "Treatment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TreatmentMedicine_Load);
             this.pnlPatientDetails.ResumeLayout(false);
@@ -1137,5 +1148,6 @@
         private System.Windows.Forms.DataGridView dgvTreatmentHistory;
         private System.Windows.Forms.BindingSource vwPatientAppointmentDetailsBindingSource;
         private dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter vw_PatientAppointmentDetailsTableAdapter;
+        private System.Windows.Forms.Label lblAllergyWarning;
     }
 }

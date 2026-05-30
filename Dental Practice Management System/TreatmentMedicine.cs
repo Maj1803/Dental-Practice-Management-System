@@ -137,7 +137,13 @@ namespace Dental_Practice_Management_System
 
                 if (!string.IsNullOrEmpty(txtPresciptionAllergies.Text))
                 {
-                    MessageBox.Show("Patient has allergies: " + txtPresciptionAllergies.Text, "Allergy Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lblAllergyWarning.Text = "Patient has allergies: " + txtPresciptionAllergies.Text;
+                    lblAllergyWarning.Visible = true;
+                    // MessageBox.Show("Patient has allergies: " + txtPresciptionAllergies.Text, "Allergy Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    lblAllergyWarning.Visible = false;
                 }
             }
         }
@@ -194,8 +200,8 @@ namespace Dental_Practice_Management_System
             }
             try
             {
-                DataTable dt = patientTreatmentTableAdapter.GetData();
-                DataRow[] rows = dt.Select("Appointment_ID = " + cmbAppointment.SelectedValue.ToString());
+               // DataTable dt = patientTreatmentTableAdapter.GetData();
+               // DataRow[] rows = dt.Select("Appointment_ID = " + cmbAppointment.SelectedValue.ToString());
                 
                 patientTreatmentTableAdapter.InsertTreatment(
                     Convert.ToInt32(cmbAppointment.SelectedValue), // Appointment_ID
@@ -203,6 +209,7 @@ namespace Dental_Practice_Management_System
                     txtTreatmentNotes.Text.Trim(), // Treatment_Notes
                     DateTime.Now // Treatment_Date (or use a value from a control if available)
                 );
+                MessageBox.Show("Treatment details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
@@ -218,8 +225,8 @@ namespace Dental_Practice_Management_System
                 txtPresciptionAllergies.Text = "No known allergies";
 
             }
-            HideAllPanels();
-            pnlPrescribeMedication.Visible = true;
+           // HideAllPanels();
+           // pnlPrescribeMedication.Visible = true;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -288,8 +295,17 @@ namespace Dental_Practice_Management_System
         {
             try
             {
-                DataTable dt = patientTreatmentTableAdapter.GetData();
-                dgvTreatmentHistory.DataSource = dt;
+                DataTable dt;
+                if (cmbAppointment.SelectedValue != null)
+                {
+                    int currentAppointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
+                    dt = patientTreatmentTableAdapter.GetDataByAppointmentID(currentAppointmentId);
+                }
+                else
+                {
+                    dt = patientTreatmentTableAdapter.GetData();
+                }
+                    dgvTreatmentHistory.DataSource = dt;
                 lblRecordCount.Text = "Total Records: " + dt.Rows.Count.ToString();
             }
             catch (Exception ex)
@@ -335,7 +351,9 @@ namespace Dental_Practice_Management_System
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Close();
+            HideAllPanels();
+            pnlPatientDetails.Visible = true;
+                
         }
 
         private PrescriptionTableAdapter prescriptionTableAdapter = new PrescriptionTableAdapter();
