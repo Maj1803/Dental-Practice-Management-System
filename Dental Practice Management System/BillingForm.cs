@@ -68,7 +68,7 @@ namespace Dental_Practice_Management_System
 
                 patientTableAdapter.FillByAppointmentID(dsDentist.Patient, Convert.ToInt32(txtApptID.Text));
                
-                dgvPatient.DataSource = patientBindingSource;
+                dgvPatient.DataSource = dsDentist.Patient;
 
             }
             catch (Exception)
