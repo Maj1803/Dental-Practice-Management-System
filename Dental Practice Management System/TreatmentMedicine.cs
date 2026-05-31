@@ -56,6 +56,7 @@ namespace Dental_Practice_Management_System
             this.treatmentTableAdapter.Fill(this.dsDentist1.Treatment);
             this.vw_PatientAppointmentDetailsTableAdapter.Fill(this.dsDentist.vw_PatientAppointmentDetails);
             // this.medicineTableAdapter.Fill(this.dsDentist1.Medicine);
+            cmbAppointment.SelectedIndex = -1;//no selection by default
 
             //LoadAppointments();
             LoadTreatments();
@@ -150,9 +151,15 @@ namespace Dental_Practice_Management_System
 
         private void cmbTreatment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbTreatment.SelectedIndex == -1) return;
-            if (cmbTreatment.SelectedItem == null) return;
-            if (cmbTreatment.SelectedIndex == -1) return;
+            if (cmbTreatment.SelectedIndex == -1 || cmbTreatment.SelectedItem == null)
+            {
+                txtCost.Visible = false;
+                txtDuration.Visible = false;
+                return;
+            }
+            txtCost.Visible = true;
+            txtDuration.Visible = true;
+
 
             try
             {

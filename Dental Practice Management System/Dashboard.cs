@@ -6,9 +6,11 @@ namespace Dental_Practice_Management_System
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        private string _senderName;
+        public Dashboard(string senderName)
         {
             InitializeComponent();
+            _senderName = senderName;
             lblDate.Text = "Today is - " + DateTime.Now.ToString("dddd dd MMMM yyyy");
             LoadDashboardData();
         }
@@ -17,6 +19,8 @@ namespace Dental_Practice_Management_System
         {
             try
             {
+                this.staffMessageTableAdapter.Fill(this.dsDentist.StaffMessage);
+                ScrollToBottom();
                 using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.dentistConnStr))
                 {
                     conn.Open();
@@ -65,6 +69,7 @@ namespace Dental_Practice_Management_System
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Error loading messages: " + ex.Message);//staff message error 
                 MessageBox.Show("Error loading dashboard: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -72,6 +77,88 @@ namespace Dental_Practice_Management_System
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            try
+            {
+
+
+                // TODO: This line of code loads data into the 'dsDentist.StaffMessage' table. You can move, or remove it, as needed.
+                this.staffMessageTableAdapter.Fill(this.dsDentist.StaffMessage);
+                lstMessages.SelectedIndex = -1;
+                ScrollToBottom();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading messages: " + ex.Message);
+            }
+
+            }
+
+        private void staffMessageBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.staffMessageBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dsDentist);
+
+        }
+
+        private void staffMessageBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.staffMessageBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dsDentist);
+
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMessages.Text) || txtMessages.Text == "Type your message here...") return;
+            try
+            {
+                this.staffMessageTableAdapter.Insert(_senderName, txtMessages.Text.Trim(), DateTime.Now);
+
+                this.staffMessageTableAdapter.Fill(this.dsDentist.StaffMessage);
+
+                txtMessages.Clear();
+                ScrollToBottom();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error sending message: " + ex.Message);
+            }
+
+        }
+        private void ScrollToBottom()
+        {
+            if(lstMessages.Items.Count > 0)
+            {
+                lstMessages.TopIndex = lstMessages.Items.Count - 1;
+            }
+        }
+
+        private void txtMessages_Enter(object sender, EventArgs e)
+        {
+            if (txtMessages.Text == "Type your message here...")
+            {
+                txtMessages.Clear();
+                txtMessages.ForeColor = System.Drawing.Color.Black;
+            }
+        }
+
+        private void txtMessages_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMessages.Text))
+            {
+                txtMessages.Text = "Type your message here...";
+                txtMessages.ForeColor = System.Drawing.Color.Gray;
+            }
+        }
+
+        private void lstMessages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lstMessages.SelectedIndex != -1)
+            {
+                lstMessages.SelectedIndex = -1;
+            }
         }
     }
 }
