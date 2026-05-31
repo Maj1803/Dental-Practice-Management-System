@@ -52,3 +52,4 @@ C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Denta
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
 C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
 C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Employees.resources

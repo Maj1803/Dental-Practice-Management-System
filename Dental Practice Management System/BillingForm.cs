@@ -52,7 +52,8 @@ namespace Dental_Practice_Management_System
             dateTimePicker1.Value = DateTime.Today;
         }
 
-        private void txtID_TextChanged(object sender, EventArgs e)
+        private void txtApptID_TextChanged(object sender, EventArgs e)
+            
         {
             if (txtApptID.Text == "")
             {
@@ -66,6 +67,7 @@ namespace Dental_Practice_Management_System
             {
 
                 patientTableAdapter.FillByAppointmentID(dsDentist.Patient, Convert.ToInt32(txtApptID.Text));
+               
                 dgvPatient.DataSource = patientBindingSource;
 
             }
