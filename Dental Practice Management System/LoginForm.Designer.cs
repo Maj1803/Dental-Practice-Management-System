@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -35,6 +36,11 @@
             this.btnDentist = new System.Windows.Forms.Button();
             this.btnReceptionist = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblClock = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -233,6 +239,58 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "LOG IN AS:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(86, 263);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(293, 55);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "WELCOME!";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DarkGray;
+            this.label6.Location = new System.Drawing.Point(90, 336);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(289, 29);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Your Smile Is Our Priority.";
+            // 
+            // lblClock
+            // 
+            this.lblClock.AutoSize = true;
+            this.lblClock.BackColor = System.Drawing.Color.Transparent;
+            this.lblClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClock.Location = new System.Drawing.Point(1574, 263);
+            this.lblClock.Name = "lblClock";
+            this.lblClock.Size = new System.Drawing.Size(253, 64);
+            this.lblClock.TabIndex = 3;
+            this.lblClock.Text = "00:00:00";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblDate.Location = new System.Drawing.Point(1580, 340);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(24, 25);
+            this.lblDate.TabIndex = 4;
+            this.lblDate.Text = "0";
+            // 
+            // clockTimer
+            // 
+            this.clockTimer.Enabled = true;
+            this.clockTimer.Interval = 1000;
+            this.clockTimer.Tick += new System.EventHandler(this.clockTimer_Tick);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -240,6 +298,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1924, 1021);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblClock);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LoginForm";
@@ -251,6 +313,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -273,5 +336,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.LinkLabel llblForgotPass;
         private System.Windows.Forms.Button btnTogglePassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblClock;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Timer clockTimer;
     }
 }

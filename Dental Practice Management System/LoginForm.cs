@@ -158,5 +158,11 @@ namespace Dental_Practice_Management_System
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
         }
+
+        private void clockTimer_Tick(object sender, EventArgs e)
+        {
+            lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+        }
     }
 }
