@@ -2,15 +2,8 @@
 {
     partial class LoginForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
@@ -33,6 +22,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTogglePassword = new System.Windows.Forms.Button();
+            this.llblForgotPass = new System.Windows.Forms.LinkLabel();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,7 +35,6 @@
             this.btnDentist = new System.Windows.Forms.Button();
             this.btnReceptionist = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.llblForgotPass = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +78,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnTogglePassword);
             this.groupBox1.Controls.Add(this.llblForgotPass);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
@@ -106,6 +97,28 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ENTER YOUR LOGINS:";
+            // 
+            // btnTogglePassword
+            // 
+            this.btnTogglePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTogglePassword.Location = new System.Drawing.Point(563, 315);
+            this.btnTogglePassword.Name = "btnTogglePassword";
+            this.btnTogglePassword.Size = new System.Drawing.Size(57, 43);
+            this.btnTogglePassword.TabIndex = 10;
+            this.btnTogglePassword.Text = "👁";
+            this.btnTogglePassword.UseVisualStyleBackColor = true;
+            this.btnTogglePassword.Click += new System.EventHandler(this.btnTogglePassword_Click);
+            // 
+            // llblForgotPass
+            // 
+            this.llblForgotPass.AutoSize = true;
+            this.llblForgotPass.Location = new System.Drawing.Point(499, 458);
+            this.llblForgotPass.Name = "llblForgotPass";
+            this.llblForgotPass.Size = new System.Drawing.Size(172, 22);
+            this.llblForgotPass.TabIndex = 9;
+            this.llblForgotPass.TabStop = true;
+            this.llblForgotPass.Text = "Forgot Password?";
+            this.llblForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblForgotPass_LinkClicked);
             // 
             // label10
             // 
@@ -157,6 +170,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(385, 28);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
@@ -220,17 +234,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "LOG IN AS:";
             // 
-            // llblForgotPass
-            // 
-            this.llblForgotPass.AutoSize = true;
-            this.llblForgotPass.Location = new System.Drawing.Point(499, 458);
-            this.llblForgotPass.Name = "llblForgotPass";
-            this.llblForgotPass.Size = new System.Drawing.Size(172, 22);
-            this.llblForgotPass.TabIndex = 9;
-            this.llblForgotPass.TabStop = true;
-            this.llblForgotPass.Text = "Forgot Password?";
-            this.llblForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblForgotPass_LinkClicked);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -243,6 +246,7 @@
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -269,5 +273,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.LinkLabel llblForgotPass;
+        private System.Windows.Forms.Button btnTogglePassword;
     }
 }
