@@ -18,6 +18,15 @@ namespace Dental_Practice_Management_System
         private void SetupForm()
         {
             groupBox1.Visible = false;
+
+            CentrePanel();
+            this.Resize += (s, e) => CentrePanel();
+        }
+
+        private void CentrePanel()
+        {
+            panel1.Left = (this.ClientSize.Width - panel1.Width) / 2;
+            panel1.Top = (this.ClientSize.Height - panel1.Height) / 2 +50;
         }
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
