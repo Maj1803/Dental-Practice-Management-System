@@ -95,15 +95,15 @@ namespace Dental_Practice_Management_System
 
                 total = 0;
 
-                foreach (DataGridViewRow row in dgvTreatment.Rows)
+                foreach (DataRow row in dsDentist.Treatment.Rows)
                 {
 
-                    if (row.Cells["TreatmentCost"].Value != null) 
+               
 
 
                     {
 
-                        total += Convert.ToDecimal(row.Cells["TreatmentCost"].Value);
+                        total += Convert.ToDecimal(row.["TreatmentCost"]);
 
                     }
 
@@ -273,6 +273,11 @@ namespace Dental_Practice_Management_System
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotall_Click(object sender, EventArgs e)
         {
 
         }

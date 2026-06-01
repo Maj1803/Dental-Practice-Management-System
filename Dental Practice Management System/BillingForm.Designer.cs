@@ -234,6 +234,7 @@
             this.tableAdapterManager.PatientTreatmentTableAdapter = null;
             this.tableAdapterManager.PaymentTableAdapter = this.paymentTableAdapter;
             this.tableAdapterManager.PrescriptionTableAdapter = null;
+            this.tableAdapterManager.StaffMessageTableAdapter = null;
             this.tableAdapterManager.TimeslotTableAdapter = null;
             this.tableAdapterManager.Treatment1TableAdapter = null;
             this.tableAdapterManager.TreatmentTableAdapter = this.treatmentTableAdapter;
@@ -416,6 +417,7 @@
             this.lblTotall.Size = new System.Drawing.Size(56, 22);
             this.lblTotall.TabIndex = 16;
             this.lblTotall.Text = "Total:";
+            this.lblTotall.Click += new System.EventHandler(this.lblTotall_Click);
             // 
             // lblnvoiceTotal
             // 
