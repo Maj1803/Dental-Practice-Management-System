@@ -322,13 +322,12 @@ namespace Dental_Practice_Management_System
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //Ensure a row is actually selected
-            if (dgvOverrides.CurrentRow == null || dgvOverrides.CurrentRow.Cells["Override_ID"].Value == DBNull.Value)
+            // Ensure the grid has a valid selected row and that the index isn't out of bounds
+            if (dgvOverrides.CurrentRow == null || dgvOverrides.CurrentRow.Index < 0 || dgvOverrides.CurrentRow.Cells[0].Value == DBNull.Value)
             {
-                MessageBox.Show("Please select an availability override record from the table list to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a valid record from the list.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             //Extract ID from the selected row
             selectedOverrideId = Convert.ToInt32(dgvOverrides.CurrentRow.Cells["Override_ID"].Value);
 
