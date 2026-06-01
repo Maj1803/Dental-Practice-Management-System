@@ -1,12 +1,3 @@
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.AssemblyReference.cache
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Appointments.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.AvailabilityOverride.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Patients.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Properties.Resources.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Template.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.TreatmentMedicine.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.GenerateResource.cache
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.CoreCompileInputs.cache
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.pdb
@@ -38,19 +29,8 @@ C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Denta
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.pdb
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.BillingForm.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Invoice.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
-C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Employees.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.BillingForm.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
@@ -59,3 +39,24 @@ C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dent
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.pdb
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Appointments.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.AvailabilityOverride.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.BillingForm.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Employees.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Invoice.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Patients.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Properties.Resources.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Template.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.TreatmentMedicine.resources
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
+C:\Users\Admin\Desktop\MAJOR PROJECT\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
