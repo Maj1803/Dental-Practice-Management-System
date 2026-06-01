@@ -118,5 +118,13 @@ namespace Dental_Practice_Management_System
         {
             Application.Exit();
         }
+
+        private void llblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Please contact IT department to reset your password.",
+                            "Forgot Password",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+        }
     }
 }

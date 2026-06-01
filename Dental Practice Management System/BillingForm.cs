@@ -103,7 +103,7 @@ namespace Dental_Practice_Management_System
 
                     {
 
-                        total += Convert.ToDecimal(row.["TreatmentCost"]);
+                        total += Convert.ToDecimal(row["TreatmentCost"]);
 
                     }
 
