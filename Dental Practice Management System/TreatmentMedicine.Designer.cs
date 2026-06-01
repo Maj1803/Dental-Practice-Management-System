@@ -157,9 +157,11 @@
             // 
             // btnAddTreatment
             // 
-            this.btnAddTreatment.BackColor = System.Drawing.Color.Azure;
+            this.btnAddTreatment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnAddTreatment.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddTreatment.FlatAppearance.BorderSize = 0;
             this.btnAddTreatment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTreatment.ForeColor = System.Drawing.Color.White;
             this.btnAddTreatment.Location = new System.Drawing.Point(251, 106);
             this.btnAddTreatment.Name = "btnAddTreatment";
             this.btnAddTreatment.Size = new System.Drawing.Size(142, 37);
@@ -170,9 +172,10 @@
             // 
             // btnPrescribeMedication
             // 
-            this.btnPrescribeMedication.BackColor = System.Drawing.Color.Azure;
+            this.btnPrescribeMedication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnPrescribeMedication.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnPrescribeMedication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrescribeMedication.ForeColor = System.Drawing.Color.White;
             this.btnPrescribeMedication.Location = new System.Drawing.Point(416, 106);
             this.btnPrescribeMedication.Name = "btnPrescribeMedication";
             this.btnPrescribeMedication.Size = new System.Drawing.Size(151, 37);
@@ -183,9 +186,11 @@
             // 
             // btnTreatmentHistory
             // 
-            this.btnTreatmentHistory.BackColor = System.Drawing.Color.Azure;
+            this.btnTreatmentHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnTreatmentHistory.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnTreatmentHistory.FlatAppearance.BorderSize = 0;
             this.btnTreatmentHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTreatmentHistory.ForeColor = System.Drawing.Color.White;
             this.btnTreatmentHistory.Location = new System.Drawing.Point(595, 105);
             this.btnTreatmentHistory.Name = "btnTreatmentHistory";
             this.btnTreatmentHistory.Size = new System.Drawing.Size(151, 39);
@@ -196,10 +201,12 @@
             // 
             // btnAddDiagnosis
             // 
-            this.btnAddDiagnosis.BackColor = System.Drawing.Color.Azure;
+            this.btnAddDiagnosis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnAddDiagnosis.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddDiagnosis.FlatAppearance.BorderSize = 0;
             this.btnAddDiagnosis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDiagnosis.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDiagnosis.ForeColor = System.Drawing.Color.White;
             this.btnAddDiagnosis.Location = new System.Drawing.Point(87, 106);
             this.btnAddDiagnosis.Name = "btnAddDiagnosis";
             this.btnAddDiagnosis.Size = new System.Drawing.Size(142, 37);
@@ -210,6 +217,9 @@
             // 
             // pnlPatientDetails
             // 
+            this.pnlPatientDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPatientDetails.Controls.Add(this.grpViewPatientDetails);
             this.pnlPatientDetails.Location = new System.Drawing.Point(27, 149);
             this.pnlPatientDetails.Name = "pnlPatientDetails";
@@ -218,6 +228,9 @@
             // 
             // grpViewPatientDetails
             // 
+            this.grpViewPatientDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpViewPatientDetails.AutoSize = true;
             this.grpViewPatientDetails.Controls.Add(this.lblAllergyWarning);
             this.grpViewPatientDetails.Controls.Add(this.txtStatus);
@@ -285,11 +298,11 @@
             // lblSelectAppointment
             // 
             this.lblSelectAppointment.AutoSize = true;
-            this.lblSelectAppointment.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectAppointment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblSelectAppointment.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectAppointment.ForeColor = System.Drawing.Color.Black;
             this.lblSelectAppointment.Location = new System.Drawing.Point(36, 41);
             this.lblSelectAppointment.Name = "lblSelectAppointment";
-            this.lblSelectAppointment.Size = new System.Drawing.Size(124, 17);
+            this.lblSelectAppointment.Size = new System.Drawing.Size(186, 25);
             this.lblSelectAppointment.TabIndex = 12;
             this.lblSelectAppointment.Text = "Select Appointment:";
             // 
@@ -360,9 +373,9 @@
             this.lblFollowUpDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblFollowUpDate.Location = new System.Drawing.Point(15, 237);
             this.lblFollowUpDate.Name = "lblFollowUpDate";
-            this.lblFollowUpDate.Size = new System.Drawing.Size(97, 17);
+            this.lblFollowUpDate.Size = new System.Drawing.Size(114, 17);
             this.lblFollowUpDate.TabIndex = 3;
-            this.lblFollowUpDate.Text = "Follow Up Date";
+            this.lblFollowUpDate.Text = "Appointment Date";
             // 
             // txtPatientName
             // 
@@ -421,26 +434,34 @@
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Location = new System.Drawing.Point(445, 332);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(74, 39);
             this.btnClear.TabIndex = 16;
             this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSaveTreatment
             // 
+            this.btnSaveTreatment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnSaveTreatment.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSaveTreatment.FlatAppearance.BorderSize = 0;
             this.btnSaveTreatment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveTreatment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveTreatment.ForeColor = System.Drawing.Color.White;
             this.btnSaveTreatment.Location = new System.Drawing.Point(270, 332);
             this.btnSaveTreatment.Name = "btnSaveTreatment";
             this.btnSaveTreatment.Size = new System.Drawing.Size(151, 39);
             this.btnSaveTreatment.TabIndex = 15;
             this.btnSaveTreatment.Text = "Save Treatment";
-            this.btnSaveTreatment.UseVisualStyleBackColor = true;
+            this.btnSaveTreatment.UseVisualStyleBackColor = false;
             this.btnSaveTreatment.Click += new System.EventHandler(this.btnSaveTreatment_Click);
             // 
             // txtTreatmentNotes
@@ -464,11 +485,11 @@
             // lblTreatment
             // 
             this.lblTreatment.AutoSize = true;
-            this.lblTreatment.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTreatment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTreatment.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTreatment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.lblTreatment.Location = new System.Drawing.Point(26, 44);
             this.lblTreatment.Name = "lblTreatment";
-            this.lblTreatment.Size = new System.Drawing.Size(69, 17);
+            this.lblTreatment.Size = new System.Drawing.Size(105, 25);
             this.lblTreatment.TabIndex = 12;
             this.lblTreatment.Text = "Treatment:";
             // 
@@ -480,6 +501,7 @@
             this.txtDuration.ReadOnly = true;
             this.txtDuration.Size = new System.Drawing.Size(72, 27);
             this.txtDuration.TabIndex = 8;
+            this.txtDuration.Visible = false;
             // 
             // lblDuration
             // 
@@ -511,6 +533,7 @@
             this.txtCost.ReadOnly = true;
             this.txtCost.Size = new System.Drawing.Size(94, 27);
             this.txtCost.TabIndex = 1;
+            this.txtCost.Visible = false;
             // 
             // lblCost
             // 
@@ -535,6 +558,9 @@
             // 
             // pnlPrescribeMedication
             // 
+            this.pnlPrescribeMedication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrescribeMedication.Controls.Add(this.grpPrescribeMedication);
             this.pnlPrescribeMedication.Location = new System.Drawing.Point(458, 153);
             this.pnlPrescribeMedication.Name = "pnlPrescribeMedication";
@@ -543,6 +569,9 @@
             // 
             // grpPrescribeMedication
             // 
+            this.grpPrescribeMedication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpPrescribeMedication.AutoSize = true;
             this.grpPrescribeMedication.Controls.Add(this.txtDosage);
             this.grpPrescribeMedication.Controls.Add(this.lblDosage);
@@ -603,26 +632,34 @@
             // 
             // btnClearPrescription
             // 
+            this.btnClearPrescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnClearPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnClearPrescription.FlatAppearance.BorderSize = 0;
             this.btnClearPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearPrescription.ForeColor = System.Drawing.Color.White;
             this.btnClearPrescription.Location = new System.Drawing.Point(221, 295);
             this.btnClearPrescription.Name = "btnClearPrescription";
             this.btnClearPrescription.Size = new System.Drawing.Size(74, 39);
             this.btnClearPrescription.TabIndex = 16;
             this.btnClearPrescription.Text = "Clear";
-            this.btnClearPrescription.UseVisualStyleBackColor = true;
+            this.btnClearPrescription.UseVisualStyleBackColor = false;
             this.btnClearPrescription.Click += new System.EventHandler(this.btnClearPrescription_Click);
             // 
             // btnSavePrescription
             // 
+            this.btnSavePrescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnSavePrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSavePrescription.FlatAppearance.BorderSize = 0;
             this.btnSavePrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSavePrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePrescription.ForeColor = System.Drawing.Color.White;
             this.btnSavePrescription.Location = new System.Drawing.Point(29, 295);
             this.btnSavePrescription.Name = "btnSavePrescription";
             this.btnSavePrescription.Size = new System.Drawing.Size(151, 39);
             this.btnSavePrescription.TabIndex = 15;
             this.btnSavePrescription.Text = "Save Prescription";
-            this.btnSavePrescription.UseVisualStyleBackColor = true;
+            this.btnSavePrescription.UseVisualStyleBackColor = false;
             this.btnSavePrescription.Click += new System.EventHandler(this.btnSavePrescription_Click);
             // 
             // lblAllergies
@@ -641,6 +678,7 @@
             this.txtCodeMedicine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCodeMedicine.Location = new System.Drawing.Point(103, 150);
             this.txtCodeMedicine.Name = "txtCodeMedicine";
+            this.txtCodeMedicine.ReadOnly = true;
             this.txtCodeMedicine.Size = new System.Drawing.Size(72, 27);
             this.txtCodeMedicine.TabIndex = 8;
             // 
@@ -677,26 +715,32 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.label5.Location = new System.Drawing.Point(26, 98);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 17);
+            this.label5.Size = new System.Drawing.Size(90, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Medicine";
             // 
             // pnlTreatmentHistory
             // 
+            this.pnlTreatmentHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTreatmentHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlTreatmentHistory.Controls.Add(this.grpTreatmentHistory);
-            this.pnlTreatmentHistory.Location = new System.Drawing.Point(68, 242);
+            this.pnlTreatmentHistory.Location = new System.Drawing.Point(12, 148);
             this.pnlTreatmentHistory.Name = "pnlTreatmentHistory";
-            this.pnlTreatmentHistory.Size = new System.Drawing.Size(1124, 453);
+            this.pnlTreatmentHistory.Size = new System.Drawing.Size(1245, 504);
             this.pnlTreatmentHistory.TabIndex = 21;
             this.pnlTreatmentHistory.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTreatmentHistory_Paint);
             // 
             // grpTreatmentHistory
             // 
+            this.grpTreatmentHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpTreatmentHistory.AutoSize = true;
             this.grpTreatmentHistory.Controls.Add(this.dgvTreatmentHistory);
             this.grpTreatmentHistory.Controls.Add(this.btnSearch);
@@ -705,59 +749,74 @@
             this.grpTreatmentHistory.Controls.Add(this.label8);
             this.grpTreatmentHistory.Controls.Add(this.lblRecordCount);
             this.grpTreatmentHistory.Controls.Add(this.txtSearchPatient);
-            this.grpTreatmentHistory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpTreatmentHistory.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTreatmentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpTreatmentHistory.Location = new System.Drawing.Point(31, 41);
             this.grpTreatmentHistory.Name = "grpTreatmentHistory";
-            this.grpTreatmentHistory.Size = new System.Drawing.Size(1069, 388);
+            this.grpTreatmentHistory.Size = new System.Drawing.Size(1084, 404);
             this.grpTreatmentHistory.TabIndex = 2;
             this.grpTreatmentHistory.TabStop = false;
             this.grpTreatmentHistory.Text = "Treatment History";
             // 
             // dgvTreatmentHistory
             // 
+            this.dgvTreatmentHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTreatmentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTreatmentHistory.Location = new System.Drawing.Point(18, 106);
+            this.dgvTreatmentHistory.Location = new System.Drawing.Point(18, 86);
             this.dgvTreatmentHistory.Name = "dgvTreatmentHistory";
+            this.dgvTreatmentHistory.ReadOnly = true;
             this.dgvTreatmentHistory.RowHeadersWidth = 51;
             this.dgvTreatmentHistory.RowTemplate.Height = 24;
-            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1027, 190);
+            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1042, 216);
             this.dgvTreatmentHistory.TabIndex = 18;
             // 
             // btnSearch
             // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(300, 33);
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(402, 34);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(121, 39);
             this.btnSearch.TabIndex = 17;
             this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(433, 34);
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(540, 34);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(74, 39);
             this.button2.TabIndex = 16;
             this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(282, 321);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 39);
             this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label8
@@ -767,9 +826,9 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.Location = new System.Drawing.Point(26, 44);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 17);
+            this.label8.Size = new System.Drawing.Size(150, 17);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Search by:";
+            this.label8.Text = "Search by Patient Name:";
             // 
             // lblRecordCount
             // 
@@ -785,9 +844,9 @@
             // txtSearchPatient
             // 
             this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchPatient.Location = new System.Drawing.Point(111, 38);
+            this.txtSearchPatient.Location = new System.Drawing.Point(182, 38);
             this.txtSearchPatient.Name = "txtSearchPatient";
-            this.txtSearchPatient.Size = new System.Drawing.Size(162, 27);
+            this.txtSearchPatient.Size = new System.Drawing.Size(214, 31);
             this.txtSearchPatient.TabIndex = 1;
             // 
             // pnlAddDiagnosis
@@ -876,26 +935,34 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(445, 332);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(74, 39);
             this.button1.TabIndex = 16;
             this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSaveDiagnosis
             // 
+            this.btnSaveDiagnosis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnSaveDiagnosis.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSaveDiagnosis.FlatAppearance.BorderSize = 0;
             this.btnSaveDiagnosis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveDiagnosis.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDiagnosis.ForeColor = System.Drawing.Color.White;
             this.btnSaveDiagnosis.Location = new System.Drawing.Point(270, 332);
             this.btnSaveDiagnosis.Name = "btnSaveDiagnosis";
             this.btnSaveDiagnosis.Size = new System.Drawing.Size(151, 39);
             this.btnSaveDiagnosis.TabIndex = 15;
             this.btnSaveDiagnosis.Text = "Save Diagnosis";
-            this.btnSaveDiagnosis.UseVisualStyleBackColor = true;
+            this.btnSaveDiagnosis.UseVisualStyleBackColor = false;
             this.btnSaveDiagnosis.Click += new System.EventHandler(this.btnSaveDiagnosis_Click);
             // 
             // txtDiagnosisNotes
@@ -946,9 +1013,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(288, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 17);
+            this.label3.Size = new System.Drawing.Size(114, 17);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Appointment Follow Up Date";
+            this.label3.Text = "Appointment Date";
             // 
             // label4
             // 
@@ -1011,11 +1078,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1415, 708);
-            this.Controls.Add(this.pnlPatientDetails);
             this.Controls.Add(this.pnlTreatmentHistory);
+            this.Controls.Add(this.pnlPatientDetails);
             this.Controls.Add(this.pnlAddTreatment);
             this.Controls.Add(this.pnlPrescribeMedication);
             this.Controls.Add(this.pnlAddDiagnosis);

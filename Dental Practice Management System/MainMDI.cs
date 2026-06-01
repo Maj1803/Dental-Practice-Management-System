@@ -35,7 +35,7 @@ namespace Dental_Practice_Management_System
                 }
             }
 
-            OpenChildForm(new Dashboard());
+            OpenChildForm(new Dashboard(userFullName));
         }
 
         private void OpenChildForm(Form childForm)
@@ -54,7 +54,7 @@ namespace Dental_Practice_Management_System
 
         private void btnDashboardForm_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new Dashboard());
+            OpenChildForm(new Dashboard(userFullName));
         }
 
         private void btnPatientsForm_Click_1(object sender, EventArgs e)
