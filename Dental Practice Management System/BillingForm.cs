@@ -12,6 +12,7 @@ namespace Dental_Practice_Management_System
 {
     public partial class BillingForm : Form
     {
+        decimal amount;
         
         decimal total = 0;
         public BillingForm()
@@ -67,7 +68,7 @@ namespace Dental_Practice_Management_System
             {
 
                 patientTableAdapter.FillByAppointmentID(dsDentist.Patient, Convert.ToInt32(txtApptID.Text));
-               
+
                 dgvPatient.DataSource = dsDentist.Patient;
 
             }
@@ -95,15 +96,15 @@ namespace Dental_Practice_Management_System
 
                 total = 0;
 
-                foreach (DataRow row in dsDentist.Treatment.Rows)
+                foreach (DataGridViewRow row in dgvTreatment.Rows)
                 {
 
-               
 
+                    if (row.Cells["TreatmentCost"].Value != null)
 
                     {
 
-                        total += Convert.ToDecimal(row.["TreatmentCost"]);
+                        total += Convert.ToDecimal(row.Cells["TreatmentCost"].Value);
 
                     }
 
@@ -136,7 +137,7 @@ namespace Dental_Practice_Management_System
 
             frm.lblInvoiceTotal.Text = "R" + total;
 
-            frm.lblBalDue.Text = "R" + total;
+            frm.lblBalDue.Text = "R" + (total-amount).ToString("0.00");
 
             frm.dgvInvoiceTreatment.DataSource = dgvTreatment.DataSource;
 
@@ -278,6 +279,11 @@ namespace Dental_Practice_Management_System
         }
 
         private void lblTotall_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

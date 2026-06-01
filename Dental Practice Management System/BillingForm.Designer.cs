@@ -32,8 +32,6 @@
             this.txtApptID = new System.Windows.Forms.TextBox();
             this.btnTreatment = new System.Windows.Forms.Button();
             this.dgvTreatment = new System.Windows.Forms.DataGridView();
-            this.treatmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.treatmentCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.treatmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dsDentist = new Dental_Practice_Management_System.dsDentist();
             this.btnInvoice = new System.Windows.Forms.Button();
@@ -70,6 +68,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.treatmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.treatmentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -109,7 +109,7 @@
             this.dgvTreatment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTreatment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.treatmentNameDataGridViewTextBoxColumn,
-            this.treatmentCostDataGridViewTextBoxColumn});
+            this.treatmentCost});
             this.dgvTreatment.DataSource = this.treatmentBindingSource1;
             this.dgvTreatment.Location = new System.Drawing.Point(249, 292);
             this.dgvTreatment.Name = "dgvTreatment";
@@ -118,22 +118,6 @@
             this.dgvTreatment.RowTemplate.Height = 24;
             this.dgvTreatment.Size = new System.Drawing.Size(334, 140);
             this.dgvTreatment.TabIndex = 2;
-            // 
-            // treatmentNameDataGridViewTextBoxColumn
-            // 
-            this.treatmentNameDataGridViewTextBoxColumn.DataPropertyName = "TreatmentName";
-            this.treatmentNameDataGridViewTextBoxColumn.HeaderText = "TreatmentName";
-            this.treatmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.treatmentNameDataGridViewTextBoxColumn.Name = "treatmentNameDataGridViewTextBoxColumn";
-            this.treatmentNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // treatmentCostDataGridViewTextBoxColumn
-            // 
-            this.treatmentCostDataGridViewTextBoxColumn.DataPropertyName = "TreatmentCost";
-            this.treatmentCostDataGridViewTextBoxColumn.HeaderText = "TreatmentCost";
-            this.treatmentCostDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.treatmentCostDataGridViewTextBoxColumn.Name = "treatmentCostDataGridViewTextBoxColumn";
-            this.treatmentCostDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // treatmentBindingSource1
             // 
@@ -408,6 +392,7 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Invoice";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // lblTotall
             // 
@@ -471,6 +456,22 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Manage invoice and payments";
             // 
+            // treatmentNameDataGridViewTextBoxColumn
+            // 
+            this.treatmentNameDataGridViewTextBoxColumn.DataPropertyName = "TreatmentName";
+            this.treatmentNameDataGridViewTextBoxColumn.HeaderText = "TreatmentName";
+            this.treatmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.treatmentNameDataGridViewTextBoxColumn.Name = "treatmentNameDataGridViewTextBoxColumn";
+            this.treatmentNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // treatmentCost
+            // 
+            this.treatmentCost.DataPropertyName = "TreatmentCost";
+            this.treatmentCost.HeaderText = "TreatmentCost";
+            this.treatmentCost.MinimumWidth = 6;
+            this.treatmentCost.Name = "treatmentCost";
+            this.treatmentCost.ReadOnly = true;
+            // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -523,8 +524,6 @@
         private dsDentistTableAdapters.PaymentTableAdapter paymentTableAdapter;
         private System.Windows.Forms.BindingSource paymentBindingSource;
         private dsDentistTableAdapters.TreatmentTableAdapter treatmentTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn treatmentNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn treatmentCostDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource treatmentBindingSource1;
         private System.Windows.Forms.DataGridView dgvPatient;
         private System.Windows.Forms.BindingSource patientBindingSource;
@@ -545,5 +544,7 @@
         private System.Windows.Forms.Label lblInvoiceTotal;
         private System.Windows.Forms.Label lblnvoiceTotal;
         private System.Windows.Forms.Label lblTotall;
+        private System.Windows.Forms.DataGridViewTextBoxColumn treatmentNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn treatmentCost;
     }
 }
