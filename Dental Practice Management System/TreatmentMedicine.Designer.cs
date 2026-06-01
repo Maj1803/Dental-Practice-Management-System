@@ -753,7 +753,7 @@
             this.grpTreatmentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpTreatmentHistory.Location = new System.Drawing.Point(31, 41);
             this.grpTreatmentHistory.Name = "grpTreatmentHistory";
-            this.grpTreatmentHistory.Size = new System.Drawing.Size(1084, 404);
+            this.grpTreatmentHistory.Size = new System.Drawing.Size(1099, 448);
             this.grpTreatmentHistory.TabIndex = 2;
             this.grpTreatmentHistory.TabStop = false;
             this.grpTreatmentHistory.Text = "Treatment History";
@@ -769,7 +769,7 @@
             this.dgvTreatmentHistory.ReadOnly = true;
             this.dgvTreatmentHistory.RowHeadersWidth = 51;
             this.dgvTreatmentHistory.RowTemplate.Height = 24;
-            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1042, 216);
+            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1057, 260);
             this.dgvTreatmentHistory.TabIndex = 18;
             // 
             // btnSearch
@@ -1093,7 +1093,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TreatmentMedicine";
             this.Text = "Treatment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
