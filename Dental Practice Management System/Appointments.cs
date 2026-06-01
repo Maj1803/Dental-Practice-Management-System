@@ -236,6 +236,16 @@ namespace Dental_Practice_Management_System
                 cmbUpdateAction.Items.Add("Completed");
                 cmbUpdateAction.SelectedIndexChanged += cmbUpdateAction_SelectedIndexChanged;
 
+                cmbUpdateStatusFilter.Items.Add("All");
+                cmbUpdateStatusFilter.Items.Add("Scheduled");
+                cmbUpdateStatusFilter.Items.Add("Completed");
+                cmbUpdateStatusFilter.Items.Add("Cancelled");
+
+                cmbUpdateStatusFilter.SelectedIndex = 1;
+
+                dtpUpdateFilterDate.Enabled = false;
+                dtpUpdateFilterDate.Value = DateTime.Today;
+
                 dtpNewDate.Enabled = false;
                 cmbNewTimeSlot.Enabled = false;
 
@@ -798,5 +808,73 @@ namespace Dental_Practice_Management_System
             txtSearchAppointments.Focus();
         
     }
+        private void ApplyUpdateFilter()
+        {
+            string status = cmbUpdateStatusFilter.SelectedItem?.ToString() ?? "Scheduled";
+            string name = txtUpdateSearch.Text.Trim();
+            string filter = "";
+
+            if (chkUpdateFilterDate.Checked)
+            {
+                string dateStr = dtpUpdateFilterDate.Value.ToString("yyyy/MM/dd");
+                filter = $"CONVERT(Appointment_Date, 'System.String') LIKE '%{dateStr}%'";
+            }
+
+            if (status != "All")
+            {
+                if (!string.IsNullOrEmpty(filter))
+                    filter += $" AND Appointment_Status = '{status}'";
+                else
+                    filter = $"Appointment_Status = '{status}'";
+            }
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                if (!string.IsNullOrEmpty(filter))
+                    filter += $" AND (Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%')";
+                else
+                    filter = $"Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%'";
+            }
+
+            dsDentist.AppointmentView.DefaultView.RowFilter = filter;
+            dgvUpdateAppointments.DataSource = dsDentist.AppointmentView.DefaultView;
+            FormatAppointmentGrid(dgvUpdateAppointments);
+        }
+
+        private void txtUpdateSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            ApplyUpdateFilter();
+        }
+
+        private void cmbUpdateStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyUpdateFilter();
+        }
+
+        private void dtpUpdateFilterDate_ValueChanged(object sender, EventArgs e)
+        {
+            ApplyUpdateFilter();
+        }
+
+        private void chkUpdateFilterDate_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpUpdateFilterDate.Enabled = chkUpdateFilterDate.Checked;
+            ApplyUpdateFilter();
+        }
+
+        private void btnClearUpdateFilter_Click(object sender, EventArgs e)
+        {
+            txtUpdateSearch.Clear();
+
+            chkUpdateFilterDate.Checked = false;
+            dtpUpdateFilterDate.Enabled = false;
+            dtpUpdateFilterDate.Value = DateTime.Today;
+
+            cmbUpdateStatusFilter.SelectedIndex = 1; 
+
+            ApplyUpdateFilter();
+
+            txtUpdateSearch.Focus();
+        }
     }
 }

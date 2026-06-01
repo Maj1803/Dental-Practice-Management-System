@@ -17,6 +17,12 @@
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointments));
             this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,6 +77,12 @@
             this.txtSearchAppointments = new System.Windows.Forms.TextBox();
             this.lblSearchAppointments = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbUpdateStatusFilter = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpUpdateFilterDate = new System.Windows.Forms.DateTimePicker();
+            this.chkUpdateFilterDate = new System.Windows.Forms.CheckBox();
+            this.btnClearUpdateFilter = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
             this.pnlBookAppointment.SuspendLayout();
             this.grpAppointmentDetails.SuspendLayout();
@@ -250,9 +262,9 @@
             // cmbTimeSlot
             // 
             this.cmbTimeSlot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTimeSlot.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.cmbTimeSlot.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.cmbTimeSlot.FormattingEnabled = true;
-            this.cmbTimeSlot.Location = new System.Drawing.Point(8, 182);
+            this.cmbTimeSlot.Location = new System.Drawing.Point(238, 160);
             this.cmbTimeSlot.Name = "cmbTimeSlot";
             this.cmbTimeSlot.Size = new System.Drawing.Size(150, 25);
             this.cmbTimeSlot.TabIndex = 7;
@@ -262,7 +274,7 @@
             this.lblTimeSlot.AutoSize = true;
             this.lblTimeSlot.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblTimeSlot.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTimeSlot.Location = new System.Drawing.Point(6, 156);
+            this.lblTimeSlot.Location = new System.Drawing.Point(237, 133);
             this.lblTimeSlot.Name = "lblTimeSlot";
             this.lblTimeSlot.Size = new System.Drawing.Size(72, 20);
             this.lblTimeSlot.TabIndex = 6;
@@ -293,7 +305,7 @@
             // cmbDentist
             // 
             this.cmbDentist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDentist.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.cmbDentist.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.cmbDentist.FormattingEnabled = true;
             this.cmbDentist.Location = new System.Drawing.Point(9, 87);
             this.cmbDentist.Name = "cmbDentist";
@@ -342,7 +354,24 @@
             // 
             this.dgvPatientResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPatientResults.BackgroundColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPatientResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPatientResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPatientResults.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPatientResults.EnableHeadersVisualStyles = false;
             this.dgvPatientResults.Location = new System.Drawing.Point(12, 86);
             this.dgvPatientResults.MultiSelect = false;
             this.dgvPatientResults.Name = "dgvPatientResults";
@@ -357,7 +386,7 @@
             // txtSearchPatient
             // 
             this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchPatient.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.txtSearchPatient.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.txtSearchPatient.Location = new System.Drawing.Point(10, 49);
             this.txtSearchPatient.Name = "txtSearchPatient";
             this.txtSearchPatient.Size = new System.Drawing.Size(354, 25);
@@ -460,7 +489,7 @@
             // cmbNewTimeSlot
             // 
             this.cmbNewTimeSlot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNewTimeSlot.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.cmbNewTimeSlot.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmbNewTimeSlot.FormattingEnabled = true;
             this.cmbNewTimeSlot.Location = new System.Drawing.Point(17, 145);
             this.cmbNewTimeSlot.Name = "cmbNewTimeSlot";
@@ -523,6 +552,12 @@
             // 
             // grpFindAppointment
             // 
+            this.grpFindAppointment.Controls.Add(this.btnClearUpdateFilter);
+            this.grpFindAppointment.Controls.Add(this.chkUpdateFilterDate);
+            this.grpFindAppointment.Controls.Add(this.dtpUpdateFilterDate);
+            this.grpFindAppointment.Controls.Add(this.label4);
+            this.grpFindAppointment.Controls.Add(this.cmbUpdateStatusFilter);
+            this.grpFindAppointment.Controls.Add(this.label3);
             this.grpFindAppointment.Controls.Add(this.lblSelectedAppointment);
             this.grpFindAppointment.Controls.Add(this.dgvUpdateAppointments);
             this.grpFindAppointment.Controls.Add(this.btnUpdateSearch);
@@ -542,7 +577,7 @@
             this.lblSelectedAppointment.AutoSize = true;
             this.lblSelectedAppointment.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
             this.lblSelectedAppointment.ForeColor = System.Drawing.Color.SlateBlue;
-            this.lblSelectedAppointment.Location = new System.Drawing.Point(899, 184);
+            this.lblSelectedAppointment.Location = new System.Drawing.Point(925, 183);
             this.lblSelectedAppointment.Name = "lblSelectedAppointment";
             this.lblSelectedAppointment.Size = new System.Drawing.Size(170, 19);
             this.lblSelectedAppointment.TabIndex = 4;
@@ -552,7 +587,24 @@
             // 
             this.dgvUpdateAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUpdateAppointments.BackgroundColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUpdateAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUpdateAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUpdateAppointments.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvUpdateAppointments.EnableHeadersVisualStyles = false;
             this.dgvUpdateAppointments.Location = new System.Drawing.Point(15, 88);
             this.dgvUpdateAppointments.MultiSelect = false;
             this.dgvUpdateAppointments.Name = "dgvUpdateAppointments";
@@ -581,11 +633,12 @@
             // txtUpdateSearch
             // 
             this.txtUpdateSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpdateSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.txtUpdateSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUpdateSearch.Location = new System.Drawing.Point(15, 55);
             this.txtUpdateSearch.Name = "txtUpdateSearch";
             this.txtUpdateSearch.Size = new System.Drawing.Size(235, 27);
             this.txtUpdateSearch.TabIndex = 1;
+            this.txtUpdateSearch.TextChanged += new System.EventHandler(this.txtUpdateSearch_TextChanged_1);
             // 
             // lblUpdateSearch
             // 
@@ -645,7 +698,24 @@
             // 
             this.dgvAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAppointments.BackgroundColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAppointments.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvAppointments.EnableHeadersVisualStyles = false;
             this.dgvAppointments.Location = new System.Drawing.Point(14, 171);
             this.dgvAppointments.MultiSelect = false;
             this.dgvAppointments.Name = "dgvAppointments";
@@ -714,7 +784,7 @@
             // txtSearchAppointments
             // 
             this.txtSearchAppointments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchAppointments.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.txtSearchAppointments.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtSearchAppointments.Location = new System.Drawing.Point(18, 85);
             this.txtSearchAppointments.Name = "txtSearchAppointments";
             this.txtSearchAppointments.Size = new System.Drawing.Size(303, 32);
@@ -746,6 +816,76 @@
             this.button1.Text = "Override Available";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(605, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 19);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Status";
+            // 
+            // cmbUpdateStatusFilter
+            // 
+            this.cmbUpdateStatusFilter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmbUpdateStatusFilter.FormattingEnabled = true;
+            this.cmbUpdateStatusFilter.Location = new System.Drawing.Point(609, 46);
+            this.cmbUpdateStatusFilter.Name = "cmbUpdateStatusFilter";
+            this.cmbUpdateStatusFilter.Size = new System.Drawing.Size(121, 28);
+            this.cmbUpdateStatusFilter.TabIndex = 6;
+            this.cmbUpdateStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cmbUpdateStatusFilter_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(799, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 19);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Date";
+            // 
+            // dtpUpdateFilterDate
+            // 
+            this.dtpUpdateFilterDate.CalendarFont = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpUpdateFilterDate.Enabled = false;
+            this.dtpUpdateFilterDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpUpdateFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpUpdateFilterDate.Location = new System.Drawing.Point(803, 46);
+            this.dtpUpdateFilterDate.Name = "dtpUpdateFilterDate";
+            this.dtpUpdateFilterDate.Size = new System.Drawing.Size(127, 27);
+            this.dtpUpdateFilterDate.TabIndex = 8;
+            this.dtpUpdateFilterDate.ValueChanged += new System.EventHandler(this.dtpUpdateFilterDate_ValueChanged);
+            // 
+            // chkUpdateFilterDate
+            // 
+            this.chkUpdateFilterDate.AutoSize = true;
+            this.chkUpdateFilterDate.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkUpdateFilterDate.ForeColor = System.Drawing.Color.Black;
+            this.chkUpdateFilterDate.Location = new System.Drawing.Point(949, 48);
+            this.chkUpdateFilterDate.Name = "chkUpdateFilterDate";
+            this.chkUpdateFilterDate.Size = new System.Drawing.Size(111, 21);
+            this.chkUpdateFilterDate.TabIndex = 9;
+            this.chkUpdateFilterDate.Text = "Filter by Date";
+            this.chkUpdateFilterDate.UseVisualStyleBackColor = true;
+            this.chkUpdateFilterDate.CheckedChanged += new System.EventHandler(this.chkUpdateFilterDate_CheckedChanged);
+            // 
+            // btnClearUpdateFilter
+            // 
+            this.btnClearUpdateFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearUpdateFilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnClearUpdateFilter.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnClearUpdateFilter.Location = new System.Drawing.Point(1118, 44);
+            this.btnClearUpdateFilter.Name = "btnClearUpdateFilter";
+            this.btnClearUpdateFilter.Size = new System.Drawing.Size(78, 30);
+            this.btnClearUpdateFilter.TabIndex = 10;
+            this.btnClearUpdateFilter.Text = "Reset";
+            this.btnClearUpdateFilter.UseVisualStyleBackColor = true;
+            this.btnClearUpdateFilter.Click += new System.EventHandler(this.btnClearUpdateFilter_Click);
             // 
             // Appointments
             // 
@@ -847,5 +987,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox chkFilterDate;
         private System.Windows.Forms.Button btnClearFilter;
+        private System.Windows.Forms.DateTimePicker dtpUpdateFilterDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbUpdateStatusFilter;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chkUpdateFilterDate;
+        private System.Windows.Forms.Button btnClearUpdateFilter;
     }
 }
