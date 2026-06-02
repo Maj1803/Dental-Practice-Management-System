@@ -92,6 +92,7 @@
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
             this.pnlAddDiagnosis = new System.Windows.Forms.Panel();
             this.grpAddDiagnosis = new System.Windows.Forms.GroupBox();
+            this.txtAppointmentDiagnosisID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbDiagnosis = new System.Windows.Forms.ComboBox();
             this.txtPatientNameDiag = new System.Windows.Forms.TextBox();
@@ -111,7 +112,7 @@
             this.treatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.TreatmentTableAdapter();
             this.patientTreatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTreatmentTableAdapter();
             this.vw_PatientAppointmentDetailsTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter();
-            this.txtAppointmentDiagnosisID = new System.Windows.Forms.TextBox();
+            this.btnPrintPrescription = new System.Windows.Forms.Button();
             this.pnlPatientDetails.SuspendLayout();
             this.grpViewPatientDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vwPatientAppointmentDetailsBindingSource)).BeginInit();
@@ -573,6 +574,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpPrescribeMedication.AutoSize = true;
+            this.grpPrescribeMedication.Controls.Add(this.btnPrintPrescription);
             this.grpPrescribeMedication.Controls.Add(this.txtDosage);
             this.grpPrescribeMedication.Controls.Add(this.lblDosage);
             this.grpPrescribeMedication.Controls.Add(this.txtQuantity);
@@ -883,6 +885,15 @@
             this.grpAddDiagnosis.TabStop = false;
             this.grpAddDiagnosis.Text = "Diagnosis Details";
             // 
+            // txtAppointmentDiagnosisID
+            // 
+            this.txtAppointmentDiagnosisID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAppointmentDiagnosisID.Location = new System.Drawing.Point(22, 63);
+            this.txtAppointmentDiagnosisID.Name = "txtAppointmentDiagnosisID";
+            this.txtAppointmentDiagnosisID.ReadOnly = true;
+            this.txtAppointmentDiagnosisID.Size = new System.Drawing.Size(94, 27);
+            this.txtAppointmentDiagnosisID.TabIndex = 21;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -1061,14 +1072,21 @@
             // 
             this.vw_PatientAppointmentDetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // txtAppointmentDiagnosisID
+            // btnPrintPrescription
             // 
-            this.txtAppointmentDiagnosisID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAppointmentDiagnosisID.Location = new System.Drawing.Point(22, 63);
-            this.txtAppointmentDiagnosisID.Name = "txtAppointmentDiagnosisID";
-            this.txtAppointmentDiagnosisID.ReadOnly = true;
-            this.txtAppointmentDiagnosisID.Size = new System.Drawing.Size(94, 27);
-            this.txtAppointmentDiagnosisID.TabIndex = 21;
+            this.btnPrintPrescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnPrintPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPrintPrescription.FlatAppearance.BorderSize = 0;
+            this.btnPrintPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintPrescription.ForeColor = System.Drawing.Color.White;
+            this.btnPrintPrescription.Location = new System.Drawing.Point(330, 295);
+            this.btnPrintPrescription.Name = "btnPrintPrescription";
+            this.btnPrintPrescription.Size = new System.Drawing.Size(210, 39);
+            this.btnPrintPrescription.TabIndex = 21;
+            this.btnPrintPrescription.Text = "Print Prescription";
+            this.btnPrintPrescription.UseVisualStyleBackColor = false;
+            this.btnPrintPrescription.Click += new System.EventHandler(this.btnPrintPrescription_Click);
             // 
             // TreatmentMedicine
             // 
@@ -1077,11 +1095,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1415, 708);
+            this.Controls.Add(this.pnlPrescribeMedication);
             this.Controls.Add(this.pnlAddDiagnosis);
             this.Controls.Add(this.pnlAddTreatment);
             this.Controls.Add(this.pnlTreatmentHistory);
             this.Controls.Add(this.pnlPatientDetails);
-            this.Controls.Add(this.pnlPrescribeMedication);
             this.Controls.Add(this.btnAddDiagnosis);
             this.Controls.Add(this.btnTreatmentHistory);
             this.Controls.Add(this.btnPrescribeMedication);
@@ -1212,5 +1230,6 @@
         private dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter vw_PatientAppointmentDetailsTableAdapter;
         private System.Windows.Forms.Label lblAllergyWarning;
         private System.Windows.Forms.TextBox txtAppointmentDiagnosisID;
+        private System.Windows.Forms.Button btnPrintPrescription;
     }
 }

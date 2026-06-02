@@ -405,6 +405,13 @@ namespace Dental_Practice_Management_System
                     DateTime.Now // Date_Issued 
                 );
                 MessageBox.Show("Prescription details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult printQuery = MessageBox.Show("Would you like to print this prescription now?", "Print Document", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (printQuery == DialogResult.Yes)
+                {
+                    // If you already have your separate print button code written, 
+                    // you can cleanly call its click event directly:
+                    btnPrintPrescription_Click(this, EventArgs.Empty);
+                }
                 cmbMedicine.SelectedIndex = -1;
                 txtQuantity.Clear();
                 txtDosage.Clear();
@@ -502,6 +509,61 @@ namespace Dental_Practice_Management_System
 
         private void pnlTreatmentHistory_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void btnPrintPrescription_Click(object sender, EventArgs e)
+        {
+            if (cmbAppointment.SelectedIndex == -1 || cmbAppointment.SelectedValue == null)
+            {
+                MessageBox.Show("Please select an active appointment to print its prescription.",
+                                "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // 2. Fetch the active Appointment ID from your ComboBox selection
+                int activeAppointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
+
+                // 3. Create instances of your typed Dataset and DataAdapters
+                dsDentist reportingDataSet = new dsDentist();
+                var apptViewAdapter = new dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter();
+                var treatmentAdapter = new dsDentistTableAdapters.PatientTreatmentTableAdapter();
+                var prescriptionAdapter = new dsDentistTableAdapters.PrescriptionTableAdapter();
+                var medicineAdapter = new dsDentistTableAdapters.MedicineTableAdapter();
+
+                // 4. Fill the DataTables to load the database records into memory
+                apptViewAdapter.Fill(reportingDataSet.vw_PatientAppointmentDetails);
+                treatmentAdapter.Fill(reportingDataSet.PatientTreatment);
+                prescriptionAdapter.Fill(reportingDataSet.Prescription);
+                medicineAdapter.Fill(reportingDataSet.Medicine);
+
+                // 5. Initialize your custom Crystal Report layout object matching rptPrescription.rpt
+                rptPrescription reportInstance = new rptPrescription();
+
+                // Pass your populated dataset structure directly to the report template
+                reportInstance.SetDataSource(reportingDataSet);
+
+                // 6. FILTER SELECTION: Tell Crystal Reports to ONLY target the active prescription 
+                // by matching the Appointment_ID through the database relationship link chain.
+                string crystalSelectionFormula = "{PatientTreatment.Appointment_ID} = " + activeAppointmentId;
+
+                // 7. Initialize your view window form: PrescriptionReportView
+                PrescriptionReportView viewerForm = new PrescriptionReportView();
+
+                // Feed the report instance and filter formula into your custom viewer: crystalReportViewerPrescription
+                viewerForm.crystalReportViewerPrescription.ReportSource = reportInstance;
+                viewerForm.crystalReportViewerPrescription.SelectionFormula = crystalSelectionFormula;
+
+                // 8. Open up the report view panel as a modal dialog box
+                viewerForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred while generating the prescription printout: " + ex.Message,
+                                "Reporting System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
