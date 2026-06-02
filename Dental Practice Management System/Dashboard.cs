@@ -160,5 +160,74 @@ namespace Dental_Practice_Management_System
                 lstMessages.SelectedIndex = -1;
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblInvoicesText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                string unpaidPatients = "";
+
+                using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.dentistConnStr))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(
+                    @"SELECT
+                p.Patient_First_Name + ' ' + p.Patient_Last_Name AS PatientName,
+                i.invoice_total_amount
+              FROM Invoice i
+              INNER JOIN Appointment a
+                    ON i.appointment_id = a.Appointment_ID
+              INNER JOIN Patient p
+                    ON a.Patient_ID = p.Patient_ID
+              WHERE i.invoice_status = 'Unpaid'",
+                    conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        unpaidPatients +=
+                            reader["PatientName"].ToString() +
+                            " - R" +
+                            reader["invoice_total_amount"].ToString() +
+                            Environment.NewLine;
+                    }
+
+                    reader.Close();
+                }
+
+                if (string.IsNullOrWhiteSpace(unpaidPatients))
+                {
+                    MessageBox.Show(
+                        "There are no unpaid invoices.",
+                        "Unpaid Invoices",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        unpaidPatients,
+                        "Patients With Unpaid Invoices",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error loading unpaid invoices: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
     }
-}
+    }
