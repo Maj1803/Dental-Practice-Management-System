@@ -145,19 +145,6 @@ namespace Dental_Practice_Management_System
             lblDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MessageBox.Show(
-                "IT SUPPORT CONSULTANTS:\n\n" +
-                "• Mahdiya\n" +
-                "• Jeslin\n" +
-                "• Nihal\n" +
-                "• Nashwah\n" +
-                "• Raeesa\n" +
-                "• Katelyn",
-                "Development Team",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-        }
+   
     }
 }

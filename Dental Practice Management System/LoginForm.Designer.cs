@@ -20,6 +20,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rdoDentist = new System.Windows.Forms.RadioButton();
+            this.rdoReceptionist = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -40,9 +42,6 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
             this.label11 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.rdoReceptionist = new System.Windows.Forms.RadioButton();
-            this.rdoDentist = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +61,32 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(953, 846);
             this.panel1.TabIndex = 0;
+            // 
+            // rdoDentist
+            // 
+            this.rdoDentist.AutoSize = true;
+            this.rdoDentist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoDentist.Location = new System.Drawing.Point(607, 216);
+            this.rdoDentist.Name = "rdoDentist";
+            this.rdoDentist.Size = new System.Drawing.Size(130, 29);
+            this.rdoDentist.TabIndex = 8;
+            this.rdoDentist.TabStop = true;
+            this.rdoDentist.Text = "DENTIST";
+            this.rdoDentist.UseVisualStyleBackColor = true;
+            this.rdoDentist.CheckedChanged += new System.EventHandler(this.rdoDentist_CheckedChanged);
+            // 
+            // rdoReceptionist
+            // 
+            this.rdoReceptionist.AutoSize = true;
+            this.rdoReceptionist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoReceptionist.Location = new System.Drawing.Point(129, 216);
+            this.rdoReceptionist.Name = "rdoReceptionist";
+            this.rdoReceptionist.Size = new System.Drawing.Size(196, 29);
+            this.rdoReceptionist.TabIndex = 7;
+            this.rdoReceptionist.TabStop = true;
+            this.rdoReceptionist.Text = "RECEPTIONIST";
+            this.rdoReceptionist.UseVisualStyleBackColor = true;
+            this.rdoReceptionist.CheckedChanged += new System.EventHandler(this.rdoReceptionist_CheckedChanged);
             // 
             // label7
             // 
@@ -279,41 +304,6 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "© 2026 Dr MT Khan Dental Practice";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(1581, 667);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(249, 20);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "CLICK HERE FOR IT SUPPORT .";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // rdoReceptionist
-            // 
-            this.rdoReceptionist.AutoSize = true;
-            this.rdoReceptionist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoReceptionist.Location = new System.Drawing.Point(129, 216);
-            this.rdoReceptionist.Name = "rdoReceptionist";
-            this.rdoReceptionist.Size = new System.Drawing.Size(196, 29);
-            this.rdoReceptionist.TabIndex = 7;
-            this.rdoReceptionist.TabStop = true;
-            this.rdoReceptionist.Text = "RECEPTIONIST";
-            this.rdoReceptionist.UseVisualStyleBackColor = true;
-            // 
-            // rdoDentist
-            // 
-            this.rdoDentist.AutoSize = true;
-            this.rdoDentist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoDentist.Location = new System.Drawing.Point(607, 216);
-            this.rdoDentist.Name = "rdoDentist";
-            this.rdoDentist.Size = new System.Drawing.Size(130, 29);
-            this.rdoDentist.TabIndex = 8;
-            this.rdoDentist.TabStop = true;
-            this.rdoDentist.Text = "DENTIST";
-            this.rdoDentist.UseVisualStyleBackColor = true;
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -321,7 +311,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1924, 1021);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblClock);
@@ -365,7 +354,6 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Timer clockTimer;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.RadioButton rdoDentist;
         private System.Windows.Forms.RadioButton rdoReceptionist;
     }

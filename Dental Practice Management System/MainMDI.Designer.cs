@@ -56,19 +56,18 @@
             this.pnlHeader.Controls.Add(this.label1);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1186, 63);
+            this.pnlHeader.Size = new System.Drawing.Size(1779, 97);
             this.pnlHeader.TabIndex = 1;
+            this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(115, 63);
+            this.pictureBox1.Size = new System.Drawing.Size(172, 97);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -78,10 +77,9 @@
             this.lblRole.AutoSize = true;
             this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.lblRole.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblRole.Location = new System.Drawing.Point(796, 25);
-            this.lblRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRole.Location = new System.Drawing.Point(1194, 38);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(0, 22);
+            this.lblRole.Size = new System.Drawing.Size(0, 30);
             this.lblRole.TabIndex = 2;
             // 
             // btnLogout
@@ -90,10 +88,9 @@
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(235)))), ((int)(((byte)(211)))));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnLogout.Location = new System.Drawing.Point(1064, 11);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Location = new System.Drawing.Point(1596, 17);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(103, 41);
+            this.btnLogout.Size = new System.Drawing.Size(154, 63);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -104,10 +101,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(141, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(212, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(351, 31);
+            this.label1.Size = new System.Drawing.Size(516, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dr MT Khan Dental Practice";
             // 
@@ -117,6 +113,7 @@
             this.tsNavigation.Dock = System.Windows.Forms.DockStyle.Left;
             this.tsNavigation.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.tsNavigation.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsNavigation.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.tsNavigation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnDashboard,
             this.btnPatients,
@@ -125,9 +122,10 @@
             this.btnBilling,
             this.btnReports,
             this.btnStaff});
-            this.tsNavigation.Location = new System.Drawing.Point(0, 63);
+            this.tsNavigation.Location = new System.Drawing.Point(0, 97);
             this.tsNavigation.Name = "tsNavigation";
-            this.tsNavigation.Size = new System.Drawing.Size(149, 630);
+            this.tsNavigation.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.tsNavigation.Size = new System.Drawing.Size(211, 953);
             this.tsNavigation.TabIndex = 4;
             // 
             // btnDashboard
@@ -138,7 +136,7 @@
             this.btnDashboard.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(2, 5, 0, 2);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(144, 29);
+            this.btnDashboard.Size = new System.Drawing.Size(202, 40);
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
@@ -151,7 +149,7 @@
             this.btnPatients.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPatients.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnPatients.Name = "btnPatients";
-            this.btnPatients.Size = new System.Drawing.Size(144, 29);
+            this.btnPatients.Size = new System.Drawing.Size(202, 40);
             this.btnPatients.Text = "Patients";
             this.btnPatients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPatients.Click += new System.EventHandler(this.btnPatients_Click);
@@ -164,7 +162,7 @@
             this.btnAppointments.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAppointments.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnAppointments.Name = "btnAppointments";
-            this.btnAppointments.Size = new System.Drawing.Size(144, 29);
+            this.btnAppointments.Size = new System.Drawing.Size(202, 40);
             this.btnAppointments.Text = "Appointments";
             this.btnAppointments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
@@ -177,7 +175,7 @@
             this.btnTreatments.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTreatments.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnTreatments.Name = "btnTreatments";
-            this.btnTreatments.Size = new System.Drawing.Size(144, 29);
+            this.btnTreatments.Size = new System.Drawing.Size(202, 40);
             this.btnTreatments.Text = "Treatments";
             this.btnTreatments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTreatments.Click += new System.EventHandler(this.btnTreatments_Click);
@@ -190,7 +188,7 @@
             this.btnBilling.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBilling.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnBilling.Name = "btnBilling";
-            this.btnBilling.Size = new System.Drawing.Size(144, 29);
+            this.btnBilling.Size = new System.Drawing.Size(202, 40);
             this.btnBilling.Text = "Billing";
             this.btnBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBilling.Click += new System.EventHandler(this.btnBilling_Click);
@@ -203,7 +201,7 @@
             this.btnReports.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReports.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(144, 29);
+            this.btnReports.Size = new System.Drawing.Size(202, 40);
             this.btnReports.Text = "Reports";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
@@ -216,25 +214,24 @@
             this.btnStaff.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStaff.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(144, 29);
+            this.btnStaff.Size = new System.Drawing.Size(202, 40);
             this.btnStaff.Text = "Staff";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
             // MainMDI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(213)))), ((int)(((byte)(225)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1186, 693);
+            this.ClientSize = new System.Drawing.Size(1779, 1050);
             this.Controls.Add(this.tsNavigation);
             this.Controls.Add(this.pnlHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1027, 591);
+            this.MinimumSize = new System.Drawing.Size(1530, 879);
             this.Name = "MainMDI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dr MT Khan Dental Practice";
