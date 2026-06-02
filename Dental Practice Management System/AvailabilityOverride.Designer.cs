@@ -60,6 +60,7 @@
             this.btCancel = new System.Windows.Forms.Button();
             this.btAddNew = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.pnlDisplay = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -73,7 +74,6 @@
             this.employeeTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
             this.availability_OverrideTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.Availability_OverrideTableAdapter();
-            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOverrides)).BeginInit();
@@ -168,7 +168,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-           
             // 
             // dgvOverrides
             // 
@@ -276,9 +275,9 @@
             this.lblTitle.Location = new System.Drawing.Point(162, 30);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(340, 39);
+            this.lblTitle.Size = new System.Drawing.Size(315, 39);
             this.lblTitle.TabIndex = 9;
-            this.lblTitle.Text = "Availability Override";
+            this.lblTitle.Text = "Dentist Availability";
             // 
             // lblDescription
             // 
@@ -402,7 +401,6 @@
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = false;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
-           
             this.btCancel.MouseHover += new System.EventHandler(this.btCancel_MouseHover);
             // 
             // btAddNew
@@ -433,8 +431,23 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1417, 94);
+            this.panel1.Size = new System.Drawing.Size(1435, 94);
             this.panel1.TabIndex = 15;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(32, 37);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(86, 37);
+            this.btnBack.TabIndex = 15;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
             // pnlForm
             // 
@@ -446,7 +459,7 @@
             this.pnlForm.Location = new System.Drawing.Point(0, 94);
             this.pnlForm.Margin = new System.Windows.Forms.Padding(4);
             this.pnlForm.Name = "pnlForm";
-            this.pnlForm.Size = new System.Drawing.Size(1417, 609);
+            this.pnlForm.Size = new System.Drawing.Size(1435, 656);
             this.pnlForm.TabIndex = 16;
             // 
             // pnlDisplay
@@ -459,7 +472,7 @@
             this.pnlDisplay.Location = new System.Drawing.Point(0, 94);
             this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDisplay.Name = "pnlDisplay";
-            this.pnlDisplay.Size = new System.Drawing.Size(1417, 609);
+            this.pnlDisplay.Size = new System.Drawing.Size(1435, 656);
             this.pnlDisplay.TabIndex = 17;
             // 
             // btnUpdate
@@ -602,35 +615,24 @@
             // 
             this.availability_OverrideTableAdapter.ClearBeforeFill = true;
             // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(32, 37);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(86, 37);
-            this.btnBack.TabIndex = 15;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
-            // 
             // AvailabilityOverride
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1417, 703);
+            this.ClientSize = new System.Drawing.Size(1435, 750);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AvailabilityOverride";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AvailabilityOverride";
             this.Load += new System.EventHandler(this.AvailabilityOverride_Load);
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();

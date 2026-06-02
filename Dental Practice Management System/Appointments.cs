@@ -1,5 +1,6 @@
 ﻿using Dental_Practice_Management_System.dsDentistTableAdapters;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Dental_Practice_Management_System
@@ -74,11 +75,25 @@ namespace Dental_Practice_Management_System
             if (dgv.Columns.Contains("Employee_Last_Name"))
                 dgv.Columns["Employee_Last_Name"].HeaderText = "Surname";
             if (dgv.Columns.Contains("Slot_Start_Time"))
+            {
                 dgv.Columns["Slot_Start_Time"].HeaderText = "Time";
+                dgv.Columns["Slot_Start_Time"].DefaultCellStyle.Format = @"hh\:mm";
+            }
             if (dgv.Columns.Contains("Appointment_Date"))
                 dgv.Columns["Appointment_Date"].HeaderText = "Date";
             if (dgv.Columns.Contains("Appointment_Status"))
                 dgv.Columns["Appointment_Status"].HeaderText = "Status";
+
+            dgv.DefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            dgv.DefaultCellStyle.ForeColor = Color.Black;
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(14, 116, 144);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dgv.RowsDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
+
+            dgv.AlternatingRowsDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            dgv.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
         }
 
         private void FormatPatientGrid(DataGridView dgv)
@@ -102,6 +117,17 @@ namespace Dental_Practice_Management_System
                 dgv.Columns["Patient_First_Name"].HeaderText = "First Name";
             if (dgv.Columns.Contains("Patient_Last_Name"))
                 dgv.Columns["Patient_Last_Name"].HeaderText = "Last Name";
+
+            dgv.DefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            dgv.DefaultCellStyle.ForeColor = Color.Black;
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(14, 116, 144);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dgv.RowsDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
+
+            dgv.AlternatingRowsDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            dgv.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
         }
 
         private void LoadAvailableSlots()
@@ -126,11 +152,22 @@ namespace Dental_Practice_Management_System
                 cmbTimeSlot.DataSource = dsDentist.Timeslot;
                 cmbTimeSlot.DisplayMember = "Slot_Start_Time";
                 cmbTimeSlot.ValueMember = "Timeslot_ID";
+                cmbTimeSlot.Format -= cmbTimeSlot_Format;
+                cmbTimeSlot.Format += cmbTimeSlot_Format;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Could not load available slots: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbTimeSlot_Format(object sender, ListControlConvertEventArgs e)
+        {
+            if (e.Value != null &&
+                TimeSpan.TryParse(e.Value.ToString(), out TimeSpan time))
+            {
+                e.Value = time.ToString(@"hh\:mm");
             }
         }
 
@@ -156,6 +193,8 @@ namespace Dental_Practice_Management_System
                 cmbNewTimeSlot.DataSource = dsDentist.Timeslot;
                 cmbNewTimeSlot.DisplayMember = "Slot_Start_Time";
                 cmbNewTimeSlot.ValueMember = "Timeslot_ID";
+                cmbNewTimeSlot.Format -= cmbTimeSlot_Format;
+                cmbNewTimeSlot.Format += cmbTimeSlot_Format;
 
                 if (cmbNewTimeSlot.Items.Count == 0)
                     MessageBox.Show("No available slots for this date. Please choose another date.",
@@ -172,28 +211,18 @@ namespace Dental_Practice_Management_System
         {
             string status = cmbStatusFilter.SelectedItem?.ToString() ?? "All";
             string name = txtSearchAppointments.Text.Trim();
-            string filter = "";
 
-            if (chkFilterDate.Checked)
-            {
-                string dateStr = dtpFilterDate.Value.ToString("yyyy/MM/dd");
-                filter = $"CONVERT(Appointment_Date, 'System.String') LIKE '%{dateStr}%'";
-            }
+            string dateStr = dtpFilterDate.Value.ToString("yyyy/MM/dd");
+            string filter = $"CONVERT(Appointment_Date, 'System.String') LIKE '%{dateStr}%'";
 
             if (status != "All")
             {
-                if (!string.IsNullOrEmpty(filter))
-                    filter += $" AND Appointment_Status = '{status}'";
-                else
-                    filter = $"Appointment_Status = '{status}'";
+                filter += $" AND Appointment_Status = '{status}'";
             }
 
             if (!string.IsNullOrEmpty(name))
             {
-                if (!string.IsNullOrEmpty(filter))
-                    filter += $" AND (Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%')";
-                else
-                    filter = $"Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%'";
+                filter += $" AND (Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%')";
             }
 
             dsDentist.AppointmentView.DefaultView.RowFilter = filter;
@@ -222,7 +251,7 @@ namespace Dental_Practice_Management_System
                 cmbStatusFilter.SelectedIndexChanged += cmbStatusFilter_SelectedIndexChanged;
 
                 dtpFilterDate.Value = DateTime.Today;
-                dtpFilterDate.Enabled = false;
+                dtpFilterDate.Enabled = true;
                 dtpFilterDate.ValueChanged += dtpFilterDate_ValueChanged;
                 txtSearchAppointments.TextChanged += txtSearchAppointments_TextChanged;
 
@@ -243,7 +272,7 @@ namespace Dental_Practice_Management_System
 
                 cmbUpdateStatusFilter.SelectedIndex = 1;
 
-                dtpUpdateFilterDate.Enabled = false;
+                dtpUpdateFilterDate.Enabled = true;
                 dtpUpdateFilterDate.Value = DateTime.Today;
 
                 dtpNewDate.Enabled = false;
@@ -278,25 +307,8 @@ namespace Dental_Practice_Management_System
             ShowPanel(pnlUpdateAppointment);
         }
 
-        private void chkFilterDate_CheckedChanged(object sender, EventArgs e)
-        {
-            dtpFilterDate.Enabled = chkFilterDate.Checked;
-            ApplyViewFilter();
-        }
 
-   
 
-        private void btnClearFilter_Click(object sender, EventArgs e)
-        {
-            txtSearchAppointments.Clear();
-            chkFilterDate.Checked = false;
-            dtpFilterDate.Enabled = false;
-            dtpFilterDate.Value = DateTime.Today;
-            cmbStatusFilter.SelectedIndex = 0;
-            dsDentist.AppointmentView.DefaultView.RowFilter = "";
-            dgvAppointments.DataSource = dsDentist.AppointmentView;
-            FormatAppointmentGrid(dgvAppointments);
-        }
 
         private void txtUpdateSearch_TextChanged(object sender, EventArgs e)
         {
@@ -438,6 +450,7 @@ namespace Dental_Practice_Management_System
                     "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+        
 
             string patientName = lblSelectedPatient.Text.Replace("Selected: ", "");
             string dentistName = cmbDentist.Text;
@@ -600,6 +613,22 @@ namespace Dental_Practice_Management_System
                     DateTime apptDate = Convert.ToDateTime(
                         dgvUpdateAppointments.CurrentRow.Cells["Appointment_Date"].Value);
 
+                    TimeSpan apptTime = TimeSpan.Parse(
+                        dgvUpdateAppointments.CurrentRow.Cells["Slot_Start_Time"].Value.ToString());
+
+                    DateTime appointmentEndTime =
+                        apptDate.Date + apptTime + TimeSpan.FromMinutes(30);
+
+                    if (DateTime.Now < appointmentEndTime)
+                    {
+                        MessageBox.Show(
+                            $"This appointment cannot be marked as Completed yet.",
+                            "Cannot Complete",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     if (apptDate.Date > DateTime.Today)
                     {
                         MessageBox.Show(
@@ -668,6 +697,19 @@ namespace Dental_Practice_Management_System
                         MessageBox.Show("Cannot reschedule to a past date.",
                             "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
+                    }
+
+                    if (dtpNewDate.Value.Date == DateTime.Today)
+                    {
+                        TimeSpan selectedTime = TimeSpan.Parse(cmbNewTimeSlot.Text);
+                        DateTime selectedDateTime = dtpNewDate.Value.Date + selectedTime;
+
+                        if (selectedDateTime <= DateTime.Now)
+                        {
+                            MessageBox.Show("Cannot reschedule an appointment to a time that has already passed.",
+                                "Invalid Time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
 
                     appointmentTableAdapter.UpdateAppointment(
@@ -760,16 +802,23 @@ namespace Dental_Practice_Management_System
             if (this.MdiParent != null)
             {
                 Form openForm = Application.OpenForms["AvailabilityOverride"];
+
                 if (openForm != null)
                 {
                     openForm.BringToFront();
                     openForm.Focus();
+
+                    this.Close();
                 }
                 else
                 {
                     AvailabilityOverride overrideForm = new AvailabilityOverride();
                     overrideForm.MdiParent = this.MdiParent;
+                    overrideForm.FormBorderStyle = FormBorderStyle.None;
+                    overrideForm.Dock = DockStyle.Fill;
                     overrideForm.Show();
+
+                    this.Close();
                 }
             }
             else
@@ -791,56 +840,37 @@ namespace Dental_Practice_Management_System
 
         private void btnClearFilter_Click_1(object sender, EventArgs e)
         {
-                    
             txtSearchAppointments.Clear();
 
-            chkFilterDate.Checked = false;
-            dtpFilterDate.Enabled = false;
             dtpFilterDate.Value = DateTime.Today;
+            cmbStatusFilter.SelectedIndex = 0;
 
-            cmbStatusFilter.SelectedIndex = 0; // All
-
-            dsDentist.AppointmentView.DefaultView.RowFilter = "";
-
-            dgvAppointments.DataSource = dsDentist.AppointmentView;
-            FormatAppointmentGrid(dgvAppointments);
+            ApplyViewFilter();
 
             txtSearchAppointments.Focus();
-        
-    }
+        }
         private void ApplyUpdateFilter()
         {
             string status = cmbUpdateStatusFilter.SelectedItem?.ToString() ?? "Scheduled";
             string name = txtUpdateSearch.Text.Trim();
-            string filter = "";
 
-            if (chkUpdateFilterDate.Checked)
-            {
-                string dateStr = dtpUpdateFilterDate.Value.ToString("yyyy/MM/dd");
-                filter = $"CONVERT(Appointment_Date, 'System.String') LIKE '%{dateStr}%'";
-            }
+            string dateStr = dtpUpdateFilterDate.Value.ToString("yyyy/MM/dd");
+            string filter = $"CONVERT(Appointment_Date, 'System.String') LIKE '%{dateStr}%'";
 
             if (status != "All")
             {
-                if (!string.IsNullOrEmpty(filter))
-                    filter += $" AND Appointment_Status = '{status}'";
-                else
-                    filter = $"Appointment_Status = '{status}'";
+                filter += $" AND Appointment_Status = '{status}'";
             }
 
             if (!string.IsNullOrEmpty(name))
             {
-                if (!string.IsNullOrEmpty(filter))
-                    filter += $" AND (Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%')";
-                else
-                    filter = $"Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%'";
+                filter += $" AND (Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%')";
             }
 
             dsDentist.AppointmentView.DefaultView.RowFilter = filter;
             dgvUpdateAppointments.DataSource = dsDentist.AppointmentView.DefaultView;
             FormatAppointmentGrid(dgvUpdateAppointments);
         }
-
         private void txtUpdateSearch_TextChanged_1(object sender, EventArgs e)
         {
             ApplyUpdateFilter();
@@ -856,21 +886,13 @@ namespace Dental_Practice_Management_System
             ApplyUpdateFilter();
         }
 
-        private void chkUpdateFilterDate_CheckedChanged(object sender, EventArgs e)
-        {
-            dtpUpdateFilterDate.Enabled = chkUpdateFilterDate.Checked;
-            ApplyUpdateFilter();
-        }
 
         private void btnClearUpdateFilter_Click(object sender, EventArgs e)
         {
             txtUpdateSearch.Clear();
 
-            chkUpdateFilterDate.Checked = false;
-            dtpUpdateFilterDate.Enabled = false;
             dtpUpdateFilterDate.Value = DateTime.Today;
-
-            cmbUpdateStatusFilter.SelectedIndex = 1; 
+            cmbUpdateStatusFilter.SelectedIndex = 1;
 
             ApplyUpdateFilter();
 
