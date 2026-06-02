@@ -2,7 +2,7 @@
 <xs:schema id="dsDentist" targetNamespace="http://tempuri.org/dsDentist.xsd" xmlns:mstns="http://tempuri.org/dsDentist.xsd" xmlns="http://tempuri.org/dsDentist.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dentistConnStr" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dentistConnStr (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Dental_Practice_Management_System.Properties.Settings.GlobalReference.Default.dentistConnStr" Provider="System.Data.SqlClient" />
         </Connections>
@@ -106,6 +106,18 @@ WHERE Appointment_ID = @Appointment_ID</CommandText>
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="dentistConnStr (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByApp" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="FillByApp" GetMethodModifier="Public" GetMethodName="GetDataBy3" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByApp">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT a.Appointment_ID, p.Patient_First_Name + ' ' + p.Patient_Last_Name AS Patient,
+e.Employee_First_Name + ' ' + e.Employee_Last_Name AS Dentist, t.Slot_Start_Time, a.Appointment_Date,
+a.Appointment_Status FROM Appointment a JOIN Patient p ON a.Patient_ID = p.Patient_ID JOIN Employee e ON
+a.Employee_ID = e.Employee_ID JOIN Timeslot t ON a.Timeslot_ID = t.Timeslot_ID ORDER BY
+a.Appointment_Date, t.Slot_Start_Time</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
               </DbSource>
               <DbSource ConnectionRef="dentistConnStr (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateAppointment" Modifier="Public" Name="UpdateAppointment" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateAppointment">
                 <UpdateCommand>
@@ -1426,7 +1438,28 @@ SELECT Message_ID, Sender_Name, Message_Text, Sent_At, '[' + FORMAT(Sent_At, 'HH
             <Sources />
           </TableAdapter>
         </Tables>
-        <Sources />
+        <Sources>
+          <DbSource ConnectionRef="dentistConnStr (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FillReportApp" MethodsParameterType="CLR" Modifier="Public" Name="FillReportApp" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillReportApp">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT a.Appointment_ID AS Appointment_ID, 
+       e.Employee_Last_Name AS Employee_Last_,
+       p.Patient_Last_Name AS Patient_Last_Nå,
+       p.Patient_First_Name AS Patient_First_Nå,
+       e.Employee_First_Name AS Employee_First_,
+       a.Appointment_Date AS Appointment_Date,
+       t.Slot_Start_Time AS Slot_Start_Time,
+       a.Appointment_Status AS Appointment_Stå
+FROM Appointment a 
+JOIN Patient p ON a.Patient_ID = p.Patient_ID 
+JOIN Employee e ON a.Employee_ID = e.Employee_ID 
+JOIN Timeslot t ON a.Timeslot_ID = t.Timeslot_ID 
+ORDER BY a.Appointment_Date, t.Slot_Start_Time</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
@@ -1878,26 +1911,26 @@ SELECT Message_ID, Sender_Name, Message_Text, Sent_At, '[' + FORMAT(Sent_At, 'HH
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StaffMessage" msprop:Generator_RowClassName="StaffMessageRow" msprop:Generator_RowEvHandlerName="StaffMessageRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffMessageRowDeleted" msprop:Generator_RowDeletingName="StaffMessageRowDeleting" msprop:Generator_RowEvArgName="StaffMessageRowChangeEvent" msprop:Generator_TablePropName="StaffMessage" msprop:Generator_RowChangedName="StaffMessageRowChanged" msprop:Generator_UserTableName="StaffMessage" msprop:Generator_RowChangingName="StaffMessageRowChanging" msprop:Generator_TableClassName="StaffMessageDataTable" msprop:Generator_TableVarName="tableStaffMessage">
+        <xs:element name="StaffMessage" msprop:Generator_RowEvHandlerName="StaffMessageRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffMessageRowDeleted" msprop:Generator_RowDeletingName="StaffMessageRowDeleting" msprop:Generator_RowEvArgName="StaffMessageRowChangeEvent" msprop:Generator_TablePropName="StaffMessage" msprop:Generator_RowChangedName="StaffMessageRowChanged" msprop:Generator_UserTableName="StaffMessage" msprop:Generator_RowChangingName="StaffMessageRowChanging" msprop:Generator_RowClassName="StaffMessageRow" msprop:Generator_TableClassName="StaffMessageDataTable" msprop:Generator_TableVarName="tableStaffMessage">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Message_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Message_ID" msprop:Generator_ColumnPropNameInTable="Message_IDColumn" msprop:Generator_ColumnPropNameInRow="Message_ID" msprop:Generator_ColumnVarNameInTable="columnMessage_ID" type="xs:int" />
-              <xs:element name="Sender_Name" msprop:Generator_UserColumnName="Sender_Name" msprop:Generator_ColumnPropNameInTable="Sender_NameColumn" msprop:Generator_ColumnPropNameInRow="Sender_Name" msprop:Generator_ColumnVarNameInTable="columnSender_Name" minOccurs="0">
+              <xs:element name="Message_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Message_IDColumn" msprop:Generator_ColumnPropNameInRow="Message_ID" msprop:Generator_UserColumnName="Message_ID" msprop:Generator_ColumnVarNameInTable="columnMessage_ID" type="xs:int" />
+              <xs:element name="Sender_Name" msprop:Generator_ColumnPropNameInTable="Sender_NameColumn" msprop:Generator_ColumnPropNameInRow="Sender_Name" msprop:Generator_UserColumnName="Sender_Name" msprop:Generator_ColumnVarNameInTable="columnSender_Name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Message_Text" msprop:Generator_UserColumnName="Message_Text" msprop:Generator_ColumnPropNameInTable="Message_TextColumn" msprop:Generator_ColumnPropNameInRow="Message_Text" msprop:Generator_ColumnVarNameInTable="columnMessage_Text" minOccurs="0">
+              <xs:element name="Message_Text" msprop:Generator_ColumnPropNameInTable="Message_TextColumn" msprop:Generator_ColumnPropNameInRow="Message_Text" msprop:Generator_UserColumnName="Message_Text" msprop:Generator_ColumnVarNameInTable="columnMessage_Text" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Sent_At" msprop:Generator_UserColumnName="Sent_At" msprop:Generator_ColumnPropNameInTable="Sent_AtColumn" msprop:Generator_ColumnPropNameInRow="Sent_At" msprop:Generator_ColumnVarNameInTable="columnSent_At" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="DisplayText" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DisplayText" msprop:Generator_ColumnPropNameInTable="DisplayTextColumn" msprop:Generator_ColumnPropNameInRow="DisplayText" msprop:Generator_ColumnVarNameInTable="columnDisplayText" minOccurs="0">
+              <xs:element name="Sent_At" msprop:Generator_ColumnPropNameInTable="Sent_AtColumn" msprop:Generator_ColumnPropNameInRow="Sent_At" msprop:Generator_UserColumnName="Sent_At" msprop:Generator_ColumnVarNameInTable="columnSent_At" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DisplayText" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="DisplayTextColumn" msprop:Generator_ColumnPropNameInRow="DisplayText" msprop:Generator_UserColumnName="DisplayText" msprop:Generator_ColumnVarNameInTable="columnDisplayText" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4000" />

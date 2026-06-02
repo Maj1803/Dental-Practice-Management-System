@@ -121,7 +121,7 @@ namespace Dental_Practice_Management_System
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Reports());
+          OpenChildForm(new Reports());
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
