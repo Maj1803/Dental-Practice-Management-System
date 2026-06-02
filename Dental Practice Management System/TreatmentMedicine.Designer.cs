@@ -730,9 +730,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTreatmentHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlTreatmentHistory.Controls.Add(this.grpTreatmentHistory);
-            this.pnlTreatmentHistory.Location = new System.Drawing.Point(39, 11);
+            this.pnlTreatmentHistory.Location = new System.Drawing.Point(24, 153);
             this.pnlTreatmentHistory.Name = "pnlTreatmentHistory";
-            this.pnlTreatmentHistory.Size = new System.Drawing.Size(1245, 132);
+            this.pnlTreatmentHistory.Size = new System.Drawing.Size(1245, 491);
             this.pnlTreatmentHistory.TabIndex = 21;
             this.pnlTreatmentHistory.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTreatmentHistory_Paint);
             // 
@@ -751,9 +751,9 @@
             this.grpTreatmentHistory.Controls.Add(this.txtSearchPatient);
             this.grpTreatmentHistory.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTreatmentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpTreatmentHistory.Location = new System.Drawing.Point(31, 41);
+            this.grpTreatmentHistory.Location = new System.Drawing.Point(11, 13);
             this.grpTreatmentHistory.Name = "grpTreatmentHistory";
-            this.grpTreatmentHistory.Size = new System.Drawing.Size(1099, 456);
+            this.grpTreatmentHistory.Size = new System.Drawing.Size(1206, 1260);
             this.grpTreatmentHistory.TabIndex = 2;
             this.grpTreatmentHistory.TabStop = false;
             this.grpTreatmentHistory.Text = "Treatment History";
@@ -769,7 +769,7 @@
             this.dgvTreatmentHistory.ReadOnly = true;
             this.dgvTreatmentHistory.RowHeadersWidth = 51;
             this.dgvTreatmentHistory.RowTemplate.Height = 24;
-            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1057, 272);
+            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1164, 244);
             this.dgvTreatmentHistory.TabIndex = 18;
             // 
             // btnSearch
