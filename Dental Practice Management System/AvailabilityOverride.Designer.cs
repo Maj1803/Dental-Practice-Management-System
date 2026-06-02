@@ -73,6 +73,7 @@
             this.employeeTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
             this.availability_OverrideTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.Availability_OverrideTableAdapter();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOverrides)).BeginInit();
@@ -88,18 +89,20 @@
             // dtpDate
             // 
             this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDate.Location = new System.Drawing.Point(156, 78);
+            this.dtpDate.Location = new System.Drawing.Point(208, 96);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(215, 27);
+            this.dtpDate.Size = new System.Drawing.Size(285, 32);
             this.dtpDate.TabIndex = 0;
             // 
             // chkFullDay
             // 
             this.chkFullDay.AutoSize = true;
             this.chkFullDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFullDay.Location = new System.Drawing.Point(10, 33);
+            this.chkFullDay.Location = new System.Drawing.Point(13, 41);
+            this.chkFullDay.Margin = new System.Windows.Forms.Padding(4);
             this.chkFullDay.Name = "chkFullDay";
-            this.chkFullDay.Size = new System.Drawing.Size(95, 26);
+            this.chkFullDay.Size = new System.Drawing.Size(114, 30);
             this.chkFullDay.TabIndex = 2;
             this.chkFullDay.Text = "Full Day";
             this.chkFullDay.UseVisualStyleBackColor = true;
@@ -111,9 +114,10 @@
             this.cmbDentist.DisplayMember = "Employee_Last_Name";
             this.cmbDentist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDentist.FormattingEnabled = true;
-            this.cmbDentist.Location = new System.Drawing.Point(159, 30);
+            this.cmbDentist.Location = new System.Drawing.Point(212, 37);
+            this.cmbDentist.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDentist.Name = "cmbDentist";
-            this.cmbDentist.Size = new System.Drawing.Size(199, 28);
+            this.cmbDentist.Size = new System.Drawing.Size(264, 34);
             this.cmbDentist.TabIndex = 3;
             this.cmbDentist.ValueMember = "Employee_ID";
             // 
@@ -131,32 +135,19 @@
             // 
             this.cmbTimeSlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTimeSlot.FormattingEnabled = true;
-            this.cmbTimeSlot.Items.AddRange(new object[] {
-            "09:00",
-            "09:30",
-            "10:00",
-            "10:30",
-            "11:00",
-            "11:30",
-            "12:00",
-            "13:30",
-            "14:00",
-            "14:30",
-            "15:00",
-            "15:30",
-            "16:00",
-            "16:30"});
-            this.cmbTimeSlot.Location = new System.Drawing.Point(156, 127);
+            this.cmbTimeSlot.Location = new System.Drawing.Point(208, 156);
+            this.cmbTimeSlot.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTimeSlot.Name = "cmbTimeSlot";
-            this.cmbTimeSlot.Size = new System.Drawing.Size(214, 28);
+            this.cmbTimeSlot.Size = new System.Drawing.Size(284, 34);
             this.cmbTimeSlot.TabIndex = 4;
             // 
             // txtReason
             // 
             this.txtReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReason.Location = new System.Drawing.Point(159, 137);
+            this.txtReason.Location = new System.Drawing.Point(212, 169);
+            this.txtReason.Margin = new System.Windows.Forms.Padding(4);
             this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(199, 27);
+            this.txtReason.Size = new System.Drawing.Size(264, 32);
             this.txtReason.TabIndex = 5;
             this.txtReason.TextChanged += new System.EventHandler(this.txtReason_TextChanged);
             // 
@@ -169,15 +160,15 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Indigo;
-            this.btnSave.Location = new System.Drawing.Point(633, 422);
+            this.btnSave.Location = new System.Drawing.Point(844, 519);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(138, 36);
+            this.btnSave.Size = new System.Drawing.Size(184, 44);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
-            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
+           
             // 
             // dgvOverrides
             // 
@@ -192,10 +183,11 @@
             this.Employee_ID,
             this.Employee_Last_Name});
             this.dgvOverrides.DataSource = this.availability_OverrideBindingSource;
-            this.dgvOverrides.Location = new System.Drawing.Point(24, 79);
+            this.dgvOverrides.Location = new System.Drawing.Point(32, 97);
+            this.dgvOverrides.Margin = new System.Windows.Forms.Padding(4);
             this.dgvOverrides.Name = "dgvOverrides";
             this.dgvOverrides.RowHeadersWidth = 51;
-            this.dgvOverrides.Size = new System.Drawing.Size(1013, 345);
+            this.dgvOverrides.Size = new System.Drawing.Size(1351, 425);
             this.dgvOverrides.TabIndex = 7;
             // 
             // Override_ID
@@ -269,9 +261,10 @@
             "Leave",
             "Emergency",
             "Other"});
-            this.cmbReason.Location = new System.Drawing.Point(159, 90);
+            this.cmbReason.Location = new System.Drawing.Point(212, 111);
+            this.cmbReason.Margin = new System.Windows.Forms.Padding(4);
             this.cmbReason.Name = "cmbReason";
-            this.cmbReason.Size = new System.Drawing.Size(199, 28);
+            this.cmbReason.Size = new System.Drawing.Size(264, 34);
             this.cmbReason.TabIndex = 8;
             this.cmbReason.SelectedIndexChanged += new System.EventHandler(this.cmbReason_SelectedIndexChanged);
             // 
@@ -279,8 +272,9 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(162, 30);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(340, 39);
             this.lblTitle.TabIndex = 9;
@@ -290,11 +284,12 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.lblDescription.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDescription.Location = new System.Drawing.Point(15, 48);
+            this.lblDescription.Location = new System.Drawing.Point(166, 69);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(260, 20);
+            this.lblDescription.Size = new System.Drawing.Size(234, 17);
             this.lblDescription.TabIndex = 10;
             this.lblDescription.Text = "Manage unavailable times and days";
             // 
@@ -307,9 +302,11 @@
             this.gbTimeBlock.Controls.Add(this.dtpDate);
             this.gbTimeBlock.Controls.Add(this.cmbTimeSlot);
             this.gbTimeBlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTimeBlock.Location = new System.Drawing.Point(33, 44);
+            this.gbTimeBlock.Location = new System.Drawing.Point(44, 54);
+            this.gbTimeBlock.Margin = new System.Windows.Forms.Padding(4);
             this.gbTimeBlock.Name = "gbTimeBlock";
-            this.gbTimeBlock.Size = new System.Drawing.Size(422, 284);
+            this.gbTimeBlock.Padding = new System.Windows.Forms.Padding(4);
+            this.gbTimeBlock.Size = new System.Drawing.Size(563, 350);
             this.gbTimeBlock.TabIndex = 11;
             this.gbTimeBlock.TabStop = false;
             this.gbTimeBlock.Text = "Time Block";
@@ -318,9 +315,10 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(6, 78);
+            this.lblDate.Location = new System.Drawing.Point(8, 96);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(135, 22);
+            this.lblDate.Size = new System.Drawing.Size(163, 26);
             this.lblDate.TabIndex = 6;
             this.lblDate.Text = "Choose a Date:";
             // 
@@ -328,9 +326,10 @@
             // 
             this.lblTimeSlot.AutoSize = true;
             this.lblTimeSlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeSlot.Location = new System.Drawing.Point(6, 130);
+            this.lblTimeSlot.Location = new System.Drawing.Point(8, 160);
+            this.lblTimeSlot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeSlot.Name = "lblTimeSlot";
-            this.lblTimeSlot.Size = new System.Drawing.Size(145, 22);
+            this.lblTimeSlot.Size = new System.Drawing.Size(176, 26);
             this.lblTimeSlot.TabIndex = 5;
             this.lblTimeSlot.Text = "Pick a Time Slot:";
             // 
@@ -344,9 +343,11 @@
             this.gbDetails.Controls.Add(this.cmbReason);
             this.gbDetails.Controls.Add(this.txtReason);
             this.gbDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDetails.Location = new System.Drawing.Point(525, 44);
+            this.gbDetails.Location = new System.Drawing.Point(700, 54);
+            this.gbDetails.Margin = new System.Windows.Forms.Padding(4);
             this.gbDetails.Name = "gbDetails";
-            this.gbDetails.Size = new System.Drawing.Size(421, 213);
+            this.gbDetails.Padding = new System.Windows.Forms.Padding(4);
+            this.gbDetails.Size = new System.Drawing.Size(561, 262);
             this.gbDetails.TabIndex = 12;
             this.gbDetails.TabStop = false;
             this.gbDetails.Text = "Details";
@@ -355,9 +356,10 @@
             // 
             this.lblOther.AutoSize = true;
             this.lblOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOther.Location = new System.Drawing.Point(89, 140);
+            this.lblOther.Location = new System.Drawing.Point(119, 172);
+            this.lblOther.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(55, 22);
+            this.lblOther.Size = new System.Drawing.Size(66, 26);
             this.lblOther.TabIndex = 10;
             this.lblOther.Text = "Other";
             // 
@@ -365,9 +367,10 @@
             // 
             this.lblReason.AutoSize = true;
             this.lblReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReason.Location = new System.Drawing.Point(6, 90);
+            this.lblReason.Location = new System.Drawing.Point(8, 111);
+            this.lblReason.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblReason.Name = "lblReason";
-            this.lblReason.Size = new System.Drawing.Size(144, 22);
+            this.lblReason.Size = new System.Drawing.Size(174, 26);
             this.lblReason.TabIndex = 9;
             this.lblReason.Text = "Choose Reason:";
             // 
@@ -375,9 +378,10 @@
             // 
             this.lblDentist.AutoSize = true;
             this.lblDentist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDentist.Location = new System.Drawing.Point(6, 33);
+            this.lblDentist.Location = new System.Drawing.Point(8, 41);
+            this.lblDentist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDentist.Name = "lblDentist";
-            this.lblDentist.Size = new System.Drawing.Size(138, 22);
+            this.lblDentist.Size = new System.Drawing.Size(167, 26);
             this.lblDentist.TabIndex = 7;
             this.lblDentist.Text = "Choose Dentist:";
             // 
@@ -390,15 +394,15 @@
             this.btCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancel.ForeColor = System.Drawing.Color.Gray;
-            this.btCancel.Location = new System.Drawing.Point(808, 422);
+            this.btCancel.Location = new System.Drawing.Point(1077, 519);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(138, 36);
+            this.btCancel.Size = new System.Drawing.Size(184, 44);
             this.btCancel.TabIndex = 13;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = false;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
-            this.btCancel.MouseEnter += new System.EventHandler(this.btCancel_MouseEnter);
-            this.btCancel.MouseLeave += new System.EventHandler(this.btCancel_MouseLeave);
+           
             this.btCancel.MouseHover += new System.EventHandler(this.btCancel_MouseHover);
             // 
             // btAddNew
@@ -408,11 +412,12 @@
             this.btAddNew.FlatAppearance.BorderSize = 2;
             this.btAddNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btAddNew.ForeColor = System.Drawing.Color.Indigo;
-            this.btAddNew.Location = new System.Drawing.Point(899, 16);
+            this.btAddNew.Location = new System.Drawing.Point(1250, 37);
+            this.btAddNew.Margin = new System.Windows.Forms.Padding(4);
             this.btAddNew.Name = "btAddNew";
-            this.btAddNew.Size = new System.Drawing.Size(138, 36);
+            this.btAddNew.Size = new System.Drawing.Size(133, 44);
             this.btAddNew.TabIndex = 14;
             this.btAddNew.Text = "Add New";
             this.btAddNew.UseVisualStyleBackColor = false;
@@ -420,13 +425,15 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Controls.Add(this.btAddNew);
             this.panel1.Controls.Add(this.lblDescription);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1063, 76);
+            this.panel1.Size = new System.Drawing.Size(1417, 94);
             this.panel1.TabIndex = 15;
             // 
             // pnlForm
@@ -436,9 +443,10 @@
             this.pnlForm.Controls.Add(this.gbDetails);
             this.pnlForm.Controls.Add(this.btCancel);
             this.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlForm.Location = new System.Drawing.Point(0, 76);
+            this.pnlForm.Location = new System.Drawing.Point(0, 94);
+            this.pnlForm.Margin = new System.Windows.Forms.Padding(4);
             this.pnlForm.Name = "pnlForm";
-            this.pnlForm.Size = new System.Drawing.Size(1063, 495);
+            this.pnlForm.Size = new System.Drawing.Size(1417, 609);
             this.pnlForm.TabIndex = 16;
             // 
             // pnlDisplay
@@ -448,9 +456,10 @@
             this.pnlDisplay.Controls.Add(this.gpsearch);
             this.pnlDisplay.Controls.Add(this.dgvOverrides);
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDisplay.Location = new System.Drawing.Point(0, 76);
+            this.pnlDisplay.Location = new System.Drawing.Point(0, 94);
+            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDisplay.Name = "pnlDisplay";
-            this.pnlDisplay.Size = new System.Drawing.Size(1063, 495);
+            this.pnlDisplay.Size = new System.Drawing.Size(1417, 609);
             this.pnlDisplay.TabIndex = 17;
             // 
             // btnUpdate
@@ -460,11 +469,12 @@
             this.btnUpdate.FlatAppearance.BorderSize = 2;
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.Indigo;
-            this.btnUpdate.Location = new System.Drawing.Point(730, 447);
+            this.btnUpdate.Location = new System.Drawing.Point(1021, 550);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(138, 36);
+            this.btnUpdate.Size = new System.Drawing.Size(164, 44);
             this.btnUpdate.TabIndex = 16;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -477,11 +487,12 @@
             this.btnDelete.FlatAppearance.BorderSize = 2;
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.Gray;
-            this.btnDelete.Location = new System.Drawing.Point(899, 447);
+            this.btnDelete.Location = new System.Drawing.Point(1219, 550);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(138, 36);
+            this.btnDelete.Size = new System.Drawing.Size(164, 44);
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -494,10 +505,12 @@
             this.gpsearch.Controls.Add(this.label2);
             this.gpsearch.Controls.Add(this.dtpSearchDate);
             this.gpsearch.Controls.Add(this.label3);
-            this.gpsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpsearch.Location = new System.Drawing.Point(24, 8);
+            this.gpsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.gpsearch.Location = new System.Drawing.Point(32, 18);
+            this.gpsearch.Margin = new System.Windows.Forms.Padding(4);
             this.gpsearch.Name = "gpsearch";
-            this.gpsearch.Size = new System.Drawing.Size(715, 60);
+            this.gpsearch.Padding = new System.Windows.Forms.Padding(4);
+            this.gpsearch.Size = new System.Drawing.Size(929, 73);
             this.gpsearch.TabIndex = 14;
             this.gpsearch.TabStop = false;
             this.gpsearch.Text = "Search By";
@@ -506,11 +519,12 @@
             // 
             this.cmbSearchDentist.DataSource = this.employeeBindingSource;
             this.cmbSearchDentist.DisplayMember = "Employee_Last_Name";
-            this.cmbSearchDentist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSearchDentist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cmbSearchDentist.FormattingEnabled = true;
-            this.cmbSearchDentist.Location = new System.Drawing.Point(397, 22);
+            this.cmbSearchDentist.Location = new System.Drawing.Point(529, 27);
+            this.cmbSearchDentist.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSearchDentist.Name = "cmbSearchDentist";
-            this.cmbSearchDentist.Size = new System.Drawing.Size(147, 26);
+            this.cmbSearchDentist.Size = new System.Drawing.Size(195, 28);
             this.cmbSearchDentist.TabIndex = 9;
             this.cmbSearchDentist.ValueMember = "Employee_ID";
             this.cmbSearchDentist.SelectedIndexChanged += new System.EventHandler(this.cmbSearchDentist_SelectedIndexChanged);
@@ -518,9 +532,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(609, 23);
+            this.button1.Location = new System.Drawing.Point(812, 28);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 26);
+            this.button1.Size = new System.Drawing.Size(100, 32);
             this.button1.TabIndex = 13;
             this.button1.Text = "Clear";
             this.button1.UseVisualStyleBackColor = true;
@@ -529,21 +544,23 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 24);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Location = new System.Drawing.Point(28, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 22);
+            this.label2.Size = new System.Drawing.Size(45, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "Date";
             // 
             // dtpSearchDate
             // 
             this.dtpSearchDate.Checked = false;
-            this.dtpSearchDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpSearchDate.Location = new System.Drawing.Point(64, 24);
+            this.dtpSearchDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dtpSearchDate.Location = new System.Drawing.Point(85, 30);
+            this.dtpSearchDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpSearchDate.Name = "dtpSearchDate";
             this.dtpSearchDate.ShowCheckBox = true;
-            this.dtpSearchDate.Size = new System.Drawing.Size(200, 24);
+            this.dtpSearchDate.Size = new System.Drawing.Size(265, 26);
             this.dtpSearchDate.TabIndex = 12;
             this.dtpSearchDate.ValueChanged += new System.EventHandler(this.dtpSearchDate_ValueChanged);
             this.dtpSearchDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dtpSearchDate_MouseDown);
@@ -551,10 +568,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(319, 24);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Location = new System.Drawing.Point(440, 30);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 22);
+            this.label3.Size = new System.Drawing.Size(63, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "Dentist";
             // 
@@ -584,18 +602,34 @@
             // 
             this.availability_OverrideTableAdapter.ClearBeforeFill = true;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(32, 37);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(86, 37);
+            this.btnBack.TabIndex = 15;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
+            // 
             // AvailabilityOverride
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1063, 571);
+            this.ClientSize = new System.Drawing.Size(1417, 703);
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AvailabilityOverride";
             this.Text = "AvailabilityOverride";
             this.Load += new System.EventHandler(this.AvailabilityOverride_Load);
@@ -662,5 +696,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
         private System.Windows.Forms.DataGridViewTextBoxColumn Employee_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Last_Name;
+        private System.Windows.Forms.Button btnBack;
     }
 }
