@@ -1,4 +1,5 @@
 ﻿using Dental_Practice_Management_System.dsDentistTableAdapters;
+using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Dental_Practice_Management_System
 {
@@ -68,7 +70,7 @@ namespace Dental_Practice_Management_System
         {
            
             InitializeComponent();
-            InitializeSearchControls();
+            
         }
 
         private void ShowPanel(Panel panelToShow)
@@ -173,6 +175,12 @@ namespace Dental_Practice_Management_System
 
         private void btAddNew_Click(object sender, EventArgs e)
         {
+            ClearFormInputs();
+
+            if (cmbDentist.Items.Count > 0)
+                cmbDentist.SelectedIndex = 0;
+
+            LoadOverrideTimeSlots();
             ShowPanel(pnlForm);
         }
 
@@ -201,6 +209,17 @@ namespace Dental_Practice_Management_System
             // TODO: This line of code loads data into the 'dsDentist.Employee' table. You can move, or remove it, as needed.
             this.employeeTableAdapter.FillByDentist(this.dsDentist.Employee);
 
+            cmbDentist.SelectedIndexChanged -= cmbDentist_SelectedIndexChanged;
+            cmbDentist.SelectedIndexChanged += cmbDentist_SelectedIndexChanged;
+
+            dtpDate.ValueChanged -= dtpDate_ValueChanged;
+            dtpDate.ValueChanged += dtpDate_ValueChanged;
+
+            cmbDentist.SelectedIndex = -1;
+
+            isInitializing = false;
+            PerformDynamicSearch();
+
             dgvOverrides.DataError += (s, ev) => ev.ThrowException = false;
 
             LoadOverrideTimeSlots();
@@ -216,9 +235,6 @@ namespace Dental_Practice_Management_System
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //validation
-
-            // Check valid date
             if (dtpDate.Value.Date < DateTime.Today)
             {
                 MessageBox.Show("The selected date cannot be in the past. Please choose a current or future date.", "Validation Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -226,7 +242,6 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
-            // Check if a dentist is selected
             if (cmbDentist.SelectedIndex == -1 || cmbDentist.SelectedValue == null)
             {
                 MessageBox.Show("Please select a dentist from the drop-down list before saving.", "Required Field Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -234,7 +249,6 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
-            // Check if a time slot is selected (ONLY if "Full Day" is NOT checked)
             if (!chkFullDay.Checked && (cmbTimeSlot.SelectedIndex == -1 || cmbTimeSlot.SelectedValue == null))
             {
                 MessageBox.Show("Please select a specific 30-minute time slot, or check 'Full Day' to block the entire date.", "Required Field Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -249,57 +263,97 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
-            // Capture the override reason
             string finalReason = "";
-            if (cmbReason.SelectedItem != null)
+            string selectedReason = cmbReason.SelectedItem.ToString();
+
+            if (selectedReason == "Other")
             {
-                string selectedReason = cmbReason.SelectedItem.ToString();
-                if (selectedReason == "Other")
+                if (string.IsNullOrWhiteSpace(txtReason.Text))
                 {
-                    if (string.IsNullOrWhiteSpace(txtReason.Text))
-                    {
-                        MessageBox.Show("Please type your custom reason into the text field.", "Validation Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtReason.Focus();
-                        return;
-                    }
-                    finalReason = txtReason.Text.Trim();
-                }
-                else
-                {
-                    finalReason = selectedReason;
+                    MessageBox.Show("Please type your custom reason into the text field.", "Validation Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtReason.Focus();
+                    return;
                 }
 
+                finalReason = txtReason.Text.Trim();
+            }
+            else
+            {
+                finalReason = selectedReason;
             }
 
-            //insert override
             try
             {
-                string targetDateStr = dtpDate.Value.ToString("yyyy-MM-dd");
-                bool isFullDayBool = chkFullDay.Checked;
                 int employeeId = Convert.ToInt32(cmbDentist.SelectedValue);
-
+                DateTime targetDate = dtpDate.Value.Date;
                 int? timeslotId = null;
+
                 if (!chkFullDay.Checked)
-                {
                     timeslotId = Convert.ToInt32(cmbTimeSlot.SelectedValue);
+
+                int clashCount = 0;
+
+                using (SqlConnection con = new SqlConnection(Properties.Settings.Default.dentistConnStr))
+                {
+                    con.Open();
+
+                    string sql;
+
+                    if (chkFullDay.Checked)
+                    {
+                        sql = @"SELECT COUNT(*)
+                        FROM Appointment
+                        WHERE Employee_ID = @EmployeeID
+                        AND Appointment_Date = @AppointmentDate
+                        AND Appointment_Status = 'Scheduled'";
+                    }
+                    else
+                    {
+                        sql = @"SELECT COUNT(*)
+                        FROM Appointment
+                        WHERE Employee_ID = @EmployeeID
+                        AND Appointment_Date = @AppointmentDate
+                        AND Timeslot_ID = @TimeslotID
+                        AND Appointment_Status = 'Scheduled'";
+                    }
+
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@EmployeeID", employeeId);
+                    cmd.Parameters.AddWithValue("@AppointmentDate", targetDate);
+
+                    if (!chkFullDay.Checked)
+                        cmd.Parameters.AddWithValue("@TimeslotID", timeslotId.Value);
+
+                    clashCount = Convert.ToInt32(cmd.ExecuteScalar());
                 }
 
-                // Determine whether to run an INSERT or an UPDATE operation
+                if (clashCount > 0)
+                {
+                    MessageBox.Show(
+                        "This dentist already has a scheduled appointment during this override period.\n\n" +
+                        "Please cancel or reschedule the appointment first.",
+                        "Override Not Allowed",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+                string targetDateStr = dtpDate.Value.ToString("yyyy-MM-dd");
+                bool isFullDayBool = chkFullDay.Checked;
+
                 if (selectedOverrideId == -1)
                 {
-                    //insert
-                    this.availability_OverrideTableAdapter.InsertOverride(targetDateStr, timeslotId, isFullDayBool, finalReason, employeeId);
+                    availability_OverrideTableAdapter.InsertOverride(targetDateStr, timeslotId, isFullDayBool, finalReason, employeeId);
                     MessageBox.Show("The availability override has been successfully saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    //update
-                    this.availability_OverrideTableAdapter.UpdateOverride(targetDateStr, timeslotId, isFullDayBool, finalReason, employeeId, selectedOverrideId);
+                    availability_OverrideTableAdapter.UpdateOverride(targetDateStr, timeslotId, isFullDayBool, finalReason, employeeId, selectedOverrideId);
                     MessageBox.Show("The availability override has been successfully updated.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                // Pull fresh records and sync the UI grid container
-                this.availability_OverrideTableAdapter.FillBy(this.dsDentist.Availability_Override);
+                availability_OverrideTableAdapter.FillBy(dsDentist.Availability_Override);
                 dgvOverrides.Refresh();
 
                 ClearFormInputs();
@@ -307,10 +361,8 @@ namespace Dental_Practice_Management_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Database save operation failed: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Database save operation failed: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void ClearFormInputs()
