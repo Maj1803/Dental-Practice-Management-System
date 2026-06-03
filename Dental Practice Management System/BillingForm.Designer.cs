@@ -32,6 +32,8 @@
             this.txtApptID = new System.Windows.Forms.TextBox();
             this.btnTreatment = new System.Windows.Forms.Button();
             this.dgvTreatment = new System.Windows.Forms.DataGridView();
+            this.treatmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.treatmentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.treatmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dsDentist = new Dental_Practice_Management_System.dsDentist();
             this.btnInvoice = new System.Windows.Forms.Button();
@@ -68,8 +70,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.treatmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.treatmentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -88,7 +91,6 @@
             this.txtApptID.Name = "txtApptID";
             this.txtApptID.Size = new System.Drawing.Size(100, 28);
             this.txtApptID.TabIndex = 0;
-            this.txtApptID.TextChanged += new System.EventHandler(this.txtApptID_TextChanged);
             // 
             // btnTreatment
             // 
@@ -118,6 +120,22 @@
             this.dgvTreatment.RowTemplate.Height = 24;
             this.dgvTreatment.Size = new System.Drawing.Size(334, 140);
             this.dgvTreatment.TabIndex = 2;
+            // 
+            // treatmentNameDataGridViewTextBoxColumn
+            // 
+            this.treatmentNameDataGridViewTextBoxColumn.DataPropertyName = "TreatmentName";
+            this.treatmentNameDataGridViewTextBoxColumn.HeaderText = "TreatmentName";
+            this.treatmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.treatmentNameDataGridViewTextBoxColumn.Name = "treatmentNameDataGridViewTextBoxColumn";
+            this.treatmentNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // treatmentCost
+            // 
+            this.treatmentCost.DataPropertyName = "TreatmentCost";
+            this.treatmentCost.HeaderText = "TreatmentCost";
+            this.treatmentCost.MinimumWidth = 6;
+            this.treatmentCost.Name = "treatmentCost";
+            this.treatmentCost.ReadOnly = true;
             // 
             // treatmentBindingSource1
             // 
@@ -318,9 +336,9 @@
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(738, 179);
+            this.groupBox1.Location = new System.Drawing.Point(722, 179);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 394);
+            this.groupBox1.Size = new System.Drawing.Size(616, 417);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payment";
@@ -456,27 +474,41 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Manage invoice and payments";
             // 
-            // treatmentNameDataGridViewTextBoxColumn
+            // button1
             // 
-            this.treatmentNameDataGridViewTextBoxColumn.DataPropertyName = "TreatmentName";
-            this.treatmentNameDataGridViewTextBoxColumn.HeaderText = "TreatmentName";
-            this.treatmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.treatmentNameDataGridViewTextBoxColumn.Name = "treatmentNameDataGridViewTextBoxColumn";
-            this.treatmentNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.button1.Location = new System.Drawing.Point(368, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Add invoice";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // treatmentCost
+            // button2
             // 
-            this.treatmentCost.DataPropertyName = "TreatmentCost";
-            this.treatmentCost.HeaderText = "TreatmentCost";
-            this.treatmentCost.MinimumWidth = 6;
-            this.treatmentCost.Name = "treatmentCost";
-            this.treatmentCost.ReadOnly = true;
+            this.button2.Location = new System.Drawing.Point(545, 37);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(149, 23);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Process Payment";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(831, 44);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 23);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "Payment History";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1365, 749);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
@@ -546,5 +578,8 @@
         private System.Windows.Forms.Label lblTotall;
         private System.Windows.Forms.DataGridViewTextBoxColumn treatmentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn treatmentCost;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
