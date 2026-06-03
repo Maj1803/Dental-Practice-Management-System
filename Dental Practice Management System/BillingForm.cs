@@ -287,6 +287,11 @@ namespace Dental_Practice_Management_System
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
         } 
     

@@ -61,5 +61,20 @@ namespace Dental_Practice_Management_System
         {
 
         }
+
+        private void lblDateToday_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
