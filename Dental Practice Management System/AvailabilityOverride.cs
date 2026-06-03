@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dental_Practice_Management_System.dsDentistTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace Dental_Practice_Management_System
         // Prevent searches running while initializing dropdowns
         private bool isInitializing = true;
         private int selectedOverrideId = -1; // Stores the ID of the record being edited (-1 means adding new)
+        TimeslotTableAdapter timeslotTableAdapter = new TimeslotTableAdapter();
 
         // Run this inside your Form_Load or after data binding configuration finishes
         private void InitializeSearchControls()
@@ -82,6 +84,37 @@ namespace Dental_Practice_Management_System
                 panelToShow.Visible = true;
 
             panelToShow.Refresh();
+        }
+
+        private void LoadOverrideTimeSlots()
+        {
+            if (cmbDentist.SelectedValue == null) return;
+            if (cmbDentist.SelectedValue is System.Data.DataRowView) return;
+
+            try
+            {
+                int employeeID = Convert.ToInt32(cmbDentist.SelectedValue);
+                DateTime chosenDate = dtpDate.Value.Date;
+                int dayOfWeek = (int)chosenDate.DayOfWeek + 1;
+
+                this.dsDentist.Timeslot.Clear();
+                this.dsDentist.EnforceConstraints = false;
+
+                timeslotTableAdapter.FillByAvailableSlots(
+                    this.dsDentist.Timeslot, dayOfWeek, chosenDate, employeeID);
+
+                cmbTimeSlot.DataSource = null;
+                cmbTimeSlot.Items.Clear();
+                cmbTimeSlot.DataSource = this.dsDentist.Timeslot;
+                cmbTimeSlot.DisplayMember = "Slot_Start_Time";
+                cmbTimeSlot.ValueMember = "Timeslot_ID";
+                cmbTimeSlot.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not load available slots: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -154,6 +187,10 @@ namespace Dental_Practice_Management_System
             this.availability_OverrideTableAdapter.FillBy(this.dsDentist.Availability_Override);
             // TODO: This line of code loads data into the 'dsDentist.Employee' table. You can move, or remove it, as needed.
             this.employeeTableAdapter.FillByDentist(this.dsDentist.Employee);
+
+            dgvOverrides.DataError += (s, ev) => ev.ThrowException = false;
+
+            LoadOverrideTimeSlots();
 
             ShowPanel(pnlDisplay);
 
@@ -290,6 +327,16 @@ namespace Dental_Practice_Management_System
             btCancel.ForeColor = Color.DimGray;
         }
 
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            LoadOverrideTimeSlots();
+        }
+
+        private void cmbDentist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadOverrideTimeSlots();
+        }
+
         private void dtpSearchDate_ValueChanged(object sender, EventArgs e)
         {
             PerformDynamicSearch();
@@ -322,13 +369,12 @@ namespace Dental_Practice_Management_System
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //Ensure a row is actually selected
-            if (dgvOverrides.CurrentRow == null || dgvOverrides.CurrentRow.Cells["Override_ID"].Value == DBNull.Value)
+            // Ensure the grid has a valid selected row and that the index isn't out of bounds
+            if (dgvOverrides.CurrentRow == null || dgvOverrides.CurrentRow.Index < 0 || dgvOverrides.CurrentRow.Cells[0].Value == DBNull.Value)
             {
-                MessageBox.Show("Please select an availability override record from the table list to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a valid record from the list.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             //Extract ID from the selected row
             selectedOverrideId = Convert.ToInt32(dgvOverrides.CurrentRow.Cells["Override_ID"].Value);
 
@@ -343,6 +389,7 @@ namespace Dental_Practice_Management_System
             // Handle timeslot selection if it isn't a full-day block
             if (!chkFullDay.Checked && dgvOverrides.CurrentRow.Cells["Timeslot_ID"].Value != DBNull.Value)
             {
+                LoadOverrideTimeSlots();
                 cmbTimeSlot.SelectedValue = dgvOverrides.CurrentRow.Cells["Timeslot_ID"].Value;
             }
             else
@@ -401,6 +448,13 @@ namespace Dental_Practice_Management_System
                     MessageBox.Show($"Database deletion failed: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+
+
+        private void btnBack_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

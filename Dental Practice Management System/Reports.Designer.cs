@@ -1,0 +1,181 @@
+﻿namespace Dental_Practice_Management_System
+{
+    partial class Reports
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.CrystalReport11 = new Dental_Practice_Management_System.CrystalReport1();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dsDentist1 = new Dental_Practice_Management_System.dsDentist();
+            this.tableAdapterManager1 = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
+            this.tableAdapterManager2 = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
+            this.appointmentTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentTableAdapter();
+            this.queriesTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
+            this.queriesTableAdapter2 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1063, 571);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.crystalReportViewer1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1055, 545);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Appointments Reports";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = 0;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 3);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.ReportSource = this.CrystalReport11;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1049, 539);
+            this.crystalReportViewer1.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1055, 545);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Invoice Summary";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1055, 545);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Treatment History";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dsDentist1
+            // 
+            this.dsDentist1.DataSetName = "dsDentist";
+            this.dsDentist1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.AppointmentTableAdapter = null;
+            this.tableAdapterManager1.Availability_OverrideTableAdapter = null;
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.EmployeeTableAdapter = null;
+            this.tableAdapterManager1.InvoiceTableAdapter = null;
+            this.tableAdapterManager1.MedicineTableAdapter = null;
+            this.tableAdapterManager1.PatientTableAdapter = null;
+            this.tableAdapterManager1.PatientTreatmentTableAdapter = null;
+            this.tableAdapterManager1.PaymentTableAdapter = null;
+            this.tableAdapterManager1.PrescriptionTableAdapter = null;
+            this.tableAdapterManager1.StaffMessageTableAdapter = null;
+            this.tableAdapterManager1.TimeslotTableAdapter = null;
+            this.tableAdapterManager1.Treatment1TableAdapter = null;
+            this.tableAdapterManager1.TreatmentTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.AppointmentTableAdapter = null;
+            this.tableAdapterManager2.Availability_OverrideTableAdapter = null;
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.Connection = null;
+            this.tableAdapterManager2.EmployeeTableAdapter = null;
+            this.tableAdapterManager2.InvoiceTableAdapter = null;
+            this.tableAdapterManager2.MedicineTableAdapter = null;
+            this.tableAdapterManager2.PatientTableAdapter = null;
+            this.tableAdapterManager2.PatientTreatmentTableAdapter = null;
+            this.tableAdapterManager2.PaymentTableAdapter = null;
+            this.tableAdapterManager2.PrescriptionTableAdapter = null;
+            this.tableAdapterManager2.StaffMessageTableAdapter = null;
+            this.tableAdapterManager2.TimeslotTableAdapter = null;
+            this.tableAdapterManager2.Treatment1TableAdapter = null;
+            this.tableAdapterManager2.TreatmentTableAdapter = null;
+            this.tableAdapterManager2.UpdateOrder = Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // appointmentTableAdapter1
+            // 
+            this.appointmentTableAdapter1.ClearBeforeFill = true;
+            // 
+            // Reports
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1063, 571);
+            this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Reports";
+            this.Text = "Reports";
+            this.Load += new System.EventHandler(this.Reports_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private CrystalReport1 CrystalReport11;
+        private dsDentist dsDentist1;
+        private dsDentistTableAdapters.TableAdapterManager tableAdapterManager1;
+        private dsDentistTableAdapters.TableAdapterManager tableAdapterManager2;
+        private dsDentistTableAdapters.AppointmentTableAdapter appointmentTableAdapter1;
+        private dsDentistTableAdapters.QueriesTableAdapter queriesTableAdapter1;
+        private dsDentistTableAdapters.QueriesTableAdapter queriesTableAdapter2;
+    }
+}

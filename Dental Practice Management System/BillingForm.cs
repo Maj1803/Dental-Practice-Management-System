@@ -12,7 +12,7 @@ namespace Dental_Practice_Management_System
 {
     public partial class BillingForm : Form
     {
-        decimal amount;
+        /* decimal amount;
         
         decimal total = 0;
         public BillingForm()
@@ -104,7 +104,7 @@ namespace Dental_Practice_Management_System
 
                     {
 
-                        total += Convert.ToDecimal(row.Cells["TreatmentCost"].Value);
+
 
                     }
 
@@ -286,7 +286,7 @@ namespace Dental_Practice_Management_System
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
-        }
+        }*/
     }
-        }
+        } 
     

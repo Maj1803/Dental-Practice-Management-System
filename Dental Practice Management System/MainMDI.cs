@@ -93,5 +93,40 @@ namespace Dental_Practice_Management_System
             loginForm.Show();
             this.Close();
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Dashboard(userFullName));
+        }
+
+        private void btnPatients_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Patients());
+        }
+
+        private void btnAppointments_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Appointments());
+        }
+
+        private void btnTreatments_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new TreatmentMedicine());
+        }
+
+        private void btnBilling_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new BillingForm());
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+          OpenChildForm(new Reports());
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+            //OpenChildForm(new Staff());
+        }
     }
 }
