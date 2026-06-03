@@ -46,31 +46,36 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpAppointmentDetails = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.grpFees = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.grpPayment = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.grpAppointmentDetails.SuspendLayout();
+            this.grpFees.SuspendLayout();
+            this.grpPayment.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -219,18 +224,22 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "label6";
             // 
-            // groupBox1
+            // grpAppointmentDetails
             // 
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.lblText);
-            this.groupBox1.Location = new System.Drawing.Point(28, 197);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1052, 168);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Appointment Details";
+            this.grpAppointmentDetails.Controls.Add(this.label24);
+            this.grpAppointmentDetails.Controls.Add(this.label23);
+            this.grpAppointmentDetails.Controls.Add(this.label22);
+            this.grpAppointmentDetails.Controls.Add(this.label21);
+            this.grpAppointmentDetails.Controls.Add(this.label9);
+            this.grpAppointmentDetails.Controls.Add(this.label8);
+            this.grpAppointmentDetails.Controls.Add(this.label7);
+            this.grpAppointmentDetails.Controls.Add(this.lblText);
+            this.grpAppointmentDetails.Location = new System.Drawing.Point(28, 197);
+            this.grpAppointmentDetails.Name = "grpAppointmentDetails";
+            this.grpAppointmentDetails.Size = new System.Drawing.Size(1052, 168);
+            this.grpAppointmentDetails.TabIndex = 13;
+            this.grpAppointmentDetails.TabStop = false;
+            this.grpAppointmentDetails.Text = "Appointment Details";
             // 
             // label9
             // 
@@ -270,66 +279,21 @@
             this.label10.Text = " Date";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // groupBox2
+            // grpFees
             // 
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.dgvInvoiceTreatment);
-            this.groupBox2.Location = new System.Drawing.Point(28, 386);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1052, 261);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Fees";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 16);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Total Before VAT";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(867, 136);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 16);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "label11";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 188);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(80, 16);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "VAT @ 15%";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 231);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(38, 16);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Total";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(867, 188);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 16);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "label14";
+            this.grpFees.Controls.Add(this.label15);
+            this.grpFees.Controls.Add(this.label14);
+            this.grpFees.Controls.Add(this.label13);
+            this.grpFees.Controls.Add(this.label12);
+            this.grpFees.Controls.Add(this.label11);
+            this.grpFees.Controls.Add(this.label1);
+            this.grpFees.Controls.Add(this.dgvInvoiceTreatment);
+            this.grpFees.Location = new System.Drawing.Point(28, 386);
+            this.grpFees.Name = "grpFees";
+            this.grpFees.Size = new System.Drawing.Size(1052, 261);
+            this.grpFees.TabIndex = 15;
+            this.grpFees.TabStop = false;
+            this.grpFees.Text = "Fees";
             // 
             // label15
             // 
@@ -340,55 +304,64 @@
             this.label15.TabIndex = 13;
             this.label15.Text = "label15";
             // 
-            // groupBox3
+            // label14
             // 
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Location = new System.Drawing.Point(28, 685);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1052, 147);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Payment";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(867, 188);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 16);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "label14";
             // 
-            // label16
+            // label13
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(17, 36);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 16);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "Amount Paid";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(17, 231);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 16);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Total";
             // 
-            // label17
+            // label12
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(867, 36);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 16);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "label17";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(17, 188);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(80, 16);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "VAT @ 15%";
             // 
-            // label18
+            // label11
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(20, 66);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(85, 16);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "Balance Due";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(867, 136);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 16);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "label11";
             // 
-            // label19
+            // label1
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(870, 66);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(51, 16);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "label19";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Total Before VAT";
+            // 
+            // grpPayment
+            // 
+            this.grpPayment.Controls.Add(this.label20);
+            this.grpPayment.Controls.Add(this.label19);
+            this.grpPayment.Controls.Add(this.label18);
+            this.grpPayment.Controls.Add(this.label17);
+            this.grpPayment.Controls.Add(this.label16);
+            this.grpPayment.Location = new System.Drawing.Point(28, 685);
+            this.grpPayment.Name = "grpPayment";
+            this.grpPayment.Size = new System.Drawing.Size(1052, 147);
+            this.grpPayment.TabIndex = 16;
+            this.grpPayment.TabStop = false;
+            this.grpPayment.Text = "Payment";
             // 
             // label20
             // 
@@ -399,15 +372,97 @@
             this.label20.TabIndex = 18;
             this.label20.Text = "PAYMENT SUCCESSFULLY MADE";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(870, 66);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(51, 16);
+            this.label19.TabIndex = 17;
+            this.label19.Text = "label19";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(20, 66);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(85, 16);
+            this.label18.TabIndex = 16;
+            this.label18.Text = "Balance Due";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(867, 36);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(51, 16);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "label17";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(17, 36);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(83, 16);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "Amount Paid";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(996, 178);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "label3";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(221, 75);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 16);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "label21";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(221, 45);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(51, 16);
+            this.label22.TabIndex = 5;
+            this.label22.Text = "label22";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(221, 139);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(51, 16);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "label23";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(221, 103);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(51, 16);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "label24";
+            // 
             // Invoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 855);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.grpPayment);
+            this.Controls.Add(this.grpFees);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpAppointmentDetails);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
@@ -424,12 +479,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpAppointmentDetails.ResumeLayout(false);
+            this.grpAppointmentDetails.PerformLayout();
+            this.grpFees.ResumeLayout(false);
+            this.grpFees.PerformLayout();
+            this.grpPayment.ResumeLayout(false);
+            this.grpPayment.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,23 +507,28 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpAppointmentDetails;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpFees;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpPayment;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label3;
     }
 }

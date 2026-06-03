@@ -56,7 +56,7 @@ namespace Dental_Practice_Management_System
         private void txtApptID_TextChanged(object sender, EventArgs e)
             
         {
-            if (txtApptID.Text == "")
+            if (txtAppt.Text == "")
             {
                 patientBindingSource.DataSource = null;
 
@@ -67,7 +67,7 @@ namespace Dental_Practice_Management_System
             try
             {
 
-                patientTableAdapter.FillByAppointmentID(dsDentist.Patient, Convert.ToInt32(txtApptID.Text));
+                patientTableAdapter.FillByAppointmentID(dsDentist.Patient, Convert.ToInt32(txtAppt.Text));
 
                 dgvPatient.DataSource = dsDentist.Patient;
 
@@ -80,7 +80,7 @@ namespace Dental_Practice_Management_System
 
         private void btnTreatment_Click(object sender, EventArgs e)
         {
-            if (txtApptID.Text == "")
+            if (txtAppt.Text == "")
             {
                 MessageBox.Show("Error:Enter Appointment ID");
 
@@ -90,7 +90,7 @@ namespace Dental_Practice_Management_System
             try
             {
 
-                treatmentTableAdapter.FillByAppointmentID(dsDentist.Treatment, Convert.ToInt32(txtApptID.Text));
+                treatmentTableAdapter.FillByAppointmentID(dsDentist.Treatment, Convert.ToInt32(txtAppt.Text));
 
                 dgvTreatment.DataSource = treatmentBindingSource1;
 
@@ -131,7 +131,7 @@ namespace Dental_Practice_Management_System
 
             Invoice frm = new Invoice();
 
-            frm.lblApptID.Text = txtApptID.Text;
+            frm.lblApptID.Text = txtAppt.Text;
 
             frm.lblDateToday.Text = DateTime.Now.ToShortDateString();
 
@@ -196,7 +196,7 @@ namespace Dental_Practice_Management_System
             try
             {
 
-                paymentTableAdapter.Insert(Convert.ToInt32(txtInvoiceID.Text), Convert.ToInt32(txtApptID.Text), amount, cmbMethod.Text, dateTimePicker1.Value);
+                paymentTableAdapter.Insert(Convert.ToInt32(txtInvoiceID.Text), Convert.ToInt32(txtAppt.Text), amount, cmbMethod.Text, dateTimePicker1.Value);
 
                 MessageBox.Show("Payment has been saved");
 
@@ -212,7 +212,7 @@ namespace Dental_Practice_Management_System
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtApptID.Clear();
+            txtAppt.Clear();
 
             txtInvoiceID.Clear();
 
@@ -230,7 +230,7 @@ namespace Dental_Practice_Management_System
 
             total = 0;
 
-            txtApptID.Focus();
+            txtAppt.Focus();
 
             patientBindingSource.DataSource = null;
 
