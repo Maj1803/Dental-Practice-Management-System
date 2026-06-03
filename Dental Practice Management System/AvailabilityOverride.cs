@@ -66,22 +66,24 @@ namespace Dental_Practice_Management_System
 
         public AvailabilityOverride()
         {
+           
             InitializeComponent();
             InitializeSearchControls();
         }
 
         private void ShowPanel(Panel panelToShow)
         {
+            pnlDisplay.Visible = false;
+            pnlForm.Visible = false;
+
+            panelToShow.Dock = DockStyle.Fill;
+            panelToShow.Visible = true;
             panelToShow.BringToFront();
 
-            
             bool shouldShowButton = (panelToShow == pnlDisplay);
 
             btAddNew.Visible = shouldShowButton;
             btAddNew.Enabled = shouldShowButton;
-
-
-                panelToShow.Visible = true;
 
             panelToShow.Refresh();
         }
@@ -108,12 +110,23 @@ namespace Dental_Practice_Management_System
                 cmbTimeSlot.DataSource = this.dsDentist.Timeslot;
                 cmbTimeSlot.DisplayMember = "Slot_Start_Time";
                 cmbTimeSlot.ValueMember = "Timeslot_ID";
+                cmbTimeSlot.Format -= cmbOverrideTimeSlot_Format;
+                cmbTimeSlot.Format += cmbOverrideTimeSlot_Format;
                 cmbTimeSlot.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Could not load available slots: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbOverrideTimeSlot_Format(object sender, ListControlConvertEventArgs e)
+        {
+            if (e.Value != null &&
+                TimeSpan.TryParse(e.Value.ToString(), out TimeSpan time))
+            {
+                e.Value = time.ToString(@"hh\:mm");
             }
         }
 
@@ -191,6 +204,11 @@ namespace Dental_Practice_Management_System
             dgvOverrides.DataError += (s, ev) => ev.ThrowException = false;
 
             LoadOverrideTimeSlots();
+            pnlDisplay.Dock = DockStyle.Fill;
+            pnlForm.Dock = DockStyle.Fill;
+
+            pnlDisplay.Visible = false;
+            pnlForm.Visible = false;
 
             ShowPanel(pnlDisplay);
 
@@ -454,7 +472,20 @@ namespace Dental_Practice_Management_System
 
         private void btnBack_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            if (this.MdiParent != null)
+            {
+                Appointments appointmentsForm = new Appointments();
+                appointmentsForm.MdiParent = this.MdiParent;
+                appointmentsForm.FormBorderStyle = FormBorderStyle.None;
+                appointmentsForm.Dock = DockStyle.Fill;
+                appointmentsForm.Show();
+
+                this.Close();
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

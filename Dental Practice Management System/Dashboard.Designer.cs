@@ -41,8 +41,8 @@
             this.lblPatientsText = new System.Windows.Forms.Label();
             this.lblPatientsCount = new System.Windows.Forms.Label();
             this.pnlInvoices = new System.Windows.Forms.Panel();
+            this.lblInvoicesText = new System.Windows.Forms.LinkLabel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblInvoicesText = new System.Windows.Forms.Label();
             this.lblInvoicesCount = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lBLScheduleHeader = new System.Windows.Forms.Label();
@@ -180,14 +180,28 @@
             // pnlInvoices
             // 
             this.pnlInvoices.BackColor = System.Drawing.Color.White;
-            this.pnlInvoices.Controls.Add(this.panel4);
             this.pnlInvoices.Controls.Add(this.lblInvoicesText);
+            this.pnlInvoices.Controls.Add(this.panel4);
             this.pnlInvoices.Controls.Add(this.lblInvoicesCount);
             this.pnlInvoices.Location = new System.Drawing.Point(1177, 71);
             this.pnlInvoices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlInvoices.Name = "pnlInvoices";
             this.pnlInvoices.Size = new System.Drawing.Size(294, 134);
             this.pnlInvoices.TabIndex = 4;
+            // 
+            // lblInvoicesText
+            // 
+            this.lblInvoicesText.ActiveLinkColor = System.Drawing.Color.Red;
+            this.lblInvoicesText.AutoSize = true;
+            this.lblInvoicesText.ForeColor = System.Drawing.Color.Red;
+            this.lblInvoicesText.LinkColor = System.Drawing.Color.Red;
+            this.lblInvoicesText.Location = new System.Drawing.Point(95, 95);
+            this.lblInvoicesText.Name = "lblInvoicesText";
+            this.lblInvoicesText.Size = new System.Drawing.Size(166, 25);
+            this.lblInvoicesText.TabIndex = 5;
+            this.lblInvoicesText.TabStop = true;
+            this.lblInvoicesText.Text = "Unpaid Invoices";
+            this.lblInvoicesText.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblInvoicesText_LinkClicked);
             // 
             // panel4
             // 
@@ -197,17 +211,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(47, 134);
             this.panel4.TabIndex = 2;
-            // 
-            // lblInvoicesText
-            // 
-            this.lblInvoicesText.AutoSize = true;
-            this.lblInvoicesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInvoicesText.ForeColor = System.Drawing.Color.Red;
-            this.lblInvoicesText.Location = new System.Drawing.Point(96, 98);
-            this.lblInvoicesText.Name = "lblInvoicesText";
-            this.lblInvoicesText.Size = new System.Drawing.Size(152, 22);
-            this.lblInvoicesText.TabIndex = 1;
-            this.lblInvoicesText.Text = "Unpaid Invoices";
             // 
             // lblInvoicesCount
             // 
@@ -258,6 +261,7 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "QuickView Stats";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
@@ -479,7 +483,6 @@
         private System.Windows.Forms.Label lblAppointmentsCount;
         private System.Windows.Forms.Label lblPatientsCount;
         private System.Windows.Forms.Label lblPatientsText;
-        private System.Windows.Forms.Label lblInvoicesText;
         private System.Windows.Forms.Label lblInvoicesCount;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lBLScheduleHeader;
@@ -501,5 +504,6 @@
         private System.Windows.Forms.BindingSource staffMessageBindingSource;
         private dsDentistTableAdapters.StaffMessageTableAdapter staffMessageTableAdapter;
         private dsDentistTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.LinkLabel lblInvoicesText;
     }
 }

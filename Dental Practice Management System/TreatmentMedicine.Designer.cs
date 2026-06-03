@@ -92,6 +92,7 @@
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
             this.pnlAddDiagnosis = new System.Windows.Forms.Panel();
             this.grpAddDiagnosis = new System.Windows.Forms.GroupBox();
+            this.txtAppointmentDiagnosisID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbDiagnosis = new System.Windows.Forms.ComboBox();
             this.txtPatientNameDiag = new System.Windows.Forms.TextBox();
@@ -99,7 +100,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnSaveDiagnosis = new System.Windows.Forms.Button();
             this.txtDiagnosisNotes = new System.Windows.Forms.RichTextBox();
-            this.cmbAppointmentDiagnosis = new System.Windows.Forms.ComboBox();
             this.lblAppointment = new System.Windows.Forms.Label();
             this.txtAppointmentDateDiag = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -112,6 +112,7 @@
             this.treatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.TreatmentTableAdapter();
             this.patientTreatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTreatmentTableAdapter();
             this.vw_PatientAppointmentDetailsTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter();
+            this.btnPrintPrescription = new System.Windows.Forms.Button();
             this.pnlPatientDetails.SuspendLayout();
             this.grpViewPatientDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vwPatientAppointmentDetailsBindingSource)).BeginInit();
@@ -221,9 +222,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPatientDetails.Controls.Add(this.grpViewPatientDetails);
-            this.pnlPatientDetails.Location = new System.Drawing.Point(27, 149);
+            this.pnlPatientDetails.Location = new System.Drawing.Point(39, 161);
             this.pnlPatientDetails.Name = "pnlPatientDetails";
-            this.pnlPatientDetails.Size = new System.Drawing.Size(798, 503);
+            this.pnlPatientDetails.Size = new System.Drawing.Size(500, 503);
             this.pnlPatientDetails.TabIndex = 7;
             // 
             // grpViewPatientDetails
@@ -249,7 +250,7 @@
             this.grpViewPatientDetails.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpViewPatientDetails.Location = new System.Drawing.Point(12, 14);
             this.grpViewPatientDetails.Name = "grpViewPatientDetails";
-            this.grpViewPatientDetails.Size = new System.Drawing.Size(757, 462);
+            this.grpViewPatientDetails.Size = new System.Drawing.Size(474, 462);
             this.grpViewPatientDetails.TabIndex = 1;
             this.grpViewPatientDetails.TabStop = false;
             this.grpViewPatientDetails.Text = "Patient and Appointment details";
@@ -302,9 +303,9 @@
             this.lblSelectAppointment.ForeColor = System.Drawing.Color.Black;
             this.lblSelectAppointment.Location = new System.Drawing.Point(36, 41);
             this.lblSelectAppointment.Name = "lblSelectAppointment";
-            this.lblSelectAppointment.Size = new System.Drawing.Size(186, 25);
+            this.lblSelectAppointment.Size = new System.Drawing.Size(189, 25);
             this.lblSelectAppointment.TabIndex = 12;
-            this.lblSelectAppointment.Text = "Select Appointment:";
+            this.lblSelectAppointment.Text = "Select Patient Name:";
             // 
             // txtFollowUpDate
             // 
@@ -405,7 +406,7 @@
             // pnlAddTreatment
             // 
             this.pnlAddTreatment.Controls.Add(this.grpTreatment);
-            this.pnlAddTreatment.Location = new System.Drawing.Point(63, 153);
+            this.pnlAddTreatment.Location = new System.Drawing.Point(582, 163);
             this.pnlAddTreatment.Name = "pnlAddTreatment";
             this.pnlAddTreatment.Size = new System.Drawing.Size(630, 472);
             this.pnlAddTreatment.TabIndex = 15;
@@ -427,7 +428,7 @@
             this.grpTreatment.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpTreatment.Location = new System.Drawing.Point(9, 13);
             this.grpTreatment.Name = "grpTreatment";
-            this.grpTreatment.Size = new System.Drawing.Size(1230, 567);
+            this.grpTreatment.Size = new System.Drawing.Size(581, 567);
             this.grpTreatment.TabIndex = 2;
             this.grpTreatment.TabStop = false;
             this.grpTreatment.Text = "Treatment Details";
@@ -562,9 +563,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrescribeMedication.Controls.Add(this.grpPrescribeMedication);
-            this.pnlPrescribeMedication.Location = new System.Drawing.Point(458, 153);
+            this.pnlPrescribeMedication.Location = new System.Drawing.Point(649, 163);
             this.pnlPrescribeMedication.Name = "pnlPrescribeMedication";
-            this.pnlPrescribeMedication.Size = new System.Drawing.Size(662, 509);
+            this.pnlPrescribeMedication.Size = new System.Drawing.Size(662, 405);
             this.pnlPrescribeMedication.TabIndex = 17;
             // 
             // grpPrescribeMedication
@@ -573,6 +574,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpPrescribeMedication.AutoSize = true;
+            this.grpPrescribeMedication.Controls.Add(this.btnPrintPrescription);
             this.grpPrescribeMedication.Controls.Add(this.txtDosage);
             this.grpPrescribeMedication.Controls.Add(this.lblDosage);
             this.grpPrescribeMedication.Controls.Add(this.txtQuantity);
@@ -589,7 +591,7 @@
             this.grpPrescribeMedication.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpPrescribeMedication.Location = new System.Drawing.Point(20, 22);
             this.grpPrescribeMedication.Name = "grpPrescribeMedication";
-            this.grpPrescribeMedication.Size = new System.Drawing.Size(620, 370);
+            this.grpPrescribeMedication.Size = new System.Drawing.Size(620, 360);
             this.grpPrescribeMedication.TabIndex = 3;
             this.grpPrescribeMedication.TabStop = false;
             this.grpPrescribeMedication.Text = "Prescribe Medication Details";
@@ -730,9 +732,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTreatmentHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlTreatmentHistory.Controls.Add(this.grpTreatmentHistory);
-            this.pnlTreatmentHistory.Location = new System.Drawing.Point(12, 148);
+            this.pnlTreatmentHistory.Location = new System.Drawing.Point(24, 153);
             this.pnlTreatmentHistory.Name = "pnlTreatmentHistory";
-            this.pnlTreatmentHistory.Size = new System.Drawing.Size(1245, 504);
+            this.pnlTreatmentHistory.Size = new System.Drawing.Size(1245, 491);
             this.pnlTreatmentHistory.TabIndex = 21;
             this.pnlTreatmentHistory.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTreatmentHistory_Paint);
             // 
@@ -751,9 +753,9 @@
             this.grpTreatmentHistory.Controls.Add(this.txtSearchPatient);
             this.grpTreatmentHistory.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTreatmentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpTreatmentHistory.Location = new System.Drawing.Point(31, 41);
+            this.grpTreatmentHistory.Location = new System.Drawing.Point(11, 13);
             this.grpTreatmentHistory.Name = "grpTreatmentHistory";
-            this.grpTreatmentHistory.Size = new System.Drawing.Size(1099, 448);
+            this.grpTreatmentHistory.Size = new System.Drawing.Size(1206, 1260);
             this.grpTreatmentHistory.TabIndex = 2;
             this.grpTreatmentHistory.TabStop = false;
             this.grpTreatmentHistory.Text = "Treatment History";
@@ -769,7 +771,7 @@
             this.dgvTreatmentHistory.ReadOnly = true;
             this.dgvTreatmentHistory.RowHeadersWidth = 51;
             this.dgvTreatmentHistory.RowTemplate.Height = 24;
-            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1057, 260);
+            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1164, 244);
             this.dgvTreatmentHistory.TabIndex = 18;
             // 
             // btnSearch
@@ -811,7 +813,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(282, 321);
+            this.btnClose.Location = new System.Drawing.Point(207, 387);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 39);
             this.btnClose.TabIndex = 15;
@@ -835,7 +837,7 @@
             this.lblRecordCount.AutoSize = true;
             this.lblRecordCount.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecordCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblRecordCount.Location = new System.Drawing.Point(26, 342);
+            this.lblRecordCount.Location = new System.Drawing.Point(28, 399);
             this.lblRecordCount.Name = "lblRecordCount";
             this.lblRecordCount.Size = new System.Drawing.Size(131, 17);
             this.lblRecordCount.TabIndex = 3;
@@ -852,14 +854,15 @@
             // pnlAddDiagnosis
             // 
             this.pnlAddDiagnosis.Controls.Add(this.grpAddDiagnosis);
-            this.pnlAddDiagnosis.Location = new System.Drawing.Point(100, 166);
+            this.pnlAddDiagnosis.Location = new System.Drawing.Point(626, 150);
             this.pnlAddDiagnosis.Name = "pnlAddDiagnosis";
-            this.pnlAddDiagnosis.Size = new System.Drawing.Size(646, 496);
+            this.pnlAddDiagnosis.Size = new System.Drawing.Size(631, 496);
             this.pnlAddDiagnosis.TabIndex = 4;
             // 
             // grpAddDiagnosis
             // 
             this.grpAddDiagnosis.AutoSize = true;
+            this.grpAddDiagnosis.Controls.Add(this.txtAppointmentDiagnosisID);
             this.grpAddDiagnosis.Controls.Add(this.label7);
             this.grpAddDiagnosis.Controls.Add(this.cmbDiagnosis);
             this.grpAddDiagnosis.Controls.Add(this.txtPatientNameDiag);
@@ -867,7 +870,6 @@
             this.grpAddDiagnosis.Controls.Add(this.button1);
             this.grpAddDiagnosis.Controls.Add(this.btnSaveDiagnosis);
             this.grpAddDiagnosis.Controls.Add(this.txtDiagnosisNotes);
-            this.grpAddDiagnosis.Controls.Add(this.cmbAppointmentDiagnosis);
             this.grpAddDiagnosis.Controls.Add(this.lblAppointment);
             this.grpAddDiagnosis.Controls.Add(this.txtAppointmentDateDiag);
             this.grpAddDiagnosis.Controls.Add(this.label3);
@@ -882,6 +884,15 @@
             this.grpAddDiagnosis.TabIndex = 3;
             this.grpAddDiagnosis.TabStop = false;
             this.grpAddDiagnosis.Text = "Diagnosis Details";
+            // 
+            // txtAppointmentDiagnosisID
+            // 
+            this.txtAppointmentDiagnosisID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAppointmentDiagnosisID.Location = new System.Drawing.Point(22, 63);
+            this.txtAppointmentDiagnosisID.Name = "txtAppointmentDiagnosisID";
+            this.txtAppointmentDiagnosisID.ReadOnly = true;
+            this.txtAppointmentDiagnosisID.Size = new System.Drawing.Size(94, 27);
+            this.txtAppointmentDiagnosisID.TabIndex = 21;
             // 
             // label7
             // 
@@ -973,19 +984,6 @@
             this.txtDiagnosisNotes.TabIndex = 14;
             this.txtDiagnosisNotes.Text = "";
             // 
-            // cmbAppointmentDiagnosis
-            // 
-            this.cmbAppointmentDiagnosis.DataSource = this.vwPatientAppointmentDetailsBindingSource;
-            this.cmbAppointmentDiagnosis.DisplayMember = "Appointment_ID";
-            this.cmbAppointmentDiagnosis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAppointmentDiagnosis.FormattingEnabled = true;
-            this.cmbAppointmentDiagnosis.Location = new System.Drawing.Point(18, 65);
-            this.cmbAppointmentDiagnosis.Name = "cmbAppointmentDiagnosis";
-            this.cmbAppointmentDiagnosis.Size = new System.Drawing.Size(225, 28);
-            this.cmbAppointmentDiagnosis.TabIndex = 13;
-            this.cmbAppointmentDiagnosis.ValueMember = "Appointment_ID";
-            this.cmbAppointmentDiagnosis.SelectedIndexChanged += new System.EventHandler(this.cmbAppointmentDiagnosis_SelectedIndexChanged);
-            // 
             // lblAppointment
             // 
             this.lblAppointment.AutoSize = true;
@@ -993,9 +991,9 @@
             this.lblAppointment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblAppointment.Location = new System.Drawing.Point(20, 38);
             this.lblAppointment.Name = "lblAppointment";
-            this.lblAppointment.Size = new System.Drawing.Size(83, 17);
+            this.lblAppointment.Size = new System.Drawing.Size(99, 17);
             this.lblAppointment.TabIndex = 12;
-            this.lblAppointment.Text = "Appointment";
+            this.lblAppointment.Text = "Appointment ID";
             // 
             // txtAppointmentDateDiag
             // 
@@ -1074,6 +1072,22 @@
             // 
             this.vw_PatientAppointmentDetailsTableAdapter.ClearBeforeFill = true;
             // 
+            // btnPrintPrescription
+            // 
+            this.btnPrintPrescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnPrintPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPrintPrescription.FlatAppearance.BorderSize = 0;
+            this.btnPrintPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintPrescription.ForeColor = System.Drawing.Color.White;
+            this.btnPrintPrescription.Location = new System.Drawing.Point(330, 295);
+            this.btnPrintPrescription.Name = "btnPrintPrescription";
+            this.btnPrintPrescription.Size = new System.Drawing.Size(210, 39);
+            this.btnPrintPrescription.TabIndex = 21;
+            this.btnPrintPrescription.Text = "Print Prescription";
+            this.btnPrintPrescription.UseVisualStyleBackColor = false;
+            this.btnPrintPrescription.Click += new System.EventHandler(this.btnPrintPrescription_Click);
+            // 
             // TreatmentMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1081,11 +1095,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1415, 708);
-            this.Controls.Add(this.pnlTreatmentHistory);
-            this.Controls.Add(this.pnlPatientDetails);
-            this.Controls.Add(this.pnlAddTreatment);
             this.Controls.Add(this.pnlPrescribeMedication);
             this.Controls.Add(this.pnlAddDiagnosis);
+            this.Controls.Add(this.pnlAddTreatment);
+            this.Controls.Add(this.pnlTreatmentHistory);
+            this.Controls.Add(this.pnlPatientDetails);
             this.Controls.Add(this.btnAddDiagnosis);
             this.Controls.Add(this.btnTreatmentHistory);
             this.Controls.Add(this.btnPrescribeMedication);
@@ -1184,7 +1198,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSaveDiagnosis;
         private System.Windows.Forms.RichTextBox txtDiagnosisNotes;
-        private System.Windows.Forms.ComboBox cmbAppointmentDiagnosis;
         private System.Windows.Forms.Label lblAppointment;
         private System.Windows.Forms.TextBox txtAppointmentDateDiag;
         private System.Windows.Forms.Label label3;
@@ -1216,5 +1229,7 @@
         private System.Windows.Forms.BindingSource vwPatientAppointmentDetailsBindingSource;
         private dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter vw_PatientAppointmentDetailsTableAdapter;
         private System.Windows.Forms.Label lblAllergyWarning;
+        private System.Windows.Forms.TextBox txtAppointmentDiagnosisID;
+        private System.Windows.Forms.Button btnPrintPrescription;
     }
 }

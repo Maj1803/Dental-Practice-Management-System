@@ -26,7 +26,7 @@ namespace Dental_Practice_Management_System
         }
         private void HideAllPanels()
         {
-            pnlPatientDetails.Visible = false;
+            //pnlPatientDetails.Visible = false;
             pnlAddTreatment.Visible = false;
             pnlPrescribeMedication.Visible = false;
             pnlTreatmentHistory.Visible = false;
@@ -41,6 +41,7 @@ namespace Dental_Practice_Management_System
                 return;
             }
             HideAllPanels();
+            pnlPatientDetails.Visible = true;
             pnlAddTreatment.Visible = true;
 
         }
@@ -50,14 +51,24 @@ namespace Dental_Practice_Management_System
         {
             // TODO: This line of code loads data into the 'dsDentist.vw_PatientAppointmentDetails' table. You can move, or remove it, as needed.
             this.vw_PatientAppointmentDetailsTableAdapter.Fill(this.dsDentist.vw_PatientAppointmentDetails);
+            
             // TODO: This line of code loads data into the 'dsDentist1.PatientTreatment' table. You can move, or remove it, as needed.
             this.patientTreatmentTableAdapter.Fill(this.dsDentist1.PatientTreatment);
             // TODO: This line of code loads data into the 'dsDentist1.Treatment' table. You can move, or remove it, as needed.
             this.treatmentTableAdapter.Fill(this.dsDentist1.Treatment);
             this.vw_PatientAppointmentDetailsTableAdapter.Fill(this.dsDentist.vw_PatientAppointmentDetails);
-            // this.medicineTableAdapter.Fill(this.dsDentist1.Medicine);
+             this.medicineTableAdapter.Fill(this.dsDentist1.Medicine);
+            cmbAppointment.SelectedIndexChanged -= cmbAppointment_SelectedIndexChanged;
+            //cmbAppointment.SelectedIndex = -1;
+            DataView appointmentView = new DataView(dsDentist.vw_PatientAppointmentDetails);
+            appointmentView.RowFilter = "Appointment_Status = 'Completed'";
+            cmbAppointment.DataSource = appointmentView;
             cmbAppointment.SelectedIndex = -1;//no selection by default
-
+                                              //cmbAppointment.SelectedIndexChanged -= cmbAppointment_SelectedIndexChanged;
+                                              //this.patientTreatmentTableAdapter.Fill(this.dsDentist1.PatientTreatment);
+                                              // this.treatmentTableAdapter.Fill(this.dsDentist1.Treatment);
+                                              //cmbAppointment.SelectedIndex = -1;//no selection by default
+            cmbAppointment.SelectedIndexChanged += cmbAppointment_SelectedIndexChanged;
             //LoadAppointments();
             LoadTreatments();
 
@@ -66,8 +77,8 @@ namespace Dental_Practice_Management_System
             //pnlAddTreatment.Visible = false;
             LoadMedicines();
             cmbMedicine.SelectedIndexChanged += new EventHandler(cmbMedicine_SelectedIndexChanged);
-            
 
+            
 
 
         }
@@ -113,7 +124,10 @@ namespace Dental_Practice_Management_System
         }
         private void cmbAppointment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbAppointment.SelectedItem != null)
+            if (cmbAppointment.SelectedIndex == -1 || cmbAppointment.SelectedItem == null)
+            {
+                return;
+            }
             {
                 // Get the selected appointment's ID
                 int selectedAppointmentId = (int)cmbAppointment.SelectedValue;
@@ -261,12 +275,12 @@ namespace Dental_Practice_Management_System
                 return;
             }
             CopyPatientToPrescriptionPanel();
-
+            HideAllPanels();
+            pnlPatientDetails.Visible = true;
             pnlPrescribeMedication.Visible = true;
-            pnlAddDiagnosis.Visible = false;
-            pnlAddTreatment.Visible = false;
-            pnlPatientDetails.Visible = false;
-            pnlTreatmentHistory.Visible = false;
+            
+            
+           
 
         }
 
@@ -287,7 +301,7 @@ namespace Dental_Practice_Management_System
             }
             CopyAppointmentToDiagnosisPanel();
             HideAllPanels();
-
+            pnlPatientDetails.Visible = true;
             pnlAddDiagnosis.Visible = true;
         }
         private void CopyAppointmentToDiagnosisPanel()
@@ -295,7 +309,7 @@ namespace Dental_Practice_Management_System
             txtPatientNameDiag.Text = txtPatientName.Text;
             txtPatientIDDiag.Text = txtPatientID.Text;
             txtAppointmentDateDiag.Text = txtFollowUpDate.Text;
-            cmbAppointmentDiagnosis.Text = cmbAppointment.Text; // Assuming you want to copy the appointment details to the diagnosis panel's ComboBox for selection
+            txtAppointmentDiagnosisID.Text = txtAppointmentID.Text; // Assuming you want to copy the appointment details to the diagnosis panel's ComboBox for selection
 
         }
         private void LoadTreatmentHistory()
@@ -391,6 +405,13 @@ namespace Dental_Practice_Management_System
                     DateTime.Now // Date_Issued 
                 );
                 MessageBox.Show("Prescription details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult printQuery = MessageBox.Show("Would you like to print this prescription now?", "Print Document", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (printQuery == DialogResult.Yes)
+                {
+                    // If you already have your separate print button code written, 
+                    // you can cleanly call its click event directly:
+                    btnPrintPrescription_Click(this, EventArgs.Empty);
+                }
                 cmbMedicine.SelectedIndex = -1;
                 txtQuantity.Clear();
                 txtDosage.Clear();
@@ -414,27 +435,11 @@ namespace Dental_Practice_Management_System
             }
         }
 
-        private void cmbAppointmentDiagnosis_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (isDiagnosisLoading) return; // Prevent event from firing during loading
-            if (cmbAppointmentDiagnosis.SelectedItem == null) return; // No selection
-            if (cmbAppointmentDiagnosis.SelectedIndex == -1) return; // No selection
-            try
-            {
-                DataRowView row = (DataRowView)cmbAppointmentDiagnosis.SelectedItem;
-                txtPatientNameDiag.Text = row["PatientFullName"].ToString();
-                txtPatientIDDiag.Text = row["Patient_ID"].ToString();
-                txtAppointmentDateDiag.Text = row["Appointment_Date"].ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading diagnosis details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
         private void btnSaveDiagnosis_Click(object sender, EventArgs e)
         {
-            if (cmbAppointmentDiagnosis.SelectedIndex == -1 || cmbAppointmentDiagnosis.SelectedValue == null)
+            if (cmbAppointment.SelectedIndex == -1 || string.IsNullOrEmpty(txtAppointmentDiagnosisID.Text))
             {
                 MessageBox.Show("Please select an appointment before saving the diagnosis details.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -446,7 +451,7 @@ namespace Dental_Practice_Management_System
             }
             try
             {
-                int appointmentId = Convert.ToInt32(cmbAppointmentDiagnosis.SelectedValue);
+                int appointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
                 int patientId = Convert.ToInt32(txtPatientIDDiag.Text);
 
                 patientTreatmentTableAdapter.InsertDiagnosis(appointmentId, // Appointment_ID
@@ -477,7 +482,7 @@ namespace Dental_Practice_Management_System
         }
         private void ClearDiagnosisDetails()
         {
-            cmbAppointmentDiagnosis.SelectedIndex = -1;
+            txtAppointmentDiagnosisID.Clear();
             cmbDiagnosis.Text = string.Empty;
             cmbDiagnosis.SelectedIndex = -1;
             txtDiagnosisNotes.Clear();
@@ -504,6 +509,61 @@ namespace Dental_Practice_Management_System
 
         private void pnlTreatmentHistory_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void btnPrintPrescription_Click(object sender, EventArgs e)
+        {
+            if (cmbAppointment.SelectedIndex == -1 || cmbAppointment.SelectedValue == null)
+            {
+                MessageBox.Show("Please select an active appointment to print its prescription.",
+                                "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // 2. Fetch the active Appointment ID from your ComboBox selection
+                int activeAppointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
+
+                // 3. Create instances of your typed Dataset and DataAdapters
+                dsDentist reportingDataSet = new dsDentist();
+                var apptViewAdapter = new dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter();
+                var treatmentAdapter = new dsDentistTableAdapters.PatientTreatmentTableAdapter();
+                var prescriptionAdapter = new dsDentistTableAdapters.PrescriptionTableAdapter();
+                var medicineAdapter = new dsDentistTableAdapters.MedicineTableAdapter();
+
+                // 4. Fill the DataTables to load the database records into memory
+                apptViewAdapter.Fill(reportingDataSet.vw_PatientAppointmentDetails);
+                treatmentAdapter.Fill(reportingDataSet.PatientTreatment);
+                prescriptionAdapter.Fill(reportingDataSet.Prescription);
+                medicineAdapter.Fill(reportingDataSet.Medicine);
+
+                // 5. Initialize your custom Crystal Report layout object matching rptPrescription.rpt
+                rptPrescription reportInstance = new rptPrescription();
+
+                // Pass your populated dataset structure directly to the report template
+                reportInstance.SetDataSource(reportingDataSet);
+
+                // 6. FILTER SELECTION: Tell Crystal Reports to ONLY target the active prescription 
+                // by matching the Appointment_ID through the database relationship link chain.
+                string crystalSelectionFormula = "{PatientTreatment.Appointment_ID} = " + activeAppointmentId;
+
+                // 7. Initialize your view window form: PrescriptionReportView
+                PrescriptionReportView viewerForm = new PrescriptionReportView();
+
+                // Feed the report instance and filter formula into your custom viewer: crystalReportViewerPrescription
+                viewerForm.crystalReportViewerPrescription.ReportSource = reportInstance;
+                viewerForm.crystalReportViewerPrescription.SelectionFormula = crystalSelectionFormula;
+
+                // 8. Open up the report view panel as a modal dialog box
+                viewerForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred while generating the prescription printout: " + ex.Message,
+                                "Reporting System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

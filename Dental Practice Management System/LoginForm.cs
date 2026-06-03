@@ -17,8 +17,7 @@ namespace Dental_Practice_Management_System
 
         private void SetupForm()
         {
-            groupBox1.Visible = false;
-
+            groupBox1.Visible = true;
             CentrePanel();
             this.Resize += (s, e) => CentrePanel();
         }
@@ -26,7 +25,7 @@ namespace Dental_Practice_Management_System
         private void CentrePanel()
         {
             panel1.Left = (this.ClientSize.Width - panel1.Width) / 2;
-            panel1.Top = (this.ClientSize.Height - panel1.Height) / 2 +50;
+            panel1.Top = (this.ClientSize.Height - panel1.Height) / 2 + 50;
         }
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
@@ -41,35 +40,16 @@ namespace Dental_Practice_Management_System
                 btnLogin_Click(sender, e);
         }
 
-        private void btnReceptionist_Click(object sender, EventArgs e)
+        private void rdoReceptionist_CheckedChanged(object sender, EventArgs e)
         {
-            selectedRole = "Receptionist";
-            HighlightButton(btnReceptionist, btnDentist);
-            ShowLoginFields();
+            if (rdoReceptionist.Checked)
+                selectedRole = "Receptionist";
         }
 
-        private void btnDentist_Click(object sender, EventArgs e)
+        private void rdoDentist_CheckedChanged(object sender, EventArgs e)
         {
-            selectedRole = "Dentist";
-            HighlightButton(btnDentist, btnReceptionist);
-            ShowLoginFields();
-        }
-
-        private void HighlightButton(Button selected, Button other)
-        {
-            selected.BackColor = Color.FromArgb(26, 58, 143);
-            selected.ForeColor = Color.White;
-
-            other.BackColor = Color.White;
-            other.ForeColor = Color.FromArgb(26, 58, 143);
-        }
-
-        private void ShowLoginFields()
-        {
-            groupBox1.Visible = true;
-            txtUsername.Clear();
-            txtPassword.Clear();
-            txtUsername.Focus();
+            if (rdoDentist.Checked)
+                selectedRole = "Dentist";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -165,19 +145,6 @@ namespace Dental_Practice_Management_System
             lblDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MessageBox.Show(
-                "IT SUPPORT CONSULTANTS:\n\n" +
-                "• Mahdiya\n" +
-                "• Jeslin\n" +
-                "• Nihal\n" +
-                "• Nashwah\n" +
-                "• Raeesa\n" +
-                "• Katelyn",
-                "Development Team",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-        }
+   
     }
 }
