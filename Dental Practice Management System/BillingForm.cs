@@ -12,7 +12,7 @@ namespace Dental_Practice_Management_System
 {
     public partial class BillingForm : Form
     {
-         decimal amount;
+         decimal amount=0;
         
         decimal total = 0;
         public BillingForm()
@@ -110,7 +110,7 @@ namespace Dental_Practice_Management_System
 
                 }
 
-                lblTotall.Text = "R" + total;
+                //lblTotall.Text = "R" + total;
 
             }
             catch (Exception ex)
@@ -226,7 +226,7 @@ namespace Dental_Practice_Management_System
 
             dgvTreatment.DataSource = null;
 
-            lblTotall.Text = "R0.00";
+            //lblTotall.Text = "R0.00";
 
             total = 0;
 
