@@ -145,3 +145,4 @@ C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Denta
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.PrescriptionReportView.resources
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Reports.resources
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental P.0574DD40.Up2Date
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.PrescriptionReportView.resources

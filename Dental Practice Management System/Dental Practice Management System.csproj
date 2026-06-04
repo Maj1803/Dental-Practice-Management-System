@@ -60,6 +60,11 @@
     <Compile Include="Appointments.Designer.cs">
       <DependentUpon>Appointments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Appointments1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Appointments.rpt</DependentUpon>
+    </Compile>
     <Compile Include="AvailabilityOverride.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +162,10 @@
     </Compile>
     <EmbeddedResource Include="Appointments.resx">
       <DependentUpon>Appointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointments.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Appointments1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="AvailabilityOverride.resx">
       <DependentUpon>AvailabilityOverride.cs</DependentUpon>

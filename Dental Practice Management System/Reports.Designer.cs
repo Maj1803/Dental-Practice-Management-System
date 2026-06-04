@@ -31,17 +31,20 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CrystalReport11 = new Dental_Practice_Management_System.CrystalReport1();
+            this.Appointments1 = new Dental_Practice_Management_System.Appointments();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.CrystalReport11 = new Dental_Practice_Management_System.CrystalReport1();
             this.dsDentist1 = new Dental_Practice_Management_System.dsDentist();
             this.tableAdapterManager1 = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
             this.tableAdapterManager2 = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
             this.appointmentTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentTableAdapter();
             this.queriesTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
             this.queriesTableAdapter2 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
+            this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +54,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -60,10 +64,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.crystalReportViewer1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1055, 545);
+            this.tabPage1.Size = new System.Drawing.Size(1055, 538);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Appointments Reports";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -76,25 +80,26 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(3, 3);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.CrystalReport11;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1049, 539);
+            this.crystalReportViewer1.ReportSource = this.Appointments1;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1049, 532);
             this.crystalReportViewer1.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Controls.Add(this.crystalReportViewer2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1055, 545);
+            this.tabPage2.Size = new System.Drawing.Size(1055, 538);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Invoice Summary";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1055, 545);
+            this.tabPage3.Size = new System.Drawing.Size(1055, 538);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Treatment History";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -146,6 +151,17 @@
             // 
             this.appointmentTableAdapter1.ClearBeforeFill = true;
             // 
+            // crystalReportViewer2
+            // 
+            this.crystalReportViewer2.ActiveViewIndex = -1;
+            this.crystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer2.Location = new System.Drawing.Point(3, 3);
+            this.crystalReportViewer2.Name = "crystalReportViewer2";
+            this.crystalReportViewer2.Size = new System.Drawing.Size(1049, 532);
+            this.crystalReportViewer2.TabIndex = 0;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +174,7 @@
             this.Load += new System.EventHandler(this.Reports_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).EndInit();
             this.ResumeLayout(false);
 
@@ -177,5 +194,7 @@
         private dsDentistTableAdapters.AppointmentTableAdapter appointmentTableAdapter1;
         private dsDentistTableAdapters.QueriesTableAdapter queriesTableAdapter1;
         private dsDentistTableAdapters.QueriesTableAdapter queriesTableAdapter2;
+        private Appointments Appointments1;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
     }
 }
