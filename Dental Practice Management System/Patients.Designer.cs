@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnViewPatients = new System.Windows.Forms.Button();
             this.btnUpdatePatients = new System.Windows.Forms.Button();
-            this.btnCreatePatients = new System.Windows.Forms.Button();
+            this.btnAddPatients = new System.Windows.Forms.Button();
             this.pnlViewPatients = new System.Windows.Forms.Panel();
             this.gvPatients = new System.Windows.Forms.DataGridView();
             this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +57,45 @@
             this.firstNameToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.searchNameToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pnlUpdatePatients = new System.Windows.Forms.Panel();
+            this.pnlCreatePatients = new System.Windows.Forms.Panel();
+            this.grpCreatePatients = new System.Windows.Forms.GroupBox();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCreateAllergies = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtCreateEmail = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCreateCode = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtCreateCity = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtCreateSuburb = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtCreateStreet = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtCreateContactNo = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtCreateSurname = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtCreateFirstName = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.patientTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
+            this.btnCancelCreate = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientFirstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientLastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientPhoneNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientStreetDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientSuburbDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientCityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientEmailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientAllergiesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientDOBDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpUpdatePatients = new System.Windows.Forms.GroupBox();
             this.gvUpdatePatient = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,75 +108,40 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpUpdate = new System.Windows.Forms.GroupBox();
+            this.btnUpdateCancel = new System.Windows.Forms.Button();
+            this.dtpUpdateDOB = new System.Windows.Forms.DateTimePicker();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtDOB = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtAllergies = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtCode = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtSuburb = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtStreet = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtContactNo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtSurname = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlCreatePatients = new System.Windows.Forms.Panel();
-            this.gvCreatePatients = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpCreatePatients = new System.Windows.Forms.GroupBox();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.patientTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
+            this.txtAllergies = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCode = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSuburb = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtStreet = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtContactNo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtSurname = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.pnlViewPatients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvPatients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
             this.grpViewFilters.SuspendLayout();
             this.pnlUpdatePatients.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUpdatePatient)).BeginInit();
-            this.grpUpdate.SuspendLayout();
             this.pnlCreatePatients.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCreatePatients)).BeginInit();
             this.grpCreatePatients.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
+            this.grpUpdatePatients.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUpdatePatient)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -165,47 +169,57 @@
             // 
             // btnViewPatients
             // 
+            this.btnViewPatients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnViewPatients.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnViewPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewPatients.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewPatients.ForeColor = System.Drawing.Color.White;
             this.btnViewPatients.Location = new System.Drawing.Point(569, 155);
             this.btnViewPatients.Name = "btnViewPatients";
             this.btnViewPatients.Size = new System.Drawing.Size(151, 37);
             this.btnViewPatients.TabIndex = 3;
             this.btnViewPatients.Text = "View Patients";
-            this.btnViewPatients.UseVisualStyleBackColor = true;
+            this.btnViewPatients.UseVisualStyleBackColor = false;
             this.btnViewPatients.Click += new System.EventHandler(this.btnViewPatients_Click);
             // 
             // btnUpdatePatients
             // 
+            this.btnUpdatePatients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnUpdatePatients.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnUpdatePatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdatePatients.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePatients.ForeColor = System.Drawing.Color.White;
             this.btnUpdatePatients.Location = new System.Drawing.Point(1121, 155);
             this.btnUpdatePatients.Name = "btnUpdatePatients";
             this.btnUpdatePatients.Size = new System.Drawing.Size(151, 37);
             this.btnUpdatePatients.TabIndex = 4;
             this.btnUpdatePatients.Text = "Update Patients";
-            this.btnUpdatePatients.UseVisualStyleBackColor = true;
+            this.btnUpdatePatients.UseVisualStyleBackColor = false;
             this.btnUpdatePatients.Click += new System.EventHandler(this.btnUpdatePatients_Click);
             // 
-            // btnCreatePatients
+            // btnAddPatients
             // 
-            this.btnCreatePatients.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCreatePatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreatePatients.Location = new System.Drawing.Point(60, 155);
-            this.btnCreatePatients.Name = "btnCreatePatients";
-            this.btnCreatePatients.Size = new System.Drawing.Size(151, 37);
-            this.btnCreatePatients.TabIndex = 6;
-            this.btnCreatePatients.Text = "Create Patients";
-            this.btnCreatePatients.UseVisualStyleBackColor = true;
-            this.btnCreatePatients.Click += new System.EventHandler(this.btnCreatePatients_Click);
+            this.btnAddPatients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnAddPatients.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPatients.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPatients.ForeColor = System.Drawing.Color.White;
+            this.btnAddPatients.Location = new System.Drawing.Point(60, 155);
+            this.btnAddPatients.Name = "btnAddPatients";
+            this.btnAddPatients.Size = new System.Drawing.Size(151, 37);
+            this.btnAddPatients.TabIndex = 6;
+            this.btnAddPatients.Text = "Add Patient";
+            this.btnAddPatients.UseVisualStyleBackColor = false;
+            this.btnAddPatients.Click += new System.EventHandler(this.btnCreatePatients_Click);
             // 
             // pnlViewPatients
             // 
+            this.pnlViewPatients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlViewPatients.Controls.Add(this.gvPatients);
             this.pnlViewPatients.Controls.Add(this.grpViewFilters);
-            this.pnlViewPatients.Location = new System.Drawing.Point(50, 209);
+            this.pnlViewPatients.Location = new System.Drawing.Point(50, 212);
             this.pnlViewPatients.Name = "pnlViewPatients";
-            this.pnlViewPatients.Size = new System.Drawing.Size(1351, 485);
+            this.pnlViewPatients.Size = new System.Drawing.Size(1351, 473);
             this.pnlViewPatients.TabIndex = 7;
             // 
             // gvPatients
@@ -396,12 +410,425 @@
             // 
             // pnlUpdatePatients
             // 
-            this.pnlUpdatePatients.Controls.Add(this.gvUpdatePatient);
-            this.pnlUpdatePatients.Controls.Add(this.grpUpdate);
+            this.pnlUpdatePatients.Controls.Add(this.grpUpdatePatients);
             this.pnlUpdatePatients.Location = new System.Drawing.Point(50, 209);
             this.pnlUpdatePatients.Name = "pnlUpdatePatients";
             this.pnlUpdatePatients.Size = new System.Drawing.Size(1351, 473);
             this.pnlUpdatePatients.TabIndex = 8;
+            // 
+            // pnlCreatePatients
+            // 
+            this.pnlCreatePatients.Controls.Add(this.grpCreatePatients);
+            this.pnlCreatePatients.Location = new System.Drawing.Point(50, 212);
+            this.pnlCreatePatients.Name = "pnlCreatePatients";
+            this.pnlCreatePatients.Size = new System.Drawing.Size(1351, 473);
+            this.pnlCreatePatients.TabIndex = 9;
+            // 
+            // grpCreatePatients
+            // 
+            this.grpCreatePatients.BackColor = System.Drawing.SystemColors.Control;
+            this.grpCreatePatients.Controls.Add(this.dataGridView1);
+            this.grpCreatePatients.Controls.Add(this.btnCancelCreate);
+            this.grpCreatePatients.Controls.Add(this.dtpDOB);
+            this.grpCreatePatients.Controls.Add(this.btnCreate);
+            this.grpCreatePatients.Controls.Add(this.label12);
+            this.grpCreatePatients.Controls.Add(this.txtCreateAllergies);
+            this.grpCreatePatients.Controls.Add(this.label13);
+            this.grpCreatePatients.Controls.Add(this.txtCreateEmail);
+            this.grpCreatePatients.Controls.Add(this.label14);
+            this.grpCreatePatients.Controls.Add(this.txtCreateCode);
+            this.grpCreatePatients.Controls.Add(this.label15);
+            this.grpCreatePatients.Controls.Add(this.txtCreateCity);
+            this.grpCreatePatients.Controls.Add(this.label16);
+            this.grpCreatePatients.Controls.Add(this.txtCreateSuburb);
+            this.grpCreatePatients.Controls.Add(this.label17);
+            this.grpCreatePatients.Controls.Add(this.txtCreateStreet);
+            this.grpCreatePatients.Controls.Add(this.label18);
+            this.grpCreatePatients.Controls.Add(this.txtCreateContactNo);
+            this.grpCreatePatients.Controls.Add(this.label19);
+            this.grpCreatePatients.Controls.Add(this.txtCreateSurname);
+            this.grpCreatePatients.Controls.Add(this.label20);
+            this.grpCreatePatients.Controls.Add(this.txtCreateFirstName);
+            this.grpCreatePatients.Controls.Add(this.label21);
+            this.grpCreatePatients.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpCreatePatients.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpCreatePatients.Location = new System.Drawing.Point(23, 17);
+            this.grpCreatePatients.Name = "grpCreatePatients";
+            this.grpCreatePatients.Size = new System.Drawing.Size(1298, 441);
+            this.grpCreatePatients.TabIndex = 0;
+            this.grpCreatePatients.TabStop = false;
+            this.grpCreatePatients.Text = "Patient Information";
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnCreate.ForeColor = System.Drawing.Color.White;
+            this.btnCreate.Location = new System.Drawing.Point(908, 182);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(157, 53);
+            this.btnCreate.TabIndex = 21;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(904, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(97, 21);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Date of Birth";
+            // 
+            // txtCreateAllergies
+            // 
+            this.txtCreateAllergies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateAllergies.Location = new System.Drawing.Point(634, 231);
+            this.txtCreateAllergies.Name = "txtCreateAllergies";
+            this.txtCreateAllergies.Size = new System.Drawing.Size(226, 34);
+            this.txtCreateAllergies.TabIndex = 18;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(630, 207);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(70, 21);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Allergies";
+            // 
+            // txtCreateEmail
+            // 
+            this.txtCreateEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateEmail.Location = new System.Drawing.Point(634, 143);
+            this.txtCreateEmail.Name = "txtCreateEmail";
+            this.txtCreateEmail.Size = new System.Drawing.Size(226, 34);
+            this.txtCreateEmail.TabIndex = 16;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(630, 116);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 21);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Email";
+            // 
+            // txtCreateCode
+            // 
+            this.txtCreateCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateCode.Location = new System.Drawing.Point(634, 67);
+            this.txtCreateCode.Name = "txtCreateCode";
+            this.txtCreateCode.Size = new System.Drawing.Size(226, 34);
+            this.txtCreateCode.TabIndex = 14;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(630, 43);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(46, 21);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "Code";
+            // 
+            // txtCreateCity
+            // 
+            this.txtCreateCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateCity.Location = new System.Drawing.Point(317, 231);
+            this.txtCreateCity.Name = "txtCreateCity";
+            this.txtCreateCity.Size = new System.Drawing.Size(232, 34);
+            this.txtCreateCity.TabIndex = 12;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label16.Location = new System.Drawing.Point(313, 207);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(37, 21);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "City";
+            // 
+            // txtCreateSuburb
+            // 
+            this.txtCreateSuburb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateSuburb.Location = new System.Drawing.Point(317, 150);
+            this.txtCreateSuburb.Name = "txtCreateSuburb";
+            this.txtCreateSuburb.Size = new System.Drawing.Size(232, 34);
+            this.txtCreateSuburb.TabIndex = 10;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label17.Location = new System.Drawing.Point(313, 126);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(61, 21);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "Suburb";
+            // 
+            // txtCreateStreet
+            // 
+            this.txtCreateStreet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateStreet.Location = new System.Drawing.Point(317, 67);
+            this.txtCreateStreet.Name = "txtCreateStreet";
+            this.txtCreateStreet.Size = new System.Drawing.Size(232, 34);
+            this.txtCreateStreet.TabIndex = 8;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label18.Location = new System.Drawing.Point(313, 43);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(50, 21);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "Street";
+            // 
+            // txtCreateContactNo
+            // 
+            this.txtCreateContactNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateContactNo.Location = new System.Drawing.Point(11, 231);
+            this.txtCreateContactNo.Name = "txtCreateContactNo";
+            this.txtCreateContactNo.Size = new System.Drawing.Size(234, 34);
+            this.txtCreateContactNo.TabIndex = 6;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label19.Location = new System.Drawing.Point(7, 207);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(95, 21);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Contact No. ";
+            // 
+            // txtCreateSurname
+            // 
+            this.txtCreateSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateSurname.Location = new System.Drawing.Point(11, 147);
+            this.txtCreateSurname.Name = "txtCreateSurname";
+            this.txtCreateSurname.Size = new System.Drawing.Size(234, 34);
+            this.txtCreateSurname.TabIndex = 4;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label20.Location = new System.Drawing.Point(7, 123);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(73, 21);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "Surname";
+            // 
+            // txtCreateFirstName
+            // 
+            this.txtCreateFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCreateFirstName.Location = new System.Drawing.Point(10, 65);
+            this.txtCreateFirstName.Name = "txtCreateFirstName";
+            this.txtCreateFirstName.Size = new System.Drawing.Size(235, 34);
+            this.txtCreateFirstName.TabIndex = 2;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label21.Location = new System.Drawing.Point(6, 40);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(86, 21);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "First Name";
+            // 
+            // patientTableAdapter1
+            // 
+            this.patientTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dtpDOB
+            // 
+            this.dtpDOB.Location = new System.Drawing.Point(908, 79);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(200, 34);
+            this.dtpDOB.TabIndex = 22;
+            // 
+            // btnCancelCreate
+            // 
+            this.btnCancelCreate.BackColor = System.Drawing.Color.DarkRed;
+            this.btnCancelCreate.ForeColor = System.Drawing.Color.White;
+            this.btnCancelCreate.Location = new System.Drawing.Point(1109, 182);
+            this.btnCancelCreate.Name = "btnCancelCreate";
+            this.btnCancelCreate.Size = new System.Drawing.Size(157, 53);
+            this.btnCancelCreate.TabIndex = 23;
+            this.btnCancelCreate.Text = "Clear";
+            this.btnCancelCreate.UseVisualStyleBackColor = false;
+            this.btnCancelCreate.Click += new System.EventHandler(this.btnCancelCreate_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.patientIDDataGridViewTextBoxColumn1,
+            this.patientFirstNameDataGridViewTextBoxColumn1,
+            this.patientLastNameDataGridViewTextBoxColumn1,
+            this.patientPhoneNumberDataGridViewTextBoxColumn1,
+            this.patientStreetDataGridViewTextBoxColumn1,
+            this.patientSuburbDataGridViewTextBoxColumn1,
+            this.patientCityDataGridViewTextBoxColumn1,
+            this.patientCodeDataGridViewTextBoxColumn1,
+            this.patientEmailDataGridViewTextBoxColumn1,
+            this.patientAllergiesDataGridViewTextBoxColumn1,
+            this.patientDOBDataGridViewTextBoxColumn1});
+            this.dataGridView1.DataSource = this.patientBindingSource;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 287);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(1292, 151);
+            this.dataGridView1.TabIndex = 24;
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataMember = "Patient";
+            this.patientBindingSource.DataSource = this.dsDentist;
+            // 
+            // patientIDDataGridViewTextBoxColumn1
+            // 
+            this.patientIDDataGridViewTextBoxColumn1.DataPropertyName = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn1.HeaderText = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientIDDataGridViewTextBoxColumn1.Name = "patientIDDataGridViewTextBoxColumn1";
+            this.patientIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.patientIDDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientFirstNameDataGridViewTextBoxColumn1
+            // 
+            this.patientFirstNameDataGridViewTextBoxColumn1.DataPropertyName = "Patient_First_Name";
+            this.patientFirstNameDataGridViewTextBoxColumn1.HeaderText = "Patient_First_Name";
+            this.patientFirstNameDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientFirstNameDataGridViewTextBoxColumn1.Name = "patientFirstNameDataGridViewTextBoxColumn1";
+            this.patientFirstNameDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientLastNameDataGridViewTextBoxColumn1
+            // 
+            this.patientLastNameDataGridViewTextBoxColumn1.DataPropertyName = "Patient_Last_Name";
+            this.patientLastNameDataGridViewTextBoxColumn1.HeaderText = "Patient_Last_Name";
+            this.patientLastNameDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientLastNameDataGridViewTextBoxColumn1.Name = "patientLastNameDataGridViewTextBoxColumn1";
+            this.patientLastNameDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientPhoneNumberDataGridViewTextBoxColumn1
+            // 
+            this.patientPhoneNumberDataGridViewTextBoxColumn1.DataPropertyName = "Patient_Phone_Number";
+            this.patientPhoneNumberDataGridViewTextBoxColumn1.HeaderText = "Patient_Phone_Number";
+            this.patientPhoneNumberDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientPhoneNumberDataGridViewTextBoxColumn1.Name = "patientPhoneNumberDataGridViewTextBoxColumn1";
+            this.patientPhoneNumberDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientStreetDataGridViewTextBoxColumn1
+            // 
+            this.patientStreetDataGridViewTextBoxColumn1.DataPropertyName = "Patient_Street";
+            this.patientStreetDataGridViewTextBoxColumn1.HeaderText = "Patient_Street";
+            this.patientStreetDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientStreetDataGridViewTextBoxColumn1.Name = "patientStreetDataGridViewTextBoxColumn1";
+            this.patientStreetDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientSuburbDataGridViewTextBoxColumn1
+            // 
+            this.patientSuburbDataGridViewTextBoxColumn1.DataPropertyName = "Patient_Suburb";
+            this.patientSuburbDataGridViewTextBoxColumn1.HeaderText = "Patient_Suburb";
+            this.patientSuburbDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientSuburbDataGridViewTextBoxColumn1.Name = "patientSuburbDataGridViewTextBoxColumn1";
+            this.patientSuburbDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientCityDataGridViewTextBoxColumn1
+            // 
+            this.patientCityDataGridViewTextBoxColumn1.DataPropertyName = "Patient_City";
+            this.patientCityDataGridViewTextBoxColumn1.HeaderText = "Patient_City";
+            this.patientCityDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientCityDataGridViewTextBoxColumn1.Name = "patientCityDataGridViewTextBoxColumn1";
+            this.patientCityDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientCodeDataGridViewTextBoxColumn1
+            // 
+            this.patientCodeDataGridViewTextBoxColumn1.DataPropertyName = "Patient_Code";
+            this.patientCodeDataGridViewTextBoxColumn1.HeaderText = "Patient_Code";
+            this.patientCodeDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientCodeDataGridViewTextBoxColumn1.Name = "patientCodeDataGridViewTextBoxColumn1";
+            this.patientCodeDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientEmailDataGridViewTextBoxColumn1
+            // 
+            this.patientEmailDataGridViewTextBoxColumn1.DataPropertyName = "Patient_Email";
+            this.patientEmailDataGridViewTextBoxColumn1.HeaderText = "Patient_Email";
+            this.patientEmailDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientEmailDataGridViewTextBoxColumn1.Name = "patientEmailDataGridViewTextBoxColumn1";
+            this.patientEmailDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientAllergiesDataGridViewTextBoxColumn1
+            // 
+            this.patientAllergiesDataGridViewTextBoxColumn1.DataPropertyName = "Patient_Allergies";
+            this.patientAllergiesDataGridViewTextBoxColumn1.HeaderText = "Patient_Allergies";
+            this.patientAllergiesDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientAllergiesDataGridViewTextBoxColumn1.Name = "patientAllergiesDataGridViewTextBoxColumn1";
+            this.patientAllergiesDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // patientDOBDataGridViewTextBoxColumn1
+            // 
+            this.patientDOBDataGridViewTextBoxColumn1.DataPropertyName = "Patient_DOB";
+            this.patientDOBDataGridViewTextBoxColumn1.HeaderText = "Patient_DOB";
+            this.patientDOBDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.patientDOBDataGridViewTextBoxColumn1.Name = "patientDOBDataGridViewTextBoxColumn1";
+            this.patientDOBDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // grpUpdatePatients
+            // 
+            this.grpUpdatePatients.BackColor = System.Drawing.SystemColors.Control;
+            this.grpUpdatePatients.Controls.Add(this.gvUpdatePatient);
+            this.grpUpdatePatients.Controls.Add(this.btnUpdateCancel);
+            this.grpUpdatePatients.Controls.Add(this.dtpUpdateDOB);
+            this.grpUpdatePatients.Controls.Add(this.btnUpdate);
+            this.grpUpdatePatients.Controls.Add(this.label1);
+            this.grpUpdatePatients.Controls.Add(this.txtAllergies);
+            this.grpUpdatePatients.Controls.Add(this.label3);
+            this.grpUpdatePatients.Controls.Add(this.txtEmail);
+            this.grpUpdatePatients.Controls.Add(this.label4);
+            this.grpUpdatePatients.Controls.Add(this.txtCode);
+            this.grpUpdatePatients.Controls.Add(this.label5);
+            this.grpUpdatePatients.Controls.Add(this.txtCity);
+            this.grpUpdatePatients.Controls.Add(this.label6);
+            this.grpUpdatePatients.Controls.Add(this.txtSuburb);
+            this.grpUpdatePatients.Controls.Add(this.label7);
+            this.grpUpdatePatients.Controls.Add(this.txtStreet);
+            this.grpUpdatePatients.Controls.Add(this.label8);
+            this.grpUpdatePatients.Controls.Add(this.txtContactNo);
+            this.grpUpdatePatients.Controls.Add(this.label9);
+            this.grpUpdatePatients.Controls.Add(this.txtSurname);
+            this.grpUpdatePatients.Controls.Add(this.label10);
+            this.grpUpdatePatients.Controls.Add(this.txtFirstName);
+            this.grpUpdatePatients.Controls.Add(this.label11);
+            this.grpUpdatePatients.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpUpdatePatients.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpUpdatePatients.Location = new System.Drawing.Point(26, 16);
+            this.grpUpdatePatients.Name = "grpUpdatePatients";
+            this.grpUpdatePatients.Size = new System.Drawing.Size(1298, 441);
+            this.grpUpdatePatients.TabIndex = 1;
+            this.grpUpdatePatients.TabStop = false;
+            this.grpUpdatePatients.Text = "Update";
             // 
             // gvUpdatePatient
             // 
@@ -419,14 +846,14 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
-            this.gvUpdatePatient.DataSource = this.bindingSource1;
-            this.gvUpdatePatient.Location = new System.Drawing.Point(484, 17);
+            this.gvUpdatePatient.DataSource = this.patientBindingSource;
+            this.gvUpdatePatient.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gvUpdatePatient.Location = new System.Drawing.Point(3, 287);
             this.gvUpdatePatient.Name = "gvUpdatePatient";
             this.gvUpdatePatient.RowHeadersWidth = 62;
             this.gvUpdatePatient.RowTemplate.Height = 28;
-            this.gvUpdatePatient.Size = new System.Drawing.Size(853, 410);
-            this.gvUpdatePatient.TabIndex = 1;
-            this.gvUpdatePatient.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvUpdatePatient_RowHeaderMouseClick);
+            this.gvUpdatePatient.Size = new System.Drawing.Size(1292, 151);
+            this.gvUpdatePatient.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -517,606 +944,224 @@
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.Width = 150;
             // 
-            // grpUpdate
+            // btnUpdateCancel
             // 
-            this.grpUpdate.BackColor = System.Drawing.SystemColors.Control;
-            this.grpUpdate.Controls.Add(this.btnUpdate);
-            this.grpUpdate.Controls.Add(this.txtDOB);
-            this.grpUpdate.Controls.Add(this.label11);
-            this.grpUpdate.Controls.Add(this.txtAllergies);
-            this.grpUpdate.Controls.Add(this.label10);
-            this.grpUpdate.Controls.Add(this.txtEmail);
-            this.grpUpdate.Controls.Add(this.label9);
-            this.grpUpdate.Controls.Add(this.txtCode);
-            this.grpUpdate.Controls.Add(this.label8);
-            this.grpUpdate.Controls.Add(this.txtCity);
-            this.grpUpdate.Controls.Add(this.label7);
-            this.grpUpdate.Controls.Add(this.txtSuburb);
-            this.grpUpdate.Controls.Add(this.label6);
-            this.grpUpdate.Controls.Add(this.txtStreet);
-            this.grpUpdate.Controls.Add(this.label5);
-            this.grpUpdate.Controls.Add(this.txtContactNo);
-            this.grpUpdate.Controls.Add(this.label4);
-            this.grpUpdate.Controls.Add(this.txtSurname);
-            this.grpUpdate.Controls.Add(this.label3);
-            this.grpUpdate.Controls.Add(this.txtFirstName);
-            this.grpUpdate.Controls.Add(this.label1);
-            this.grpUpdate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpUpdate.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpUpdate.Location = new System.Drawing.Point(23, 17);
-            this.grpUpdate.Name = "grpUpdate";
-            this.grpUpdate.Size = new System.Drawing.Size(441, 410);
-            this.grpUpdate.TabIndex = 0;
-            this.grpUpdate.TabStop = false;
-            this.grpUpdate.Text = "Update";
+            this.btnUpdateCancel.BackColor = System.Drawing.Color.DarkRed;
+            this.btnUpdateCancel.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateCancel.Location = new System.Drawing.Point(1109, 182);
+            this.btnUpdateCancel.Name = "btnUpdateCancel";
+            this.btnUpdateCancel.Size = new System.Drawing.Size(157, 53);
+            this.btnUpdateCancel.TabIndex = 23;
+            this.btnUpdateCancel.Text = "Clear";
+            this.btnUpdateCancel.UseVisualStyleBackColor = false;
+            this.btnUpdateCancel.Click += new System.EventHandler(this.btnUpdateCancel_Click);
+            // 
+            // dtpUpdateDOB
+            // 
+            this.dtpUpdateDOB.Location = new System.Drawing.Point(908, 79);
+            this.dtpUpdateDOB.Name = "dtpUpdateDOB";
+            this.dtpUpdateDOB.Size = new System.Drawing.Size(200, 34);
+            this.dtpUpdateDOB.TabIndex = 22;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnUpdate.Location = new System.Drawing.Point(3, 372);
+            this.btnUpdate.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(908, 182);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(435, 35);
+            this.btnUpdate.Size = new System.Drawing.Size(157, 53);
             this.btnUpdate.TabIndex = 21;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // txtDOB
-            // 
-            this.txtDOB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDOB.Location = new System.Drawing.Point(255, 329);
-            this.txtDOB.Name = "txtDOB";
-            this.txtDOB.Size = new System.Drawing.Size(180, 34);
-            this.txtDOB.TabIndex = 20;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(251, 305);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 21);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Date of Birth";
-            // 
-            // txtAllergies
-            // 
-            this.txtAllergies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAllergies.Location = new System.Drawing.Point(255, 259);
-            this.txtAllergies.Name = "txtAllergies";
-            this.txtAllergies.Size = new System.Drawing.Size(180, 34);
-            this.txtAllergies.TabIndex = 18;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(251, 235);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 21);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Allergies";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Location = new System.Drawing.Point(255, 198);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(180, 34);
-            this.txtEmail.TabIndex = 16;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(251, 171);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 21);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Email";
-            // 
-            // txtCode
-            // 
-            this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCode.Location = new System.Drawing.Point(255, 127);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(180, 34);
-            this.txtCode.TabIndex = 14;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(251, 103);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 21);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Code";
-            // 
-            // txtCity
-            // 
-            this.txtCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCity.Location = new System.Drawing.Point(255, 62);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(180, 34);
-            this.txtCity.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(251, 38);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 21);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "City";
-            // 
-            // txtSuburb
-            // 
-            this.txtSuburb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSuburb.Location = new System.Drawing.Point(10, 329);
-            this.txtSuburb.Name = "txtSuburb";
-            this.txtSuburb.Size = new System.Drawing.Size(173, 34);
-            this.txtSuburb.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(6, 305);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 21);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Suburb";
-            // 
-            // txtStreet
-            // 
-            this.txtStreet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStreet.Location = new System.Drawing.Point(10, 259);
-            this.txtStreet.Name = "txtStreet";
-            this.txtStreet.Size = new System.Drawing.Size(173, 34);
-            this.txtStreet.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(6, 235);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 21);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Street";
-            // 
-            // txtContactNo
-            // 
-            this.txtContactNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContactNo.Location = new System.Drawing.Point(10, 195);
-            this.txtContactNo.Name = "txtContactNo";
-            this.txtContactNo.Size = new System.Drawing.Size(173, 34);
-            this.txtContactNo.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(6, 171);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 21);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Contact No. ";
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSurname.Location = new System.Drawing.Point(10, 127);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(173, 34);
-            this.txtSurname.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(6, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 21);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Surname";
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFirstName.Location = new System.Drawing.Point(10, 63);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(173, 34);
-            this.txtFirstName.TabIndex = 2;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(6, 38);
+            this.label1.Location = new System.Drawing.Point(904, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "First Name";
-            // 
-            // pnlCreatePatients
-            // 
-            this.pnlCreatePatients.Controls.Add(this.gvCreatePatients);
-            this.pnlCreatePatients.Controls.Add(this.grpCreatePatients);
-            this.pnlCreatePatients.Location = new System.Drawing.Point(50, 212);
-            this.pnlCreatePatients.Name = "pnlCreatePatients";
-            this.pnlCreatePatients.Size = new System.Drawing.Size(1351, 473);
-            this.pnlCreatePatients.TabIndex = 9;
-            // 
-            // gvCreatePatients
-            // 
-            this.gvCreatePatients.AutoGenerateColumns = false;
-            this.gvCreatePatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCreatePatients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22});
-            this.gvCreatePatients.DataSource = this.bindingSource1;
-            this.gvCreatePatients.Location = new System.Drawing.Point(484, 17);
-            this.gvCreatePatients.Name = "gvCreatePatients";
-            this.gvCreatePatients.RowHeadersWidth = 62;
-            this.gvCreatePatients.RowTemplate.Height = 28;
-            this.gvCreatePatients.Size = new System.Drawing.Size(853, 410);
-            this.gvCreatePatients.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Patient_ID";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Patient_ID";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Patient_First_Name";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Patient_First_Name";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Patient_Last_Name";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Patient_Last_Name";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Patient_Phone_Number";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Patient_Phone_Number";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Patient_Street";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Patient_Street";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Patient_Suburb";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Patient_Suburb";
-            this.dataGridViewTextBoxColumn17.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Patient_City";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Patient_City";
-            this.dataGridViewTextBoxColumn18.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Patient_Code";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Patient_Code";
-            this.dataGridViewTextBoxColumn19.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Patient_Email";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Patient_Email";
-            this.dataGridViewTextBoxColumn20.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "Patient_Allergies";
-            this.dataGridViewTextBoxColumn21.HeaderText = "Patient_Allergies";
-            this.dataGridViewTextBoxColumn21.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "Patient_DOB";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Patient_DOB";
-            this.dataGridViewTextBoxColumn22.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.Width = 150;
-            // 
-            // grpCreatePatients
-            // 
-            this.grpCreatePatients.BackColor = System.Drawing.SystemColors.Control;
-            this.grpCreatePatients.Controls.Add(this.btnCreate);
-            this.grpCreatePatients.Controls.Add(this.textBox1);
-            this.grpCreatePatients.Controls.Add(this.label12);
-            this.grpCreatePatients.Controls.Add(this.textBox2);
-            this.grpCreatePatients.Controls.Add(this.label13);
-            this.grpCreatePatients.Controls.Add(this.textBox3);
-            this.grpCreatePatients.Controls.Add(this.label14);
-            this.grpCreatePatients.Controls.Add(this.textBox4);
-            this.grpCreatePatients.Controls.Add(this.label15);
-            this.grpCreatePatients.Controls.Add(this.textBox5);
-            this.grpCreatePatients.Controls.Add(this.label16);
-            this.grpCreatePatients.Controls.Add(this.textBox6);
-            this.grpCreatePatients.Controls.Add(this.label17);
-            this.grpCreatePatients.Controls.Add(this.textBox7);
-            this.grpCreatePatients.Controls.Add(this.label18);
-            this.grpCreatePatients.Controls.Add(this.textBox8);
-            this.grpCreatePatients.Controls.Add(this.label19);
-            this.grpCreatePatients.Controls.Add(this.textBox9);
-            this.grpCreatePatients.Controls.Add(this.label20);
-            this.grpCreatePatients.Controls.Add(this.textBox10);
-            this.grpCreatePatients.Controls.Add(this.label21);
-            this.grpCreatePatients.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCreatePatients.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpCreatePatients.Location = new System.Drawing.Point(23, 17);
-            this.grpCreatePatients.Name = "grpCreatePatients";
-            this.grpCreatePatients.Size = new System.Drawing.Size(441, 410);
-            this.grpCreatePatients.TabIndex = 0;
-            this.grpCreatePatients.TabStop = false;
-            this.grpCreatePatients.Text = "Create";
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnCreate.Location = new System.Drawing.Point(3, 372);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(435, 35);
-            this.btnCreate.TabIndex = 21;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(255, 329);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 34);
-            this.textBox1.TabIndex = 20;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(251, 305);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 21);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "Date of Birth";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(255, 259);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 34);
-            this.textBox2.TabIndex = 18;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(251, 235);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(70, 21);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "Allergies";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Location = new System.Drawing.Point(255, 198);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(180, 34);
-            this.textBox3.TabIndex = 16;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(251, 171);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 21);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Email";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Location = new System.Drawing.Point(255, 127);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(180, 34);
-            this.textBox4.TabIndex = 14;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(251, 103);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 21);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "Code";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Location = new System.Drawing.Point(255, 62);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(180, 34);
-            this.textBox5.TabIndex = 12;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(251, 38);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(37, 21);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "City";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Location = new System.Drawing.Point(10, 329);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(173, 34);
-            this.textBox6.TabIndex = 10;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(6, 305);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(61, 21);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "Suburb";
-            // 
-            // textBox7
-            // 
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox7.Location = new System.Drawing.Point(10, 259);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(173, 34);
-            this.textBox7.TabIndex = 8;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(6, 235);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 21);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Street";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox8.Location = new System.Drawing.Point(10, 195);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(173, 34);
-            this.textBox8.TabIndex = 6;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(6, 171);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(95, 21);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Contact No. ";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox9.Location = new System.Drawing.Point(10, 127);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(173, 34);
-            this.textBox9.TabIndex = 4;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(6, 103);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(73, 21);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "Surname";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox10.Location = new System.Drawing.Point(10, 63);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(173, 34);
-            this.textBox10.TabIndex = 2;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(6, 38);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 21);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "First Name";
-            // 
-            // patientTableAdapter1
-            // 
-            this.patientTableAdapter1.ClearBeforeFill = true;
+            this.label1.Size = new System.Drawing.Size(97, 21);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Date of Birth";
+            // 
+            // txtAllergies
+            // 
+            this.txtAllergies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAllergies.Location = new System.Drawing.Point(634, 235);
+            this.txtAllergies.Name = "txtAllergies";
+            this.txtAllergies.Size = new System.Drawing.Size(226, 34);
+            this.txtAllergies.TabIndex = 18;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(630, 211);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 21);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Allergies";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Location = new System.Drawing.Point(634, 143);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(226, 34);
+            this.txtEmail.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(630, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 21);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Email";
+            // 
+            // txtCode
+            // 
+            this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCode.Location = new System.Drawing.Point(634, 67);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(226, 34);
+            this.txtCode.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(630, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 21);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Code";
+            // 
+            // txtCity
+            // 
+            this.txtCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCity.Location = new System.Drawing.Point(317, 235);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(232, 34);
+            this.txtCity.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(313, 211);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 21);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "City";
+            // 
+            // txtSuburb
+            // 
+            this.txtSuburb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSuburb.Location = new System.Drawing.Point(317, 150);
+            this.txtSuburb.Name = "txtSuburb";
+            this.txtSuburb.Size = new System.Drawing.Size(232, 34);
+            this.txtSuburb.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(313, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 21);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Suburb";
+            // 
+            // txtStreet
+            // 
+            this.txtStreet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStreet.Location = new System.Drawing.Point(317, 67);
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(232, 34);
+            this.txtStreet.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(313, 43);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 21);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Street";
+            // 
+            // txtContactNo
+            // 
+            this.txtContactNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContactNo.Location = new System.Drawing.Point(11, 235);
+            this.txtContactNo.Name = "txtContactNo";
+            this.txtContactNo.Size = new System.Drawing.Size(234, 34);
+            this.txtContactNo.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(7, 211);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(95, 21);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Contact No. ";
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSurname.Location = new System.Drawing.Point(11, 147);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(234, 34);
+            this.txtSurname.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(7, 123);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 21);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Surname";
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFirstName.Location = new System.Drawing.Point(10, 65);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(235, 34);
+            this.txtFirstName.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(6, 40);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 21);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "First Name";
             // 
             // Patients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1413, 694);
-            this.Controls.Add(this.btnCreatePatients);
+            this.Controls.Add(this.btnAddPatients);
             this.Controls.Add(this.btnUpdatePatients);
             this.Controls.Add(this.btnViewPatients);
             this.Controls.Add(this.label2);
@@ -1134,13 +1179,14 @@
             this.grpViewFilters.ResumeLayout(false);
             this.grpViewFilters.PerformLayout();
             this.pnlUpdatePatients.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvUpdatePatient)).EndInit();
-            this.grpUpdate.ResumeLayout(false);
-            this.grpUpdate.PerformLayout();
             this.pnlCreatePatients.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvCreatePatients)).EndInit();
             this.grpCreatePatients.ResumeLayout(false);
             this.grpCreatePatients.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
+            this.grpUpdatePatients.ResumeLayout(false);
+            this.grpUpdatePatients.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUpdatePatient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1152,7 +1198,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnViewPatients;
         private System.Windows.Forms.Button btnUpdatePatients;
-        private System.Windows.Forms.Button btnCreatePatients;
+        private System.Windows.Forms.Button btnAddPatients;
         private System.Windows.Forms.Panel pnlViewPatients;
         private System.Windows.Forms.GroupBox grpViewFilters;
         private System.Windows.Forms.Label lblSearchPatients;
@@ -1176,6 +1222,45 @@
         private System.Windows.Forms.ToolStripTextBox firstNameToolStripTextBox1;
         private System.Windows.Forms.ToolStripButton searchNameToolStripButton;
         private System.Windows.Forms.Panel pnlUpdatePatients;
+        private System.Windows.Forms.Panel pnlCreatePatients;
+        private System.Windows.Forms.GroupBox grpCreatePatients;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtCreateAllergies;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtCreateEmail;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtCreateCode;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtCreateCity;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtCreateSuburb;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtCreateStreet;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtCreateContactNo;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtCreateSurname;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtCreateFirstName;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnDeletePatient;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.Button btnCancelCreate;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientFirstNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientLastNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientPhoneNumberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientStreetDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientSuburbDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientCityDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientCodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientEmailDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientAllergiesDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientDOBDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource patientBindingSource;
+        private System.Windows.Forms.GroupBox grpUpdatePatients;
         private System.Windows.Forms.DataGridView gvUpdatePatient;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1188,63 +1273,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.GroupBox grpUpdate;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSurname;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtContactNo;
-        private System.Windows.Forms.TextBox txtStreet;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtSuburb;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtCity;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtCode;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtAllergies;
+        private System.Windows.Forms.Button btnUpdateCancel;
+        private System.Windows.Forms.DateTimePicker dtpUpdateDOB;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox txtDOB;
-        private System.Windows.Forms.Panel pnlCreatePatients;
-        private System.Windows.Forms.DataGridView gvCreatePatients;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.GroupBox grpCreatePatients;
-        private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button btnDeletePatient;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAllergies;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCode;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSuburb;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtStreet;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtContactNo;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.Label label11;
     }
 }

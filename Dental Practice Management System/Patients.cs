@@ -76,7 +76,7 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
-            patientTableAdapter1.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, txtAllergies.Text, txtDOB.Text, Convert.ToInt32(gvUpdatePatient.CurrentRow.Cells[0].Value));
+            patientTableAdapter1.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, txtAllergies.Text, (dtpUpdateDOB.Value).ToString(), Convert.ToInt32(gvUpdatePatient.CurrentRow.Cells[0].Value));
             MessageBox.Show("Patient updated successfully.");
             patientTableAdapter1.Fill(this.dsDentist.Patient);
         }
@@ -111,19 +111,53 @@ namespace Dental_Practice_Management_System
             txtCode.Text = gvUpdatePatient.CurrentRow.Cells[7].Value.ToString();
             txtEmail.Text = gvUpdatePatient.CurrentRow.Cells[8].Value.ToString();
             txtAllergies.Text = gvUpdatePatient.CurrentRow.Cells[9].Value.ToString();
-            txtDOB.Text = gvUpdatePatient.CurrentRow.Cells[10].Value.ToString();
+            dtpUpdateDOB.Text = gvUpdatePatient.CurrentRow.Cells[10].Value.ToString();
 
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (txtFirstName.Text == "" || txtSurname.Text == "" || txtContactNo.Text == "" || txtStreet.Text == "" || txtSuburb.Text == "" || txtCity.Text == "" || txtCode.Text == "" || txtEmail.Text == "" || txtAllergies.Text == "" || txtDOB.Text == "")
+            if (txtCreateFirstName.Text == "" || txtCreateSurname.Text == "" || txtCreateContactNo.Text == "" || txtCreateStreet.Text == "" || txtCreateSuburb.Text == "" || txtCreateCity.Text == "" || txtCreateCode.Text == "" || txtCreateEmail.Text == "" || txtCreateAllergies.Text == "")
             {
                 MessageBox.Show("Please fill in all fields.");
                 return;
             }
 
-            patientTableAdapter1.CreateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, txtAllergies.Text, txtDOB.Text);
+            patientTableAdapter1.CreateQuery(txtCreateFirstName.Text, txtCreateSurname.Text, txtCreateContactNo.Text, txtCreateStreet.Text, txtCreateSuburb.Text, txtCreateCity.Text, txtCreateCode.Text, txtCreateEmail.Text, txtCreateAllergies.Text, (dtpDOB.Value).ToString());
+            MessageBox.Show("Patient created successfully.");
+            patientTableAdapter1.Fill(this.dsDentist.Patient);
+        }
+
+        private void btnUpdateCancel_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Text = "";
+            txtSurname.Text = "";
+            txtContactNo.Text = ""; 
+            txtStreet.Text = "";
+            txtSuburb.Text = "";
+            txtCity.Text = "";
+            txtCode.Text = "";
+            txtEmail.Text = "";
+            txtAllergies.Text = "";
+            dtpUpdateDOB.Value = DateTime.Now;
+
+            MessageBox.Show("Update cancelled.");
+        }
+
+        private void btnCancelCreate_Click(object sender, EventArgs e)
+        {
+            txtCreateFirstName.Text = "";
+            txtCreateSurname.Text = "";
+            txtCreateContactNo.Text = "";
+            txtCreateStreet.Text = "";
+            txtCreateSuburb.Text = "";
+            txtCreateCity.Text = "";
+            txtCreateCode.Text = "";
+            txtCreateEmail.Text = "";
+            txtCreateAllergies.Text = "";
+            dtpDOB.Value = DateTime.Now;
+
+            MessageBox.Show("Creation cancelled.");
         }
     }
 }
