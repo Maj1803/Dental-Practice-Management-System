@@ -1989,7 +1989,7 @@ namespace Dental_Practice_Management_System {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class InvoiceDataTable : global::System.Data.TypedTableBase<InvoiceRow> {
             
-            private global::System.Data.DataColumn columninvoive_id;
+            private global::System.Data.DataColumn columninvoice_id;
             
             private global::System.Data.DataColumn columnappointment_id;
             
@@ -2038,9 +2038,9 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn invoive_idColumn {
+            public global::System.Data.DataColumn invoice_idColumn {
                 get {
-                    return this.columninvoive_id;
+                    return this.columninvoice_id;
                 }
             }
             
@@ -2129,10 +2129,10 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public InvoiceRow AddInvoiceRow(int invoive_id, int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due) {
+            public InvoiceRow AddInvoiceRow(int invoice_id, int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due) {
                 InvoiceRow rowInvoiceRow = ((InvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        invoive_id,
+                        invoice_id,
                         appointment_id,
                         payment_id,
                         invoice_date,
@@ -2146,9 +2146,9 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public InvoiceRow FindByinvoive_id(int invoive_id) {
+            public InvoiceRow FindByinvoice_id(int invoice_id) {
                 return ((InvoiceRow)(this.Rows.Find(new object[] {
-                            invoive_id})));
+                            invoice_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2168,7 +2168,7 @@ namespace Dental_Practice_Management_System {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             internal void InitVars() {
-                this.columninvoive_id = base.Columns["invoive_id"];
+                this.columninvoice_id = base.Columns["invoice_id"];
                 this.columnappointment_id = base.Columns["appointment_id"];
                 this.columnpayment_id = base.Columns["payment_id"];
                 this.columninvoice_date = base.Columns["invoice_date"];
@@ -2180,8 +2180,8 @@ namespace Dental_Practice_Management_System {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             private void InitClass() {
-                this.columninvoive_id = new global::System.Data.DataColumn("invoive_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninvoive_id);
+                this.columninvoice_id = new global::System.Data.DataColumn("invoice_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvoice_id);
                 this.columnappointment_id = new global::System.Data.DataColumn("appointment_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnappointment_id);
                 this.columnpayment_id = new global::System.Data.DataColumn("payment_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2195,9 +2195,9 @@ namespace Dental_Practice_Management_System {
                 this.columninvoice_balance_due = new global::System.Data.DataColumn("invoice_balance_due", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninvoice_balance_due);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columninvoive_id}, true));
-                this.columninvoive_id.AllowDBNull = false;
-                this.columninvoive_id.Unique = true;
+                                this.columninvoice_id}, true));
+                this.columninvoice_id.AllowDBNull = false;
+                this.columninvoice_id.Unique = true;
                 this.columnappointment_id.AllowDBNull = false;
                 this.columnpayment_id.AllowDBNull = false;
                 this.columninvoice_date.AllowDBNull = false;
@@ -6931,12 +6931,12 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public int invoive_id {
+            public int invoice_id {
                 get {
-                    return ((int)(this[this.tableInvoice.invoive_idColumn]));
+                    return ((int)(this[this.tableInvoice.invoice_idColumn]));
                 }
                 set {
-                    this[this.tableInvoice.invoive_idColumn] = value;
+                    this[this.tableInvoice.invoice_idColumn] = value;
                 }
             }
             
@@ -11184,7 +11184,7 @@ WHERE (Employee_ID = @Original_Employee_ID);
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Invoice";
-            tableMapping.ColumnMappings.Add("invoive_id", "invoive_id");
+            tableMapping.ColumnMappings.Add("invoice_id", "invoice_id");
             tableMapping.ColumnMappings.Add("appointment_id", "appointment_id");
             tableMapping.ColumnMappings.Add("payment_id", "payment_id");
             tableMapping.ColumnMappings.Add("invoice_date", "invoice_date");
@@ -11194,9 +11194,9 @@ WHERE (Employee_ID = @Original_Employee_ID);
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Invoice] WHERE (([invoive_id] = @Original_invoive_id) AND ([appointment_id] = @Original_appointment_id) AND ([payment_id] = @Original_payment_id) AND ([invoice_date] = @Original_invoice_date) AND ([invoice_total_amount] = @Original_invoice_total_amount) AND ([invoice_status] = @Original_invoice_status) AND ([invoice_balance_due] = @Original_invoice_balance_due))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Invoice] WHERE (([invoice_id] = @Original_invoice_id) AND ([appointment_id] = @Original_appointment_id) AND ([payment_id] = @Original_payment_id) AND ([invoice_date] = @Original_invoice_date) AND ([invoice_total_amount] = @Original_invoice_total_amount) AND ([invoice_status] = @Original_invoice_status) AND ([invoice_balance_due] = @Original_invoice_balance_due))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_invoive_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoive_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_invoice_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_appointment_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "appointment_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_payment_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_invoice_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11205,10 +11205,10 @@ WHERE (Employee_ID = @Original_Employee_ID);
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_invoice_balance_due", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "invoice_balance_due", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Invoice] ([invoive_id], [appointment_id], [payment_id], [invoice_date], [invoice_total_amount], [invoice_status], [invoice_balance_due]) VALUES (@invoive_id, @appointment_id, @payment_id, @invoice_date, @invoice_total_amount, @invoice_status, @invoice_balance_due);
-SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amount, invoice_status, invoice_balance_due FROM Invoice WHERE (invoive_id = @invoive_id)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Invoice] ([invoice_id], [appointment_id], [payment_id], [invoice_date], [invoice_total_amount], [invoice_status], [invoice_balance_due]) VALUES (@invoice_id, @appointment_id, @payment_id, @invoice_date, @invoice_total_amount, @invoice_status, @invoice_balance_due);
+SELECT invoice_id, appointment_id, payment_id, invoice_date, invoice_total_amount, invoice_status, invoice_balance_due FROM Invoice WHERE (invoice_id = @invoice_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoive_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoive_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoice_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@appointment_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "appointment_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payment_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoice_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11217,17 +11217,17 @@ SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amoun
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoice_balance_due", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "invoice_balance_due", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Invoice] SET [invoive_id] = @invoive_id, [appointment_id] = @appointment_id, [payment_id] = @payment_id, [invoice_date] = @invoice_date, [invoice_total_amount] = @invoice_total_amount, [invoice_status] = @invoice_status, [invoice_balance_due] = @invoice_balance_due WHERE (([invoive_id] = @Original_invoive_id) AND ([appointment_id] = @Original_appointment_id) AND ([payment_id] = @Original_payment_id) AND ([invoice_date] = @Original_invoice_date) AND ([invoice_total_amount] = @Original_invoice_total_amount) AND ([invoice_status] = @Original_invoice_status) AND ([invoice_balance_due] = @Original_invoice_balance_due));
-SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amount, invoice_status, invoice_balance_due FROM Invoice WHERE (invoive_id = @invoive_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Invoice] SET [invoice_id] = @invoice_id, [appointment_id] = @appointment_id, [payment_id] = @payment_id, [invoice_date] = @invoice_date, [invoice_total_amount] = @invoice_total_amount, [invoice_status] = @invoice_status, [invoice_balance_due] = @invoice_balance_due WHERE (([invoice_id] = @Original_invoice_id) AND ([appointment_id] = @Original_appointment_id) AND ([payment_id] = @Original_payment_id) AND ([invoice_date] = @Original_invoice_date) AND ([invoice_total_amount] = @Original_invoice_total_amount) AND ([invoice_status] = @Original_invoice_status) AND ([invoice_balance_due] = @Original_invoice_balance_due));
+SELECT invoice_id, appointment_id, payment_id, invoice_date, invoice_total_amount, invoice_status, invoice_balance_due FROM Invoice WHERE (invoice_id = @invoice_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoive_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoive_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoice_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@appointment_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "appointment_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payment_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoice_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoice_total_amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "invoice_total_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoice_status", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@invoice_balance_due", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "invoice_balance_due", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_invoive_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoive_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_invoice_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_appointment_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "appointment_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_payment_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_invoice_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "invoice_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11249,7 +11249,7 @@ SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amoun
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amount" +
+            this._commandCollection[0].CommandText = "SELECT invoice_id, appointment_id, payment_id, invoice_date, invoice_total_amount" +
                 ", invoice_status, invoice_balance_due FROM dbo.Invoice";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -11311,8 +11311,8 @@ SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amoun
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_invoive_id, int Original_appointment_id, int Original_payment_id, System.DateTime Original_invoice_date, decimal Original_invoice_total_amount, string Original_invoice_status, decimal Original_invoice_balance_due) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_invoive_id));
+        public virtual int Delete(int Original_invoice_id, int Original_appointment_id, int Original_payment_id, System.DateTime Original_invoice_date, decimal Original_invoice_total_amount, string Original_invoice_status, decimal Original_invoice_balance_due) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_invoice_id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_appointment_id));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_payment_id));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_invoice_date));
@@ -11344,8 +11344,8 @@ SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amoun
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int invoive_id, int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(invoive_id));
+        public virtual int Insert(int invoice_id, int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(invoice_id));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(appointment_id));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(payment_id));
             this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(invoice_date));
@@ -11377,8 +11377,8 @@ SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amoun
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int invoive_id, int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due, int Original_invoive_id, int Original_appointment_id, int Original_payment_id, System.DateTime Original_invoice_date, decimal Original_invoice_total_amount, string Original_invoice_status, decimal Original_invoice_balance_due) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(invoive_id));
+        public virtual int Update(int invoice_id, int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due, int Original_invoice_id, int Original_appointment_id, int Original_payment_id, System.DateTime Original_invoice_date, decimal Original_invoice_total_amount, string Original_invoice_status, decimal Original_invoice_balance_due) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(invoice_id));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(appointment_id));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(payment_id));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(invoice_date));
@@ -11390,7 +11390,7 @@ SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amoun
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(invoice_status));
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(invoice_balance_due));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_invoive_id));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_invoice_id));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_appointment_id));
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_payment_id));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_invoice_date));
@@ -11422,8 +11422,8 @@ SELECT invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amoun
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due, int Original_invoive_id, int Original_appointment_id, int Original_payment_id, System.DateTime Original_invoice_date, decimal Original_invoice_total_amount, string Original_invoice_status, decimal Original_invoice_balance_due) {
-            return this.Update(Original_invoive_id, appointment_id, payment_id, invoice_date, invoice_total_amount, invoice_status, invoice_balance_due, Original_invoive_id, Original_appointment_id, Original_payment_id, Original_invoice_date, Original_invoice_total_amount, Original_invoice_status, Original_invoice_balance_due);
+        public virtual int Update(int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due, int Original_invoice_id, int Original_appointment_id, int Original_payment_id, System.DateTime Original_invoice_date, decimal Original_invoice_total_amount, string Original_invoice_status, decimal Original_invoice_balance_due) {
+            return this.Update(Original_invoice_id, appointment_id, payment_id, invoice_date, invoice_total_amount, invoice_status, invoice_balance_due, Original_invoice_id, Original_appointment_id, Original_payment_id, Original_invoice_date, Original_invoice_total_amount, Original_invoice_status, Original_invoice_balance_due);
         }
     }
     
@@ -13531,12 +13531,20 @@ SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM " +
                 "dbo.Payment";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT Payment.payment_id, Payment.payment_amount, Payment.payment_method, Payment.payment_date, Patient.Patient_ID AS Expr2, Patient.Patient_First_Name
+FROM     Patient INNER JOIN
+                  Appointment ON Patient.Patient_ID = Appointment.Patient_ID CROSS JOIN
+                  Payment INNER JOIN
+                  Invoice ON Payment.invoice_id = Invoice.invoice_id";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13558,6 +13566,30 @@ SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsDentist.PaymentDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsDentist.PaymentDataTable dataTable = new dsDentist.PaymentDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPatientID(dsDentist.PaymentDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsDentist.PaymentDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             dsDentist.PaymentDataTable dataTable = new dsDentist.PaymentDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

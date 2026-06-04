@@ -12,26 +12,6 @@ C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dent
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.CoreCompileInputs.cache
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.AssemblyReference.cache
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Appointments.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.AvailabilityOverride.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.BillingForm.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Invoice.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Patients.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Properties.Resources.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Template.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.TreatmentMedicine.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.GenerateResource.cache
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.CoreCompileInputs.cache
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.pdb
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Employees.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.BillingForm.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Employees.resources
@@ -82,27 +62,6 @@ C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dent
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Reports.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental P.0574DD40.Up2Date
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.rpt
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.cs
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportSource.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.Shared.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.Windows.Forms.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.PrescriptionReportView.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Reports.resources
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental P.0574DD40.Up2Date
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.AssemblyReference.cache
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Appointments.resources
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.AvailabilityOverride.resources
@@ -120,3 +79,44 @@ C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.TreatmentMedicine.resources
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.GenerateResource.cache
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.CoreCompileInputs.cache
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.rpt
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.cs
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.pdb
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.AssemblyReference.cache
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Appointments.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.AvailabilityOverride.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.BillingForm.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Employees.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Invoice.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Patients.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.PrescriptionReportView.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Properties.Resources.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Reports.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Template.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.TreatmentMedicine.resources
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.GenerateResource.cache
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.CoreCompileInputs.cache
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental P.0574DD40.Up2Date
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
