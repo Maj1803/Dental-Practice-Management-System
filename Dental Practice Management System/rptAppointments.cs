@@ -16,14 +16,14 @@ namespace Dental_Practice_Management_System {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Appointments : ReportClass {
+    public class rptAppointments : ReportClass {
         
-        public Appointments() {
+        public rptAppointments() {
         }
         
         public override string ResourceName {
             get {
-                return "Appointments.rpt";
+                return "rptAppointments.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Dental_Practice_Management_System {
         
         public override string FullResourceName {
             get {
-                return "Dental_Practice_Management_System.Appointments.rpt";
+                return "Dental_Practice_Management_System.rptAppointments.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace Dental_Practice_Management_System {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedAppointments : Component, ICachedReport {
+    public class CachedrptAppointments : Component, ICachedReport {
         
-        public CachedAppointments() {
+        public CachedrptAppointments() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace Dental_Practice_Management_System {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Appointments rpt = new Appointments();
+            rptAppointments rpt = new rptAppointments();
             rpt.Site = this.Site;
             return rpt;
         }
