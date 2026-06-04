@@ -82,14 +82,14 @@
             this.invoicebalancedueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPaymentHistory = new System.Windows.Forms.Panel();
             this.grpPaymentHistory = new System.Windows.Forms.GroupBox();
+            this.txtPaymentID = new System.Windows.Forms.TextBox();
+            this.btnClear3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvPaymentHistory = new System.Windows.Forms.DataGridView();
-            this.btnClear3 = new System.Windows.Forms.Button();
             this.paymentidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentamountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentmethodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPaymentID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -115,6 +115,7 @@
             this.txtAppt.Name = "txtAppt";
             this.txtAppt.Size = new System.Drawing.Size(171, 22);
             this.txtAppt.TabIndex = 0;
+            this.txtAppt.TextChanged += new System.EventHandler(this.txtAppt_TextChanged);
             // 
             // btnTreatment
             // 
@@ -450,6 +451,7 @@
             this.btnAddInvoice.TabIndex = 18;
             this.btnAddInvoice.Text = "Add Invoice";
             this.btnAddInvoice.UseVisualStyleBackColor = false;
+            this.btnAddInvoice.Click += new System.EventHandler(this.btnAddInvoice_Click);
             // 
             // btnProcessPayment
             // 
@@ -612,6 +614,22 @@
             this.grpPaymentHistory.TabStop = false;
             this.grpPaymentHistory.Text = "Payment History";
             // 
+            // txtPaymentID
+            // 
+            this.txtPaymentID.Location = new System.Drawing.Point(44, 52);
+            this.txtPaymentID.Name = "txtPaymentID";
+            this.txtPaymentID.Size = new System.Drawing.Size(100, 22);
+            this.txtPaymentID.TabIndex = 4;
+            // 
+            // btnClear3
+            // 
+            this.btnClear3.Location = new System.Drawing.Point(331, 39);
+            this.btnClear3.Name = "btnClear3";
+            this.btnClear3.Size = new System.Drawing.Size(75, 23);
+            this.btnClear3.TabIndex = 3;
+            this.btnClear3.Text = "Clear";
+            this.btnClear3.UseVisualStyleBackColor = true;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -637,15 +655,6 @@
             this.dgvPaymentHistory.RowTemplate.Height = 24;
             this.dgvPaymentHistory.Size = new System.Drawing.Size(372, 127);
             this.dgvPaymentHistory.TabIndex = 1;
-            // 
-            // btnClear3
-            // 
-            this.btnClear3.Location = new System.Drawing.Point(331, 39);
-            this.btnClear3.Name = "btnClear3";
-            this.btnClear3.Size = new System.Drawing.Size(75, 23);
-            this.btnClear3.TabIndex = 3;
-            this.btnClear3.Text = "Clear";
-            this.btnClear3.UseVisualStyleBackColor = true;
             // 
             // paymentidDataGridViewTextBoxColumn
             // 
@@ -678,13 +687,6 @@
             this.paymentdateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.paymentdateDataGridViewTextBoxColumn.Name = "paymentdateDataGridViewTextBoxColumn";
             this.paymentdateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // txtPaymentID
-            // 
-            this.txtPaymentID.Location = new System.Drawing.Point(44, 52);
-            this.txtPaymentID.Name = "txtPaymentID";
-            this.txtPaymentID.Size = new System.Drawing.Size(100, 22);
-            this.txtPaymentID.TabIndex = 4;
             // 
             // BillingForm
             // 

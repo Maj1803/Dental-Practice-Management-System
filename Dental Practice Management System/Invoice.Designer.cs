@@ -47,6 +47,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.grpAppointmentDetails = new System.Windows.Forms.GroupBox();
+            this.lblPatientNumber = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lblPatientName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,10 +69,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -226,10 +226,10 @@
             // 
             // grpAppointmentDetails
             // 
-            this.grpAppointmentDetails.Controls.Add(this.label24);
+            this.grpAppointmentDetails.Controls.Add(this.lblPatientNumber);
             this.grpAppointmentDetails.Controls.Add(this.label23);
             this.grpAppointmentDetails.Controls.Add(this.label22);
-            this.grpAppointmentDetails.Controls.Add(this.label21);
+            this.grpAppointmentDetails.Controls.Add(this.lblPatientName);
             this.grpAppointmentDetails.Controls.Add(this.label9);
             this.grpAppointmentDetails.Controls.Add(this.label8);
             this.grpAppointmentDetails.Controls.Add(this.label7);
@@ -240,6 +240,42 @@
             this.grpAppointmentDetails.TabIndex = 13;
             this.grpAppointmentDetails.TabStop = false;
             this.grpAppointmentDetails.Text = "Appointment Details";
+            // 
+            // lblPatientNumber
+            // 
+            this.lblPatientNumber.AutoSize = true;
+            this.lblPatientNumber.Location = new System.Drawing.Point(221, 103);
+            this.lblPatientNumber.Name = "lblPatientNumber";
+            this.lblPatientNumber.Size = new System.Drawing.Size(110, 16);
+            this.lblPatientNumber.TabIndex = 7;
+            this.lblPatientNumber.Text = "lblPatientNumber";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(221, 139);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(51, 16);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "label23";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(221, 45);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(51, 16);
+            this.label22.TabIndex = 5;
+            this.label22.Text = "label22";
+            // 
+            // lblPatientName
+            // 
+            this.lblPatientName.AutoSize = true;
+            this.lblPatientName.Location = new System.Drawing.Point(221, 75);
+            this.lblPatientName.Name = "lblPatientName";
+            this.lblPatientName.Size = new System.Drawing.Size(99, 16);
+            this.lblPatientName.TabIndex = 4;
+            this.lblPatientName.Text = "lblPatientName";
             // 
             // label9
             // 
@@ -417,42 +453,6 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "label3";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(221, 75);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 16);
-            this.label21.TabIndex = 4;
-            this.label21.Text = "label21";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(221, 45);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(51, 16);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "label22";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(221, 139);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(51, 16);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "label23";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(221, 103);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(51, 16);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "label24";
-            // 
             // Invoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -525,10 +525,10 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label lblPatientNumber;
+        public System.Windows.Forms.Label lblPatientName;
     }
 }
