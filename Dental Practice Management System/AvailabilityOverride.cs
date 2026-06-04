@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Dental_Practice_Management_System
 {
     public partial class AvailabilityOverride : Form
@@ -20,15 +19,73 @@ namespace Dental_Practice_Management_System
         private int selectedOverrideId = -1; // Stores the ID of the record being edited (-1 means adding new)
         TimeslotTableAdapter timeslotTableAdapter = new TimeslotTableAdapter();
 
-        // Run this inside your Form_Load or after data binding configuration finishes
-        private void InitializeSearchControls()
+        // Reason choices when the dentist is gone for the entire day
+        private readonly string[] fullDayReasons = new string[]
         {
-            // Set the dentist drop-down to unselected by default
-            cmbSearchDentist.SelectedIndex = -1;
-            dtpSearchDate.Checked = false;
+            "Annual Leave",
+            "Sick Leave",
+            "Dental Conference / Training",
+            "Personal Matter",
+            "Emergency",
+            "Other"
+        };
+
+        // Reason choices when blocking out a minor individual time slot
+        private readonly string[] partialDayReasons = new string[]
+        {
+            "Lunch Break",
+            "Complex Surgery Preparation",
+            "Meeting / Admin Work",
+            "Other"
+        };
+
+        public AvailabilityOverride()
+        {
+            InitializeComponent();
+        }
+
+        private void AvailabilityOverride_Load(object sender, EventArgs e)
+        {
+            isInitializing = true;
+
+            // Load master lookup lists from the Dataset TableAdapters
+            this.availability_OverrideTableAdapter.FillBy(this.dsDentist.Availability_Override);
+            this.employeeTableAdapter.FillByDentist(this.dsDentist.Employee);
+
+            // Wire up core entry element event hooks safely
+            cmbDentist.SelectedIndexChanged -= cmbDentist_SelectedIndexChanged;
+            cmbDentist.SelectedIndexChanged += cmbDentist_SelectedIndexChanged;
+
+            dtpDate.ValueChanged -= dtpDate_ValueChanged;
+            dtpDate.ValueChanged += dtpDate_ValueChanged;
+
+            cmbDentist.SelectedIndex = -1;
+
+            // Setup search UI state defaults
+            txtUnifiedSearch.Clear();
 
             isInitializing = false;
-            PerformDynamicSearch(); // Run initial unfiltered load
+            PerformDynamicSearch();
+
+            dgvOverrides.DataError += (s, ev) => ev.ThrowException = false;
+
+            LoadOverrideTimeSlots();
+
+            // Establish visual panels dock states
+            pnlDisplay.Dock = DockStyle.Fill;
+            pnlForm.Dock = DockStyle.Fill;
+
+            pnlDisplay.Visible = false;
+            pnlForm.Visible = false;
+
+            ShowPanel(pnlDisplay);
+        }
+
+        private void InitializeSearchControls()
+        {
+            txtUnifiedSearch.Clear();
+            isInitializing = false;
+            PerformDynamicSearch();
         }
 
         private void PerformDynamicSearch()
@@ -37,40 +94,43 @@ namespace Dental_Practice_Management_System
 
             try
             {
-                // 1. Determine Date Filter Parameter as a clean, nullable string
+                string userInput = txtUnifiedSearch.Text.Trim();
+
+                // If the search bar is empty, load everything using your default FillBy method
+                if (string.IsNullOrEmpty(userInput))
+                {
+                    this.availability_OverrideTableAdapter.FillBy(this.dsDentist.Availability_Override);
+                    dgvOverrides.Refresh();
+                    return;
+                }
+
+                // Default fallbacks to pass to new SQL layout parameters
+                int isDateSearch = 0;
                 string searchDateParam = null;
-                if (dtpSearchDate.Checked)
+                string searchValueParam = userInput;
+
+                // Try to parse the input into a valid Date
+                if (DateTime.TryParse(userInput, out DateTime parsedDate))
                 {
-                    searchDateParam = dtpSearchDate.Value.ToString("yyyy-MM-dd");
+                    isDateSearch = 1;
+                    searchDateParam = parsedDate.ToString("yyyy-MM-dd");
+                    searchValueParam = null;
                 }
 
-                // 2. Determine Dentist Filter Parameter as a clean, nullable string
-                string searchEmployeeParam = null;
-                if (cmbSearchDentist.SelectedIndex != -1 && cmbSearchDentist.SelectedValue != null)
-                {
-                    searchEmployeeParam = cmbSearchDentist.SelectedValue.ToString();
-                }
-
-                // 3. Pass the strings directly. C# null safely translates to SQL NULL via ADO.NET string mapping
+                // Execute updated three-parameter TableAdapter query tool
                 this.availability_OverrideTableAdapter.FillBySearch(
                     this.dsDentist.Availability_Override,
+                    isDateSearch,
                     searchDateParam,
-                    searchEmployeeParam
+                    searchValueParam
                 );
 
                 dgvOverrides.Refresh();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Search execution failed: {ex.Message}", "Database Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Search failed: {ex.Message}", "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        public AvailabilityOverride()
-        {
-           
-            InitializeComponent();
-            
         }
 
         private void ShowPanel(Panel panelToShow)
@@ -132,7 +192,6 @@ namespace Dental_Practice_Management_System
             }
         }
 
-
         private void chkFullDay_CheckedChanged(object sender, EventArgs e)
         {
             cmbTimeSlot.Enabled = !chkFullDay.Checked;
@@ -140,37 +199,65 @@ namespace Dental_Practice_Management_System
             {
                 cmbTimeSlot.SelectedIndex = -1;
             }
+
+            UpdateReasonComboBoxOptions();
         }
 
         private void cmbReason_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // If they select "Other", show the custom textbox so they can type it out
             if (cmbReason.SelectedItem != null && cmbReason.SelectedItem.ToString() == "Other")
             {
+                txtReason.Enabled = true;
                 txtReason.Focus();
             }
             else
             {
                 txtReason.Enabled = false;
-                txtReason.Clear(); // Clears any old text
+                txtReason.Clear();
             }
         }
 
         private void txtReason_TextChanged(object sender, EventArgs e)
         {
-            // If the user starts typing and "Other" isn't already selected...
             if (!string.IsNullOrEmpty(txtReason.Text) && cmbReason.SelectedItem?.ToString() != "Other")
             {
-                // ...automatically switch the ComboBox to "Other"
                 cmbReason.SelectedItem = "Other";
             }
         }
 
-        
-
-        private void btCancel_MouseHover(object sender, EventArgs e)
+        private void UpdateReasonComboBoxOptions()
         {
-            btCancel.ForeColor = Color.White;
+            cmbReason.SelectedIndexChanged -= cmbReason_SelectedIndexChanged;
+
+            cmbReason.DataSource = null;
+            cmbReason.Items.Clear();
+
+            if (chkFullDay.Checked)
+            {
+                cmbReason.DataSource = fullDayReasons;
+            }
+            else
+            {
+                cmbReason.DataSource = partialDayReasons;
+            }
+
+            cmbReason.SelectedIndex = -1;
+            txtReason.Clear();
+            txtReason.Enabled = false;
+
+            cmbReason.SelectedIndexChanged += cmbReason_SelectedIndexChanged;
+        }
+
+        private void ClearFormInputs()
+        {
+            cmbDentist.SelectedIndex = -1;
+            cmbTimeSlot.SelectedIndex = -1;
+
+            chkFullDay.Checked = false;
+            cmbTimeSlot.Enabled = true;
+            dtpDate.Value = DateTime.Today;
+
+            UpdateReasonComboBoxOptions();
         }
 
         private void btAddNew_Click(object sender, EventArgs e)
@@ -182,55 +269,6 @@ namespace Dental_Practice_Management_System
 
             LoadOverrideTimeSlots();
             ShowPanel(pnlForm);
-        }
-
-        private void btCancel_Click(object sender, EventArgs e)
-        {
-            // Check if they canceled while updating or while creating new
-            if (selectedOverrideId != -1)
-            {
-                MessageBox.Show("Update canceled. No modifications were made to the record.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("No updates have been made.", "Cancel Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            ClearFormInputs();
-            ShowPanel(pnlDisplay);
-        }
-
-        private void AvailabilityOverride_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dsDentist.Availability_Override' table. You can move, or remove it, as needed.
-            //this.availability_OverrideTableAdapter.Fill(this.dsDentist.Availability_Override);
-            // TODO: This line of code loads data into the 'dsDentist.Availability_Override' table. You can move, or remove it, as needed.
-            this.availability_OverrideTableAdapter.FillBy(this.dsDentist.Availability_Override);
-            // TODO: This line of code loads data into the 'dsDentist.Employee' table. You can move, or remove it, as needed.
-            this.employeeTableAdapter.FillByDentist(this.dsDentist.Employee);
-
-            cmbDentist.SelectedIndexChanged -= cmbDentist_SelectedIndexChanged;
-            cmbDentist.SelectedIndexChanged += cmbDentist_SelectedIndexChanged;
-
-            dtpDate.ValueChanged -= dtpDate_ValueChanged;
-            dtpDate.ValueChanged += dtpDate_ValueChanged;
-
-            cmbDentist.SelectedIndex = -1;
-
-            isInitializing = false;
-            PerformDynamicSearch();
-
-            dgvOverrides.DataError += (s, ev) => ev.ThrowException = false;
-
-            LoadOverrideTimeSlots();
-            pnlDisplay.Dock = DockStyle.Fill;
-            pnlForm.Dock = DockStyle.Fill;
-
-            pnlDisplay.Visible = false;
-            pnlForm.Visible = false;
-
-            ShowPanel(pnlDisplay);
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -274,7 +312,6 @@ namespace Dental_Practice_Management_System
                     txtReason.Focus();
                     return;
                 }
-
                 finalReason = txtReason.Text.Trim();
             }
             else
@@ -296,25 +333,22 @@ namespace Dental_Practice_Management_System
                 using (SqlConnection con = new SqlConnection(Properties.Settings.Default.dentistConnStr))
                 {
                     con.Open();
-
                     string sql;
 
                     if (chkFullDay.Checked)
                     {
-                        sql = @"SELECT COUNT(*)
-                        FROM Appointment
-                        WHERE Employee_ID = @EmployeeID
-                        AND Appointment_Date = @AppointmentDate
-                        AND Appointment_Status = 'Scheduled'";
+                        sql = @"SELECT COUNT(*) FROM Appointment
+                                WHERE Employee_ID = @EmployeeID
+                                AND Appointment_Date = @AppointmentDate
+                                AND Appointment_Status = 'Scheduled'";
                     }
                     else
                     {
-                        sql = @"SELECT COUNT(*)
-                        FROM Appointment
-                        WHERE Employee_ID = @EmployeeID
-                        AND Appointment_Date = @AppointmentDate
-                        AND Timeslot_ID = @TimeslotID
-                        AND Appointment_Status = 'Scheduled'";
+                        sql = @"SELECT COUNT(*) FROM Appointment
+                                WHERE Employee_ID = @EmployeeID
+                                AND Appointment_Date = @AppointmentDate
+                                AND Timeslot_ID = @TimeslotID
+                                AND Appointment_Status = 'Scheduled'";
                     }
 
                     SqlCommand cmd = new SqlCommand(sql, con);
@@ -332,10 +366,7 @@ namespace Dental_Practice_Management_System
                     MessageBox.Show(
                         "This dentist already has a scheduled appointment during this override period.\n\n" +
                         "Please cancel or reschedule the appointment first.",
-                        "Override Not Allowed",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
+                        "Override Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -365,98 +396,25 @@ namespace Dental_Practice_Management_System
             }
         }
 
-        private void ClearFormInputs()
-        {
-            cmbDentist.SelectedIndex = -1;
-            cmbTimeSlot.SelectedIndex = -1;
-            cmbReason.SelectedIndex = -1;
-            txtReason.Clear();
-            txtReason.Enabled = false;
-            chkFullDay.Checked = false;
-            cmbTimeSlot.Enabled = true;
-            dtpDate.Value = DateTime.Today; // Resets calendar selection to today
-        }
-
-        private void btnSave_MouseEnter(object sender, EventArgs e)
-        {
-            btnSave.ForeColor = Color.White;
-        }
-
-        private void btnSave_MouseLeave(object sender, EventArgs e)
-        {
-            btCancel.ForeColor = Color.Indigo;
-        }
-
-        private void btCancel_MouseEnter(object sender, EventArgs e)
-        {
-            btCancel.ForeColor = Color.White;
-        }
-
-        private void btCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btCancel.ForeColor = Color.DimGray;
-        }
-
-        private void dtpDate_ValueChanged(object sender, EventArgs e)
-        {
-            LoadOverrideTimeSlots();
-        }
-
-        private void cmbDentist_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadOverrideTimeSlots();
-        }
-
-        private void dtpSearchDate_ValueChanged(object sender, EventArgs e)
-        {
-            PerformDynamicSearch();
-        }
-
-        private void cmbSearchDentist_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PerformDynamicSearch();
-        }
-
-        private void dtpSearchDate_MouseDown(object sender, MouseEventArgs e)
-        {
-            PerformDynamicSearch();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            // Temporarily pause automatic searching while we wipe the inputs
-            isInitializing = true;
-
-            cmbSearchDentist.SelectedIndex = -1;
-            dtpSearchDate.Checked = false;
-            dtpSearchDate.Value = DateTime.Today;
-
-            isInitializing = false;
-
-            // Re-run the search now that all inputs are completely cleared out
-            PerformDynamicSearch();
-        }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // Ensure the grid has a valid selected row and that the index isn't out of bounds
             if (dgvOverrides.CurrentRow == null || dgvOverrides.CurrentRow.Index < 0 || dgvOverrides.CurrentRow.Cells[0].Value == DBNull.Value)
             {
                 MessageBox.Show("Please select a valid record from the list.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            //Extract ID from the selected row
+
             selectedOverrideId = Convert.ToInt32(dgvOverrides.CurrentRow.Cells["Override_ID"].Value);
 
-            //autofill info
             dtpDate.Value = Convert.ToDateTime(dgvOverrides.CurrentRow.Cells["Target_Date"].Value);
             cmbDentist.SelectedValue = dgvOverrides.CurrentRow.Cells["Employee_ID"].Value;
 
-            // Handle the full day checkbox conversion safely
             string isFullDayStr = dgvOverrides.CurrentRow.Cells["Is_Full_Day"].Value.ToString();
             chkFullDay.Checked = (isFullDayStr == "Y" || isFullDayStr == "True");
 
-            // Handle timeslot selection if it isn't a full-day block
+            // Build list collection array boundaries before applying selected values
+            UpdateReasonComboBoxOptions();
+
             if (!chkFullDay.Checked && dgvOverrides.CurrentRow.Cells["Timeslot_ID"].Value != DBNull.Value)
             {
                 LoadOverrideTimeSlots();
@@ -467,7 +425,6 @@ namespace Dental_Practice_Management_System
                 cmbTimeSlot.SelectedIndex = -1;
             }
 
-            // Fill in the reason fields
             string gridReason = dgvOverrides.CurrentRow.Cells["Reason"].Value.ToString();
             if (cmbReason.Items.Contains(gridReason))
             {
@@ -482,20 +439,17 @@ namespace Dental_Practice_Management_System
                 txtReason.Text = gridReason;
             }
 
-            // 3. Open the entry form panel
             ShowPanel(pnlForm);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //Ensure a row is selected
             if (dgvOverrides.CurrentRow == null || dgvOverrides.CurrentRow.Cells["Override_ID"].Value == DBNull.Value)
             {
                 MessageBox.Show("Please select an availability override record from the table list to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Ask the user for deletion confirmation
             DialogResult confirmResult = MessageBox.Show("Are you sure you want to permanently delete this availability override rule?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (confirmResult == DialogResult.Yes)
@@ -503,13 +457,10 @@ namespace Dental_Practice_Management_System
                 try
                 {
                     int targetId = Convert.ToInt32(dgvOverrides.CurrentRow.Cells["Override_ID"].Value);
-
-                    // Execute the delete query
                     this.availability_OverrideTableAdapter.DeleteOverride(targetId);
 
                     MessageBox.Show("The availability override record has been successfully deleted.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Refresh the grid contents immediately
                     this.availability_OverrideTableAdapter.FillBy(this.dsDentist.Availability_Override);
                     dgvOverrides.Refresh();
                 }
@@ -520,7 +471,66 @@ namespace Dental_Practice_Management_System
             }
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            isInitializing = true;
+            txtUnifiedSearch.Clear();
+            isInitializing = false;
 
+            PerformDynamicSearch();
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            if (selectedOverrideId != -1)
+            {
+                MessageBox.Show("Update canceled. No modifications were made to the record.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No updates have been made.", "Cancel Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            ClearFormInputs();
+            ShowPanel(pnlDisplay);
+        }
+
+        private void txtUnifiedSearch_TextChanged(object sender, EventArgs e)
+        {
+            PerformDynamicSearch();
+        }
+
+        private void txtUnifiedSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string input = txtUnifiedSearch.Text.Trim();
+
+                if (System.Text.RegularExpressions.Regex.IsMatch(input, @"\d") && !DateTime.TryParse(input, out _))
+                {
+                    MessageBox.Show(
+                        "The date format wasn't recognized. Please use a standard layout:\n\n" +
+                        " • 2026-06-04\n" +
+                        " • 04 June 2026\n" +
+                        " • 04/06/2026",
+                        "Invalid Date Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning
+                    );
+
+                    txtUnifiedSearch.Focus();
+                    e.SuppressKeyPress = true;
+                }
+            }
+        }
+
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            LoadOverrideTimeSlots();
+        }
+
+        private void cmbDentist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadOverrideTimeSlots();
+        }
 
         private void btnBack_Click_1(object sender, EventArgs e)
         {
@@ -531,7 +541,6 @@ namespace Dental_Practice_Management_System
                 appointmentsForm.FormBorderStyle = FormBorderStyle.None;
                 appointmentsForm.Dock = DockStyle.Fill;
                 appointmentsForm.Show();
-
                 this.Close();
             }
             else
@@ -539,5 +548,11 @@ namespace Dental_Practice_Management_System
                 this.Close();
             }
         }
+
+        private void btCancel_MouseHover(object sender, EventArgs e) { btCancel.ForeColor = Color.White; }
+        private void btnSave_MouseEnter(object sender, EventArgs e) { btnSave.ForeColor = Color.White; }
+        private void btnSave_MouseLeave(object sender, EventArgs e) { btCancel.ForeColor = Color.Indigo; }
+        private void btCancel_MouseEnter(object sender, EventArgs e) { btCancel.ForeColor = Color.White; }
+        private void btCancel_MouseLeave(object sender, EventArgs e) { btCancel.ForeColor = Color.DimGray; }
     }
 }
