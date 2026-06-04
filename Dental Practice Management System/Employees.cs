@@ -70,7 +70,7 @@ namespace Dental_Practice_Management_System
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-           // employeeTableAdapter.InsertQuery(textBox10.Text, textBox9.Text, textBox8.Text, textBox7.Text, textBox6.Text, textBox5.Text, textBox4.Text, textBox3.Text, Convert.ToInt32(textBox2.Text));    
+            //employeeTableAdapter.InsertQuery(txtCreateFirstName.Text, txtCreateSurname.Text, txtCreateRole.Text, txtCreateContactNo.Text, txtCreateEmail.Text, txtCreateUsername.Text, txtCreatePassword.Text, txtCreateNationalID.Text, numCreateAge.Value);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -108,12 +108,12 @@ namespace Dental_Practice_Management_System
             txtFirstName.Text = gvUpdateEmployee.CurrentRow.Cells[1].Value.ToString();
             txtSurname.Text = gvUpdateEmployee.CurrentRow.Cells[2].Value.ToString();
             txtRole.Text = gvUpdateEmployee.CurrentRow.Cells[3].Value.ToString();
-            txtContactNo.Text = gvUpdateEmployee.CurrentRow.Cells[4].Value.ToString();
-            txtEmail.Text = gvUpdateEmployee.CurrentRow.Cells[5].Value.ToString();
+            txtRole.Text = gvUpdateEmployee.CurrentRow.Cells[4].Value.ToString();
+            txtNationalID.Text = gvUpdateEmployee.CurrentRow.Cells[5].Value.ToString();
             txtUsername.Text = gvUpdateEmployee.CurrentRow.Cells[6].Value.ToString();
             txtPassword.Text = gvUpdateEmployee.CurrentRow.Cells[7].Value.ToString();
             txtNationalID.Text = gvUpdateEmployee.CurrentRow.Cells[8].Value.ToString();
-            txtAge.Text = gvUpdateEmployee.CurrentRow.Cells[9].Value.ToString();
+            numAge.Text = gvUpdateEmployee.CurrentRow.Cells[9].Value.ToString();
         }
     }
 }
