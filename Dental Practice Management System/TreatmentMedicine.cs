@@ -17,8 +17,8 @@ namespace Dental_Practice_Management_System
         private bool isMedicineLoading = false; // Flag to prevent event firing during loading
         private DataTable medicineData; // Store medicine data for easy access
         private dsDentistTableAdapters.MedicineTableAdapter medicineTableAdapter = new dsDentistTableAdapters.MedicineTableAdapter();
-        private bool isDiagnosisLoading = false; // Flag to prevent event firing during loading
-        private DataTable diagnosisData; // Store diagnosis data for easy access
+        
+        
         public TreatmentMedicine()
         {
             InitializeComponent();
