@@ -16,14 +16,14 @@ namespace Dental_Practice_Management_System {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class InvoiceSummary : ReportClass {
+    public class TreatmentHistory : ReportClass {
         
-        public InvoiceSummary() {
+        public TreatmentHistory() {
         }
         
         public override string ResourceName {
             get {
-                return "InvoiceSummary.rpt";
+                return "TreatmentHistory.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Dental_Practice_Management_System {
         
         public override string FullResourceName {
             get {
-                return "Dental_Practice_Management_System.InvoiceSummary.rpt";
+                return "Dental_Practice_Management_System.TreatmentHistory.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace Dental_Practice_Management_System {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedInvoiceSummary : Component, ICachedReport {
+    public class CachedTreatmentHistory : Component, ICachedReport {
         
-        public CachedInvoiceSummary() {
+        public CachedTreatmentHistory() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace Dental_Practice_Management_System {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            InvoiceSummary rpt = new InvoiceSummary();
+            TreatmentHistory rpt = new TreatmentHistory();
             rpt.Site = this.Site;
             return rpt;
         }
