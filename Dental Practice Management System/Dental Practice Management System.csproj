@@ -164,6 +164,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TreatmentHistory.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TreatmentMedicine.cs">
       <SubType>Form</SubType>
