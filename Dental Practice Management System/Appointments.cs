@@ -167,16 +167,56 @@ namespace Dental_Practice_Management_System
                 dsDentist.Timeslot.Clear();
                 dsDentist.EnforceConstraints = false;
 
-                timeslotTableAdapter.FillByAvailableSlots(
-                    dsDentist.Timeslot, dayOfWeek, chosenDate, employeeID);
+                using (var conn = new System.Data.SqlClient.SqlConnection(
+                    Properties.Settings.Default.dentistConnStr))
+                {
+                    conn.Open();
+                    string sql = @"
+                SELECT t.Timeslot_ID, t.Slot_Start_Time
+                FROM Timeslot t
+                WHERE t.Day_Of_Week = @dayOfWeek
+                AND t.Is_Active = 1
+                AND t.Timeslot_ID NOT IN (
+                    SELECT a.Timeslot_ID FROM Appointment a
+                    WHERE CAST(a.Appointment_Date AS DATE) = @date
+                    AND a.Employee_ID = @employeeID
+                    AND a.Appointment_Status != 'Cancelled'
+                )
+                AND t.Timeslot_ID NOT IN (
+                    SELECT ao.Timeslot_ID FROM Availability_Override ao
+                    WHERE ao.Target_Date = @date
+                    AND ao.Employee_ID = @employeeID
+                    AND ao.Is_Full_Day = 0
+                )
+                AND NOT EXISTS (
+                    SELECT 1 FROM Availability_Override ao
+                    WHERE ao.Target_Date = @date
+                    AND ao.Employee_ID = @employeeID
+                    AND ao.Is_Full_Day = 1
+                )
+                AND (
+                    CAST(@date AS DATE) > CAST(GETDATE() AS DATE)
+                    OR t.Slot_Start_Time > CAST(GETDATE() AS TIME)
+                )
+                ORDER BY t.Slot_Start_Time";
 
-                cmbTimeSlot.DataSource = null;
-                cmbTimeSlot.Items.Clear();
-                cmbTimeSlot.DataSource = dsDentist.Timeslot;
-                cmbTimeSlot.DisplayMember = "Slot_Start_Time";
-                cmbTimeSlot.ValueMember = "Timeslot_ID";
-                cmbTimeSlot.Format -= cmbTimeSlot_Format;
-                cmbTimeSlot.Format += cmbTimeSlot_Format;
+                    var cmd = new System.Data.SqlClient.SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@dayOfWeek", dayOfWeek);
+                    cmd.Parameters.AddWithValue("@date", chosenDate);
+                    cmd.Parameters.AddWithValue("@employeeID", employeeID);
+
+                    var adapter = new System.Data.SqlClient.SqlDataAdapter(cmd);
+                    var table = new System.Data.DataTable();
+                    adapter.Fill(table);
+
+                    cmbTimeSlot.DataSource = null;
+                    cmbTimeSlot.Items.Clear();
+                    cmbTimeSlot.DataSource = table;
+                    cmbTimeSlot.DisplayMember = "Slot_Start_Time";
+                    cmbTimeSlot.ValueMember = "Timeslot_ID";
+                    cmbTimeSlot.Format -= cmbTimeSlot_Format;
+                    cmbTimeSlot.Format += cmbTimeSlot_Format;
+                }
             }
             catch (Exception ex)
             {
