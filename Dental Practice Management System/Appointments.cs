@@ -88,7 +88,10 @@ namespace Dental_Practice_Management_System
             if (dgv.Columns.Contains("Timeslot_ID"))
                 dgv.Columns["Timeslot_ID"].Visible = false;
             if (dgv.Columns.Contains("Appointment_ID"))
+            {
                 dgv.Columns["Appointment_ID"].HeaderText = "ID";
+                dgv.Columns["Appointment_ID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
             if (dgv.Columns.Contains("Patient_First_Name"))
                 dgv.Columns["Patient_First_Name"].HeaderText = "First Name";
             if (dgv.Columns.Contains("Patient_Last_Name"))
@@ -276,19 +279,25 @@ namespace Dental_Practice_Management_System
 
             string status = cmbStatusFilter.SelectedItem?.ToString() ?? "All";
             string name = txtSearchAppointments.Text.Trim().Replace("'", "''");
+            string filter = "";
 
-            string filter =
-                $"Appointment_Date >= #{dtpFilterDate.Value.Date:MM/dd/yyyy}# " +
-                $"AND Appointment_Date < #{dtpFilterDate.Value.Date.AddDays(1):MM/dd/yyyy}#";
+            if (dtpFilterDate.Checked)
+            {
+                filter =
+                    $"Appointment_Date >= #{dtpFilterDate.Value.Date:MM/dd/yyyy}# " +
+                    $"AND Appointment_Date < #{dtpFilterDate.Value.Date.AddDays(1):MM/dd/yyyy}#";
+            }
 
             if (status != "All")
             {
-                filter += $" AND Appointment_Status = '{status}'";
+                if (!string.IsNullOrEmpty(filter)) filter += " AND ";
+                filter += $"Appointment_Status = '{status}'";
             }
 
             if (!string.IsNullOrEmpty(name))
             {
-                filter += $" AND (Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%')";
+                if (!string.IsNullOrEmpty(filter)) filter += " AND ";
+                filter += $"(Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%')";
             }
 
             viewAppointmentsDataView.RowFilter = filter;
@@ -328,18 +337,24 @@ namespace Dental_Practice_Management_System
                 cmbDentist.DataSource = dsDentist.Employee;
                 cmbDentist.DisplayMember = "Employee_First_Name";
                 cmbDentist.ValueMember = "Employee_ID";
-
-                cmbUpdateAction.Items.Add("Reschedule");
-                cmbUpdateAction.Items.Add("Cancel");
-                cmbUpdateAction.Items.Add("Completed");
-                cmbUpdateAction.SelectedIndexChanged += cmbUpdateAction_SelectedIndexChanged;
+              
+             
+                if (dsDentist.Employee.Rows.Count > 0)
+                {
+                    txtDentistNum.Text = dsDentist.Employee.Rows[0]["Employee_Phone_Number"]?.ToString() ?? "";
+                    txtDentistEmail.Text = dsDentist.Employee.Rows[0]["Employee_Email"]?.ToString() ?? "";
+                }
 
                 cmbUpdateStatusFilter.Items.Add("All");
                 cmbUpdateStatusFilter.Items.Add("Scheduled");
                 cmbUpdateStatusFilter.Items.Add("Completed");
                 cmbUpdateStatusFilter.Items.Add("Cancelled");
+                cmbUpdateStatusFilter.Items.Add("Past Scheduled");
 
                 cmbUpdateStatusFilter.SelectedIndex = 1;
+
+                LoadUpdateActions();
+                cmbUpdateAction.SelectedIndexChanged += cmbUpdateAction_SelectedIndexChanged;
 
                 dtpUpdateFilterDate.Enabled = true;
                 dtpUpdateFilterDate.Value = DateTime.Today;
@@ -421,8 +436,7 @@ namespace Dental_Practice_Management_System
                 string name = firstRow.Cells["Patient_First_Name"].Value?.ToString() ?? "";
                 string surname = firstRow.Cells["Patient_Last_Name"].Value?.ToString() ?? "";
 
-                if (!string.IsNullOrEmpty(name))
-                    lblSelectedPatient.Text = "Selected: " + name + " " + surname;
+       
             }
         }
 
@@ -457,8 +471,10 @@ namespace Dental_Practice_Management_System
                 string name = dgvPatientResults.CurrentRow.Cells["Patient_First_Name"].Value.ToString();
                 string surname = dgvPatientResults.CurrentRow.Cells["Patient_Last_Name"].Value.ToString();
 
-                lblSelectedPatient.Text = "Selected: " + name + " " + surname;
-                lblSelectedPatient.ForeColor = System.Drawing.Color.FromArgb(26, 58, 143);
+                txtPatient.Text = name + " " + surname;
+                txtPatientNum.Text = dgvPatientResults.CurrentRow.Cells["Patient_Phone_Number"].Value?.ToString() ?? "";
+                txtEmail.Text = dgvPatientResults.CurrentRow.Cells["Patient_Email"].Value?.ToString() ?? "";
+                txtPatient.ForeColor = System.Drawing.Color.FromArgb(26, 58, 143);
             }
             catch (Exception ex)
             {
@@ -475,6 +491,20 @@ namespace Dental_Practice_Management_System
         private void cmbDentist_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadAvailableSlots();
+
+            if (cmbDentist.SelectedValue == null || cmbDentist.SelectedValue is DataRowView) return;
+
+            try
+            {
+                int empID = Convert.ToInt32(cmbDentist.SelectedValue);
+                DataRow[] emp = dsDentist.Employee.Select($"Employee_ID = {empID}");
+                if (emp != null && emp.Length > 0)
+                {
+                    txtDentistNum.Text = emp[0]["Employee_Phone_Number"]?.ToString() ?? "";
+                    txtDentistEmail.Text = emp[0]["Employee_Email"]?.ToString() ?? "";
+                }
+            }
+            catch { }
         }
 
         private void btnConfirmBooking_Click(object sender, EventArgs e)
@@ -501,7 +531,7 @@ namespace Dental_Practice_Management_System
             }
         
 
-            string patientName = lblSelectedPatient.Text.Replace("Selected: ", "");
+            string patientName = txtPatient.Text.Replace("Selected: ", "");
             string dentistName = cmbDentist.Text;
             string timeSlot = cmbTimeSlot.Text;
             string date = dtpAppointmentDate.Value.ToString("dddd, dd MMMM yyyy");
@@ -554,11 +584,15 @@ namespace Dental_Practice_Management_System
         private void btnClearBooking_Click(object sender, EventArgs e)
         {
             selectedPatientID = -1;
-            lblSelectedPatient.Text = "No patient selected.";
             txtSearchPatient.Clear();
             txtAppointmentNotes.Clear();
             dsDentist.Patient.Clear();
             dgvPatientResults.DataSource = null;
+            txtPatient.Text = "";
+            txtPatientNum.Text = "";
+            txtEmail.Text = "";
+            txtDentistNum.Text = "";
+            txtDentistEmail.Text = "";
         }
 
         private void dgvUpdateAppointments_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -580,7 +614,7 @@ namespace Dental_Practice_Management_System
 
                     selectedAppointmentID = -1;
                     selectedEmployeeID = -1;
-                    lblSelectedAppointment.Text = "No appointment selected.";
+                  
                     cmbUpdateAction.SelectedIndex = -1;
                     dtpNewDate.Enabled = false;
                     cmbNewTimeSlot.Enabled = false;
@@ -598,8 +632,21 @@ namespace Dental_Practice_Management_System
                 string patientLast = dgvUpdateAppointments.CurrentRow
                     .Cells["Patient_Last_Name"].Value.ToString();
 
-                lblSelectedAppointment.Text =
-                    $"Selected: {patientFirst} {patientLast} — Status: {currentStatus}";
+                txtPatientName.Text =
+                    $"{patientFirst} {patientLast}";
+                
+
+                var pt = patientTableAdapter.GetDataBy4(patientFirst);
+                if (pt.Rows.Count > 0)
+                {
+                    txtPatientNo.Text = pt.Rows[0]["Patient_Phone_Number"]?.ToString() ?? "";
+                    txtPatientEmailAdd.Text = pt.Rows[0]["Patient_Email"]?.ToString() ?? "";
+                }
+                txtDentistName.Text = dgvUpdateAppointments.CurrentRow.Cells["Employee_First_Name"].Value + " " +
+                                         dgvUpdateAppointments.CurrentRow.Cells["Employee_Last_Name"].Value;
+                txtCurrentDate.Text = Convert.ToDateTime(dgvUpdateAppointments.CurrentRow.Cells["Appointment_Date"].Value).ToString("dd MMM yyyy");
+                txtCurrentTime.Text = dgvUpdateAppointments.CurrentRow.Cells["Slot_Start_Time"].Value?.ToString() ?? "";
+                txtUpdStatus.Text = currentStatus;
 
                 cmbNewTimeSlot.DataSource = null;
                 cmbNewTimeSlot.Items.Clear();
@@ -631,6 +678,17 @@ namespace Dental_Practice_Management_System
             }
 
             string action = cmbUpdateAction.SelectedItem.ToString();
+
+            if (cmbUpdateStatusFilter.SelectedItem?.ToString() == "Past Scheduled" &&
+                action != "Completed")
+            {
+                MessageBox.Show(
+                    "Past scheduled appointments can only be marked as Completed.",
+                    "Invalid Action",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
 
             try
             {
@@ -669,7 +727,7 @@ namespace Dental_Practice_Management_System
                     if (DateTime.Now < appointmentEndTime)
                     {
                         MessageBox.Show(
-                            $"This appointment cannot be marked as Completed yet.",
+                            "This appointment cannot be marked as Completed yet.",
                             "Cannot Complete",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
@@ -692,41 +750,48 @@ namespace Dental_Practice_Management_System
 
                     if (confirm == DialogResult.Yes)
                     {
+                        bool isPastScheduled =
+                            cmbUpdateStatusFilter.SelectedItem?.ToString() == "Past Scheduled";
+
+                        string followUpFirstName = dgvUpdateAppointments.CurrentRow
+                            .Cells["Patient_First_Name"].Value.ToString();
+
+                        string followUpLastName = dgvUpdateAppointments.CurrentRow
+                            .Cells["Patient_Last_Name"].Value.ToString();
+
                         appointmentTableAdapter.CompleteAppointment(selectedAppointmentID);
 
                         MessageBox.Show("Appointment marked as Completed successfully.",
                             "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        string followUpFirstName = dgvUpdateAppointments.CurrentRow
-                            .Cells["Patient_First_Name"].Value.ToString();
-                        string followUpLastName = dgvUpdateAppointments.CurrentRow
-                            .Cells["Patient_Last_Name"].Value.ToString();
 
                         appointmentViewTableAdapter.Fill(dsDentist.AppointmentView);
                         FormatAppointmentGrid(dgvAppointments);
                         FormatAppointmentGrid(dgvUpdateAppointments);
                         ResetUpdatePanel();
 
-                        DialogResult followUp = MessageBox.Show(
-                            "Would you like to schedule a follow-up appointment for this patient?",
-                            "Follow-Up Appointment",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);
-
-                        if (followUp == DialogResult.Yes)
+                        if (!isPastScheduled)
                         {
-                            var results = patientTableAdapter.GetDataBy4(followUpFirstName);
-                            dgvPatientResults.DataSource = results;
-                            FormatPatientGrid(dgvPatientResults);
+                            DialogResult followUp = MessageBox.Show(
+                                "Would you like to schedule a follow-up appointment for this patient?",
+                                "Follow-Up Appointment",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
 
-                            if (dgvPatientResults.Rows.Count > 0)
+                            if (followUp == DialogResult.Yes)
                             {
-                                selectedPatientID = Convert.ToInt32(dgvPatientResults.Rows[0].Cells[0].Value);
-                                lblSelectedPatient.Text = "Selected: " + followUpFirstName + " " + followUpLastName;
-                                lblSelectedPatient.ForeColor = System.Drawing.Color.FromArgb(26, 58, 143);
-                            }
+                                var results = patientTableAdapter.GetDataBy4(followUpFirstName);
+                                dgvPatientResults.DataSource = results;
+                                FormatPatientGrid(dgvPatientResults);
 
-                            ShowPanel(pnlBookAppointment);
+                                if (dgvPatientResults.Rows.Count > 0)
+                                {
+                                    selectedPatientID = Convert.ToInt32(dgvPatientResults.Rows[0].Cells[0].Value);
+                                    txtPatient.Text = "Selected: " + followUpFirstName + " " + followUpLastName;
+                                    txtPatient.ForeColor = System.Drawing.Color.FromArgb(26, 58, 143);
+                                }
+
+                                ShowPanel(pnlBookAppointment);
+                            }
                         }
                     }
                 }
@@ -758,13 +823,14 @@ namespace Dental_Practice_Management_System
                             return;
                         }
                     }
+
                     DialogResult confirm = MessageBox.Show(
-                    $"Are you sure you want to reschedule this appointment?\n\n" +
-                    $"New Date: {dtpNewDate.Value:dddd, dd MMMM yyyy}\n" +
-                    $"New Time: {cmbNewTimeSlot.Text}",
-                    "Confirm Reschedule",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                        $"Are you sure you want to reschedule this appointment?\n\n" +
+                        $"New Date: {dtpNewDate.Value:dddd, dd MMMM yyyy}\n" +
+                        $"New Time: {cmbNewTimeSlot.Text}",
+                        "Confirm Reschedule",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
 
                     if (confirm != DialogResult.Yes)
                         return;
@@ -797,21 +863,31 @@ namespace Dental_Practice_Management_System
         {
             selectedAppointmentID = -1;
             selectedEmployeeID = -1;
-            lblSelectedAppointment.Text = "No appointment selected.";
+
+            txtPatientName.Clear();
+            txtPatientNo.Clear();
+            txtPatientEmailAdd.Clear();
+            txtDentistName.Clear();
+            txtCurrentDate.Clear();
+            txtCurrentTime.Clear();
+            txtUpdStatus.Clear();
             txtUpdateReason.Clear();
+
             cmbUpdateAction.SelectedIndex = -1;
             cmbNewTimeSlot.DataSource = null;
             cmbNewTimeSlot.Items.Clear();
+
             dtpNewDate.Enabled = false;
             cmbNewTimeSlot.Enabled = false;
-            dsDentist.AppointmentView.DefaultView.RowFilter = "";
-            dgvUpdateAppointments.DataSource = dsDentist.AppointmentView;
+
+            ApplyUpdateFilter();
             FormatAppointmentGrid(dgvUpdateAppointments);
         }
 
         private void btnClearUpdate_Click(object sender, EventArgs e)
         {
             ResetUpdatePanel();
+            txtUpdateSearch.Focus();
         }
 
         private void dtpNewDate_ValueChanged(object sender, EventArgs e)
@@ -896,41 +972,43 @@ namespace Dental_Practice_Management_System
         private void btnClearFilter_Click_1(object sender, EventArgs e)
         {
             txtSearchAppointments.Clear();
-
             dtpFilterDate.Value = DateTime.Today;
+            dtpFilterDate.Checked = true;
             cmbStatusFilter.SelectedIndex = 0;
-
             ApplyViewFilter();
-
             txtSearchAppointments.Focus();
         }
         private void ApplyUpdateFilter()
         {
             string status = cmbUpdateStatusFilter.SelectedItem?.ToString() ?? "Scheduled";
             string name = txtUpdateSearch.Text.Trim().Replace("'", "''");
-
             string filter = "";
 
-            if (string.IsNullOrEmpty(name))
+            if (status == "Past Scheduled")
             {
                 filter =
-                    $"Appointment_Date >= #{dtpUpdateFilterDate.Value.Date:MM/dd/yyyy}# " +
-                    $"AND Appointment_Date < #{dtpUpdateFilterDate.Value.Date.AddDays(1):MM/dd/yyyy}#";
+                    $"Appointment_Status = 'Scheduled' " +
+                    $"AND Appointment_Date < #{DateTime.Today:MM/dd/yyyy}#";
             }
-
-            if (status != "All")
+            else
             {
-                if (!string.IsNullOrEmpty(filter))
-                    filter += " AND ";
+                if (dtpUpdateFilterDate.Checked)
+                {
+                    filter =
+                        $"Appointment_Date >= #{dtpUpdateFilterDate.Value.Date:MM/dd/yyyy}# " +
+                        $"AND Appointment_Date < #{dtpUpdateFilterDate.Value.Date.AddDays(1):MM/dd/yyyy}#";
+                }
 
-                filter += $"Appointment_Status = '{status}'";
+                if (status != "All")
+                {
+                    if (!string.IsNullOrEmpty(filter)) filter += " AND ";
+                    filter += $"Appointment_Status = '{status}'";
+                }
             }
 
             if (!string.IsNullOrEmpty(name))
             {
-                if (!string.IsNullOrEmpty(filter))
-                    filter += " AND ";
-
+                if (!string.IsNullOrEmpty(filter)) filter += " AND ";
                 filter += $"(Patient_First_Name LIKE '%{name}%' OR Patient_Last_Name LIKE '%{name}%')";
             }
 
@@ -945,7 +1023,8 @@ namespace Dental_Practice_Management_System
 
         private void cmbUpdateStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ApplyUpdateFilter();
+            ResetUpdatePanel();
+            LoadUpdateActions();
         }
 
         private void dtpUpdateFilterDate_ValueChanged(object sender, EventArgs e)
@@ -957,15 +1036,49 @@ namespace Dental_Practice_Management_System
         private void btnClearUpdateFilter_Click(object sender, EventArgs e)
         {
             txtUpdateSearch.Clear();
-
             dtpUpdateFilterDate.Value = DateTime.Today;
+            dtpUpdateFilterDate.Checked = true;
             cmbUpdateStatusFilter.SelectedIndex = 1;
 
-            ApplyUpdateFilter();
+            selectedAppointmentID = -1;
+            selectedEmployeeID = -1;
+            cmbUpdateAction.SelectedIndex = -1;
 
+            txtPatientName.Clear();
+            txtPatientNo.Clear();
+            txtDentistName.Clear();
+            txtCurrentDate.Clear();
+            txtCurrentTime.Clear();
+            txtUpdStatus.Clear();
+            txtPatientEmailAdd.Clear();
+            txtUpdateReason.Clear();
+
+            cmbNewTimeSlot.DataSource = null;
+            cmbNewTimeSlot.Items.Clear();
+            dtpNewDate.Enabled = false;
+            cmbNewTimeSlot.Enabled = false;
+
+            ApplyUpdateFilter();
             txtUpdateSearch.Focus();
         }
 
+        private void LoadUpdateActions()
+        {
+            cmbUpdateAction.Items.Clear();
+
+            if (cmbUpdateStatusFilter.SelectedItem?.ToString() == "Past Scheduled")
+            {
+                cmbUpdateAction.Items.Add("Completed");
+                cmbUpdateAction.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbUpdateAction.Items.Add("Reschedule");
+                cmbUpdateAction.Items.Add("Cancel");
+                cmbUpdateAction.Items.Add("Completed");
+                cmbUpdateAction.SelectedIndex = -1;
+            }
+        }
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
@@ -973,6 +1086,6 @@ namespace Dental_Practice_Management_System
                 LoadAvailableSlots();
         }
 
-    
+     
     }
 }

@@ -48,12 +48,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbUpdateStatusFilter = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblSelectedAppointment = new System.Windows.Forms.Label();
             this.dgvUpdateAppointments = new System.Windows.Forms.DataGridView();
             this.txtUpdateSearch = new System.Windows.Forms.TextBox();
             this.lblUpdateSearch = new System.Windows.Forms.Label();
             this.pnlBookAppointment = new System.Windows.Forms.Panel();
             this.grpAppointmentDetails = new System.Windows.Forms.GroupBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtPatient = new System.Windows.Forms.TextBox();
+            this.lblPatientNum = new System.Windows.Forms.Label();
+            this.txtPatientNum = new System.Windows.Forms.TextBox();
+            this.lblDentistNum = new System.Windows.Forms.Label();
+            this.txtDentistNum = new System.Windows.Forms.TextBox();
             this.btnClearBooking = new System.Windows.Forms.Button();
             this.btnConfirmBooking = new System.Windows.Forms.Button();
             this.txtAppointmentNotes = new System.Windows.Forms.TextBox();
@@ -65,7 +72,6 @@
             this.cmbDentist = new System.Windows.Forms.ComboBox();
             this.lblDentist = new System.Windows.Forms.Label();
             this.grpPatientInfo = new System.Windows.Forms.GroupBox();
-            this.lblSelectedPatient = new System.Windows.Forms.Label();
             this.dgvPatientResults = new System.Windows.Forms.DataGridView();
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
             this.lblSearchPatient = new System.Windows.Forms.Label();
@@ -80,6 +86,26 @@
             this.txtSearchAppointments = new System.Windows.Forms.TextBox();
             this.lblSearchAppointments = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDentistEmail = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtDentistName = new System.Windows.Forms.TextBox();
+            this.txtCurrentDate = new System.Windows.Forms.TextBox();
+            this.txtCurrentTime = new System.Windows.Forms.TextBox();
+            this.txtPatientName = new System.Windows.Forms.TextBox();
+            this.txtPatientNo = new System.Windows.Forms.TextBox();
+            this.txtPatientEmailAdd = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtUpdStatus = new System.Windows.Forms.TextBox();
             this.pnlContent.SuspendLayout();
             this.pnlUpdateAppointment.SuspendLayout();
             this.grpUpdateDetails.SuspendLayout();
@@ -92,6 +118,10 @@
             this.pnlViewAppointments.SuspendLayout();
             this.grpViewFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -185,6 +215,8 @@
             // 
             // grpUpdateDetails
             // 
+            this.grpUpdateDetails.Controls.Add(this.groupBox4);
+            this.grpUpdateDetails.Controls.Add(this.groupBox3);
             this.grpUpdateDetails.Controls.Add(this.btnClearUpdate);
             this.grpUpdateDetails.Controls.Add(this.btnSaveUpdate);
             this.grpUpdateDetails.Controls.Add(this.txtUpdateReason);
@@ -237,7 +269,7 @@
             // txtUpdateReason
             // 
             this.txtUpdateReason.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpdateReason.Location = new System.Drawing.Point(555, 76);
+            this.txtUpdateReason.Location = new System.Drawing.Point(876, 70);
             this.txtUpdateReason.Multiline = true;
             this.txtUpdateReason.Name = "txtUpdateReason";
             this.txtUpdateReason.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -249,7 +281,7 @@
             this.lblUpdateReason.AutoSize = true;
             this.lblUpdateReason.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblUpdateReason.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUpdateReason.Location = new System.Drawing.Point(551, 53);
+            this.lblUpdateReason.Location = new System.Drawing.Point(877, 44);
             this.lblUpdateReason.Name = "lblUpdateReason";
             this.lblUpdateReason.Size = new System.Drawing.Size(129, 20);
             this.lblUpdateReason.TabIndex = 6;
@@ -260,7 +292,7 @@
             this.cmbNewTimeSlot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNewTimeSlot.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmbNewTimeSlot.FormattingEnabled = true;
-            this.cmbNewTimeSlot.Location = new System.Drawing.Point(17, 145);
+            this.cmbNewTimeSlot.Location = new System.Drawing.Point(659, 187);
             this.cmbNewTimeSlot.Name = "cmbNewTimeSlot";
             this.cmbNewTimeSlot.Size = new System.Drawing.Size(147, 28);
             this.cmbNewTimeSlot.TabIndex = 5;
@@ -270,7 +302,7 @@
             this.lblNewTimeSlot.AutoSize = true;
             this.lblNewTimeSlot.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblNewTimeSlot.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNewTimeSlot.Location = new System.Drawing.Point(15, 122);
+            this.lblNewTimeSlot.Location = new System.Drawing.Point(655, 164);
             this.lblNewTimeSlot.Name = "lblNewTimeSlot";
             this.lblNewTimeSlot.Size = new System.Drawing.Size(106, 20);
             this.lblNewTimeSlot.TabIndex = 4;
@@ -281,7 +313,7 @@
             this.dtpNewDate.CalendarFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNewDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpNewDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNewDate.Location = new System.Drawing.Point(229, 145);
+            this.dtpNewDate.Location = new System.Drawing.Point(659, 123);
             this.dtpNewDate.Name = "dtpNewDate";
             this.dtpNewDate.Size = new System.Drawing.Size(150, 27);
             this.dtpNewDate.TabIndex = 3;
@@ -291,7 +323,7 @@
             this.lblNewDate.AutoSize = true;
             this.lblNewDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblNewDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNewDate.Location = new System.Drawing.Point(225, 122);
+            this.lblNewDate.Location = new System.Drawing.Point(655, 98);
             this.lblNewDate.Name = "lblNewDate";
             this.lblNewDate.Size = new System.Drawing.Size(75, 20);
             this.lblNewDate.TabIndex = 2;
@@ -303,9 +335,9 @@
             this.cmbUpdateAction.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbUpdateAction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.cmbUpdateAction.FormattingEnabled = true;
-            this.cmbUpdateAction.Location = new System.Drawing.Point(19, 76);
+            this.cmbUpdateAction.Location = new System.Drawing.Point(659, 67);
             this.cmbUpdateAction.Name = "cmbUpdateAction";
-            this.cmbUpdateAction.Size = new System.Drawing.Size(180, 28);
+            this.cmbUpdateAction.Size = new System.Drawing.Size(150, 28);
             this.cmbUpdateAction.TabIndex = 1;
             // 
             // label1
@@ -313,7 +345,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(17, 53);
+            this.label1.Location = new System.Drawing.Point(655, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 20);
             this.label1.TabIndex = 0;
@@ -326,7 +358,6 @@
             this.grpFindAppointment.Controls.Add(this.label4);
             this.grpFindAppointment.Controls.Add(this.cmbUpdateStatusFilter);
             this.grpFindAppointment.Controls.Add(this.label3);
-            this.grpFindAppointment.Controls.Add(this.lblSelectedAppointment);
             this.grpFindAppointment.Controls.Add(this.dgvUpdateAppointments);
             this.grpFindAppointment.Controls.Add(this.txtUpdateSearch);
             this.grpFindAppointment.Controls.Add(this.lblUpdateSearch);
@@ -360,6 +391,7 @@
             this.dtpUpdateFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpUpdateFilterDate.Location = new System.Drawing.Point(803, 46);
             this.dtpUpdateFilterDate.Name = "dtpUpdateFilterDate";
+            this.dtpUpdateFilterDate.ShowCheckBox = true;
             this.dtpUpdateFilterDate.Size = new System.Drawing.Size(127, 27);
             this.dtpUpdateFilterDate.TabIndex = 8;
             this.dtpUpdateFilterDate.ValueChanged += new System.EventHandler(this.dtpUpdateFilterDate_ValueChanged);
@@ -396,17 +428,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Status";
             // 
-            // lblSelectedAppointment
-            // 
-            this.lblSelectedAppointment.AutoSize = true;
-            this.lblSelectedAppointment.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
-            this.lblSelectedAppointment.ForeColor = System.Drawing.Color.SlateBlue;
-            this.lblSelectedAppointment.Location = new System.Drawing.Point(925, 183);
-            this.lblSelectedAppointment.Name = "lblSelectedAppointment";
-            this.lblSelectedAppointment.Size = new System.Drawing.Size(170, 19);
-            this.lblSelectedAppointment.TabIndex = 4;
-            this.lblSelectedAppointment.Text = "No appointment selected.";
-            // 
             // dgvUpdateAppointments
             // 
             this.dgvUpdateAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -436,7 +457,7 @@
             this.dgvUpdateAppointments.RowHeadersWidth = 51;
             this.dgvUpdateAppointments.RowTemplate.Height = 24;
             this.dgvUpdateAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUpdateAppointments.Size = new System.Drawing.Size(1185, 93);
+            this.dgvUpdateAppointments.Size = new System.Drawing.Size(1185, 114);
             this.dgvUpdateAppointments.TabIndex = 3;
             this.dgvUpdateAppointments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdateAppointments_CellClick);
             // 
@@ -446,7 +467,7 @@
             this.txtUpdateSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUpdateSearch.Location = new System.Drawing.Point(15, 55);
             this.txtUpdateSearch.Name = "txtUpdateSearch";
-            this.txtUpdateSearch.Size = new System.Drawing.Size(235, 27);
+            this.txtUpdateSearch.Size = new System.Drawing.Size(348, 27);
             this.txtUpdateSearch.TabIndex = 1;
             this.txtUpdateSearch.TextChanged += new System.EventHandler(this.txtUpdateSearch_TextChanged_1);
             // 
@@ -474,6 +495,7 @@
             // 
             // grpAppointmentDetails
             // 
+            this.grpAppointmentDetails.Controls.Add(this.lblDentistNum);
             this.grpAppointmentDetails.Controls.Add(this.btnClearBooking);
             this.grpAppointmentDetails.Controls.Add(this.btnConfirmBooking);
             this.grpAppointmentDetails.Controls.Add(this.txtAppointmentNotes);
@@ -484,14 +506,108 @@
             this.grpAppointmentDetails.Controls.Add(this.lblAppointmentDate);
             this.grpAppointmentDetails.Controls.Add(this.cmbDentist);
             this.grpAppointmentDetails.Controls.Add(this.lblDentist);
+            this.grpAppointmentDetails.Controls.Add(this.groupBox1);
+            this.grpAppointmentDetails.Controls.Add(this.groupBox2);
             this.grpAppointmentDetails.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.grpAppointmentDetails.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpAppointmentDetails.Location = new System.Drawing.Point(6, 223);
+            this.grpAppointmentDetails.Location = new System.Drawing.Point(13, 235);
             this.grpAppointmentDetails.Name = "grpAppointmentDetails";
-            this.grpAppointmentDetails.Size = new System.Drawing.Size(1213, 268);
+            this.grpAppointmentDetails.Size = new System.Drawing.Size(1206, 264);
             this.grpAppointmentDetails.TabIndex = 1;
             this.grpAppointmentDetails.TabStop = false;
             this.grpAppointmentDetails.Text = "Appointment Details";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblEmail.Location = new System.Drawing.Point(15, 152);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(103, 20);
+            this.lblEmail.TabIndex = 19;
+            this.lblEmail.Text = "Email Address";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtEmail.Location = new System.Drawing.Point(19, 175);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
+            this.txtEmail.Size = new System.Drawing.Size(185, 25);
+            this.txtEmail.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(17, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 20);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Patient Name";
+            // 
+            // txtPatient
+            // 
+            this.txtPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtPatient.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatient.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatient.Location = new System.Drawing.Point(19, 54);
+            this.txtPatient.Name = "txtPatient";
+            this.txtPatient.ReadOnly = true;
+            this.txtPatient.Size = new System.Drawing.Size(185, 25);
+            this.txtPatient.TabIndex = 16;
+            // 
+            // lblPatientNum
+            // 
+            this.lblPatientNum.AutoSize = true;
+            this.lblPatientNum.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblPatientNum.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPatientNum.Location = new System.Drawing.Point(17, 96);
+            this.lblPatientNum.Name = "lblPatientNum";
+            this.lblPatientNum.Size = new System.Drawing.Size(105, 20);
+            this.lblPatientNum.TabIndex = 15;
+            this.lblPatientNum.Text = "Phone number";
+            // 
+            // txtPatientNum
+            // 
+            this.txtPatientNum.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtPatientNum.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatientNum.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatientNum.Location = new System.Drawing.Point(19, 119);
+            this.txtPatientNum.Name = "txtPatientNum";
+            this.txtPatientNum.ReadOnly = true;
+            this.txtPatientNum.Size = new System.Drawing.Size(185, 25);
+            this.txtPatientNum.TabIndex = 14;
+            // 
+            // lblDentistNum
+            // 
+            this.lblDentistNum.AutoSize = true;
+            this.lblDentistNum.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblDentistNum.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblDentistNum.Location = new System.Drawing.Point(327, 128);
+            this.lblDentistNum.Name = "lblDentistNum";
+            this.lblDentistNum.Size = new System.Drawing.Size(105, 20);
+            this.lblDentistNum.TabIndex = 13;
+            this.lblDentistNum.Text = "Phone number";
+            // 
+            // txtDentistNum
+            // 
+            this.txtDentistNum.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtDentistNum.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDentistNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDentistNum.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtDentistNum.Location = new System.Drawing.Point(22, 115);
+            this.txtDentistNum.Name = "txtDentistNum";
+            this.txtDentistNum.ReadOnly = true;
+            this.txtDentistNum.Size = new System.Drawing.Size(185, 25);
+            this.txtDentistNum.TabIndex = 12;
             // 
             // btnClearBooking
             // 
@@ -500,9 +616,9 @@
             this.btnClearBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearBooking.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnClearBooking.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnClearBooking.Location = new System.Drawing.Point(1029, 216);
+            this.btnClearBooking.Location = new System.Drawing.Point(1112, 202);
             this.btnClearBooking.Name = "btnClearBooking";
-            this.btnClearBooking.Size = new System.Drawing.Size(75, 31);
+            this.btnClearBooking.Size = new System.Drawing.Size(75, 35);
             this.btnClearBooking.TabIndex = 11;
             this.btnClearBooking.Text = "Clear";
             this.btnClearBooking.UseVisualStyleBackColor = false;
@@ -515,9 +631,9 @@
             this.btnConfirmBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmBooking.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnConfirmBooking.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConfirmBooking.Location = new System.Drawing.Point(839, 216);
+            this.btnConfirmBooking.Location = new System.Drawing.Point(932, 202);
             this.btnConfirmBooking.Name = "btnConfirmBooking";
-            this.btnConfirmBooking.Size = new System.Drawing.Size(165, 31);
+            this.btnConfirmBooking.Size = new System.Drawing.Size(165, 35);
             this.btnConfirmBooking.TabIndex = 10;
             this.btnConfirmBooking.Text = "Book Appointment";
             this.btnConfirmBooking.UseVisualStyleBackColor = false;
@@ -526,11 +642,11 @@
             // txtAppointmentNotes
             // 
             this.txtAppointmentNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAppointmentNotes.Location = new System.Drawing.Point(547, 87);
+            this.txtAppointmentNotes.Location = new System.Drawing.Point(826, 86);
             this.txtAppointmentNotes.Multiline = true;
             this.txtAppointmentNotes.Name = "txtAppointmentNotes";
             this.txtAppointmentNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAppointmentNotes.Size = new System.Drawing.Size(254, 77);
+            this.txtAppointmentNotes.Size = new System.Drawing.Size(243, 58);
             this.txtAppointmentNotes.TabIndex = 9;
             // 
             // lblAppointmentNotes
@@ -538,7 +654,7 @@
             this.lblAppointmentNotes.AutoSize = true;
             this.lblAppointmentNotes.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblAppointmentNotes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAppointmentNotes.Location = new System.Drawing.Point(543, 64);
+            this.lblAppointmentNotes.Location = new System.Drawing.Point(822, 63);
             this.lblAppointmentNotes.Name = "lblAppointmentNotes";
             this.lblAppointmentNotes.Size = new System.Drawing.Size(48, 20);
             this.lblAppointmentNotes.TabIndex = 8;
@@ -547,11 +663,11 @@
             // cmbTimeSlot
             // 
             this.cmbTimeSlot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTimeSlot.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.cmbTimeSlot.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbTimeSlot.FormattingEnabled = true;
-            this.cmbTimeSlot.Location = new System.Drawing.Point(238, 160);
+            this.cmbTimeSlot.Location = new System.Drawing.Point(583, 168);
             this.cmbTimeSlot.Name = "cmbTimeSlot";
-            this.cmbTimeSlot.Size = new System.Drawing.Size(150, 25);
+            this.cmbTimeSlot.Size = new System.Drawing.Size(150, 31);
             this.cmbTimeSlot.TabIndex = 7;
             // 
             // lblTimeSlot
@@ -559,7 +675,7 @@
             this.lblTimeSlot.AutoSize = true;
             this.lblTimeSlot.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblTimeSlot.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTimeSlot.Location = new System.Drawing.Point(237, 133);
+            this.lblTimeSlot.Location = new System.Drawing.Point(577, 145);
             this.lblTimeSlot.Name = "lblTimeSlot";
             this.lblTimeSlot.Size = new System.Drawing.Size(72, 20);
             this.lblTimeSlot.TabIndex = 6;
@@ -570,7 +686,7 @@
             this.dtpAppointmentDate.CalendarFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpAppointmentDate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAppointmentDate.Location = new System.Drawing.Point(238, 87);
+            this.dtpAppointmentDate.Location = new System.Drawing.Point(581, 86);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
             this.dtpAppointmentDate.Size = new System.Drawing.Size(152, 30);
             this.dtpAppointmentDate.TabIndex = 5;
@@ -581,7 +697,7 @@
             this.lblAppointmentDate.AutoSize = true;
             this.lblAppointmentDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblAppointmentDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAppointmentDate.Location = new System.Drawing.Point(234, 64);
+            this.lblAppointmentDate.Location = new System.Drawing.Point(577, 63);
             this.lblAppointmentDate.Name = "lblAppointmentDate";
             this.lblAppointmentDate.Size = new System.Drawing.Size(41, 20);
             this.lblAppointmentDate.TabIndex = 4;
@@ -592,7 +708,7 @@
             this.cmbDentist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDentist.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.cmbDentist.FormattingEnabled = true;
-            this.cmbDentist.Location = new System.Drawing.Point(9, 87);
+            this.cmbDentist.Location = new System.Drawing.Point(331, 86);
             this.cmbDentist.Name = "cmbDentist";
             this.cmbDentist.Size = new System.Drawing.Size(185, 25);
             this.cmbDentist.TabIndex = 1;
@@ -603,7 +719,7 @@
             this.lblDentist.AutoSize = true;
             this.lblDentist.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblDentist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDentist.Location = new System.Drawing.Point(6, 64);
+            this.lblDentist.Location = new System.Drawing.Point(327, 64);
             this.lblDentist.Name = "lblDentist";
             this.lblDentist.Size = new System.Drawing.Size(56, 20);
             this.lblDentist.TabIndex = 0;
@@ -611,7 +727,6 @@
             // 
             // grpPatientInfo
             // 
-            this.grpPatientInfo.Controls.Add(this.lblSelectedPatient);
             this.grpPatientInfo.Controls.Add(this.dgvPatientResults);
             this.grpPatientInfo.Controls.Add(this.txtSearchPatient);
             this.grpPatientInfo.Controls.Add(this.lblSearchPatient);
@@ -619,21 +734,10 @@
             this.grpPatientInfo.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpPatientInfo.Location = new System.Drawing.Point(3, 4);
             this.grpPatientInfo.Name = "grpPatientInfo";
-            this.grpPatientInfo.Size = new System.Drawing.Size(1216, 213);
+            this.grpPatientInfo.Size = new System.Drawing.Size(1216, 225);
             this.grpPatientInfo.TabIndex = 0;
             this.grpPatientInfo.TabStop = false;
             this.grpPatientInfo.Text = "Patient Information";
-            // 
-            // lblSelectedPatient
-            // 
-            this.lblSelectedPatient.AutoSize = true;
-            this.lblSelectedPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.lblSelectedPatient.ForeColor = System.Drawing.Color.SlateBlue;
-            this.lblSelectedPatient.Location = new System.Drawing.Point(1011, 185);
-            this.lblSelectedPatient.Name = "lblSelectedPatient";
-            this.lblSelectedPatient.Size = new System.Drawing.Size(134, 17);
-            this.lblSelectedPatient.TabIndex = 4;
-            this.lblSelectedPatient.Text = "No patient selected.";
             // 
             // dgvPatientResults
             // 
@@ -664,7 +768,7 @@
             this.dgvPatientResults.RowHeadersWidth = 51;
             this.dgvPatientResults.RowTemplate.Height = 24;
             this.dgvPatientResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPatientResults.Size = new System.Drawing.Size(1185, 96);
+            this.dgvPatientResults.Size = new System.Drawing.Size(1185, 131);
             this.dgvPatientResults.TabIndex = 3;
             this.dgvPatientResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatientResults_CellClick);
             // 
@@ -672,7 +776,7 @@
             // 
             this.txtSearchPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearchPatient.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtSearchPatient.Location = new System.Drawing.Point(10, 49);
+            this.txtSearchPatient.Location = new System.Drawing.Point(13, 52);
             this.txtSearchPatient.Name = "txtSearchPatient";
             this.txtSearchPatient.Size = new System.Drawing.Size(354, 25);
             this.txtSearchPatient.TabIndex = 1;
@@ -682,7 +786,7 @@
             this.lblSearchPatient.AutoSize = true;
             this.lblSearchPatient.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblSearchPatient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblSearchPatient.Location = new System.Drawing.Point(7, 29);
+            this.lblSearchPatient.Location = new System.Drawing.Point(14, 29);
             this.lblSearchPatient.Name = "lblSearchPatient";
             this.lblSearchPatient.Size = new System.Drawing.Size(353, 20);
             this.lblSearchPatient.TabIndex = 0;
@@ -790,6 +894,7 @@
             this.dtpFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFilterDate.Location = new System.Drawing.Point(857, 83);
             this.dtpFilterDate.Name = "dtpFilterDate";
+            this.dtpFilterDate.ShowCheckBox = true;
             this.dtpFilterDate.Size = new System.Drawing.Size(150, 31);
             this.dtpFilterDate.TabIndex = 4;
             // 
@@ -840,6 +945,246 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtDentistEmail);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtDentistNum);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(309, 33);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(230, 222);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dentist Details";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblEmail);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtEmail);
+            this.groupBox2.Controls.Add(this.txtPatientNum);
+            this.groupBox2.Controls.Add(this.lblPatientNum);
+            this.groupBox2.Controls.Add(this.txtPatient);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(9, 33);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(259, 220);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Patient Details";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(18, 152);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 20);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Email Address";
+            // 
+            // txtDentistEmail
+            // 
+            this.txtDentistEmail.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtDentistEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDentistEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDentistEmail.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtDentistEmail.Location = new System.Drawing.Point(22, 175);
+            this.txtDentistEmail.Name = "txtDentistEmail";
+            this.txtDentistEmail.ReadOnly = true;
+            this.txtDentistEmail.Size = new System.Drawing.Size(185, 25);
+            this.txtDentistEmail.TabIndex = 20;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtPatientEmailAdd);
+            this.groupBox3.Controls.Add(this.txtPatientNo);
+            this.groupBox3.Controls.Add(this.txtPatientName);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(15, 33);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(222, 214);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Patient Details";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtUpdStatus);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.txtCurrentTime);
+            this.groupBox4.Controls.Add(this.txtCurrentDate);
+            this.groupBox4.Controls.Add(this.txtDentistName);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(271, 37);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(342, 214);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Appointment Details";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(15, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 20);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(15, 96);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 20);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Phone Number";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(15, 152);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Email Address";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(16, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 20);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Dentist";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(16, 91);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 20);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Current Date";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(15, 148);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 20);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Current Time";
+            // 
+            // txtDentistName
+            // 
+            this.txtDentistName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDentistName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDentistName.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtDentistName.Location = new System.Drawing.Point(20, 56);
+            this.txtDentistName.Name = "txtDentistName";
+            this.txtDentistName.ReadOnly = true;
+            this.txtDentistName.Size = new System.Drawing.Size(154, 25);
+            this.txtDentistName.TabIndex = 7;
+            // 
+            // txtCurrentDate
+            // 
+            this.txtCurrentDate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCurrentDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentDate.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtCurrentDate.Location = new System.Drawing.Point(19, 111);
+            this.txtCurrentDate.Name = "txtCurrentDate";
+            this.txtCurrentDate.ReadOnly = true;
+            this.txtCurrentDate.Size = new System.Drawing.Size(154, 25);
+            this.txtCurrentDate.TabIndex = 8;
+            // 
+            // txtCurrentTime
+            // 
+            this.txtCurrentTime.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCurrentTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentTime.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtCurrentTime.Location = new System.Drawing.Point(19, 171);
+            this.txtCurrentTime.Name = "txtCurrentTime";
+            this.txtCurrentTime.ReadOnly = true;
+            this.txtCurrentTime.Size = new System.Drawing.Size(154, 25);
+            this.txtCurrentTime.TabIndex = 9;
+            // 
+            // txtPatientName
+            // 
+            this.txtPatientName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatientName.Location = new System.Drawing.Point(19, 58);
+            this.txtPatientName.Name = "txtPatientName";
+            this.txtPatientName.ReadOnly = true;
+            this.txtPatientName.Size = new System.Drawing.Size(154, 25);
+            this.txtPatientName.TabIndex = 10;
+            // 
+            // txtPatientNo
+            // 
+            this.txtPatientNo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatientNo.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatientNo.Location = new System.Drawing.Point(19, 115);
+            this.txtPatientNo.Name = "txtPatientNo";
+            this.txtPatientNo.ReadOnly = true;
+            this.txtPatientNo.Size = new System.Drawing.Size(154, 25);
+            this.txtPatientNo.TabIndex = 11;
+            // 
+            // txtPatientEmailAdd
+            // 
+            this.txtPatientEmailAdd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientEmailAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatientEmailAdd.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatientEmailAdd.Location = new System.Drawing.Point(19, 172);
+            this.txtPatientEmailAdd.Name = "txtPatientEmailAdd";
+            this.txtPatientEmailAdd.ReadOnly = true;
+            this.txtPatientEmailAdd.Size = new System.Drawing.Size(154, 25);
+            this.txtPatientEmailAdd.TabIndex = 12;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(199, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 20);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Status";
+            // 
+            // txtUpdStatus
+            // 
+            this.txtUpdStatus.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUpdStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUpdStatus.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtUpdStatus.Location = new System.Drawing.Point(203, 60);
+            this.txtUpdStatus.Name = "txtUpdStatus";
+            this.txtUpdStatus.ReadOnly = true;
+            this.txtUpdStatus.Size = new System.Drawing.Size(127, 25);
+            this.txtUpdStatus.TabIndex = 11;
+            // 
             // Appointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -886,6 +1231,14 @@
             this.grpViewFilters.ResumeLayout(false);
             this.grpViewFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -903,7 +1256,6 @@
         private System.Windows.Forms.GroupBox grpPatientInfo;
         private System.Windows.Forms.Label lblSearchPatient;
         private System.Windows.Forms.TextBox txtSearchPatient;
-        private System.Windows.Forms.Label lblSelectedPatient;
         private System.Windows.Forms.DataGridView dgvPatientResults;
         private System.Windows.Forms.GroupBox grpAppointmentDetails;
         private System.Windows.Forms.ComboBox cmbDentist;
@@ -932,7 +1284,6 @@
         private System.Windows.Forms.DataGridView dgvUpdateAppointments;
         private System.Windows.Forms.GroupBox grpUpdateDetails;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblSelectedAppointment;
         private System.Windows.Forms.ComboBox cmbUpdateAction;
         private System.Windows.Forms.Label lblNewDate;
         private System.Windows.Forms.ComboBox cmbNewTimeSlot;
@@ -949,5 +1300,33 @@
         private System.Windows.Forms.ComboBox cmbUpdateStatusFilter;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnClearUpdateFilter;
+        private System.Windows.Forms.TextBox txtDentistNum;
+        private System.Windows.Forms.Label lblDentistNum;
+        private System.Windows.Forms.Label lblPatientNum;
+        private System.Windows.Forms.TextBox txtPatientNum;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtPatient;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtDentistEmail;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txtDentistName;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCurrentTime;
+        private System.Windows.Forms.TextBox txtCurrentDate;
+        private System.Windows.Forms.TextBox txtPatientEmailAdd;
+        private System.Windows.Forms.TextBox txtPatientNo;
+        private System.Windows.Forms.TextBox txtPatientName;
+        private System.Windows.Forms.TextBox txtUpdStatus;
+        private System.Windows.Forms.Label label13;
     }
 }
