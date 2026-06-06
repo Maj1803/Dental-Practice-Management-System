@@ -375,9 +375,9 @@
             this.btnClearUpdateFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearUpdateFilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnClearUpdateFilter.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnClearUpdateFilter.Location = new System.Drawing.Point(1118, 44);
+            this.btnClearUpdateFilter.Location = new System.Drawing.Point(1084, 40);
             this.btnClearUpdateFilter.Name = "btnClearUpdateFilter";
-            this.btnClearUpdateFilter.Size = new System.Drawing.Size(78, 30);
+            this.btnClearUpdateFilter.Size = new System.Drawing.Size(100, 31);
             this.btnClearUpdateFilter.TabIndex = 10;
             this.btnClearUpdateFilter.Text = "Reset";
             this.btnClearUpdateFilter.UseVisualStyleBackColor = true;
@@ -389,7 +389,7 @@
             this.dtpUpdateFilterDate.Enabled = false;
             this.dtpUpdateFilterDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpUpdateFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpUpdateFilterDate.Location = new System.Drawing.Point(803, 46);
+            this.dtpUpdateFilterDate.Location = new System.Drawing.Point(435, 55);
             this.dtpUpdateFilterDate.Name = "dtpUpdateFilterDate";
             this.dtpUpdateFilterDate.ShowCheckBox = true;
             this.dtpUpdateFilterDate.Size = new System.Drawing.Size(127, 27);
@@ -401,7 +401,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(799, 24);
+            this.label4.Location = new System.Drawing.Point(431, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 19);
             this.label4.TabIndex = 7;
@@ -411,7 +411,7 @@
             // 
             this.cmbUpdateStatusFilter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmbUpdateStatusFilter.FormattingEnabled = true;
-            this.cmbUpdateStatusFilter.Location = new System.Drawing.Point(609, 46);
+            this.cmbUpdateStatusFilter.Location = new System.Drawing.Point(597, 54);
             this.cmbUpdateStatusFilter.Name = "cmbUpdateStatusFilter";
             this.cmbUpdateStatusFilter.Size = new System.Drawing.Size(121, 28);
             this.cmbUpdateStatusFilter.TabIndex = 6;
@@ -422,7 +422,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(605, 24);
+            this.label3.Location = new System.Drawing.Point(599, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 19);
             this.label3.TabIndex = 5;
@@ -826,9 +826,9 @@
             this.btnClearFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnClearFilter.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnClearFilter.Location = new System.Drawing.Point(1085, 85);
+            this.btnClearFilter.Location = new System.Drawing.Point(1051, 85);
             this.btnClearFilter.Name = "btnClearFilter";
-            this.btnClearFilter.Size = new System.Drawing.Size(75, 32);
+            this.btnClearFilter.Size = new System.Drawing.Size(107, 34);
             this.btnClearFilter.TabIndex = 8;
             this.btnClearFilter.Text = "Reset";
             this.btnClearFilter.UseVisualStyleBackColor = true;
@@ -871,7 +871,7 @@
             this.cmbStatusFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatusFilter.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStatusFilter.FormattingEnabled = true;
-            this.cmbStatusFilter.Location = new System.Drawing.Point(686, 82);
+            this.cmbStatusFilter.Location = new System.Drawing.Point(587, 86);
             this.cmbStatusFilter.Name = "cmbStatusFilter";
             this.cmbStatusFilter.Size = new System.Drawing.Size(121, 33);
             this.cmbStatusFilter.TabIndex = 6;
@@ -881,7 +881,7 @@
             this.lblStatusFilter.AutoSize = true;
             this.lblStatusFilter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStatusFilter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblStatusFilter.Location = new System.Drawing.Point(682, 57);
+            this.lblStatusFilter.Location = new System.Drawing.Point(583, 59);
             this.lblStatusFilter.Name = "lblStatusFilter";
             this.lblStatusFilter.Size = new System.Drawing.Size(49, 20);
             this.lblStatusFilter.TabIndex = 5;
@@ -892,7 +892,7 @@
             this.dtpFilterDate.CalendarFont = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFilterDate.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFilterDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFilterDate.Location = new System.Drawing.Point(857, 83);
+            this.dtpFilterDate.Location = new System.Drawing.Point(402, 86);
             this.dtpFilterDate.Name = "dtpFilterDate";
             this.dtpFilterDate.ShowCheckBox = true;
             this.dtpFilterDate.Size = new System.Drawing.Size(150, 31);
@@ -903,7 +903,7 @@
             this.lblFilterDate.AutoSize = true;
             this.lblFilterDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblFilterDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblFilterDate.Location = new System.Drawing.Point(853, 57);
+            this.lblFilterDate.Location = new System.Drawing.Point(405, 59);
             this.lblFilterDate.Name = "lblFilterDate";
             this.lblFilterDate.Size = new System.Drawing.Size(41, 20);
             this.lblFilterDate.TabIndex = 3;
@@ -1193,8 +1193,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1435, 750);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlViewAppointments);
             this.Controls.Add(this.pnlBookAppointment);
+            this.Controls.Add(this.pnlViewAppointments);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.btnUpdateAppointment);

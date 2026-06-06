@@ -645,7 +645,10 @@ namespace Dental_Practice_Management_System
                 txtDentistName.Text = dgvUpdateAppointments.CurrentRow.Cells["Employee_First_Name"].Value + " " +
                                          dgvUpdateAppointments.CurrentRow.Cells["Employee_Last_Name"].Value;
                 txtCurrentDate.Text = Convert.ToDateTime(dgvUpdateAppointments.CurrentRow.Cells["Appointment_Date"].Value).ToString("dd MMM yyyy");
-                txtCurrentTime.Text = dgvUpdateAppointments.CurrentRow.Cells["Slot_Start_Time"].Value?.ToString() ?? "";
+                txtCurrentTime.Text =
+                    TimeSpan.Parse(
+                        dgvUpdateAppointments.CurrentRow.Cells["Slot_Start_Time"].Value.ToString())
+                        .ToString(@"hh\:mm");
                 txtUpdStatus.Text = currentStatus;
 
                 cmbNewTimeSlot.DataSource = null;
