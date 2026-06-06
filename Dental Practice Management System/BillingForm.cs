@@ -51,7 +51,7 @@ namespace Dental_Practice_Management_System
             cmbMethod.Items.Add("EFT");
             cmbMethod.SelectedIndex = -1;
 
-            lblTotal.Text = "R0.00";
+            //lblTotal.Text = "R0.00";
 
             dateTimePicker1.Value = DateTime.Today;
 
@@ -177,7 +177,7 @@ namespace Dental_Practice_Management_System
                 if (rows == 0)
                 {
                     dgvTreatment.DataSource = null;
-                    lblTotal.Text = "R-.--";
+                    //lblTotal.Text = "R-.--";
 
                     MessageBox.Show("Error: Appointment ID not found");
                     return;
@@ -198,7 +198,7 @@ namespace Dental_Practice_Management_System
                     }
                 }
 
-                lblTotal.Text = "R" + total.ToString("0.00");
+                //lblTotal.Text = "R" + total.ToString("0.00");
             }
             catch (FormatException)
             {
@@ -391,9 +391,9 @@ namespace Dental_Practice_Management_System
 
                 decimal balanceD = grandtotal - amountPaid;
 
-                /*frm.lblAmountPaid.Text = "R " + amountPaid.ToString("0.00");
+                frm.lblAmountPaid.Text = "R " + amountPaid.ToString("0.00");
 
-                frm.lblBalance.Text = "R " + balanceD.ToString("0.00");*/
+                frm.lblBalance.Text = "R " + balanceD.ToString("0.00");
 
                 frm.ShowDialog();
 

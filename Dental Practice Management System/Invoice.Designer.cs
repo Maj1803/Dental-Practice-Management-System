@@ -48,10 +48,8 @@
             this.lblInvoiceID = new System.Windows.Forms.Label();
             this.grpAppointmentDetails = new System.Windows.Forms.GroupBox();
             this.lblPatientNumber = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.lblAppointment = new System.Windows.Forms.Label();
             this.lblPatientName = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -146,6 +144,7 @@
             // dgvInvoiceTreatment
             // 
             this.dgvInvoiceTreatment.AutoGenerateColumns = false;
+            this.dgvInvoiceTreatment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInvoiceTreatment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInvoiceTreatment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.treatmentNameDataGridViewTextBoxColumn,
@@ -165,7 +164,6 @@
             this.treatmentNameDataGridViewTextBoxColumn.HeaderText = "TreatmentName";
             this.treatmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.treatmentNameDataGridViewTextBoxColumn.Name = "treatmentNameDataGridViewTextBoxColumn";
-            this.treatmentNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // treatmentCostDataGridViewTextBoxColumn
             // 
@@ -173,7 +171,6 @@
             this.treatmentCostDataGridViewTextBoxColumn.HeaderText = "TreatmentCost";
             this.treatmentCostDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.treatmentCostDataGridViewTextBoxColumn.Name = "treatmentCostDataGridViewTextBoxColumn";
-            this.treatmentCostDataGridViewTextBoxColumn.Width = 125;
             // 
             // treatmentBindingSource
             // 
@@ -202,7 +199,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(483, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(459, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(232, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,16 +227,15 @@
             // grpAppointmentDetails
             // 
             this.grpAppointmentDetails.Controls.Add(this.lblPatientNumber);
-            this.grpAppointmentDetails.Controls.Add(this.lblEmail);
             this.grpAppointmentDetails.Controls.Add(this.lblAppointment);
             this.grpAppointmentDetails.Controls.Add(this.lblPatientName);
-            this.grpAppointmentDetails.Controls.Add(this.label9);
             this.grpAppointmentDetails.Controls.Add(this.label8);
             this.grpAppointmentDetails.Controls.Add(this.label7);
             this.grpAppointmentDetails.Controls.Add(this.lblText);
-            this.grpAppointmentDetails.Location = new System.Drawing.Point(32, 222);
+            this.grpAppointmentDetails.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.grpAppointmentDetails.Location = new System.Drawing.Point(32, 180);
             this.grpAppointmentDetails.Name = "grpAppointmentDetails";
-            this.grpAppointmentDetails.Size = new System.Drawing.Size(1184, 189);
+            this.grpAppointmentDetails.Size = new System.Drawing.Size(1184, 158);
             this.grpAppointmentDetails.TabIndex = 13;
             this.grpAppointmentDetails.TabStop = false;
             this.grpAppointmentDetails.Text = "Patient Information";
@@ -249,47 +245,24 @@
             this.lblPatientNumber.AutoSize = true;
             this.lblPatientNumber.Location = new System.Drawing.Point(249, 114);
             this.lblPatientNumber.Name = "lblPatientNumber";
-            this.lblPatientNumber.Size = new System.Drawing.Size(120, 18);
+            this.lblPatientNumber.Size = new System.Drawing.Size(0, 18);
             this.lblPatientNumber.TabIndex = 7;
-            this.lblPatientNumber.Text = "lblPatientNumber";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(249, 146);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(54, 18);
-            this.lblEmail.TabIndex = 6;
-            this.lblEmail.Text = "label23";
             // 
             // lblAppointment
             // 
             this.lblAppointment.AutoSize = true;
             this.lblAppointment.Location = new System.Drawing.Point(249, 40);
             this.lblAppointment.Name = "lblAppointment";
-            this.lblAppointment.Size = new System.Drawing.Size(54, 18);
+            this.lblAppointment.Size = new System.Drawing.Size(0, 18);
             this.lblAppointment.TabIndex = 5;
-            this.lblAppointment.Text = "label22";
             // 
             // lblPatientName
             // 
             this.lblPatientName.AutoSize = true;
             this.lblPatientName.Location = new System.Drawing.Point(249, 74);
             this.lblPatientName.Name = "lblPatientName";
-            this.lblPatientName.Size = new System.Drawing.Size(107, 18);
+            this.lblPatientName.Size = new System.Drawing.Size(0, 18);
             this.lblPatientName.TabIndex = 4;
-            this.lblPatientName.Text = "lblPatientName";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(22, 146);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 18);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Patient Email";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -316,7 +289,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1052, 200);
+            this.label10.Location = new System.Drawing.Point(28, 73);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 18);
             this.label10.TabIndex = 14;
@@ -332,9 +305,9 @@
             this.grpFees.Controls.Add(this.lblTotal);
             this.grpFees.Controls.Add(this.label1);
             this.grpFees.Controls.Add(this.dgvInvoiceTreatment);
-            this.grpFees.Location = new System.Drawing.Point(32, 434);
+            this.grpFees.Location = new System.Drawing.Point(32, 356);
             this.grpFees.Name = "grpFees";
-            this.grpFees.Size = new System.Drawing.Size(1184, 294);
+            this.grpFees.Size = new System.Drawing.Size(1184, 292);
             this.grpFees.TabIndex = 15;
             this.grpFees.TabStop = false;
             this.grpFees.Text = "Fees";
@@ -344,18 +317,16 @@
             this.lblGrandTotal.AutoSize = true;
             this.lblGrandTotal.Location = new System.Drawing.Point(975, 260);
             this.lblGrandTotal.Name = "lblGrandTotal";
-            this.lblGrandTotal.Size = new System.Drawing.Size(54, 18);
+            this.lblGrandTotal.Size = new System.Drawing.Size(0, 18);
             this.lblGrandTotal.TabIndex = 13;
-            this.lblGrandTotal.Text = "label15";
             // 
             // lblVAT
             // 
             this.lblVAT.AutoSize = true;
             this.lblVAT.Location = new System.Drawing.Point(975, 212);
             this.lblVAT.Name = "lblVAT";
-            this.lblVAT.Size = new System.Drawing.Size(54, 18);
+            this.lblVAT.Size = new System.Drawing.Size(0, 18);
             this.lblVAT.TabIndex = 12;
-            this.lblVAT.Text = "label14";
             // 
             // label13
             // 
@@ -382,9 +353,8 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Location = new System.Drawing.Point(975, 163);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(54, 18);
+            this.lblTotal.Size = new System.Drawing.Size(0, 18);
             this.lblTotal.TabIndex = 10;
-            this.lblTotal.Text = "label11";
             // 
             // label1
             // 
@@ -403,9 +373,9 @@
             this.grpPayment.Controls.Add(this.label18);
             this.grpPayment.Controls.Add(this.lblAmountPaid);
             this.grpPayment.Controls.Add(this.label16);
-            this.grpPayment.Location = new System.Drawing.Point(32, 771);
+            this.grpPayment.Location = new System.Drawing.Point(32, 666);
             this.grpPayment.Name = "grpPayment";
-            this.grpPayment.Size = new System.Drawing.Size(1184, 165);
+            this.grpPayment.Size = new System.Drawing.Size(1184, 135);
             this.grpPayment.TabIndex = 16;
             this.grpPayment.TabStop = false;
             this.grpPayment.Text = "Payment";
@@ -415,7 +385,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Blue;
-            this.label20.Location = new System.Drawing.Point(862, 127);
+            this.label20.Location = new System.Drawing.Point(438, 107);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(248, 16);
             this.label20.TabIndex = 18;
@@ -426,15 +396,14 @@
             this.lblBalance.AutoSize = true;
             this.lblBalance.Location = new System.Drawing.Point(979, 74);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(54, 18);
+            this.lblBalance.Size = new System.Drawing.Size(0, 18);
             this.lblBalance.TabIndex = 17;
-            this.lblBalance.Text = "label19";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(22, 74);
+            this.label18.Location = new System.Drawing.Point(19, 74);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(92, 18);
             this.label18.TabIndex = 16;
@@ -445,9 +414,8 @@
             this.lblAmountPaid.AutoSize = true;
             this.lblAmountPaid.Location = new System.Drawing.Point(975, 40);
             this.lblAmountPaid.Name = "lblAmountPaid";
-            this.lblAmountPaid.Size = new System.Drawing.Size(54, 18);
+            this.lblAmountPaid.Size = new System.Drawing.Size(0, 18);
             this.lblAmountPaid.TabIndex = 15;
-            this.lblAmountPaid.Text = "label17";
             // 
             // label16
             // 
@@ -462,7 +430,7 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(1120, 200);
+            this.lblDate.Location = new System.Drawing.Point(110, 73);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(0, 18);
             this.lblDate.TabIndex = 17;
@@ -498,7 +466,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 962);
+            this.ClientSize = new System.Drawing.Size(1260, 850);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -553,7 +521,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox grpAppointmentDetails;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox grpFees;
@@ -572,7 +539,6 @@
         public System.Windows.Forms.GroupBox grpPayment;
         public System.Windows.Forms.Label lblBalance;
         public System.Windows.Forms.Label lblAmountPaid;
-        public System.Windows.Forms.Label lblEmail;
         public System.Windows.Forms.Label lblAppointment;
         public System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label3;

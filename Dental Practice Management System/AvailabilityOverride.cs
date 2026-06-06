@@ -118,12 +118,12 @@ namespace Dental_Practice_Management_System
                 }
 
                 // Execute updated three-parameter TableAdapter query tool
-                this.availability_OverrideTableAdapter.FillBySearch(
+                /*this.availability_OverrideTableAdapter.FillBySearch(
                     this.dsDentist.Availability_Override,
                     isDateSearch,
                     searchDateParam,
                     searchValueParam
-                );
+                );*/
 
                 dgvOverrides.Refresh();
             }

@@ -103,19 +103,19 @@
             // 
             // txtAppt
             // 
-            this.txtAppt.Location = new System.Drawing.Point(55, 284);
+            this.txtAppt.Location = new System.Drawing.Point(21, 117);
             this.txtAppt.Name = "txtAppt";
-            this.txtAppt.Size = new System.Drawing.Size(171, 22);
+            this.txtAppt.Size = new System.Drawing.Size(171, 38);
             this.txtAppt.TabIndex = 0;
             this.txtAppt.TextChanged += new System.EventHandler(this.txtAppt_TextChanged);
             // 
             // btnTreatment
             // 
-            this.btnTreatment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTreatment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTreatment.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnTreatment.Location = new System.Drawing.Point(36, 481);
+            this.btnTreatment.Location = new System.Drawing.Point(101, 464);
             this.btnTreatment.Name = "btnTreatment";
-            this.btnTreatment.Size = new System.Drawing.Size(156, 36);
+            this.btnTreatment.Size = new System.Drawing.Size(201, 38);
             this.btnTreatment.TabIndex = 1;
             this.btnTreatment.Text = "Load Treatment";
             this.btnTreatment.UseVisualStyleBackColor = true;
@@ -130,12 +130,12 @@
             this.treatmentNameDataGridViewTextBoxColumn,
             this.treatmentCost});
             this.dgvTreatment.DataSource = this.treatmentBindingSource1;
-            this.dgvTreatment.Location = new System.Drawing.Point(236, 435);
+            this.dgvTreatment.Location = new System.Drawing.Point(361, 425);
             this.dgvTreatment.Name = "dgvTreatment";
             this.dgvTreatment.ReadOnly = true;
             this.dgvTreatment.RowHeadersWidth = 51;
             this.dgvTreatment.RowTemplate.Height = 24;
-            this.dgvTreatment.Size = new System.Drawing.Size(421, 140);
+            this.dgvTreatment.Size = new System.Drawing.Size(544, 140);
             this.dgvTreatment.TabIndex = 2;
             // 
             // treatmentNameDataGridViewTextBoxColumn
@@ -166,11 +166,11 @@
             // 
             // btnInvoice
             // 
-            this.btnInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInvoice.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnInvoice.Location = new System.Drawing.Point(274, 621);
+            this.btnInvoice.Location = new System.Drawing.Point(498, 588);
             this.btnInvoice.Name = "btnInvoice";
-            this.btnInvoice.Size = new System.Drawing.Size(167, 36);
+            this.btnInvoice.Size = new System.Drawing.Size(193, 53);
             this.btnInvoice.TabIndex = 4;
             this.btnInvoice.Text = "Generate Invoice";
             this.btnInvoice.UseVisualStyleBackColor = true;
@@ -178,44 +178,45 @@
             // 
             // txtPaymentAmount
             // 
-            this.txtPaymentAmount.Location = new System.Drawing.Point(251, 304);
+            this.txtPaymentAmount.Location = new System.Drawing.Point(912, 198);
             this.txtPaymentAmount.Name = "txtPaymentAmount";
-            this.txtPaymentAmount.Size = new System.Drawing.Size(121, 22);
+            this.txtPaymentAmount.Size = new System.Drawing.Size(187, 38);
             this.txtPaymentAmount.TabIndex = 5;
             this.txtPaymentAmount.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // cmbMethod
             // 
             this.cmbMethod.FormattingEnabled = true;
-            this.cmbMethod.Location = new System.Drawing.Point(251, 251);
+            this.cmbMethod.Location = new System.Drawing.Point(912, 280);
             this.cmbMethod.Name = "cmbMethod";
-            this.cmbMethod.Size = new System.Drawing.Size(121, 24);
+            this.cmbMethod.Size = new System.Drawing.Size(187, 39);
             this.cmbMethod.TabIndex = 6;
             this.cmbMethod.SelectedIndexChanged += new System.EventHandler(this.cmbMethod_SelectedIndexChanged);
             // 
             // txtInvoiceID
             // 
-            this.txtInvoiceID.Location = new System.Drawing.Point(10, 75);
+            this.txtInvoiceID.Location = new System.Drawing.Point(41, 116);
             this.txtInvoiceID.Name = "txtInvoiceID";
-            this.txtInvoiceID.Size = new System.Drawing.Size(121, 22);
+            this.txtInvoiceID.Size = new System.Drawing.Size(179, 38);
             this.txtInvoiceID.TabIndex = 7;
             this.txtInvoiceID.TextChanged += new System.EventHandler(this.txtInvoiceID_TextChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(235, 353);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(912, 370);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(251, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(282, 30);
             this.dateTimePicker1.TabIndex = 8;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // btnReceipt
             // 
-            this.btnReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReceipt.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnReceipt.Location = new System.Drawing.Point(195, 398);
+            this.btnReceipt.Location = new System.Drawing.Point(779, 508);
             this.btnReceipt.Name = "btnReceipt";
-            this.btnReceipt.Size = new System.Drawing.Size(100, 36);
+            this.btnReceipt.Size = new System.Drawing.Size(175, 46);
             this.btnReceipt.TabIndex = 9;
             this.btnReceipt.Text = "Receipt";
             this.btnReceipt.UseVisualStyleBackColor = true;
@@ -223,8 +224,9 @@
             // 
             // btnClear1
             // 
-            this.btnClear1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear1.Location = new System.Drawing.Point(580, 621);
+            this.btnClear1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnClear1.Location = new System.Drawing.Point(1077, 611);
             this.btnClear1.Name = "btnClear1";
             this.btnClear1.Size = new System.Drawing.Size(100, 36);
             this.btnClear1.TabIndex = 10;
@@ -242,12 +244,12 @@
             this.patientLastNameDataGridViewTextBoxColumn,
             this.patientPhoneNumberDataGridViewTextBoxColumn});
             this.dgvPatient.DataSource = this.patientBindingSource;
-            this.dgvPatient.Location = new System.Drawing.Point(6, 316);
+            this.dgvPatient.Location = new System.Drawing.Point(20, 208);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.ReadOnly = true;
             this.dgvPatient.RowHeadersWidth = 51;
             this.dgvPatient.RowTemplate.Height = 24;
-            this.dgvPatient.Size = new System.Drawing.Size(676, 90);
+            this.dgvPatient.Size = new System.Drawing.Size(1066, 128);
             this.dgvPatient.TabIndex = 12;
             // 
             // patientFirstNameDataGridViewTextBoxColumn
@@ -282,11 +284,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label4.Location = new System.Drawing.Point(18, 353);
+            this.label4.Location = new System.Drawing.Point(599, 375);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 22);
+            this.label4.Size = new System.Drawing.Size(113, 25);
             this.label4.TabIndex = 13;
             this.label4.Text = "Select Date";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -294,11 +296,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(18, 302);
+            this.label3.Location = new System.Drawing.Point(597, 207);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(194, 22);
+            this.label3.Size = new System.Drawing.Size(213, 25);
             this.label3.TabIndex = 12;
             this.label3.Text = "Enter Payment Amount";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -306,11 +308,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(18, 254);
+            this.label2.Location = new System.Drawing.Point(598, 289);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 22);
+            this.label2.Size = new System.Drawing.Size(220, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Select Payment Method";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -318,11 +320,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label1.Location = new System.Drawing.Point(6, 42);
+            this.label1.Location = new System.Drawing.Point(36, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(266, 22);
+            this.label1.Size = new System.Drawing.Size(293, 25);
             this.label1.TabIndex = 10;
             this.label1.Text = "Search Invoice(Enter Invoice ID)";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -330,11 +332,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label5.Location = new System.Drawing.Point(42, 257);
+            this.label5.Location = new System.Drawing.Point(15, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(359, 22);
+            this.label5.Size = new System.Drawing.Size(479, 29);
             this.label5.TabIndex = 13;
             this.label5.Text = "Search Appointment (Enter Appointment ID)";
             // 
@@ -367,9 +369,9 @@
             this.btnAddInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnAddInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddInvoice.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddInvoice.Location = new System.Drawing.Point(218, 103);
+            this.btnAddInvoice.Location = new System.Drawing.Point(259, 133);
             this.btnAddInvoice.Name = "btnAddInvoice";
-            this.btnAddInvoice.Size = new System.Drawing.Size(223, 54);
+            this.btnAddInvoice.Size = new System.Drawing.Size(238, 65);
             this.btnAddInvoice.TabIndex = 18;
             this.btnAddInvoice.Text = "Add Invoice";
             this.btnAddInvoice.UseVisualStyleBackColor = false;
@@ -380,9 +382,9 @@
             this.btnProcessPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnProcessPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessPayment.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnProcessPayment.Location = new System.Drawing.Point(567, 103);
+            this.btnProcessPayment.Location = new System.Drawing.Point(593, 133);
             this.btnProcessPayment.Name = "btnProcessPayment";
-            this.btnProcessPayment.Size = new System.Drawing.Size(223, 54);
+            this.btnProcessPayment.Size = new System.Drawing.Size(238, 65);
             this.btnProcessPayment.TabIndex = 19;
             this.btnProcessPayment.Text = "Process Payment";
             this.btnProcessPayment.UseVisualStyleBackColor = false;
@@ -393,9 +395,9 @@
             this.btnPaymentHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(155)))));
             this.btnPaymentHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentHistory.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPaymentHistory.Location = new System.Drawing.Point(937, 103);
+            this.btnPaymentHistory.Location = new System.Drawing.Point(933, 133);
             this.btnPaymentHistory.Name = "btnPaymentHistory";
-            this.btnPaymentHistory.Size = new System.Drawing.Size(223, 54);
+            this.btnPaymentHistory.Size = new System.Drawing.Size(238, 65);
             this.btnPaymentHistory.TabIndex = 20;
             this.btnPaymentHistory.Text = "Payment History";
             this.btnPaymentHistory.UseVisualStyleBackColor = false;
@@ -404,9 +406,9 @@
             // pnlInvoice
             // 
             this.pnlInvoice.Controls.Add(this.grpInvoice);
-            this.pnlInvoice.Location = new System.Drawing.Point(23, 197);
+            this.pnlInvoice.Location = new System.Drawing.Point(52, 250);
             this.pnlInvoice.Name = "pnlInvoice";
-            this.pnlInvoice.Size = new System.Drawing.Size(767, 751);
+            this.pnlInvoice.Size = new System.Drawing.Size(1265, 677);
             this.pnlInvoice.TabIndex = 21;
             // 
             // grpInvoice
@@ -419,19 +421,22 @@
             this.grpInvoice.Controls.Add(this.btnInvoice);
             this.grpInvoice.Controls.Add(this.dgvTreatment);
             this.grpInvoice.Controls.Add(this.btnClear1);
+            this.grpInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpInvoice.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpInvoice.Location = new System.Drawing.Point(33, 19);
             this.grpInvoice.Name = "grpInvoice";
-            this.grpInvoice.Size = new System.Drawing.Size(711, 670);
+            this.grpInvoice.Size = new System.Drawing.Size(1200, 658);
             this.grpInvoice.TabIndex = 0;
             this.grpInvoice.TabStop = false;
             this.grpInvoice.Text = "Invoice";
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(368, 282);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnSearch.Location = new System.Drawing.Point(226, 117);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(102, 27);
+            this.btnSearch.Size = new System.Drawing.Size(136, 38);
             this.btnSearch.TabIndex = 24;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -440,9 +445,9 @@
             // pnlPayment
             // 
             this.pnlPayment.Controls.Add(this.grpPayment);
-            this.pnlPayment.Location = new System.Drawing.Point(796, 188);
+            this.pnlPayment.Location = new System.Drawing.Point(52, 250);
             this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(542, 497);
+            this.pnlPayment.Size = new System.Drawing.Size(1286, 674);
             this.pnlPayment.TabIndex = 22;
             // 
             // grpPayment
@@ -459,27 +464,31 @@
             this.grpPayment.Controls.Add(this.txtPaymentAmount);
             this.grpPayment.Controls.Add(this.txtInvoiceID);
             this.grpPayment.Controls.Add(this.label3);
-            this.grpPayment.Location = new System.Drawing.Point(3, 20);
+            this.grpPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPayment.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpPayment.Location = new System.Drawing.Point(33, 20);
             this.grpPayment.Name = "grpPayment";
-            this.grpPayment.Size = new System.Drawing.Size(524, 446);
+            this.grpPayment.Size = new System.Drawing.Size(1214, 640);
             this.grpPayment.TabIndex = 0;
             this.grpPayment.TabStop = false;
             this.grpPayment.Text = "Payment";
             // 
             // rtxtbxDetails
             // 
-            this.rtxtbxDetails.Location = new System.Drawing.Point(21, 116);
+            this.rtxtbxDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtbxDetails.Location = new System.Drawing.Point(41, 207);
             this.rtxtbxDetails.Name = "rtxtbxDetails";
-            this.rtxtbxDetails.Size = new System.Drawing.Size(351, 96);
+            this.rtxtbxDetails.Size = new System.Drawing.Size(509, 267);
             this.rtxtbxDetails.TabIndex = 16;
             this.rtxtbxDetails.Text = "";
             // 
             // btnShowDetails
             // 
-            this.btnShowDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowDetails.Location = new System.Drawing.Point(160, 75);
+            this.btnShowDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowDetails.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnShowDetails.Location = new System.Drawing.Point(295, 116);
             this.btnShowDetails.Name = "btnShowDetails";
-            this.btnShowDetails.Size = new System.Drawing.Size(112, 26);
+            this.btnShowDetails.Size = new System.Drawing.Size(147, 38);
             this.btnShowDetails.TabIndex = 15;
             this.btnShowDetails.Text = "Show Details";
             this.btnShowDetails.UseVisualStyleBackColor = true;
@@ -487,8 +496,9 @@
             // 
             // btnClear2
             // 
-            this.btnClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear2.Location = new System.Drawing.Point(394, 403);
+            this.btnClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear2.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnClear2.Location = new System.Drawing.Point(1087, 587);
             this.btnClear2.Name = "btnClear2";
             this.btnClear2.Size = new System.Drawing.Size(107, 32);
             this.btnClear2.TabIndex = 14;
@@ -499,9 +509,9 @@
             // pnlPaymentHistory
             // 
             this.pnlPaymentHistory.Controls.Add(this.grpPaymentHistory);
-            this.pnlPaymentHistory.Location = new System.Drawing.Point(821, 718);
+            this.pnlPaymentHistory.Location = new System.Drawing.Point(52, 250);
             this.pnlPaymentHistory.Name = "pnlPaymentHistory";
-            this.pnlPaymentHistory.Size = new System.Drawing.Size(517, 260);
+            this.pnlPaymentHistory.Size = new System.Drawing.Size(1286, 674);
             this.pnlPaymentHistory.TabIndex = 23;
             // 
             // grpPaymentHistory
@@ -511,27 +521,30 @@
             this.grpPaymentHistory.Controls.Add(this.txtPatientName);
             this.grpPaymentHistory.Controls.Add(this.btnClear3);
             this.grpPaymentHistory.Controls.Add(this.label8);
+            this.grpPaymentHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPaymentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpPaymentHistory.Location = new System.Drawing.Point(26, 20);
             this.grpPaymentHistory.Name = "grpPaymentHistory";
-            this.grpPaymentHistory.Size = new System.Drawing.Size(453, 237);
+            this.grpPaymentHistory.Size = new System.Drawing.Size(1236, 634);
             this.grpPaymentHistory.TabIndex = 0;
             this.grpPaymentHistory.TabStop = false;
             this.grpPaymentHistory.Text = "Payment History";
             // 
             // rtxtbxPaymentHistory
             // 
-            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(44, 94);
+            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(47, 289);
             this.rtxtbxPaymentHistory.Name = "rtxtbxPaymentHistory";
-            this.rtxtbxPaymentHistory.Size = new System.Drawing.Size(322, 126);
+            this.rtxtbxPaymentHistory.Size = new System.Drawing.Size(491, 212);
             this.rtxtbxPaymentHistory.TabIndex = 6;
             this.rtxtbxPaymentHistory.Text = "";
             // 
             // btnSearch2
             // 
-            this.btnSearch2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch2.Location = new System.Drawing.Point(177, 52);
+            this.btnSearch2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch2.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnSearch2.Location = new System.Drawing.Point(395, 164);
             this.btnSearch2.Name = "btnSearch2";
-            this.btnSearch2.Size = new System.Drawing.Size(82, 24);
+            this.btnSearch2.Size = new System.Drawing.Size(118, 35);
             this.btnSearch2.TabIndex = 5;
             this.btnSearch2.Text = "Search";
             this.btnSearch2.UseVisualStyleBackColor = true;
@@ -539,17 +552,18 @@
             // 
             // txtPatientName
             // 
-            this.txtPatientName.Location = new System.Drawing.Point(44, 52);
+            this.txtPatientName.Location = new System.Drawing.Point(48, 160);
             this.txtPatientName.Name = "txtPatientName";
-            this.txtPatientName.Size = new System.Drawing.Size(100, 22);
+            this.txtPatientName.Size = new System.Drawing.Size(208, 38);
             this.txtPatientName.TabIndex = 4;
             // 
             // btnClear3
             // 
-            this.btnClear3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear3.Location = new System.Drawing.Point(378, 187);
+            this.btnClear3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnClear3.Location = new System.Drawing.Point(919, 536);
             this.btnClear3.Name = "btnClear3";
-            this.btnClear3.Size = new System.Drawing.Size(75, 23);
+            this.btnClear3.Size = new System.Drawing.Size(114, 40);
             this.btnClear3.TabIndex = 3;
             this.btnClear3.Text = "Clear";
             this.btnClear3.UseVisualStyleBackColor = true;
@@ -558,9 +572,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(46, 22);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label8.Location = new System.Drawing.Point(43, 89);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(260, 16);
+            this.label8.Size = new System.Drawing.Size(470, 29);
             this.label8.TabIndex = 2;
             this.label8.Text = "Search Patient Name (Enter Patient Name)";
             // 
@@ -632,7 +648,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1365, 990);
+            this.ClientSize = new System.Drawing.Size(1365, 953);
             this.Controls.Add(this.pnlPaymentHistory);
             this.Controls.Add(this.pnlPayment);
             this.Controls.Add(this.pnlInvoice);
