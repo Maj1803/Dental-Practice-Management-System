@@ -106,6 +106,7 @@
             this.txtPatientEmailAdd = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtUpdStatus = new System.Windows.Forms.TextBox();
+            this.btnMarkAllCompleted = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
             this.pnlUpdateAppointment.SuspendLayout();
             this.grpUpdateDetails.SuspendLayout();
@@ -353,6 +354,7 @@
             // 
             // grpFindAppointment
             // 
+            this.grpFindAppointment.Controls.Add(this.btnMarkAllCompleted);
             this.grpFindAppointment.Controls.Add(this.btnClearUpdateFilter);
             this.grpFindAppointment.Controls.Add(this.dtpUpdateFilterDate);
             this.grpFindAppointment.Controls.Add(this.label4);
@@ -1185,6 +1187,20 @@
             this.txtUpdStatus.Size = new System.Drawing.Size(127, 25);
             this.txtUpdStatus.TabIndex = 11;
             // 
+            // btnMarkAllCompleted
+            // 
+            this.btnMarkAllCompleted.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnMarkAllCompleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMarkAllCompleted.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnMarkAllCompleted.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnMarkAllCompleted.Location = new System.Drawing.Point(876, 37);
+            this.btnMarkAllCompleted.Name = "btnMarkAllCompleted";
+            this.btnMarkAllCompleted.Size = new System.Drawing.Size(190, 34);
+            this.btnMarkAllCompleted.TabIndex = 11;
+            this.btnMarkAllCompleted.Text = "Mark All as Completed";
+            this.btnMarkAllCompleted.UseVisualStyleBackColor = false;
+            this.btnMarkAllCompleted.Click += new System.EventHandler(this.btnMarkAllCompleted_Click);
+            // 
             // Appointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1193,8 +1209,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1435, 750);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlBookAppointment);
-            this.Controls.Add(this.pnlViewAppointments);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.btnUpdateAppointment);
@@ -1202,6 +1216,8 @@
             this.Controls.Add(this.btnViewAppointments);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlBookAppointment);
+            this.Controls.Add(this.pnlViewAppointments);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1328,5 +1344,6 @@
         private System.Windows.Forms.TextBox txtPatientName;
         private System.Windows.Forms.TextBox txtUpdStatus;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnMarkAllCompleted;
     }
 }

@@ -355,6 +355,7 @@ namespace Dental_Practice_Management_System
 
                 LoadUpdateActions();
                 cmbUpdateAction.SelectedIndexChanged += cmbUpdateAction_SelectedIndexChanged;
+                btnMarkAllCompleted.Visible = false;
 
                 dtpUpdateFilterDate.Enabled = true;
                 dtpUpdateFilterDate.Value = DateTime.Today;
@@ -1028,6 +1029,9 @@ namespace Dental_Practice_Management_System
         {
             ResetUpdatePanel();
             LoadUpdateActions();
+
+            btnMarkAllCompleted.Visible =
+                cmbUpdateStatusFilter.SelectedItem?.ToString() == "Past Scheduled";
         }
 
         private void dtpUpdateFilterDate_ValueChanged(object sender, EventArgs e)
@@ -1089,6 +1093,32 @@ namespace Dental_Practice_Management_System
                 LoadAvailableSlots();
         }
 
-     
+        private void btnMarkAllCompleted_Click(object sender, EventArgs e)
+        {
+           
+            DialogResult confirm = MessageBox.Show(
+                "Set all past scheduled appointments to Completed?",
+                "Confirm",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm != DialogResult.Yes)
+                return;
+
+            int rowsAffected =
+                appointmentTableAdapter.CompletePastScheduledAppointments();
+
+            MessageBox.Show(
+                $"{rowsAffected} appointment(s) marked as Completed.",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            appointmentViewTableAdapter.Fill(dsDentist.AppointmentView);
+
+            ResetUpdatePanel();
+            ApplyUpdateFilter();
+        }
+    
     }
 }
