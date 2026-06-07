@@ -35,28 +35,54 @@
             this.btnViewEmployee = new System.Windows.Forms.Button();
             this.btnUpdateEmployees = new System.Windows.Forms.Button();
             this.pnlCreateEmployee = new System.Windows.Forms.Panel();
-            this.dsDentist = new Dental_Practice_Management_System.dsDentist();
-            this.pnlUpdateEmployees = new System.Windows.Forms.Panel();
+            this.grpCreateEmployees = new System.Windows.Forms.GroupBox();
+            this.numCreateAge = new System.Windows.Forms.NumericUpDown();
+            this.gvCreateEmployees = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pnlViewEmployees = new System.Windows.Forms.Panel();
-            this.gvEmployees = new System.Windows.Forms.DataGridView();
-            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeRoleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeePhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeNationalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeAgeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpViewFilters = new System.Windows.Forms.GroupBox();
-            this.btnDeletePatient = new System.Windows.Forms.Button();
-            this.txtSearchEmployees = new System.Windows.Forms.TextBox();
-            this.lblSearchEmployees = new System.Windows.Forms.Label();
-            this.employeeTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.EmployeeTableAdapter();
+            this.dsDentist = new Dental_Practice_Management_System.dsDentist();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCreateNationalID = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCreatePassword = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtCreateUsername = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCreateEmail = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtCreateContactNo = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtCreateRole = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtCreateSurname = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtCreateFirstName = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.pnlUpdateEmployees = new System.Windows.Forms.Panel();
             this.grpUpdatePatients = new System.Windows.Forms.GroupBox();
+            this.numAge = new System.Windows.Forms.NumericUpDown();
             this.gvUpdateEmployee = new System.Windows.Forms.DataGridView();
+            this.employeeIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeFirstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeLastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeRoleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeePhoneNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeEmailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeUsernameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeePasswordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeNationalIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeAgeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdateCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,62 +102,36 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.numAge = new System.Windows.Forms.NumericUpDown();
-            this.employeeIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeFirstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeLastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeRoleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeePhoneNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeEmailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeUsernameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeePasswordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeNationalIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeAgeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpCreateEmployees = new System.Windows.Forms.GroupBox();
-            this.numCreateAge = new System.Windows.Forms.NumericUpDown();
-            this.gvCreateEmployees = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCreateNationalID = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtCreatePassword = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtCreateUsername = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtCreateEmail = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtCreateContactNo = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtCreateRole = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtCreateSurname = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtCreateFirstName = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.pnlViewEmployees = new System.Windows.Forms.Panel();
+            this.gvEmployees = new System.Windows.Forms.DataGridView();
+            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeRoleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeePhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeePasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeNationalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeAgeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpViewFilters = new System.Windows.Forms.GroupBox();
+            this.btnDeletePatient = new System.Windows.Forms.Button();
+            this.txtSearchEmployees = new System.Windows.Forms.TextBox();
+            this.lblSearchEmployees = new System.Windows.Forms.Label();
+            this.employeeTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.EmployeeTableAdapter();
             this.pnlCreateEmployee.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
-            this.pnlUpdateEmployees.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
-            this.pnlViewEmployees.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvEmployees)).BeginInit();
-            this.grpViewFilters.SuspendLayout();
-            this.grpUpdatePatients.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUpdateEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAge)).BeginInit();
             this.grpCreateEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCreateAge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreateEmployees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
+            this.pnlUpdateEmployees.SuspendLayout();
+            this.grpUpdatePatients.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUpdateEmployee)).BeginInit();
+            this.pnlViewEmployees.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvEmployees)).BeginInit();
+            this.grpViewFilters.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -211,524 +211,13 @@
             this.pnlCreateEmployee.Size = new System.Drawing.Size(1351, 473);
             this.pnlCreateEmployee.TabIndex = 10;
             // 
-            // dsDentist
-            // 
-            this.dsDentist.DataSetName = "dsDentist";
-            this.dsDentist.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pnlUpdateEmployees
-            // 
-            this.pnlUpdateEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlUpdateEmployees.Controls.Add(this.grpUpdatePatients);
-            this.pnlUpdateEmployees.Location = new System.Drawing.Point(50, 209);
-            this.pnlUpdateEmployees.Name = "pnlUpdateEmployees";
-            this.pnlUpdateEmployees.Size = new System.Drawing.Size(1351, 473);
-            this.pnlUpdateEmployees.TabIndex = 11;
-            this.pnlUpdateEmployees.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlUpdateEmployees_Paint);
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.dsDentist;
-            // 
-            // pnlViewEmployees
-            // 
-            this.pnlViewEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlViewEmployees.Controls.Add(this.gvEmployees);
-            this.pnlViewEmployees.Controls.Add(this.grpViewFilters);
-            this.pnlViewEmployees.Location = new System.Drawing.Point(50, 209);
-            this.pnlViewEmployees.Name = "pnlViewEmployees";
-            this.pnlViewEmployees.Size = new System.Drawing.Size(1348, 473);
-            this.pnlViewEmployees.TabIndex = 11;
-            // 
-            // gvEmployees
-            // 
-            this.gvEmployees.AutoGenerateColumns = false;
-            this.gvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.employeeIDDataGridViewTextBoxColumn,
-            this.employeeFirstNameDataGridViewTextBoxColumn,
-            this.employeeLastNameDataGridViewTextBoxColumn,
-            this.employeeRoleDataGridViewTextBoxColumn,
-            this.employeePhoneNumberDataGridViewTextBoxColumn,
-            this.employeeEmailDataGridViewTextBoxColumn,
-            this.employeeUsernameDataGridViewTextBoxColumn,
-            this.employeePasswordDataGridViewTextBoxColumn,
-            this.employeeNationalIDDataGridViewTextBoxColumn,
-            this.employeeAgeDataGridViewTextBoxColumn});
-            this.gvEmployees.DataSource = this.employeeBindingSource;
-            this.gvEmployees.Location = new System.Drawing.Point(23, 146);
-            this.gvEmployees.Name = "gvEmployees";
-            this.gvEmployees.RowHeadersWidth = 62;
-            this.gvEmployees.RowTemplate.Height = 28;
-            this.gvEmployees.Size = new System.Drawing.Size(1314, 305);
-            this.gvEmployees.TabIndex = 1;
-            // 
-            // employeeIDDataGridViewTextBoxColumn
-            // 
-            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "Employee_ID";
-            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "Employee_ID";
-            this.employeeIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
-            this.employeeIDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeeFirstNameDataGridViewTextBoxColumn
-            // 
-            this.employeeFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Employee_First_Name";
-            this.employeeFirstNameDataGridViewTextBoxColumn.HeaderText = "Employee_First_Name";
-            this.employeeFirstNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeeFirstNameDataGridViewTextBoxColumn.Name = "employeeFirstNameDataGridViewTextBoxColumn";
-            this.employeeFirstNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeeLastNameDataGridViewTextBoxColumn
-            // 
-            this.employeeLastNameDataGridViewTextBoxColumn.DataPropertyName = "Employee_Last_Name";
-            this.employeeLastNameDataGridViewTextBoxColumn.HeaderText = "Employee_Last_Name";
-            this.employeeLastNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeeLastNameDataGridViewTextBoxColumn.Name = "employeeLastNameDataGridViewTextBoxColumn";
-            this.employeeLastNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeeRoleDataGridViewTextBoxColumn
-            // 
-            this.employeeRoleDataGridViewTextBoxColumn.DataPropertyName = "Employee_Role";
-            this.employeeRoleDataGridViewTextBoxColumn.HeaderText = "Employee_Role";
-            this.employeeRoleDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeeRoleDataGridViewTextBoxColumn.Name = "employeeRoleDataGridViewTextBoxColumn";
-            this.employeeRoleDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeePhoneNumberDataGridViewTextBoxColumn
-            // 
-            this.employeePhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Employee_Phone_Number";
-            this.employeePhoneNumberDataGridViewTextBoxColumn.HeaderText = "Employee_Phone_Number";
-            this.employeePhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeePhoneNumberDataGridViewTextBoxColumn.Name = "employeePhoneNumberDataGridViewTextBoxColumn";
-            this.employeePhoneNumberDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeeEmailDataGridViewTextBoxColumn
-            // 
-            this.employeeEmailDataGridViewTextBoxColumn.DataPropertyName = "Employee_Email";
-            this.employeeEmailDataGridViewTextBoxColumn.HeaderText = "Employee_Email";
-            this.employeeEmailDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeeEmailDataGridViewTextBoxColumn.Name = "employeeEmailDataGridViewTextBoxColumn";
-            this.employeeEmailDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeeUsernameDataGridViewTextBoxColumn
-            // 
-            this.employeeUsernameDataGridViewTextBoxColumn.DataPropertyName = "Employee_Username";
-            this.employeeUsernameDataGridViewTextBoxColumn.HeaderText = "Employee_Username";
-            this.employeeUsernameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeeUsernameDataGridViewTextBoxColumn.Name = "employeeUsernameDataGridViewTextBoxColumn";
-            this.employeeUsernameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeePasswordDataGridViewTextBoxColumn
-            // 
-            this.employeePasswordDataGridViewTextBoxColumn.DataPropertyName = "Employee_Password";
-            this.employeePasswordDataGridViewTextBoxColumn.HeaderText = "Employee_Password";
-            this.employeePasswordDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeePasswordDataGridViewTextBoxColumn.Name = "employeePasswordDataGridViewTextBoxColumn";
-            this.employeePasswordDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeeNationalIDDataGridViewTextBoxColumn
-            // 
-            this.employeeNationalIDDataGridViewTextBoxColumn.DataPropertyName = "Employee_National_ID";
-            this.employeeNationalIDDataGridViewTextBoxColumn.HeaderText = "Employee_National_ID";
-            this.employeeNationalIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeeNationalIDDataGridViewTextBoxColumn.Name = "employeeNationalIDDataGridViewTextBoxColumn";
-            this.employeeNationalIDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // employeeAgeDataGridViewTextBoxColumn
-            // 
-            this.employeeAgeDataGridViewTextBoxColumn.DataPropertyName = "Employee_Age";
-            this.employeeAgeDataGridViewTextBoxColumn.HeaderText = "Employee_Age";
-            this.employeeAgeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.employeeAgeDataGridViewTextBoxColumn.Name = "employeeAgeDataGridViewTextBoxColumn";
-            this.employeeAgeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // grpViewFilters
-            // 
-            this.grpViewFilters.BackColor = System.Drawing.SystemColors.Control;
-            this.grpViewFilters.Controls.Add(this.btnDeletePatient);
-            this.grpViewFilters.Controls.Add(this.txtSearchEmployees);
-            this.grpViewFilters.Controls.Add(this.lblSearchEmployees);
-            this.grpViewFilters.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpViewFilters.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpViewFilters.Location = new System.Drawing.Point(23, 17);
-            this.grpViewFilters.Name = "grpViewFilters";
-            this.grpViewFilters.Size = new System.Drawing.Size(1314, 112);
-            this.grpViewFilters.TabIndex = 0;
-            this.grpViewFilters.TabStop = false;
-            this.grpViewFilters.Text = "Employees";
-            // 
-            // btnDeletePatient
-            // 
-            this.btnDeletePatient.Location = new System.Drawing.Point(1128, 53);
-            this.btnDeletePatient.Name = "btnDeletePatient";
-            this.btnDeletePatient.Size = new System.Drawing.Size(157, 47);
-            this.btnDeletePatient.TabIndex = 3;
-            this.btnDeletePatient.Text = "Delete Patient";
-            this.btnDeletePatient.UseVisualStyleBackColor = true;
-            this.btnDeletePatient.Click += new System.EventHandler(this.btnDeletePatient_Click);
-            // 
-            // txtSearchEmployees
-            // 
-            this.txtSearchEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchEmployees.Location = new System.Drawing.Point(10, 63);
-            this.txtSearchEmployees.Name = "txtSearchEmployees";
-            this.txtSearchEmployees.Size = new System.Drawing.Size(244, 34);
-            this.txtSearchEmployees.TabIndex = 2;
-            this.txtSearchEmployees.TextChanged += new System.EventHandler(this.txtSearchEmployees_TextChanged);
-            // 
-            // lblSearchEmployees
-            // 
-            this.lblSearchEmployees.AutoSize = true;
-            this.lblSearchEmployees.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchEmployees.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblSearchEmployees.Location = new System.Drawing.Point(6, 30);
-            this.lblSearchEmployees.Name = "lblSearchEmployees";
-            this.lblSearchEmployees.Size = new System.Drawing.Size(257, 21);
-            this.lblSearchEmployees.TabIndex = 1;
-            this.lblSearchEmployees.Text = "Search Employee (Employee Name)";
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // grpUpdatePatients
-            // 
-            this.grpUpdatePatients.BackColor = System.Drawing.SystemColors.Control;
-            this.grpUpdatePatients.Controls.Add(this.numAge);
-            this.grpUpdatePatients.Controls.Add(this.gvUpdateEmployee);
-            this.grpUpdatePatients.Controls.Add(this.btnUpdateCancel);
-            this.grpUpdatePatients.Controls.Add(this.btnUpdate);
-            this.grpUpdatePatients.Controls.Add(this.label3);
-            this.grpUpdatePatients.Controls.Add(this.txtNationalID);
-            this.grpUpdatePatients.Controls.Add(this.label4);
-            this.grpUpdatePatients.Controls.Add(this.txtPassword);
-            this.grpUpdatePatients.Controls.Add(this.label5);
-            this.grpUpdatePatients.Controls.Add(this.txtUsername);
-            this.grpUpdatePatients.Controls.Add(this.label6);
-            this.grpUpdatePatients.Controls.Add(this.txtEmail);
-            this.grpUpdatePatients.Controls.Add(this.label7);
-            this.grpUpdatePatients.Controls.Add(this.txtContactNo);
-            this.grpUpdatePatients.Controls.Add(this.label8);
-            this.grpUpdatePatients.Controls.Add(this.txtRole);
-            this.grpUpdatePatients.Controls.Add(this.label9);
-            this.grpUpdatePatients.Controls.Add(this.txtSurname);
-            this.grpUpdatePatients.Controls.Add(this.label10);
-            this.grpUpdatePatients.Controls.Add(this.txtFirstName);
-            this.grpUpdatePatients.Controls.Add(this.label11);
-            this.grpUpdatePatients.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpUpdatePatients.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpUpdatePatients.Location = new System.Drawing.Point(25, 15);
-            this.grpUpdatePatients.Name = "grpUpdatePatients";
-            this.grpUpdatePatients.Size = new System.Drawing.Size(1298, 441);
-            this.grpUpdatePatients.TabIndex = 2;
-            this.grpUpdatePatients.TabStop = false;
-            this.grpUpdatePatients.Text = "Update";
-            // 
-            // gvUpdateEmployee
-            // 
-            this.gvUpdateEmployee.AutoGenerateColumns = false;
-            this.gvUpdateEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvUpdateEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.employeeIDDataGridViewTextBoxColumn1,
-            this.employeeFirstNameDataGridViewTextBoxColumn1,
-            this.employeeLastNameDataGridViewTextBoxColumn1,
-            this.employeeRoleDataGridViewTextBoxColumn1,
-            this.employeePhoneNumberDataGridViewTextBoxColumn1,
-            this.employeeEmailDataGridViewTextBoxColumn1,
-            this.employeeUsernameDataGridViewTextBoxColumn1,
-            this.employeePasswordDataGridViewTextBoxColumn1,
-            this.employeeNationalIDDataGridViewTextBoxColumn1,
-            this.employeeAgeDataGridViewTextBoxColumn1});
-            this.gvUpdateEmployee.DataSource = this.employeeBindingSource;
-            this.gvUpdateEmployee.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gvUpdateEmployee.Location = new System.Drawing.Point(3, 287);
-            this.gvUpdateEmployee.Name = "gvUpdateEmployee";
-            this.gvUpdateEmployee.RowHeadersWidth = 62;
-            this.gvUpdateEmployee.RowTemplate.Height = 28;
-            this.gvUpdateEmployee.Size = new System.Drawing.Size(1292, 151);
-            this.gvUpdateEmployee.TabIndex = 24;
-            // 
-            // btnUpdateCancel
-            // 
-            this.btnUpdateCancel.BackColor = System.Drawing.Color.DarkRed;
-            this.btnUpdateCancel.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateCancel.Location = new System.Drawing.Point(1109, 182);
-            this.btnUpdateCancel.Name = "btnUpdateCancel";
-            this.btnUpdateCancel.Size = new System.Drawing.Size(157, 53);
-            this.btnUpdateCancel.TabIndex = 23;
-            this.btnUpdateCancel.Text = "Clear";
-            this.btnUpdateCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(908, 182);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(157, 53);
-            this.btnUpdate.TabIndex = 21;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(630, 211);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 21);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Age";
-            // 
-            // txtNationalID
-            // 
-            this.txtNationalID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNationalID.Location = new System.Drawing.Point(634, 143);
-            this.txtNationalID.Name = "txtNationalID";
-            this.txtNationalID.Size = new System.Drawing.Size(226, 34);
-            this.txtNationalID.TabIndex = 16;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(630, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 21);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "National ID";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPassword.Location = new System.Drawing.Point(634, 67);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(226, 34);
-            this.txtPassword.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(630, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 21);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Password";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsername.Location = new System.Drawing.Point(317, 235);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(232, 34);
-            this.txtUsername.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(313, 211);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 21);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Username";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Location = new System.Drawing.Point(317, 150);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(232, 34);
-            this.txtEmail.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(313, 126);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 21);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Email";
-            // 
-            // txtContactNo
-            // 
-            this.txtContactNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContactNo.Location = new System.Drawing.Point(317, 67);
-            this.txtContactNo.Name = "txtContactNo";
-            this.txtContactNo.Size = new System.Drawing.Size(232, 34);
-            this.txtContactNo.TabIndex = 8;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(313, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 21);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Contact No";
-            // 
-            // txtRole
-            // 
-            this.txtRole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRole.Location = new System.Drawing.Point(11, 235);
-            this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(234, 34);
-            this.txtRole.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(7, 211);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 21);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Role";
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSurname.Location = new System.Drawing.Point(11, 147);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(234, 34);
-            this.txtSurname.TabIndex = 4;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(7, 123);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 21);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Surname";
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFirstName.Location = new System.Drawing.Point(10, 65);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(235, 34);
-            this.txtFirstName.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(6, 40);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 21);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "First Name";
-            // 
-            // numAge
-            // 
-            this.numAge.Location = new System.Drawing.Point(634, 242);
-            this.numAge.Name = "numAge";
-            this.numAge.Size = new System.Drawing.Size(226, 34);
-            this.numAge.TabIndex = 25;
-            // 
-            // employeeIDDataGridViewTextBoxColumn1
-            // 
-            this.employeeIDDataGridViewTextBoxColumn1.DataPropertyName = "Employee_ID";
-            this.employeeIDDataGridViewTextBoxColumn1.HeaderText = "Employee_ID";
-            this.employeeIDDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeeIDDataGridViewTextBoxColumn1.Name = "employeeIDDataGridViewTextBoxColumn1";
-            this.employeeIDDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeeFirstNameDataGridViewTextBoxColumn1
-            // 
-            this.employeeFirstNameDataGridViewTextBoxColumn1.DataPropertyName = "Employee_First_Name";
-            this.employeeFirstNameDataGridViewTextBoxColumn1.HeaderText = "Employee_First_Name";
-            this.employeeFirstNameDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeeFirstNameDataGridViewTextBoxColumn1.Name = "employeeFirstNameDataGridViewTextBoxColumn1";
-            this.employeeFirstNameDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeeLastNameDataGridViewTextBoxColumn1
-            // 
-            this.employeeLastNameDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Last_Name";
-            this.employeeLastNameDataGridViewTextBoxColumn1.HeaderText = "Employee_Last_Name";
-            this.employeeLastNameDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeeLastNameDataGridViewTextBoxColumn1.Name = "employeeLastNameDataGridViewTextBoxColumn1";
-            this.employeeLastNameDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeeRoleDataGridViewTextBoxColumn1
-            // 
-            this.employeeRoleDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Role";
-            this.employeeRoleDataGridViewTextBoxColumn1.HeaderText = "Employee_Role";
-            this.employeeRoleDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeeRoleDataGridViewTextBoxColumn1.Name = "employeeRoleDataGridViewTextBoxColumn1";
-            this.employeeRoleDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeePhoneNumberDataGridViewTextBoxColumn1
-            // 
-            this.employeePhoneNumberDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Phone_Number";
-            this.employeePhoneNumberDataGridViewTextBoxColumn1.HeaderText = "Employee_Phone_Number";
-            this.employeePhoneNumberDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeePhoneNumberDataGridViewTextBoxColumn1.Name = "employeePhoneNumberDataGridViewTextBoxColumn1";
-            this.employeePhoneNumberDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeeEmailDataGridViewTextBoxColumn1
-            // 
-            this.employeeEmailDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Email";
-            this.employeeEmailDataGridViewTextBoxColumn1.HeaderText = "Employee_Email";
-            this.employeeEmailDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeeEmailDataGridViewTextBoxColumn1.Name = "employeeEmailDataGridViewTextBoxColumn1";
-            this.employeeEmailDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeeUsernameDataGridViewTextBoxColumn1
-            // 
-            this.employeeUsernameDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Username";
-            this.employeeUsernameDataGridViewTextBoxColumn1.HeaderText = "Employee_Username";
-            this.employeeUsernameDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeeUsernameDataGridViewTextBoxColumn1.Name = "employeeUsernameDataGridViewTextBoxColumn1";
-            this.employeeUsernameDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeePasswordDataGridViewTextBoxColumn1
-            // 
-            this.employeePasswordDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Password";
-            this.employeePasswordDataGridViewTextBoxColumn1.HeaderText = "Employee_Password";
-            this.employeePasswordDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeePasswordDataGridViewTextBoxColumn1.Name = "employeePasswordDataGridViewTextBoxColumn1";
-            this.employeePasswordDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeeNationalIDDataGridViewTextBoxColumn1
-            // 
-            this.employeeNationalIDDataGridViewTextBoxColumn1.DataPropertyName = "Employee_National_ID";
-            this.employeeNationalIDDataGridViewTextBoxColumn1.HeaderText = "Employee_National_ID";
-            this.employeeNationalIDDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeeNationalIDDataGridViewTextBoxColumn1.Name = "employeeNationalIDDataGridViewTextBoxColumn1";
-            this.employeeNationalIDDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // employeeAgeDataGridViewTextBoxColumn1
-            // 
-            this.employeeAgeDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Age";
-            this.employeeAgeDataGridViewTextBoxColumn1.HeaderText = "Employee_Age";
-            this.employeeAgeDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.employeeAgeDataGridViewTextBoxColumn1.Name = "employeeAgeDataGridViewTextBoxColumn1";
-            this.employeeAgeDataGridViewTextBoxColumn1.Width = 150;
-            // 
             // grpCreateEmployees
             // 
             this.grpCreateEmployees.BackColor = System.Drawing.SystemColors.Control;
             this.grpCreateEmployees.Controls.Add(this.numCreateAge);
             this.grpCreateEmployees.Controls.Add(this.gvCreateEmployees);
             this.grpCreateEmployees.Controls.Add(this.button1);
-            this.grpCreateEmployees.Controls.Add(this.button2);
+            this.grpCreateEmployees.Controls.Add(this.btnCreate);
             this.grpCreateEmployees.Controls.Add(this.label1);
             this.grpCreateEmployees.Controls.Add(this.txtCreateNationalID);
             this.grpCreateEmployees.Controls.Add(this.label12);
@@ -781,6 +270,7 @@
             this.gvCreateEmployees.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gvCreateEmployees.Location = new System.Drawing.Point(3, 287);
             this.gvCreateEmployees.Name = "gvCreateEmployees";
+            this.gvCreateEmployees.ReadOnly = true;
             this.gvCreateEmployees.RowHeadersWidth = 62;
             this.gvCreateEmployees.RowTemplate.Height = 28;
             this.gvCreateEmployees.Size = new System.Drawing.Size(1292, 151);
@@ -792,6 +282,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Employee_ID";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 150;
             // 
             // dataGridViewTextBoxColumn2
@@ -800,6 +291,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Employee_First_Name";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
@@ -808,6 +300,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Employee_Last_Name";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // dataGridViewTextBoxColumn4
@@ -816,6 +309,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Employee_Role";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 150;
             // 
             // dataGridViewTextBoxColumn5
@@ -824,6 +318,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Employee_Phone_Number";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 150;
             // 
             // dataGridViewTextBoxColumn6
@@ -832,6 +327,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Employee_Email";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 150;
             // 
             // dataGridViewTextBoxColumn7
@@ -840,6 +336,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Employee_Username";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 150;
             // 
             // dataGridViewTextBoxColumn8
@@ -848,6 +345,7 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "Employee_Password";
             this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 150;
             // 
             // dataGridViewTextBoxColumn9
@@ -856,6 +354,7 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "Employee_National_ID";
             this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Width = 150;
             // 
             // dataGridViewTextBoxColumn10
@@ -864,7 +363,18 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "Employee_Age";
             this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Width = 150;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.dsDentist;
+            // 
+            // dsDentist
+            // 
+            this.dsDentist.DataSetName = "dsDentist";
+            this.dsDentist.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -877,16 +387,17 @@
             this.button1.Text = "Clear";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnCreate
             // 
-            this.button2.BackColor = System.Drawing.Color.SeaGreen;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(908, 182);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 53);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCreate.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnCreate.ForeColor = System.Drawing.Color.White;
+            this.btnCreate.Location = new System.Drawing.Point(908, 182);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(157, 53);
+            this.btnCreate.TabIndex = 21;
+            this.btnCreate.Text = "Add";
+            this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click_1);
             // 
             // label1
             // 
@@ -1051,6 +562,531 @@
             this.label19.TabIndex = 1;
             this.label19.Text = "First Name";
             // 
+            // pnlUpdateEmployees
+            // 
+            this.pnlUpdateEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlUpdateEmployees.Controls.Add(this.grpUpdatePatients);
+            this.pnlUpdateEmployees.Location = new System.Drawing.Point(50, 209);
+            this.pnlUpdateEmployees.Name = "pnlUpdateEmployees";
+            this.pnlUpdateEmployees.Size = new System.Drawing.Size(1351, 473);
+            this.pnlUpdateEmployees.TabIndex = 11;
+            this.pnlUpdateEmployees.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlUpdateEmployees_Paint);
+            // 
+            // grpUpdatePatients
+            // 
+            this.grpUpdatePatients.BackColor = System.Drawing.SystemColors.Control;
+            this.grpUpdatePatients.Controls.Add(this.numAge);
+            this.grpUpdatePatients.Controls.Add(this.gvUpdateEmployee);
+            this.grpUpdatePatients.Controls.Add(this.btnUpdateCancel);
+            this.grpUpdatePatients.Controls.Add(this.btnUpdate);
+            this.grpUpdatePatients.Controls.Add(this.label3);
+            this.grpUpdatePatients.Controls.Add(this.txtNationalID);
+            this.grpUpdatePatients.Controls.Add(this.label4);
+            this.grpUpdatePatients.Controls.Add(this.txtPassword);
+            this.grpUpdatePatients.Controls.Add(this.label5);
+            this.grpUpdatePatients.Controls.Add(this.txtUsername);
+            this.grpUpdatePatients.Controls.Add(this.label6);
+            this.grpUpdatePatients.Controls.Add(this.txtEmail);
+            this.grpUpdatePatients.Controls.Add(this.label7);
+            this.grpUpdatePatients.Controls.Add(this.txtContactNo);
+            this.grpUpdatePatients.Controls.Add(this.label8);
+            this.grpUpdatePatients.Controls.Add(this.txtRole);
+            this.grpUpdatePatients.Controls.Add(this.label9);
+            this.grpUpdatePatients.Controls.Add(this.txtSurname);
+            this.grpUpdatePatients.Controls.Add(this.label10);
+            this.grpUpdatePatients.Controls.Add(this.txtFirstName);
+            this.grpUpdatePatients.Controls.Add(this.label11);
+            this.grpUpdatePatients.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpUpdatePatients.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpUpdatePatients.Location = new System.Drawing.Point(25, 15);
+            this.grpUpdatePatients.Name = "grpUpdatePatients";
+            this.grpUpdatePatients.Size = new System.Drawing.Size(1298, 441);
+            this.grpUpdatePatients.TabIndex = 2;
+            this.grpUpdatePatients.TabStop = false;
+            this.grpUpdatePatients.Text = "Update";
+            // 
+            // numAge
+            // 
+            this.numAge.Location = new System.Drawing.Point(634, 235);
+            this.numAge.Name = "numAge";
+            this.numAge.Size = new System.Drawing.Size(226, 34);
+            this.numAge.TabIndex = 25;
+            // 
+            // gvUpdateEmployee
+            // 
+            this.gvUpdateEmployee.AutoGenerateColumns = false;
+            this.gvUpdateEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvUpdateEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.employeeIDDataGridViewTextBoxColumn1,
+            this.employeeFirstNameDataGridViewTextBoxColumn1,
+            this.employeeLastNameDataGridViewTextBoxColumn1,
+            this.employeeRoleDataGridViewTextBoxColumn1,
+            this.employeePhoneNumberDataGridViewTextBoxColumn1,
+            this.employeeEmailDataGridViewTextBoxColumn1,
+            this.employeeUsernameDataGridViewTextBoxColumn1,
+            this.employeePasswordDataGridViewTextBoxColumn1,
+            this.employeeNationalIDDataGridViewTextBoxColumn1,
+            this.employeeAgeDataGridViewTextBoxColumn1});
+            this.gvUpdateEmployee.DataSource = this.employeeBindingSource;
+            this.gvUpdateEmployee.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gvUpdateEmployee.Location = new System.Drawing.Point(3, 287);
+            this.gvUpdateEmployee.Name = "gvUpdateEmployee";
+            this.gvUpdateEmployee.ReadOnly = true;
+            this.gvUpdateEmployee.RowHeadersWidth = 62;
+            this.gvUpdateEmployee.RowTemplate.Height = 28;
+            this.gvUpdateEmployee.Size = new System.Drawing.Size(1292, 151);
+            this.gvUpdateEmployee.TabIndex = 24;
+            this.gvUpdateEmployee.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvUpdateEmployee_CellContentDoubleClick);
+            // 
+            // employeeIDDataGridViewTextBoxColumn1
+            // 
+            this.employeeIDDataGridViewTextBoxColumn1.DataPropertyName = "Employee_ID";
+            this.employeeIDDataGridViewTextBoxColumn1.HeaderText = "Employee_ID";
+            this.employeeIDDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeeIDDataGridViewTextBoxColumn1.Name = "employeeIDDataGridViewTextBoxColumn1";
+            this.employeeIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeIDDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeeFirstNameDataGridViewTextBoxColumn1
+            // 
+            this.employeeFirstNameDataGridViewTextBoxColumn1.DataPropertyName = "Employee_First_Name";
+            this.employeeFirstNameDataGridViewTextBoxColumn1.HeaderText = "Employee_First_Name";
+            this.employeeFirstNameDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeeFirstNameDataGridViewTextBoxColumn1.Name = "employeeFirstNameDataGridViewTextBoxColumn1";
+            this.employeeFirstNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeFirstNameDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeeLastNameDataGridViewTextBoxColumn1
+            // 
+            this.employeeLastNameDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Last_Name";
+            this.employeeLastNameDataGridViewTextBoxColumn1.HeaderText = "Employee_Last_Name";
+            this.employeeLastNameDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeeLastNameDataGridViewTextBoxColumn1.Name = "employeeLastNameDataGridViewTextBoxColumn1";
+            this.employeeLastNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeLastNameDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeeRoleDataGridViewTextBoxColumn1
+            // 
+            this.employeeRoleDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Role";
+            this.employeeRoleDataGridViewTextBoxColumn1.HeaderText = "Employee_Role";
+            this.employeeRoleDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeeRoleDataGridViewTextBoxColumn1.Name = "employeeRoleDataGridViewTextBoxColumn1";
+            this.employeeRoleDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeRoleDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeePhoneNumberDataGridViewTextBoxColumn1
+            // 
+            this.employeePhoneNumberDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Phone_Number";
+            this.employeePhoneNumberDataGridViewTextBoxColumn1.HeaderText = "Employee_Phone_Number";
+            this.employeePhoneNumberDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeePhoneNumberDataGridViewTextBoxColumn1.Name = "employeePhoneNumberDataGridViewTextBoxColumn1";
+            this.employeePhoneNumberDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeePhoneNumberDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeeEmailDataGridViewTextBoxColumn1
+            // 
+            this.employeeEmailDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Email";
+            this.employeeEmailDataGridViewTextBoxColumn1.HeaderText = "Employee_Email";
+            this.employeeEmailDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeeEmailDataGridViewTextBoxColumn1.Name = "employeeEmailDataGridViewTextBoxColumn1";
+            this.employeeEmailDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeEmailDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeeUsernameDataGridViewTextBoxColumn1
+            // 
+            this.employeeUsernameDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Username";
+            this.employeeUsernameDataGridViewTextBoxColumn1.HeaderText = "Employee_Username";
+            this.employeeUsernameDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeeUsernameDataGridViewTextBoxColumn1.Name = "employeeUsernameDataGridViewTextBoxColumn1";
+            this.employeeUsernameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeUsernameDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeePasswordDataGridViewTextBoxColumn1
+            // 
+            this.employeePasswordDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Password";
+            this.employeePasswordDataGridViewTextBoxColumn1.HeaderText = "Employee_Password";
+            this.employeePasswordDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeePasswordDataGridViewTextBoxColumn1.Name = "employeePasswordDataGridViewTextBoxColumn1";
+            this.employeePasswordDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeePasswordDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeeNationalIDDataGridViewTextBoxColumn1
+            // 
+            this.employeeNationalIDDataGridViewTextBoxColumn1.DataPropertyName = "Employee_National_ID";
+            this.employeeNationalIDDataGridViewTextBoxColumn1.HeaderText = "Employee_National_ID";
+            this.employeeNationalIDDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeeNationalIDDataGridViewTextBoxColumn1.Name = "employeeNationalIDDataGridViewTextBoxColumn1";
+            this.employeeNationalIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeNationalIDDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // employeeAgeDataGridViewTextBoxColumn1
+            // 
+            this.employeeAgeDataGridViewTextBoxColumn1.DataPropertyName = "Employee_Age";
+            this.employeeAgeDataGridViewTextBoxColumn1.HeaderText = "Employee_Age";
+            this.employeeAgeDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.employeeAgeDataGridViewTextBoxColumn1.Name = "employeeAgeDataGridViewTextBoxColumn1";
+            this.employeeAgeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeAgeDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // btnUpdateCancel
+            // 
+            this.btnUpdateCancel.BackColor = System.Drawing.Color.DarkRed;
+            this.btnUpdateCancel.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateCancel.Location = new System.Drawing.Point(1109, 182);
+            this.btnUpdateCancel.Name = "btnUpdateCancel";
+            this.btnUpdateCancel.Size = new System.Drawing.Size(157, 53);
+            this.btnUpdateCancel.TabIndex = 23;
+            this.btnUpdateCancel.Text = "Clear";
+            this.btnUpdateCancel.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(908, 182);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(157, 53);
+            this.btnUpdate.TabIndex = 21;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(630, 211);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 21);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Age";
+            // 
+            // txtNationalID
+            // 
+            this.txtNationalID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNationalID.Location = new System.Drawing.Point(634, 143);
+            this.txtNationalID.Name = "txtNationalID";
+            this.txtNationalID.Size = new System.Drawing.Size(226, 34);
+            this.txtNationalID.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(630, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 21);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "National ID";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPassword.Location = new System.Drawing.Point(634, 67);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(226, 34);
+            this.txtPassword.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(630, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 21);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Password";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsername.Location = new System.Drawing.Point(317, 235);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(232, 34);
+            this.txtUsername.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(313, 211);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 21);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Username";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Location = new System.Drawing.Point(317, 150);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(232, 34);
+            this.txtEmail.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(313, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 21);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Email";
+            // 
+            // txtContactNo
+            // 
+            this.txtContactNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContactNo.Location = new System.Drawing.Point(317, 67);
+            this.txtContactNo.Name = "txtContactNo";
+            this.txtContactNo.Size = new System.Drawing.Size(232, 34);
+            this.txtContactNo.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(313, 43);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 21);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Contact No";
+            // 
+            // txtRole
+            // 
+            this.txtRole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRole.Location = new System.Drawing.Point(11, 235);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.Size = new System.Drawing.Size(234, 34);
+            this.txtRole.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(7, 211);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 21);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Role";
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSurname.Location = new System.Drawing.Point(11, 147);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(234, 34);
+            this.txtSurname.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(7, 123);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 21);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Surname";
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFirstName.Location = new System.Drawing.Point(10, 65);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(235, 34);
+            this.txtFirstName.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(6, 40);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 21);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "First Name";
+            // 
+            // pnlViewEmployees
+            // 
+            this.pnlViewEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlViewEmployees.Controls.Add(this.gvEmployees);
+            this.pnlViewEmployees.Controls.Add(this.grpViewFilters);
+            this.pnlViewEmployees.Location = new System.Drawing.Point(50, 209);
+            this.pnlViewEmployees.Name = "pnlViewEmployees";
+            this.pnlViewEmployees.Size = new System.Drawing.Size(1348, 473);
+            this.pnlViewEmployees.TabIndex = 11;
+            // 
+            // gvEmployees
+            // 
+            this.gvEmployees.AutoGenerateColumns = false;
+            this.gvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.employeeIDDataGridViewTextBoxColumn,
+            this.employeeFirstNameDataGridViewTextBoxColumn,
+            this.employeeLastNameDataGridViewTextBoxColumn,
+            this.employeeRoleDataGridViewTextBoxColumn,
+            this.employeePhoneNumberDataGridViewTextBoxColumn,
+            this.employeeEmailDataGridViewTextBoxColumn,
+            this.employeeUsernameDataGridViewTextBoxColumn,
+            this.employeePasswordDataGridViewTextBoxColumn,
+            this.employeeNationalIDDataGridViewTextBoxColumn,
+            this.employeeAgeDataGridViewTextBoxColumn});
+            this.gvEmployees.DataSource = this.employeeBindingSource;
+            this.gvEmployees.Location = new System.Drawing.Point(23, 146);
+            this.gvEmployees.Name = "gvEmployees";
+            this.gvEmployees.ReadOnly = true;
+            this.gvEmployees.RowHeadersWidth = 62;
+            this.gvEmployees.RowTemplate.Height = 28;
+            this.gvEmployees.Size = new System.Drawing.Size(1314, 305);
+            this.gvEmployees.TabIndex = 1;
+            // 
+            // employeeIDDataGridViewTextBoxColumn
+            // 
+            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "Employee_ID";
+            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "Employee_ID";
+            this.employeeIDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
+            this.employeeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeeFirstNameDataGridViewTextBoxColumn
+            // 
+            this.employeeFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Employee_First_Name";
+            this.employeeFirstNameDataGridViewTextBoxColumn.HeaderText = "Employee_First_Name";
+            this.employeeFirstNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeeFirstNameDataGridViewTextBoxColumn.Name = "employeeFirstNameDataGridViewTextBoxColumn";
+            this.employeeFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeFirstNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeeLastNameDataGridViewTextBoxColumn
+            // 
+            this.employeeLastNameDataGridViewTextBoxColumn.DataPropertyName = "Employee_Last_Name";
+            this.employeeLastNameDataGridViewTextBoxColumn.HeaderText = "Employee_Last_Name";
+            this.employeeLastNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeeLastNameDataGridViewTextBoxColumn.Name = "employeeLastNameDataGridViewTextBoxColumn";
+            this.employeeLastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeLastNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeeRoleDataGridViewTextBoxColumn
+            // 
+            this.employeeRoleDataGridViewTextBoxColumn.DataPropertyName = "Employee_Role";
+            this.employeeRoleDataGridViewTextBoxColumn.HeaderText = "Employee_Role";
+            this.employeeRoleDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeeRoleDataGridViewTextBoxColumn.Name = "employeeRoleDataGridViewTextBoxColumn";
+            this.employeeRoleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeRoleDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeePhoneNumberDataGridViewTextBoxColumn
+            // 
+            this.employeePhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Employee_Phone_Number";
+            this.employeePhoneNumberDataGridViewTextBoxColumn.HeaderText = "Employee_Phone_Number";
+            this.employeePhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeePhoneNumberDataGridViewTextBoxColumn.Name = "employeePhoneNumberDataGridViewTextBoxColumn";
+            this.employeePhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeePhoneNumberDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeeEmailDataGridViewTextBoxColumn
+            // 
+            this.employeeEmailDataGridViewTextBoxColumn.DataPropertyName = "Employee_Email";
+            this.employeeEmailDataGridViewTextBoxColumn.HeaderText = "Employee_Email";
+            this.employeeEmailDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeeEmailDataGridViewTextBoxColumn.Name = "employeeEmailDataGridViewTextBoxColumn";
+            this.employeeEmailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeEmailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeeUsernameDataGridViewTextBoxColumn
+            // 
+            this.employeeUsernameDataGridViewTextBoxColumn.DataPropertyName = "Employee_Username";
+            this.employeeUsernameDataGridViewTextBoxColumn.HeaderText = "Employee_Username";
+            this.employeeUsernameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeeUsernameDataGridViewTextBoxColumn.Name = "employeeUsernameDataGridViewTextBoxColumn";
+            this.employeeUsernameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeUsernameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeePasswordDataGridViewTextBoxColumn
+            // 
+            this.employeePasswordDataGridViewTextBoxColumn.DataPropertyName = "Employee_Password";
+            this.employeePasswordDataGridViewTextBoxColumn.HeaderText = "Employee_Password";
+            this.employeePasswordDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeePasswordDataGridViewTextBoxColumn.Name = "employeePasswordDataGridViewTextBoxColumn";
+            this.employeePasswordDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeePasswordDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeeNationalIDDataGridViewTextBoxColumn
+            // 
+            this.employeeNationalIDDataGridViewTextBoxColumn.DataPropertyName = "Employee_National_ID";
+            this.employeeNationalIDDataGridViewTextBoxColumn.HeaderText = "Employee_National_ID";
+            this.employeeNationalIDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeeNationalIDDataGridViewTextBoxColumn.Name = "employeeNationalIDDataGridViewTextBoxColumn";
+            this.employeeNationalIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeNationalIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // employeeAgeDataGridViewTextBoxColumn
+            // 
+            this.employeeAgeDataGridViewTextBoxColumn.DataPropertyName = "Employee_Age";
+            this.employeeAgeDataGridViewTextBoxColumn.HeaderText = "Employee_Age";
+            this.employeeAgeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.employeeAgeDataGridViewTextBoxColumn.Name = "employeeAgeDataGridViewTextBoxColumn";
+            this.employeeAgeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeAgeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // grpViewFilters
+            // 
+            this.grpViewFilters.BackColor = System.Drawing.SystemColors.Control;
+            this.grpViewFilters.Controls.Add(this.btnDeletePatient);
+            this.grpViewFilters.Controls.Add(this.txtSearchEmployees);
+            this.grpViewFilters.Controls.Add(this.lblSearchEmployees);
+            this.grpViewFilters.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpViewFilters.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpViewFilters.Location = new System.Drawing.Point(23, 17);
+            this.grpViewFilters.Name = "grpViewFilters";
+            this.grpViewFilters.Size = new System.Drawing.Size(1314, 112);
+            this.grpViewFilters.TabIndex = 0;
+            this.grpViewFilters.TabStop = false;
+            this.grpViewFilters.Text = "Employees";
+            // 
+            // btnDeletePatient
+            // 
+            this.btnDeletePatient.Location = new System.Drawing.Point(1128, 53);
+            this.btnDeletePatient.Name = "btnDeletePatient";
+            this.btnDeletePatient.Size = new System.Drawing.Size(157, 47);
+            this.btnDeletePatient.TabIndex = 3;
+            this.btnDeletePatient.Text = "Delete Patient";
+            this.btnDeletePatient.UseVisualStyleBackColor = true;
+            this.btnDeletePatient.Click += new System.EventHandler(this.btnDeletePatient_Click);
+            // 
+            // txtSearchEmployees
+            // 
+            this.txtSearchEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchEmployees.Location = new System.Drawing.Point(10, 63);
+            this.txtSearchEmployees.Name = "txtSearchEmployees";
+            this.txtSearchEmployees.Size = new System.Drawing.Size(244, 34);
+            this.txtSearchEmployees.TabIndex = 2;
+            this.txtSearchEmployees.TextChanged += new System.EventHandler(this.txtSearchEmployees_TextChanged);
+            // 
+            // lblSearchEmployees
+            // 
+            this.lblSearchEmployees.AutoSize = true;
+            this.lblSearchEmployees.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchEmployees.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblSearchEmployees.Location = new System.Drawing.Point(6, 30);
+            this.lblSearchEmployees.Name = "lblSearchEmployees";
+            this.lblSearchEmployees.Size = new System.Drawing.Size(257, 21);
+            this.lblSearchEmployees.TabIndex = 1;
+            this.lblSearchEmployees.Text = "Search Employee (Employee Name)";
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1061,28 +1097,28 @@
             this.Controls.Add(this.btnCreateEmployees);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlViewEmployees);
             this.Controls.Add(this.pnlCreateEmployee);
             this.Controls.Add(this.pnlUpdateEmployees);
-            this.Controls.Add(this.pnlViewEmployees);
             this.Name = "Employees";
             this.Text = "Employees";
             this.Load += new System.EventHandler(this.Employees_Load);
             this.pnlCreateEmployee.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).EndInit();
-            this.pnlUpdateEmployees.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
-            this.pnlViewEmployees.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvEmployees)).EndInit();
-            this.grpViewFilters.ResumeLayout(false);
-            this.grpViewFilters.PerformLayout();
-            this.grpUpdatePatients.ResumeLayout(false);
-            this.grpUpdatePatients.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUpdateEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAge)).EndInit();
             this.grpCreateEmployees.ResumeLayout(false);
             this.grpCreateEmployees.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCreateAge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCreateEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).EndInit();
+            this.pnlUpdateEmployees.ResumeLayout(false);
+            this.grpUpdatePatients.ResumeLayout(false);
+            this.grpUpdatePatients.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUpdateEmployee)).EndInit();
+            this.pnlViewEmployees.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvEmployees)).EndInit();
+            this.grpViewFilters.ResumeLayout(false);
+            this.grpViewFilters.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1162,7 +1198,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCreateNationalID;
         private System.Windows.Forms.Label label12;
