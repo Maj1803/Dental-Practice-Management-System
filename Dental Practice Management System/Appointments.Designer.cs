@@ -1189,13 +1189,13 @@
             // 
             // btnMarkAllCompleted
             // 
-            this.btnMarkAllCompleted.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnMarkAllCompleted.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnMarkAllCompleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMarkAllCompleted.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnMarkAllCompleted.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnMarkAllCompleted.Location = new System.Drawing.Point(876, 37);
+            this.btnMarkAllCompleted.Location = new System.Drawing.Point(893, 37);
             this.btnMarkAllCompleted.Name = "btnMarkAllCompleted";
-            this.btnMarkAllCompleted.Size = new System.Drawing.Size(190, 34);
+            this.btnMarkAllCompleted.Size = new System.Drawing.Size(173, 34);
             this.btnMarkAllCompleted.TabIndex = 11;
             this.btnMarkAllCompleted.Text = "Mark All as Completed";
             this.btnMarkAllCompleted.UseVisualStyleBackColor = false;
@@ -1209,6 +1209,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1435, 750);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlViewAppointments);
+            this.Controls.Add(this.pnlBookAppointment);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.btnUpdateAppointment);
@@ -1216,8 +1218,6 @@
             this.Controls.Add(this.btnViewAppointments);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.pnlBookAppointment);
-            this.Controls.Add(this.pnlViewAppointments);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

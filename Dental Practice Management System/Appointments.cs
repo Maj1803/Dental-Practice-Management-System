@@ -370,6 +370,7 @@ namespace Dental_Practice_Management_System
                 ApplyViewFilter();
                 ApplyUpdateFilter();
                 LoadAvailableSlots();
+                UpdateBulkCompleteButton();
             }
             catch (Exception ex)
             {
@@ -399,6 +400,7 @@ namespace Dental_Practice_Management_System
         private void txtUpdateSearch_TextChanged(object sender, EventArgs e)
         {
             ApplyUpdateFilter();
+            UpdateBulkCompleteButton();
         }
 
         private void btnUpdateSearch_Click(object sender, EventArgs e)
@@ -1023,20 +1025,21 @@ namespace Dental_Practice_Management_System
         private void txtUpdateSearch_TextChanged_1(object sender, EventArgs e)
         {
             ApplyUpdateFilter();
+            UpdateBulkCompleteButton();
+
         }
 
         private void cmbUpdateStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             ResetUpdatePanel();
             LoadUpdateActions();
-
-            btnMarkAllCompleted.Visible =
-                cmbUpdateStatusFilter.SelectedItem?.ToString() == "Past Scheduled";
+            UpdateBulkCompleteButton();
         }
 
         private void dtpUpdateFilterDate_ValueChanged(object sender, EventArgs e)
         {
             ApplyUpdateFilter();
+            UpdateBulkCompleteButton();
         }
 
 
@@ -1066,6 +1069,7 @@ namespace Dental_Practice_Management_System
             cmbNewTimeSlot.Enabled = false;
 
             ApplyUpdateFilter();
+            UpdateBulkCompleteButton();
             txtUpdateSearch.Focus();
         }
 
@@ -1118,7 +1122,19 @@ namespace Dental_Practice_Management_System
 
             ResetUpdatePanel();
             ApplyUpdateFilter();
+            UpdateBulkCompleteButton();
         }
-    
+
+        private void UpdateBulkCompleteButton()
+        {
+            bool isPastScheduled =
+                cmbUpdateStatusFilter.SelectedItem?.ToString() == "Past Scheduled";
+
+            bool hasAppointments =
+                dsDentist.AppointmentView.DefaultView.Count > 0;
+
+            btnMarkAllCompleted.Visible =
+                isPastScheduled && hasAppointments;
+        }
     }
 }
