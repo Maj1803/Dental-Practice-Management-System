@@ -133,10 +133,8 @@ namespace Dental_Practice_Management_System
 
         private void llblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Please contact IT department to reset your password.",
-                            "Forgot Password",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+            ForgotPassword frm = new ForgotPassword();
+            frm.ShowDialog();
         }
 
         private void clockTimer_Tick(object sender, EventArgs e)
