@@ -161,11 +161,11 @@
             // 
             this.lblPatientsText.AutoSize = true;
             this.lblPatientsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientsText.Location = new System.Drawing.Point(87, 98);
+            this.lblPatientsText.Location = new System.Drawing.Point(53, 98);
             this.lblPatientsText.Name = "lblPatientsText";
-            this.lblPatientsText.Size = new System.Drawing.Size(186, 22);
+            this.lblPatientsText.Size = new System.Drawing.Size(232, 22);
             this.lblPatientsText.TabIndex = 1;
-            this.lblPatientsText.Text = "Registered Patients";
+            this.lblPatientsText.Text = "Appointments This Week";
             // 
             // lblPatientsCount
             // 
@@ -304,6 +304,7 @@
             this.dgvSchedule.Location = new System.Drawing.Point(20, 126);
             this.dgvSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSchedule.Name = "dgvSchedule";
+            this.dgvSchedule.ReadOnly = true;
             this.dgvSchedule.RowHeadersVisible = false;
             this.dgvSchedule.RowHeadersWidth = 62;
             this.dgvSchedule.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -319,6 +320,7 @@
             this.colPatient.HeaderText = "Patient Name";
             this.colPatient.MinimumWidth = 8;
             this.colPatient.Name = "colPatient";
+            this.colPatient.ReadOnly = true;
             this.colPatient.Width = 150;
             // 
             // colTime
@@ -326,6 +328,7 @@
             this.colTime.HeaderText = "Time";
             this.colTime.MinimumWidth = 8;
             this.colTime.Name = "colTime";
+            this.colTime.ReadOnly = true;
             this.colTime.Width = 150;
             // 
             // colTreatment
@@ -333,6 +336,7 @@
             this.colTreatment.HeaderText = "Treatment";
             this.colTreatment.MinimumWidth = 8;
             this.colTreatment.Name = "colTreatment";
+            this.colTreatment.ReadOnly = true;
             this.colTreatment.Width = 150;
             // 
             // colStatus
@@ -340,6 +344,7 @@
             this.colStatus.HeaderText = "Appointment status";
             this.colStatus.MinimumWidth = 8;
             this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
             this.colStatus.Width = 150;
             // 
             // grpStaffMessages
