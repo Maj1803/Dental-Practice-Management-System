@@ -229,19 +229,47 @@ namespace Dental_Practice_Management_System
 
         private void btnInvoice_Click(object sender, EventArgs e)
         {
+            //NEW LABEL CODE
+
+            /*dsDentist.Appointment.Clear();
+
+            int rows = appointmentTableAdapter.Fill(dsDentist.Appointment);
+                        
+            bool found = false;
+            int patientID = -1;
+
+            foreach (DataRow row in dsDentist.Appointment.Rows)
+            {
+                int apptID = Convert.ToInt32(row["Appointment_ID"]);
+                
+                if (apptID == int.Parse(appointmentID))
+                {
+                    found = true;
+                    patientID = Convert.ToInt32(row["Patient_ID"]);
+                }
+
+            }
+
             dsDentist.Patient.Clear();
 
-            int rows = patientTableAdapter.Fill(dsDentist.Patient);
+            int rows2 = patientTableAdapter.Fill(dsDentist.Patient);
 
-            int rows2 = treatmentTableAdapter.FillByAppointmentID(dsDentist.Treatment, Convert.ToInt32(appointmentID));
+            bool found2 = false;
+            
+            foreach (DataRow row in dsDentist.Patient.Rows)
+            {
+                int pID = Convert.ToInt32(row["Patient_ID"]);
 
-            DataRow patientRow = dsDentist.Patient.Rows[0];
+                if (pID == patientID)
+                {
+                    found = true;
+                    patientFullName = row["Patient_Full_Name"].ToString() + row["Patient_Last_Name"].ToString();
+                    patientPhone = row["Patient_Phone_Number"].ToString();
+                    break;
 
-            patientPhone = patientRow["Patient_Phone_Number"].ToString();
-            string firstName = patientRow["Patient_First_Name"].ToString();
-            string lastName = patientRow["Patient_Last_Name"].ToString();
+                }
 
-            patientFullName = firstName + " " + lastName;
+            }*/
 
             Invoice frm = new Invoice();
 
