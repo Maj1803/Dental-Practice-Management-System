@@ -144,6 +144,7 @@ namespace Dental_Practice_Management_System
         private void btnStaff_Click(object sender, EventArgs e)
         {
             //OpenChildForm(new Staff());
+            OpenChildForm(new Employees());
         }
 
         private void pnlHeader_Paint(object sender, PaintEventArgs e)

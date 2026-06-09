@@ -62,48 +62,37 @@ namespace Dental_Practice_Management_System
         private void txtSearchEmployees_TextChanged(object sender, EventArgs e)
         {
             employeeTableAdapter.FillBySearchName(dsDentist.Employee, txtSearchEmployees.Text);
-            if (dsDentist.Patient.Rows.Count <= 0)
+            if (dsDentist.Patient.Rows.Count < 0)
             {
-                MessageBox.Show("Patient Not Found.");
+                MessageBox.Show("Employee Not Found.");
             }
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            //employeeTableAdapter.InsertQuery(txtCreateFirstName.Text, txtCreateSurname.Text, txtCreateRole.Text, txtCreateContactNo.Text, txtCreateEmail.Text, txtCreateUsername.Text, txtCreatePassword.Text, txtCreateNationalID.Text, numCreateAge.Value);
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            /* 
-            if (gvUpdateEmployee.CurrentRow == null)
-            {
-                MessageBox.Show("Please select an employee to update.");
-                return;
-            }
-            employeeTableAdapter.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, Convert.ToInt32(gvUpdateEmployee.CurrentRow.Cells[0].Value));
-            MessageBox.Show("Employee Updated Successfully.");
-            employeeTableAdapter.Fill(this.dsDentist.Employee);
-
-            */
 
         }
 
         private void btnDeletePatient_Click(object sender, EventArgs e)
         {
-            /* if (gvEmployees.CurrentRow == null)
+            if (gvEmployees.CurrentRow == null)
              {
-                 MessageBox.Show("Please select a patient to delete.");
+                 MessageBox.Show("Please select an employee to delete.");
                  return;
              }
              employeeTableAdapter.DeleteQuery(Convert.ToInt32(gvEmployees.CurrentRow.Cells[0].Value));
              MessageBox.Show("Employee Deleted Successfully.");
              employeeTableAdapter.Fill(this.dsDentist.Employee);
 
-            */
+            
         }
 
-        private void gvUpdateEmployee_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+      /*  private void gvUpdateEmployee_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtFirstName.Text = gvUpdateEmployee.CurrentRow.Cells[1].Value.ToString();
             txtSurname.Text = gvUpdateEmployee.CurrentRow.Cells[2].Value.ToString();
@@ -114,6 +103,63 @@ namespace Dental_Practice_Management_System
             txtPassword.Text = gvUpdateEmployee.CurrentRow.Cells[7].Value.ToString();
             txtNationalID.Text = gvUpdateEmployee.CurrentRow.Cells[8].Value.ToString();
             numAge.Text = gvUpdateEmployee.CurrentRow.Cells[9].Value.ToString();
+        } */
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
+                        
+            if (gvUpdateEmployee.CurrentRow == null)
+            {
+                MessageBox.Show("Please select an employee to update.");
+                return;
+            }
+
+            if (txtFirstName.Text == "" || txtSurname.Text == "" || txtRole.Text == "" || txtContactNo.Text == "" || txtEmail.Text == "" || txtUsername.Text == "" || txtPassword.Text == "" || txtNationalID.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            employeeTableAdapter.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtRole.Text, txtContactNo.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text, txtNationalID.Text, Convert.ToInt32(numAge.Value), Convert.ToInt32(gvUpdateEmployee.CurrentRow.Cells[0].Value));
+            MessageBox.Show("Employee Updated Successfully.");
+            employeeTableAdapter.Fill(this.dsDentist.Employee);
+
+            
+        }
+
+        private void gvUpdateEmployee_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtFirstName.Text = gvUpdateEmployee.CurrentRow.Cells[1].Value.ToString();
+            txtSurname.Text = gvUpdateEmployee.CurrentRow.Cells[2].Value.ToString();
+            txtRole.Text = gvUpdateEmployee.CurrentRow.Cells[3].Value.ToString();
+            txtContactNo.Text = gvUpdateEmployee.CurrentRow.Cells[4].Value.ToString();
+            txtEmail.Text = gvUpdateEmployee.CurrentRow.Cells[5].Value.ToString();
+            txtUsername.Text = gvUpdateEmployee.CurrentRow.Cells[6].Value.ToString();
+            txtPassword.Text = gvUpdateEmployee.CurrentRow.Cells[7].Value.ToString();
+            txtNationalID.Text = gvUpdateEmployee.CurrentRow.Cells[8].Value.ToString();
+            numAge.Text = gvUpdateEmployee.CurrentRow.Cells[9].Value.ToString();
+        }
+
+        private void btnCreate_Click_1(object sender, EventArgs e)
+        {
+            if (txtFirstName.Text == "" || txtSurname.Text == "" || txtRole.Text == "" || txtContactNo.Text == "" || txtEmail.Text == "" || txtUsername.Text == "" || txtPassword.Text == "" || txtNationalID.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+
+            employeeTableAdapter.InsertQuery(txtCreateFirstName.Text, txtCreateSurname.Text, txtCreateRole.Text, txtCreateContactNo.Text, txtCreateEmail.Text, txtCreateUsername.Text, txtCreatePassword.Text, txtCreateNationalID.Text, Convert.ToInt32(numCreateAge.Value));
+            MessageBox.Show("Employee Added Successfully.");
+            employeeTableAdapter.Fill(this.dsDentist.Employee);
+            txtCreateFirstName.Clear();
+            txtCreateSurname.Clear();
+            txtRole.Clear();
+            txtCreateContactNo.Clear();
+            txtCreateEmail.Clear();
+            txtCreateUsername.Clear();
+            txtCreatePassword.Clear();
+            txtCreateNationalID.Clear();
         }
     }
 }

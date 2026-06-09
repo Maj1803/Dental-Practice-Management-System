@@ -7,6 +7,7 @@ namespace Dental_Practice_Management_System
     public partial class Dashboard : Form
     {
         private string _senderName;
+
         public Dashboard(string senderName)
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace Dental_Practice_Management_System
             {
                 this.staffMessageTableAdapter.Fill(this.dsDentist.StaffMessage);
                 ScrollToBottom();
+
                 using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.dentistConnStr))
                 {
                     conn.Open();
@@ -30,9 +32,11 @@ namespace Dental_Practice_Management_System
                         "SELECT COUNT(*) FROM Appointment WHERE CAST(Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)", conn);
                     lblAppointmentsCount.Text = cmd1.ExecuteScalar().ToString();
 
-                    // Registered patients
+                    // Appointments this week
                     SqlCommand cmd2 = new SqlCommand(
-                        "SELECT COUNT(*) FROM Patient", conn);
+                        @"SELECT COUNT(*) FROM Appointment 
+                          WHERE Appointment_Date >= DATEADD(DAY, 1-DATEPART(WEEKDAY, GETDATE()), CAST(GETDATE() AS DATE))
+                          AND Appointment_Date < DATEADD(DAY, 8-DATEPART(WEEKDAY, GETDATE()), CAST(GETDATE() AS DATE))", conn);
                     lblPatientsCount.Text = cmd2.ExecuteScalar().ToString();
 
                     // Unpaid invoices
@@ -55,21 +59,28 @@ namespace Dental_Practice_Management_System
                           ORDER BY t.Slot_Start_Time", conn);
 
                     SqlDataReader reader = cmd4.ExecuteReader();
+
                     dgvSchedule.Rows.Clear();
+
                     while (reader.Read())
                     {
                         dgvSchedule.Rows.Add(
                             reader["Slot_Start_Time"].ToString(),
                             reader["PatientName"].ToString(),
-                            reader["TreatmentName"] == DBNull.Value ? "No Treatment" : reader["TreatmentName"].ToString(),
+                            reader["TreatmentName"] == DBNull.Value
+                                ? "No Treatment"
+                                : reader["TreatmentName"].ToString(),
                             reader["Appointment_Status"].ToString()
                         );
                     }
+
+                    dgvSchedule.ClearSelection();
+                    dgvSchedule.CurrentCell = null; // Prevent first row auto-selection
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading messages: " + ex.Message);//staff message error 
+                MessageBox.Show("Error loading messages: " + ex.Message);
                 MessageBox.Show("Error loading dashboard: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -79,26 +90,24 @@ namespace Dental_Practice_Management_System
         {
             try
             {
-
-
-                // TODO: This line of code loads data into the 'dsDentist.StaffMessage' table. You can move, or remove it, as needed.
                 this.staffMessageTableAdapter.Fill(this.dsDentist.StaffMessage);
                 lstMessages.SelectedIndex = -1;
                 ScrollToBottom();
+
+                dgvSchedule.ClearSelection();
+                dgvSchedule.CurrentCell = null; // Prevent first row auto-selection
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading messages: " + ex.Message);
             }
-
-            }
+        }
 
         private void staffMessageBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
             this.staffMessageBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dsDentist);
-
         }
 
         private void staffMessageBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -106,30 +115,34 @@ namespace Dental_Practice_Management_System
             this.Validate();
             this.staffMessageBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dsDentist);
-
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMessages.Text) || txtMessages.Text == "Type your message here...") return;
+            if (string.IsNullOrWhiteSpace(txtMessages.Text) ||
+                txtMessages.Text == "Type your message here...")
+                return;
+
             try
             {
-                this.staffMessageTableAdapter.Insert(_senderName, txtMessages.Text.Trim(), DateTime.Now);
+                this.staffMessageTableAdapter.Insert(
+                    _senderName,
+                    txtMessages.Text.Trim(),
+                    DateTime.Now);
 
                 this.staffMessageTableAdapter.Fill(this.dsDentist.StaffMessage);
-
                 txtMessages.Clear();
                 ScrollToBottom();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error sending message: " + ex.Message);
             }
-
         }
+
         private void ScrollToBottom()
         {
-            if(lstMessages.Items.Count > 0)
+            if (lstMessages.Items.Count > 0)
             {
                 lstMessages.TopIndex = lstMessages.Items.Count - 1;
             }
@@ -155,7 +168,7 @@ namespace Dental_Practice_Management_System
 
         private void lstMessages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstMessages.SelectedIndex != -1)
+            if (lstMessages.SelectedIndex != -1)
             {
                 lstMessages.SelectedIndex = -1;
             }
@@ -163,7 +176,6 @@ namespace Dental_Practice_Management_System
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void lblInvoicesText_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -177,16 +189,13 @@ namespace Dental_Practice_Management_System
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(
-                    @"SELECT
-                p.Patient_First_Name + ' ' + p.Patient_Last_Name AS PatientName,
-                i.invoice_total_amount
-              FROM Invoice i
-              INNER JOIN Appointment a
-                    ON i.appointment_id = a.Appointment_ID
-              INNER JOIN Patient p
-                    ON a.Patient_ID = p.Patient_ID
-              WHERE i.invoice_status = 'Unpaid'",
-                    conn);
+                        @"SELECT
+                            p.Patient_First_Name + ' ' + p.Patient_Last_Name AS PatientName,
+                            i.invoice_total_amount
+                          FROM Invoice i
+                          INNER JOIN Appointment a ON i.appointment_id = a.Appointment_ID
+                          INNER JOIN Patient p ON a.Patient_ID = p.Patient_ID
+                          WHERE i.invoice_status = 'Unpaid'", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -228,6 +237,5 @@ namespace Dental_Practice_Management_System
                     MessageBoxIcon.Error);
             }
         }
-
     }
-    }
+}

@@ -70,15 +70,7 @@ namespace Dental_Practice_Management_System
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (gvUpdatePatient.CurrentRow == null)
-            {
-                MessageBox.Show("Please select a patient to update.");
-                return;
-            }
-
-            patientTableAdapter1.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, txtAllergies.Text, (dtpUpdateDOB.Value).ToString(), Convert.ToInt32(gvUpdatePatient.CurrentRow.Cells[0].Value));
-            MessageBox.Show("Patient updated successfully.");
-            patientTableAdapter1.Fill(this.dsDentist.Patient);
+     
         }
 
         private void btnCreatePatients_Click(object sender, EventArgs e)
@@ -100,7 +92,7 @@ namespace Dental_Practice_Management_System
 
         }
 
-        private void gvUpdatePatient_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+      /*  private void gvUpdatePatient_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtFirstName.Text = gvUpdatePatient.CurrentRow.Cells[1].Value.ToString();
             txtSurname.Text = gvUpdatePatient.CurrentRow.Cells[2].Value.ToString();
@@ -113,11 +105,11 @@ namespace Dental_Practice_Management_System
             txtAllergies.Text = gvUpdatePatient.CurrentRow.Cells[9].Value.ToString();
             dtpUpdateDOB.Text = gvUpdatePatient.CurrentRow.Cells[10].Value.ToString();
 
-        }
+        } */
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (txtCreateFirstName.Text == "" || txtCreateSurname.Text == "" || txtCreateContactNo.Text == "" || txtCreateStreet.Text == "" || txtCreateSuburb.Text == "" || txtCreateCity.Text == "" || txtCreateCode.Text == "" || txtCreateEmail.Text == "" || txtCreateAllergies.Text == "")
+            if (txtCreateFirstName.Text == "" || txtCreateSurname.Text == "" || txtCreateContactNo.Text == "" || txtCreateStreet.Text == "" || txtCreateSuburb.Text == "" || txtCreateCity.Text == "" || txtCreateCode.Text == "" || txtCreateEmail.Text == "")
             {
                 MessageBox.Show("Please fill in all fields.");
                 return;
@@ -158,6 +150,39 @@ namespace Dental_Practice_Management_System
             dtpDOB.Value = DateTime.Now;
 
             MessageBox.Show("Creation cancelled.");
+        }
+
+        private void gvUpdatePatient_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            txtFirstName.Text = gvUpdatePatient.CurrentRow.Cells[1].Value.ToString();
+            txtSurname.Text = gvUpdatePatient.CurrentRow.Cells[2].Value.ToString();
+            txtContactNo.Text = gvUpdatePatient.CurrentRow.Cells[3].Value.ToString();
+            txtStreet.Text = gvUpdatePatient.CurrentRow.Cells[4].Value.ToString();
+            txtSuburb.Text = gvUpdatePatient.CurrentRow.Cells[5].Value.ToString();
+            txtCity.Text = gvUpdatePatient.CurrentRow.Cells[6].Value.ToString();
+            txtCode.Text = gvUpdatePatient.CurrentRow.Cells[7].Value.ToString();
+            txtEmail.Text = gvUpdatePatient.CurrentRow.Cells[8].Value.ToString();
+            txtAllergies.Text = gvUpdatePatient.CurrentRow.Cells[9].Value.ToString();
+            dtpUpdateDOB.Text = gvUpdatePatient.CurrentRow.Cells[10].Value.ToString();
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
+            if (gvUpdatePatient.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a patient to update.");
+                return;
+            }
+
+            if (txtFirstName.Text == "" || txtSurname.Text == "" || txtContactNo.Text == "" || txtStreet.Text == "" || txtSuburb.Text == "" || txtCity.Text == "" || txtCode.Text == "" || txtEmail.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            patientTableAdapter1.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, txtAllergies.Text, (dtpUpdateDOB.Value).ToString(), Convert.ToInt32(gvUpdatePatient.CurrentRow.Cells[0].Value));
+            MessageBox.Show("Patient updated successfully.");
+            patientTableAdapter1.Fill(this.dsDentist.Patient);
         }
     }
 }
