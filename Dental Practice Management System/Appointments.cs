@@ -329,6 +329,7 @@ namespace Dental_Practice_Management_System
                 cmbStatusFilter.SelectedIndexChanged += cmbStatusFilter_SelectedIndexChanged;
 
                 dtpFilterDate.Value = DateTime.Today;
+                dtpFilterDate.Checked = false;
                 dtpFilterDate.Enabled = true;
                 dtpFilterDate.ValueChanged += dtpFilterDate_ValueChanged;
                 txtSearchAppointments.TextChanged += txtSearchAppointments_TextChanged;
@@ -359,6 +360,7 @@ namespace Dental_Practice_Management_System
 
                 dtpUpdateFilterDate.Enabled = true;
                 dtpUpdateFilterDate.Value = DateTime.Today;
+                dtpUpdateFilterDate.Checked = false;
 
                 dtpNewDate.Enabled = false;
                 cmbNewTimeSlot.Enabled = false;
@@ -979,7 +981,7 @@ namespace Dental_Practice_Management_System
         {
             txtSearchAppointments.Clear();
             dtpFilterDate.Value = DateTime.Today;
-            dtpFilterDate.Checked = true;
+            dtpFilterDate.Checked = false;
             cmbStatusFilter.SelectedIndex = 0;
             ApplyViewFilter();
             txtSearchAppointments.Focus();
@@ -1047,7 +1049,7 @@ namespace Dental_Practice_Management_System
         {
             txtUpdateSearch.Clear();
             dtpUpdateFilterDate.Value = DateTime.Today;
-            dtpUpdateFilterDate.Checked = true;
+            dtpUpdateFilterDate.Checked = false;
             cmbUpdateStatusFilter.SelectedIndex = 1;
 
             selectedAppointmentID = -1;
