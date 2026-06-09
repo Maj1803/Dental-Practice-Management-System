@@ -228,7 +228,7 @@
             this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblDate.Location = new System.Drawing.Point(1580, 340);
+            this.lblDate.Location = new System.Drawing.Point(1565, 340);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(24, 25);
             this.lblDate.TabIndex = 4;
