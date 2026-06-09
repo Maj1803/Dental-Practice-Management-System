@@ -375,7 +375,7 @@
             this.grpPayment.Controls.Add(this.label16);
             this.grpPayment.Location = new System.Drawing.Point(32, 666);
             this.grpPayment.Name = "grpPayment";
-            this.grpPayment.Size = new System.Drawing.Size(1184, 135);
+            this.grpPayment.Size = new System.Drawing.Size(1184, 123);
             this.grpPayment.TabIndex = 16;
             this.grpPayment.TabStop = false;
             this.grpPayment.Text = "Payment";
@@ -385,7 +385,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Blue;
-            this.label20.Location = new System.Drawing.Point(438, 107);
+            this.label20.Location = new System.Drawing.Point(436, 95);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(248, 16);
             this.label20.TabIndex = 18;

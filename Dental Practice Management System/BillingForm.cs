@@ -231,7 +231,7 @@ namespace Dental_Practice_Management_System
         {
             //NEW LABEL CODE
 
-            /*dsDentist.Appointment.Clear();
+            dsDentist.Appointment.Clear();
 
             int rows = appointmentTableAdapter.Fill(dsDentist.Appointment);
                         
@@ -263,13 +263,13 @@ namespace Dental_Practice_Management_System
                 if (pID == patientID)
                 {
                     found = true;
-                    patientFullName = row["Patient_Full_Name"].ToString() + row["Patient_Last_Name"].ToString();
+                    patientFullName = row["Patient_First_Name"].ToString() +" "+ row["Patient_Last_Name"].ToString();
                     patientPhone = row["Patient_Phone_Number"].ToString();
                     break;
 
                 }
 
-            }*/
+            }
 
             Invoice frm = new Invoice();
 
@@ -277,7 +277,7 @@ namespace Dental_Practice_Management_System
 
             frm.lblAppointment.Text = appointmentID;
 
-            MessageBox.Show(frm.lblAppointment.Text);
+            
 
             frm.lblDate.Text = DateTime.Now.ToShortDateString();
 
