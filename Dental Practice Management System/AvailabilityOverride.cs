@@ -404,41 +404,50 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
-            selectedOverrideId = Convert.ToInt32(dgvOverrides.CurrentRow.Cells["Override_ID"].Value);
+            isInitializing = true;
 
-            dtpDate.Value = Convert.ToDateTime(dgvOverrides.CurrentRow.Cells["Target_Date"].Value);
-            cmbDentist.SelectedValue = dgvOverrides.CurrentRow.Cells["Employee_ID"].Value;
-
-            string isFullDayStr = dgvOverrides.CurrentRow.Cells["Is_Full_Day"].Value.ToString();
-            chkFullDay.Checked = (isFullDayStr == "Y" || isFullDayStr == "True");
-
-            // Build list collection array boundaries before applying selected values
-            UpdateReasonComboBoxOptions();
-
-            if (!chkFullDay.Checked && dgvOverrides.CurrentRow.Cells["Timeslot_ID"].Value != DBNull.Value)
+            try
             {
-                LoadOverrideTimeSlots();
-                cmbTimeSlot.SelectedValue = dgvOverrides.CurrentRow.Cells["Timeslot_ID"].Value;
-            }
-            else
-            {
-                cmbTimeSlot.SelectedIndex = -1;
-            }
+                selectedOverrideId = Convert.ToInt32(dgvOverrides.CurrentRow.Cells["Override_ID"].Value);
 
-            string gridReason = dgvOverrides.CurrentRow.Cells["Reason"].Value.ToString();
-            if (cmbReason.Items.Contains(gridReason))
-            {
-                cmbReason.SelectedItem = gridReason;
-                txtReason.Clear();
-                txtReason.Enabled = false;
-            }
-            else
-            {
-                cmbReason.SelectedItem = "Other";
-                txtReason.Enabled = true;
-                txtReason.Text = gridReason;
-            }
+                dtpDate.Value = Convert.ToDateTime(dgvOverrides.CurrentRow.Cells["Target_Date"].Value);
+                cmbDentist.SelectedValue = dgvOverrides.CurrentRow.Cells["Employee_ID"].Value;
 
+                string isFullDayStr = dgvOverrides.CurrentRow.Cells["Is_Full_Day"].Value.ToString();
+                chkFullDay.Checked = (isFullDayStr == "Y" || isFullDayStr == "True");
+
+                // Build list collection array boundaries before applying selected values
+                UpdateReasonComboBoxOptions();
+
+                if (!chkFullDay.Checked && dgvOverrides.CurrentRow.Cells["Timeslot_ID"].Value != DBNull.Value)
+                {
+                    LoadOverrideTimeSlots();
+                    cmbTimeSlot.SelectedValue = dgvOverrides.CurrentRow.Cells["Timeslot_ID"].Value;
+                }
+                else
+                {
+                    cmbTimeSlot.SelectedIndex = -1;
+                }
+
+                string gridReason = dgvOverrides.CurrentRow.Cells["Reason"].Value.ToString();
+                if (cmbReason.Items.Contains(gridReason))
+                {
+                    cmbReason.SelectedItem = gridReason;
+                    txtReason.Clear();
+                    txtReason.Enabled = false;
+                }
+                else
+                {
+                    cmbReason.SelectedItem = "Other";
+                    txtReason.Enabled = true;
+                    txtReason.Text = gridReason;
+                }
+            }
+            finally
+            {
+                isInitializing = false;
+            }
+     
             ShowPanel(pnlForm);
         }
 

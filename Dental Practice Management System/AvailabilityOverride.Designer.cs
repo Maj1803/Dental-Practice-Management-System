@@ -51,10 +51,10 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.gbTimeBlock = new System.Windows.Forms.GroupBox();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTimeSlot = new System.Windows.Forms.Label();
             this.lblOther = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.lblReason = new System.Windows.Forms.Label();
+            this.lblTimeSlot = new System.Windows.Forms.Label();
             this.lblDentist = new System.Windows.Forms.Label();
             this.btCancel = new System.Windows.Forms.Button();
             this.btAddNew = new System.Windows.Forms.Button();
@@ -65,12 +65,12 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.gpsearch = new System.Windows.Forms.GroupBox();
+            this.txtUnifiedSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.employeeTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.EmployeeTableAdapter();
             this.tableAdapterManager = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
             this.availability_OverrideTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.Availability_OverrideTableAdapter();
-            this.txtUnifiedSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOverrides)).BeginInit();
@@ -300,26 +300,6 @@
             this.gbTimeBlock.TabStop = false;
             this.gbTimeBlock.Text = "Time Block";
             // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(6, 78);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(135, 22);
-            this.lblDate.TabIndex = 6;
-            this.lblDate.Text = "Choose a Date:";
-            // 
-            // lblTimeSlot
-            // 
-            this.lblTimeSlot.AutoSize = true;
-            this.lblTimeSlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeSlot.Location = new System.Drawing.Point(6, 130);
-            this.lblTimeSlot.Name = "lblTimeSlot";
-            this.lblTimeSlot.Size = new System.Drawing.Size(145, 22);
-            this.lblTimeSlot.TabIndex = 5;
-            this.lblTimeSlot.Text = "Pick a Time Slot:";
-            // 
             // lblOther
             // 
             this.lblOther.AutoSize = true;
@@ -330,6 +310,16 @@
             this.lblOther.TabIndex = 10;
             this.lblOther.Text = "Other";
             // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(6, 78);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(135, 22);
+            this.lblDate.TabIndex = 6;
+            this.lblDate.Text = "Choose a Date:";
+            // 
             // lblReason
             // 
             this.lblReason.AutoSize = true;
@@ -339,6 +329,16 @@
             this.lblReason.Size = new System.Drawing.Size(144, 22);
             this.lblReason.TabIndex = 9;
             this.lblReason.Text = "Choose Reason:";
+            // 
+            // lblTimeSlot
+            // 
+            this.lblTimeSlot.AutoSize = true;
+            this.lblTimeSlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeSlot.Location = new System.Drawing.Point(6, 130);
+            this.lblTimeSlot.Name = "lblTimeSlot";
+            this.lblTimeSlot.Size = new System.Drawing.Size(145, 22);
+            this.lblTimeSlot.TabIndex = 5;
+            this.lblTimeSlot.Text = "Pick a Time Slot:";
             // 
             // lblDentist
             // 
@@ -405,7 +405,7 @@
             this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Location = new System.Drawing.Point(24, 30);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(64, 30);
             this.btnBack.TabIndex = 15;
@@ -431,9 +431,9 @@
             this.pnlDisplay.Controls.Add(this.gpsearch);
             this.pnlDisplay.Controls.Add(this.dgvOverrides);
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDisplay.Location = new System.Drawing.Point(0, 0);
+            this.pnlDisplay.Location = new System.Drawing.Point(0, 76);
             this.pnlDisplay.Name = "pnlDisplay";
-            this.pnlDisplay.Size = new System.Drawing.Size(1076, 609);
+            this.pnlDisplay.Size = new System.Drawing.Size(1076, 533);
             this.pnlDisplay.TabIndex = 17;
             // 
             // btnUpdate
@@ -483,6 +483,15 @@
             this.gpsearch.TabStop = false;
             this.gpsearch.Text = "Search By";
             // 
+            // txtUnifiedSearch
+            // 
+            this.txtUnifiedSearch.Location = new System.Drawing.Point(130, 21);
+            this.txtUnifiedSearch.Name = "txtUnifiedSearch";
+            this.txtUnifiedSearch.Size = new System.Drawing.Size(224, 23);
+            this.txtUnifiedSearch.TabIndex = 17;
+            this.txtUnifiedSearch.TextChanged += new System.EventHandler(this.txtUnifiedSearch_TextChanged);
+            this.txtUnifiedSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUnifiedSearch_KeyDown);
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -503,7 +512,6 @@
             this.label2.Size = new System.Drawing.Size(107, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "Date or Dentist:";
-        //    this.label2.Click += new System.EventHandler(this.//label2_Click);
             // 
             // employeeTableAdapter
             // 
@@ -531,15 +539,6 @@
             // 
             this.availability_OverrideTableAdapter.ClearBeforeFill = true;
             // 
-            // txtUnifiedSearch
-            // 
-            this.txtUnifiedSearch.Location = new System.Drawing.Point(130, 21);
-            this.txtUnifiedSearch.Name = "txtUnifiedSearch";
-            this.txtUnifiedSearch.Size = new System.Drawing.Size(224, 23);
-            this.txtUnifiedSearch.TabIndex = 17;
-            this.txtUnifiedSearch.TextChanged += new System.EventHandler(this.txtUnifiedSearch_TextChanged);
-            this.txtUnifiedSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUnifiedSearch_KeyDown);
-            // 
             // AvailabilityOverride
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,9 +547,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1076, 609);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlDisplay);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
