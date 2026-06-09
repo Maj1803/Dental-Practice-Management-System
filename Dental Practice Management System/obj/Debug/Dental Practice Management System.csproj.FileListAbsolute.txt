@@ -143,8 +143,8 @@ C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\stdole.dll
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.ForgotPassword.resources
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental P.0574DD40.Up2Date
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config

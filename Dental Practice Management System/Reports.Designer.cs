@@ -32,6 +32,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.rptAppointments1 = new Dental_Practice_Management_System.rptAppointments();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.InvoiceSummary1 = new Dental_Practice_Management_System.InvoiceSummary();
@@ -48,7 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbPatientID = new System.Windows.Forms.ComboBox();
             this.cmbPatientName = new System.Windows.Forms.ComboBox();
-            this.Appointments1 = new Dental_Practice_Management_System.Appointments();
             this.CrystalReport11 = new Dental_Practice_Management_System.CrystalReport1();
             this.dsDentist1 = new Dental_Practice_Management_System.dsDentist();
             this.tableAdapterManager1 = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
@@ -56,7 +56,7 @@
             this.appointmentTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentTableAdapter();
             this.queriesTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
             this.queriesTableAdapter2 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
-            this.rptAppointments1 = new Dental_Practice_Management_System.rptAppointments();
+            this.Appointments1 = new Dental_Practice_Management_System.Appointments();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -174,6 +174,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(195, 28);
             this.comboBox2.TabIndex = 0;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -244,25 +245,6 @@
             this.cmbPatientName.Size = new System.Drawing.Size(195, 28);
             this.cmbPatientName.TabIndex = 0;
             // 
-            // Appointments1
-            // 
-            this.Appointments1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Appointments1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Appointments1.ClientSize = new System.Drawing.Size(1435, 750);
-            this.Appointments1.ControlBox = false;
-            this.Appointments1.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Appointments1.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Appointments1.Icon = ((System.Drawing.Icon)(resources.GetObject("Appointments1.Icon")));
-            this.Appointments1.Location = new System.Drawing.Point(0, 0);
-            this.Appointments1.MaximizeBox = false;
-            this.Appointments1.MinimizeBox = false;
-            this.Appointments1.Name = "Appointments1";
-            this.Appointments1.ShowIcon = false;
-            this.Appointments1.ShowInTaskbar = false;
-            this.Appointments1.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Appointments1.Text = "Appointments";
-            this.Appointments1.Visible = false;
-            // 
             // dsDentist1
             // 
             this.dsDentist1.DataSetName = "dsDentist";
@@ -309,6 +291,25 @@
             // appointmentTableAdapter1
             // 
             this.appointmentTableAdapter1.ClearBeforeFill = true;
+            // 
+            // Appointments1
+            // 
+            this.Appointments1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Appointments1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Appointments1.ClientSize = new System.Drawing.Size(1435, 750);
+            this.Appointments1.ControlBox = false;
+            this.Appointments1.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Appointments1.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Appointments1.Icon = ((System.Drawing.Icon)(resources.GetObject("Appointments1.Icon")));
+            this.Appointments1.Location = new System.Drawing.Point(0, 0);
+            this.Appointments1.MaximizeBox = false;
+            this.Appointments1.MinimizeBox = false;
+            this.Appointments1.Name = "Appointments1";
+            this.Appointments1.ShowIcon = false;
+            this.Appointments1.ShowInTaskbar = false;
+            this.Appointments1.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Appointments1.Text = "Appointments";
+            this.Appointments1.Visible = false;
             // 
             // Reports
             // 
