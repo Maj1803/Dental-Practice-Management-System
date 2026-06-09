@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Dental_Practice_Management_System
 {
     public partial class LoginForm : Form
     {
-        private string selectedRole = "";
-
         public LoginForm()
         {
             InitializeComponent();
@@ -40,26 +37,8 @@ namespace Dental_Practice_Management_System
                 btnLogin_Click(sender, e);
         }
 
-        private void rdoReceptionist_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoReceptionist.Checked)
-                selectedRole = "Receptionist";
-        }
-
-        private void rdoDentist_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoDentist.Checked)
-                selectedRole = "Dentist";
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (selectedRole == "")
-            {
-                MessageBox.Show("Please select Receptionist or Dentist first.",
-                    "No Role Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show("Please enter your username and password.",
@@ -70,45 +49,60 @@ namespace Dental_Practice_Management_System
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.dentistConnStr))
+            try
             {
-                try
+                using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.dentistConnStr))
                 {
                     conn.Open();
-                    string query = @"SELECT Employee_ID, Employee_First_Name, Employee_Last_Name, Employee_Role
+
+                    string query = @"SELECT Employee_First_Name, Employee_Last_Name, Employee_Role
                                      FROM Employee
                                      WHERE Employee_Username = @Username
-                                     AND Employee_Password = @Password
-                                     AND Employee_Role = @Role";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@Password", password);
-                    cmd.Parameters.AddWithValue("@Role", selectedRole);
+                                     AND Employee_Password = @Password";
 
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        string fullName = reader["Employee_First_Name"].ToString() + " " + reader["Employee_Last_Name"].ToString();
-                        string role = reader["Employee_Role"].ToString();
+                        cmd.Parameters.AddWithValue("@Username", username);
+                        cmd.Parameters.AddWithValue("@Password", password);
 
-                        MainMDI mainForm = new MainMDI(fullName, role);
-                        mainForm.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect username, password, or role. Please try again.",
-                            "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtPassword.Clear();
-                        txtPassword.Focus();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string fullName = reader["Employee_First_Name"] + " " + reader["Employee_Last_Name"];
+                                string role = reader["Employee_Role"].ToString();
+
+                                if (role != "Dentist" && role != "Receptionist")
+                                {
+                                    MessageBox.Show("Your account does not have access to this system.",
+                                        "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+
+                                MainMDI mainForm = new MainMDI(fullName, role);
+                                mainForm.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Incorrect username or password. Please try again.",
+                                    "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtPassword.Clear();
+                                txtPassword.Focus();
+                            }
+                        }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Database connection error:\n" + ex.Message,
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Could not connect to the database. Please check your connection and try again.",
+                    "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong. Please restart the application.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -133,16 +127,29 @@ namespace Dental_Practice_Management_System
 
         private void llblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ForgotPassword frm = new ForgotPassword();
-            frm.ShowDialog();
+            try
+            {
+                ForgotPassword frm = new ForgotPassword();
+                frm.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not open the Forgot Password screen.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void clockTimer_Tick(object sender, EventArgs e)
         {
-            lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
-            lblDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+            try
+            {
+                lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
+                lblDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+            }
+            catch (Exception)
+            {
+              
+            }
         }
-
-   
     }
 }

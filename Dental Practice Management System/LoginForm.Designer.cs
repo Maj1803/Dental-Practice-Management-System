@@ -20,10 +20,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rdoDentist = new System.Windows.Forms.RadioButton();
-            this.rdoReceptionist = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnTogglePassword = new System.Windows.Forms.Button();
             this.llblForgotPass = new System.Windows.Forms.LinkLabel();
@@ -50,10 +46,6 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.rdoDentist);
-            this.panel1.Controls.Add(this.rdoReceptionist);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(486, 164);
@@ -61,52 +53,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(953, 846);
             this.panel1.TabIndex = 0;
-            // 
-            // rdoDentist
-            // 
-            this.rdoDentist.AutoSize = true;
-            this.rdoDentist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoDentist.Location = new System.Drawing.Point(607, 216);
-            this.rdoDentist.Name = "rdoDentist";
-            this.rdoDentist.Size = new System.Drawing.Size(130, 29);
-            this.rdoDentist.TabIndex = 8;
-            this.rdoDentist.TabStop = true;
-            this.rdoDentist.Text = "DENTIST";
-            this.rdoDentist.UseVisualStyleBackColor = true;
-            this.rdoDentist.CheckedChanged += new System.EventHandler(this.rdoDentist_CheckedChanged);
-            // 
-            // rdoReceptionist
-            // 
-            this.rdoReceptionist.AutoSize = true;
-            this.rdoReceptionist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoReceptionist.Location = new System.Drawing.Point(129, 216);
-            this.rdoReceptionist.Name = "rdoReceptionist";
-            this.rdoReceptionist.Size = new System.Drawing.Size(196, 29);
-            this.rdoReceptionist.TabIndex = 7;
-            this.rdoReceptionist.TabStop = true;
-            this.rdoReceptionist.Text = "RECEPTIONIST";
-            this.rdoReceptionist.UseVisualStyleBackColor = true;
-            this.rdoReceptionist.CheckedChanged += new System.EventHandler(this.rdoReceptionist_CheckedChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(743, 212);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 40);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "🩺";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(326, 216);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 37);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "📋";
             // 
             // groupBox1
             // 
@@ -121,11 +67,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(129, 296);
+            this.groupBox1.Location = new System.Drawing.Point(129, 176);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(705, 512);
+            this.groupBox1.Size = new System.Drawing.Size(705, 632);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ENTER YOUR LOGINS:";
@@ -282,7 +228,7 @@
             this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblDate.Location = new System.Drawing.Point(1580, 340);
+            this.lblDate.Location = new System.Drawing.Point(1565, 340);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(24, 25);
             this.lblDate.TabIndex = 4;
@@ -317,6 +263,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
@@ -341,8 +288,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -354,7 +299,5 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Timer clockTimer;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RadioButton rdoDentist;
-        private System.Windows.Forms.RadioButton rdoReceptionist;
     }
 }
