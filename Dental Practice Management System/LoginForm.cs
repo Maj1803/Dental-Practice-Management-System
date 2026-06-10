@@ -25,6 +25,16 @@ namespace Dental_Practice_Management_System
             panel1.Top = (this.ClientSize.Height - panel1.Height) / 2 + 50;
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnLogin_Click(this, EventArgs.Empty);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -148,7 +158,7 @@ namespace Dental_Practice_Management_System
             }
             catch (Exception)
             {
-              
+
             }
         }
     }

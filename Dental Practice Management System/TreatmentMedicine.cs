@@ -61,7 +61,7 @@ namespace Dental_Practice_Management_System
             cmbAppointment.SelectedIndexChanged -= cmbAppointment_SelectedIndexChanged;
             //cmbAppointment.SelectedIndex = -1;
             DataView appointmentView = new DataView(dsDentist.vw_PatientAppointmentDetails);
-            appointmentView.RowFilter = "Appointment_Status = 'Completed'";
+            appointmentView.RowFilter = "Appointment_Status <> 'Cancelled'";
             cmbAppointment.DataSource = appointmentView;
             cmbAppointment.SelectedIndex = -1;//no selection by default
                                               //cmbAppointment.SelectedIndexChanged -= cmbAppointment_SelectedIndexChanged;

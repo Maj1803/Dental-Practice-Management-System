@@ -69,6 +69,7 @@
             this.dsDentist1 = new Dental_Practice_Management_System.dsDentist();
             this.pnlPrescribeMedication = new System.Windows.Forms.Panel();
             this.grpPrescribeMedication = new System.Windows.Forms.GroupBox();
+            this.btnPrintPrescription = new System.Windows.Forms.Button();
             this.txtDosage = new System.Windows.Forms.TextBox();
             this.lblDosage = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
@@ -112,7 +113,6 @@
             this.treatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.TreatmentTableAdapter();
             this.patientTreatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTreatmentTableAdapter();
             this.vw_PatientAppointmentDetailsTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter();
-            this.btnPrintPrescription = new System.Windows.Forms.Button();
             this.pnlPatientDetails.SuspendLayout();
             this.grpViewPatientDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vwPatientAppointmentDetailsBindingSource)).BeginInit();
@@ -596,6 +596,22 @@
             this.grpPrescribeMedication.TabStop = false;
             this.grpPrescribeMedication.Text = "Prescribe Medication Details";
             // 
+            // btnPrintPrescription
+            // 
+            this.btnPrintPrescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnPrintPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPrintPrescription.FlatAppearance.BorderSize = 0;
+            this.btnPrintPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintPrescription.ForeColor = System.Drawing.Color.White;
+            this.btnPrintPrescription.Location = new System.Drawing.Point(330, 295);
+            this.btnPrintPrescription.Name = "btnPrintPrescription";
+            this.btnPrintPrescription.Size = new System.Drawing.Size(210, 39);
+            this.btnPrintPrescription.TabIndex = 21;
+            this.btnPrintPrescription.Text = "Print Prescription";
+            this.btnPrintPrescription.UseVisualStyleBackColor = false;
+            this.btnPrintPrescription.Click += new System.EventHandler(this.btnPrintPrescription_Click);
+            // 
             // txtDosage
             // 
             this.txtDosage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -719,7 +735,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            this.label5.Location = new System.Drawing.Point(26, 98);
+            this.label5.Location = new System.Drawing.Point(11, 92);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 25);
             this.label5.TabIndex = 0;
@@ -1071,22 +1087,6 @@
             // vw_PatientAppointmentDetailsTableAdapter
             // 
             this.vw_PatientAppointmentDetailsTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnPrintPrescription
-            // 
-            this.btnPrintPrescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            this.btnPrintPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnPrintPrescription.FlatAppearance.BorderSize = 0;
-            this.btnPrintPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintPrescription.ForeColor = System.Drawing.Color.White;
-            this.btnPrintPrescription.Location = new System.Drawing.Point(330, 295);
-            this.btnPrintPrescription.Name = "btnPrintPrescription";
-            this.btnPrintPrescription.Size = new System.Drawing.Size(210, 39);
-            this.btnPrintPrescription.TabIndex = 21;
-            this.btnPrintPrescription.Text = "Print Prescription";
-            this.btnPrintPrescription.UseVisualStyleBackColor = false;
-            this.btnPrintPrescription.Click += new System.EventHandler(this.btnPrintPrescription_Click);
             // 
             // TreatmentMedicine
             // 
