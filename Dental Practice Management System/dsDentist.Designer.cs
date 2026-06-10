@@ -1981,28 +1981,28 @@ namespace Dental_Practice_Management_System {
                 return type;
             }
         }
-
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class InvoiceDataTable : global::System.Data.TypedTableBase<InvoiceRow> {
-
+            
             private global::System.Data.DataColumn columninvoice_id;
-
+            
             private global::System.Data.DataColumn columnappointment_id;
-
+            
             private global::System.Data.DataColumn columnpayment_id;
-
+            
             private global::System.Data.DataColumn columninvoice_date;
-
+            
             private global::System.Data.DataColumn columninvoice_total_amount;
-
+            
             private global::System.Data.DataColumn columninvoice_status;
-
+            
             private global::System.Data.DataColumn columninvoice_balance_due;
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public InvoiceDataTable() {
@@ -2011,7 +2011,7 @@ namespace Dental_Practice_Management_System {
                 this.InitClass();
                 this.EndInit();
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal InvoiceDataTable(global::System.Data.DataTable table) {
@@ -2028,24 +2028,22 @@ namespace Dental_Practice_Management_System {
                 this.Prefix = table.Prefix;
                 this.MinimumCapacity = table.MinimumCapacity;
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected InvoiceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+            protected InvoiceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-//<<<<<<< HEAD
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn invoice_idColumn {
-//>>>>>>> a8e75bfd4e7b58f0c08d176e18c8151952745d50
                 get {
                     return this.columninvoice_id;
                 }
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn appointment_idColumn {
@@ -2053,7 +2051,7 @@ namespace Dental_Practice_Management_System {
                     return this.columnappointment_id;
                 }
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn payment_idColumn {
@@ -2061,7 +2059,7 @@ namespace Dental_Practice_Management_System {
                     return this.columnpayment_id;
                 }
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn invoice_dateColumn {
@@ -2069,7 +2067,7 @@ namespace Dental_Practice_Management_System {
                     return this.columninvoice_date;
                 }
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn invoice_total_amountColumn {
@@ -2077,7 +2075,7 @@ namespace Dental_Practice_Management_System {
                     return this.columninvoice_total_amount;
                 }
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn invoice_statusColumn {
@@ -2085,7 +2083,7 @@ namespace Dental_Practice_Management_System {
                     return this.columninvoice_status;
                 }
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn invoice_balance_dueColumn {
@@ -2093,7 +2091,7 @@ namespace Dental_Practice_Management_System {
                     return this.columninvoice_balance_due;
                 }
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
@@ -2102,7 +2100,7 @@ namespace Dental_Practice_Management_System {
                     return this.Rows.Count;
                 }
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public InvoiceRow this[int index] {
@@ -2110,31 +2108,28 @@ namespace Dental_Practice_Management_System {
                     return ((InvoiceRow)(this.Rows[index]));
                 }
             }
-
+            
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public event InvoiceRowChangeEventHandler InvoiceRowChanging;
-
+            
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public event InvoiceRowChangeEventHandler InvoiceRowChanged;
-
+            
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public event InvoiceRowChangeEventHandler InvoiceRowDeleting;
-
+            
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public event InvoiceRowChangeEventHandler InvoiceRowDeleted;
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void AddInvoiceRow(InvoiceRow row) {
                 this.Rows.Add(row);
             }
-
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-//<<<<<<< HEAD
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public InvoiceRow AddInvoiceRow(int invoice_id, int appointment_id, int payment_id, System.DateTime invoice_date, decimal invoice_total_amount, string invoice_status, decimal invoice_balance_due) {
-//=======            
-//>>>>>>> a8e75bfd4e7b58f0c08d176e18c8151952745d50
                 InvoiceRow rowInvoiceRow = ((InvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         invoice_id,
@@ -2148,18 +2143,13 @@ namespace Dental_Practice_Management_System {
                 this.Rows.Add(rowInvoiceRow);
                 return rowInvoiceRow;
             }
-
-            /*[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            //<<<<<<< HEAD
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public InvoiceRow FindByinvoice_id(int invoice_id) {
-                //=======
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-                public InvoiceRow FindByinvoive_id(int invoive_id) {
-                    //>>>>>>> a8e75bfd4e7b58f0c08d176e18c8151952745d50
-                    return ((InvoiceRow)(this.Rows.Find(new object[] {
-                            invoice_id}))); }
-            } };*/
+                return ((InvoiceRow)(this.Rows.Find(new object[] {
+                            invoice_id})));
+            }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3277,7 +3267,6 @@ namespace Dental_Practice_Management_System {
                 this.columnPatientTreatment_ID.ReadOnly = true;
                 this.columnPatientTreatment_ID.Unique = true;
                 this.columnAppointment_ID.AllowDBNull = false;
-                this.columnTreatmentID.AllowDBNull = false;
                 this.columnDiagnosis.MaxLength = 100;
                 this.columnDiagnosis_Notes.MaxLength = 500;
                 this.columnTreatment_Notes.MaxLength = 500;
@@ -6940,10 +6929,8 @@ namespace Dental_Practice_Management_System {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-//<<<<<<< HEAD
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int invoice_id {
-//>>>>>>> a8e75bfd4e7b58f0c08d176e18c8151952745d50
                 get {
                     return ((int)(this[this.tableInvoice.invoice_idColumn]));
                 }
@@ -7316,7 +7303,12 @@ namespace Dental_Practice_Management_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int TreatmentID {
                 get {
-                    return ((int)(this[this.tablePatientTreatment.TreatmentIDColumn]));
+                    try {
+                        return ((int)(this[this.tablePatientTreatment.TreatmentIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TreatmentID\' in table \'PatientTreatment\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablePatientTreatment.TreatmentIDColumn] = value;
@@ -7407,6 +7399,18 @@ namespace Dental_Practice_Management_System {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_PatientTreatment_Treatment1"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTreatmentIDNull() {
+                return this.IsNull(this.tablePatientTreatment.TreatmentIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTreatmentIDNull() {
+                this[this.tablePatientTreatment.TreatmentIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10592,7 +10596,7 @@ WHERE (Employee_ID = @Original_Employee_ID);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsDentist.EmployeeDataTable GetDataBy() {
+        public virtual dsDentist.EmployeeDataTable GetDataBy1() {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             dsDentist.EmployeeDataTable dataTable = new dsDentist.EmployeeDataTable();
             this.Adapter.Fill(dataTable);
@@ -10622,7 +10626,7 @@ WHERE (Employee_ID = @Original_Employee_ID);
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsDentist.EmployeeDataTable GetDataBy1(string name) {
+        public virtual dsDentist.EmployeeDataTable GetDataBy11(string name) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
@@ -13029,14 +13033,12 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppointmentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_Notes, Treatment_Notes, Date_Recorded
-FROM     PatientTreatment
-WHERE  (PatientTreatment_ID IN
-                      (SELECT PatientTreatment.PatientTreatment_ID
-                       FROM      vw_PatientAppointmentDetails
-                       WHERE   (PatientFullName LIKE '%' + @SearchText + '%')))";
+            this._commandCollection[2].CommandText = @"SELECT pt.PatientTreatment_ID, pt.Appointment_ID, pt.TreatmentID, pt.Diagnosis, pt.Diagnosis_Notes, pt.Treatment_Notes, pt.Date_Recorded
+FROM     PatientTreatment AS pt INNER JOIN
+                  vw_PatientAppointmentDetails AS vw ON pt.Appointment_ID = vw.Appointment_ID
+WHERE  (vw.PatientFullName LIKE '%' + @SearchText + '%')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchText", global::System.Data.SqlDbType.VarChar, 101, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchText", global::System.Data.SqlDbType.VarChar, 101, global::System.Data.ParameterDirection.Input, 0, 0, "PatientFullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"INSERT INTO [dbo].[PatientTreatment] ([Appointment_ID], [TreatmentID], [Diagnosis], [Diagnosis_Notes], [Treatment_Notes], [Date_Recorded]) VALUES (@Appointment_ID, @TreatmentID, @Diagnosis, @Diagnosis_Notes, @Treatment_Notes, @Date_Recorded);
@@ -13180,10 +13182,15 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PatientTreatment_ID, int Original_Appointment_ID, int Original_TreatmentID, string Original_Diagnosis, string Original_Diagnosis_Notes, string Original_Treatment_Notes, global::System.Nullable<global::System.DateTime> Original_Date_Recorded) {
+        public virtual int Delete(int Original_PatientTreatment_ID, int Original_Appointment_ID, global::System.Nullable<int> Original_TreatmentID, string Original_Diagnosis, string Original_Diagnosis_Notes, string Original_Treatment_Notes, global::System.Nullable<global::System.DateTime> Original_Date_Recorded) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PatientTreatment_ID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Appointment_ID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_TreatmentID));
+            if ((Original_TreatmentID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_TreatmentID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((Original_Diagnosis == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -13236,9 +13243,14 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Appointment_ID, int TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded) {
+        public virtual int Insert(int Appointment_ID, global::System.Nullable<int> TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Appointment_ID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(TreatmentID));
+            if ((TreatmentID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(TreatmentID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((Diagnosis == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
@@ -13283,9 +13295,14 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Appointment_ID, int TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded, int Original_PatientTreatment_ID, int Original_Appointment_ID, int Original_TreatmentID, string Original_Diagnosis, string Original_Diagnosis_Notes, string Original_Treatment_Notes, global::System.Nullable<global::System.DateTime> Original_Date_Recorded, int PatientTreatment_ID) {
+        public virtual int Update(int Appointment_ID, global::System.Nullable<int> TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded, int Original_PatientTreatment_ID, int Original_Appointment_ID, global::System.Nullable<int> Original_TreatmentID, string Original_Diagnosis, string Original_Diagnosis_Notes, string Original_Treatment_Notes, global::System.Nullable<global::System.DateTime> Original_Date_Recorded, int PatientTreatment_ID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Appointment_ID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(TreatmentID));
+            if ((TreatmentID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(TreatmentID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((Diagnosis == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
@@ -13312,7 +13329,12 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_PatientTreatment_ID));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Appointment_ID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_TreatmentID));
+            if ((Original_TreatmentID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_TreatmentID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             if ((Original_Diagnosis == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
@@ -13366,7 +13388,7 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Appointment_ID, int TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded, int Original_PatientTreatment_ID, int Original_Appointment_ID, int Original_TreatmentID, string Original_Diagnosis, string Original_Diagnosis_Notes, string Original_Treatment_Notes, global::System.Nullable<global::System.DateTime> Original_Date_Recorded) {
+        public virtual int Update(int Appointment_ID, global::System.Nullable<int> TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded, int Original_PatientTreatment_ID, int Original_Appointment_ID, global::System.Nullable<int> Original_TreatmentID, string Original_Diagnosis, string Original_Diagnosis_Notes, string Original_Treatment_Notes, global::System.Nullable<global::System.DateTime> Original_Date_Recorded) {
             return this.Update(Appointment_ID, TreatmentID, Diagnosis, Diagnosis_Notes, Treatment_Notes, Date_Recorded, Original_PatientTreatment_ID, Original_Appointment_ID, Original_TreatmentID, Original_Diagnosis, Original_Diagnosis_Notes, Original_Treatment_Notes, Original_Date_Recorded, Original_PatientTreatment_ID);
         }
         
@@ -13374,10 +13396,15 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertDiagnosis(int Appointment_ID, int TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded) {
+        public virtual int InsertDiagnosis(int Appointment_ID, global::System.Nullable<int> TreatmentID, string Diagnosis, string Diagnosis_Notes, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((int)(Appointment_ID));
-            command.Parameters[1].Value = ((int)(TreatmentID));
+            if ((TreatmentID.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(TreatmentID.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((Diagnosis == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
@@ -13423,10 +13450,15 @@ SELECT PatientTreatment_ID, Appointment_ID, TreatmentID, Diagnosis, Diagnosis_No
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertTreatment(int Appointment_ID, int TreatmentID, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded) {
+        public virtual int InsertTreatment(int Appointment_ID, global::System.Nullable<int> TreatmentID, string Treatment_Notes, global::System.Nullable<global::System.DateTime> Date_Recorded) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             command.Parameters[0].Value = ((int)(Appointment_ID));
-            command.Parameters[1].Value = ((int)(TreatmentID));
+            if ((TreatmentID.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(TreatmentID.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((Treatment_Notes == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
@@ -13684,7 +13716,7 @@ FROM     Patient INNER JOIN
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual dsDentist.PaymentDataTable GetDataBy() {
@@ -13695,7 +13727,7 @@ FROM     Patient INNER JOIN
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(dsDentist.PaymentDataTable dataTable) {
             return this.Adapter.Update(dataTable);

@@ -224,7 +224,7 @@
             this.pnlPatientDetails.Controls.Add(this.grpViewPatientDetails);
             this.pnlPatientDetails.Location = new System.Drawing.Point(39, 161);
             this.pnlPatientDetails.Name = "pnlPatientDetails";
-            this.pnlPatientDetails.Size = new System.Drawing.Size(500, 503);
+            this.pnlPatientDetails.Size = new System.Drawing.Size(509, 503);
             this.pnlPatientDetails.TabIndex = 7;
             // 
             // grpViewPatientDetails
@@ -250,7 +250,7 @@
             this.grpViewPatientDetails.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpViewPatientDetails.Location = new System.Drawing.Point(12, 14);
             this.grpViewPatientDetails.Name = "grpViewPatientDetails";
-            this.grpViewPatientDetails.Size = new System.Drawing.Size(474, 462);
+            this.grpViewPatientDetails.Size = new System.Drawing.Size(483, 462);
             this.grpViewPatientDetails.TabIndex = 1;
             this.grpViewPatientDetails.TabStop = false;
             this.grpViewPatientDetails.Text = "Patient and Appointment details";
@@ -330,7 +330,7 @@
             this.lblAppointmentID.AutoSize = true;
             this.lblAppointmentID.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppointmentID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAppointmentID.Location = new System.Drawing.Point(369, 140);
+            this.lblAppointmentID.Location = new System.Drawing.Point(362, 140);
             this.lblAppointmentID.Name = "lblAppointmentID";
             this.lblAppointmentID.Size = new System.Drawing.Size(99, 17);
             this.lblAppointmentID.TabIndex = 9;
@@ -781,6 +781,7 @@
             this.dgvTreatmentHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTreatmentHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvTreatmentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTreatmentHistory.Location = new System.Drawing.Point(18, 86);
             this.dgvTreatmentHistory.Name = "dgvTreatmentHistory";
@@ -1099,13 +1100,13 @@
             this.Controls.Add(this.pnlAddDiagnosis);
             this.Controls.Add(this.pnlAddTreatment);
             this.Controls.Add(this.pnlTreatmentHistory);
-            this.Controls.Add(this.pnlPatientDetails);
             this.Controls.Add(this.btnAddDiagnosis);
             this.Controls.Add(this.btnTreatmentHistory);
             this.Controls.Add(this.btnPrescribeMedication);
             this.Controls.Add(this.btnAddTreatment);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlPatientDetails);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TreatmentMedicine";

@@ -452,13 +452,13 @@ namespace Dental_Practice_Management_System
             try
             {
                 int appointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
-                int patientId = Convert.ToInt32(txtPatientIDDiag.Text);
+                //int patientId = Convert.ToInt32(txtPatientIDDiag.Text);
 
                 patientTreatmentTableAdapter.InsertDiagnosis(appointmentId, // Appointment_ID
-                    patientId,
+                    null,
                     cmbDiagnosis.Text, // Diagnosis_Code
                     txtDiagnosisNotes.Text.Trim(), // Diagnosis_Notes
-                    string.Empty,
+                    null,
                     DateTime.Now // Diagnosis_Date (or use a value from a control if available)
                 );
                 MessageBox.Show("Diagnosis details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

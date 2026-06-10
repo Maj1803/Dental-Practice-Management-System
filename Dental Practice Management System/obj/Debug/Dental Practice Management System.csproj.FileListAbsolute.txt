@@ -61,7 +61,6 @@ C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dent
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.PrescriptionReportView.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Reports.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental P.0574DD40.Up2Date
-C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.AssemblyReference.cache
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Appointments.resources
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.AvailabilityOverride.resources
@@ -148,3 +147,6 @@ C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
+C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.ForgotPassword.resources
+C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Help.resources
+C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
