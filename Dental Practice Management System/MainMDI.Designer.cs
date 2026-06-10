@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMDI));
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblRole = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,9 +41,11 @@
             this.btnBilling = new System.Windows.Forms.ToolStripButton();
             this.btnReports = new System.Windows.Forms.ToolStripButton();
             this.btnStaff = new System.Windows.Forms.ToolStripButton();
+            this.btnHelp = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tsNavigation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -56,20 +57,11 @@
             this.pnlHeader.Controls.Add(this.label1);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1779, 97);
+            this.pnlHeader.Size = new System.Drawing.Size(1581, 78);
             this.pnlHeader.TabIndex = 1;
             this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(172, 97);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // lblRole
             // 
@@ -77,9 +69,9 @@
             this.lblRole.AutoSize = true;
             this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.lblRole.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblRole.Location = new System.Drawing.Point(1194, 38);
+            this.lblRole.Location = new System.Drawing.Point(1061, 30);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(0, 30);
+            this.lblRole.Size = new System.Drawing.Size(0, 26);
             this.lblRole.TabIndex = 2;
             // 
             // btnLogout
@@ -88,9 +80,10 @@
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(235)))), ((int)(((byte)(211)))));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnLogout.Location = new System.Drawing.Point(1596, 17);
+            this.btnLogout.Location = new System.Drawing.Point(1419, 14);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(154, 63);
+            this.btnLogout.Size = new System.Drawing.Size(137, 50);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -101,9 +94,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(212, 26);
+            this.label1.Location = new System.Drawing.Point(188, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(516, 46);
+            this.label1.Size = new System.Drawing.Size(440, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dr MT Khan Dental Practice";
             // 
@@ -121,11 +114,12 @@
             this.btnTreatments,
             this.btnBilling,
             this.btnReports,
-            this.btnStaff});
-            this.tsNavigation.Location = new System.Drawing.Point(0, 97);
+            this.btnStaff,
+            this.btnHelp});
+            this.tsNavigation.Location = new System.Drawing.Point(0, 78);
             this.tsNavigation.Name = "tsNavigation";
             this.tsNavigation.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.tsNavigation.Size = new System.Drawing.Size(211, 953);
+            this.tsNavigation.Size = new System.Drawing.Size(182, 762);
             this.tsNavigation.TabIndex = 4;
             // 
             // btnDashboard
@@ -136,7 +130,7 @@
             this.btnDashboard.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(2, 5, 0, 2);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(202, 40);
+            this.btnDashboard.Size = new System.Drawing.Size(173, 34);
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
@@ -149,7 +143,7 @@
             this.btnPatients.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPatients.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnPatients.Name = "btnPatients";
-            this.btnPatients.Size = new System.Drawing.Size(202, 40);
+            this.btnPatients.Size = new System.Drawing.Size(173, 34);
             this.btnPatients.Text = "Patients";
             this.btnPatients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPatients.Click += new System.EventHandler(this.btnPatients_Click);
@@ -162,7 +156,7 @@
             this.btnAppointments.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAppointments.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnAppointments.Name = "btnAppointments";
-            this.btnAppointments.Size = new System.Drawing.Size(202, 40);
+            this.btnAppointments.Size = new System.Drawing.Size(173, 34);
             this.btnAppointments.Text = "Appointments";
             this.btnAppointments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
@@ -175,7 +169,7 @@
             this.btnTreatments.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTreatments.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnTreatments.Name = "btnTreatments";
-            this.btnTreatments.Size = new System.Drawing.Size(202, 40);
+            this.btnTreatments.Size = new System.Drawing.Size(173, 34);
             this.btnTreatments.Text = "Treatments";
             this.btnTreatments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTreatments.Click += new System.EventHandler(this.btnTreatments_Click);
@@ -188,7 +182,7 @@
             this.btnBilling.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBilling.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnBilling.Name = "btnBilling";
-            this.btnBilling.Size = new System.Drawing.Size(202, 40);
+            this.btnBilling.Size = new System.Drawing.Size(173, 34);
             this.btnBilling.Text = "Billing";
             this.btnBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBilling.Click += new System.EventHandler(this.btnBilling_Click);
@@ -201,7 +195,7 @@
             this.btnReports.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReports.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(202, 40);
+            this.btnReports.Size = new System.Drawing.Size(173, 34);
             this.btnReports.Text = "Reports";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
@@ -214,33 +208,57 @@
             this.btnStaff.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStaff.Margin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(202, 40);
+            this.btnStaff.Size = new System.Drawing.Size(173, 34);
             this.btnStaff.Text = "Staff";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
+            // btnHelp
+            // 
+            this.btnHelp.ForeColor = System.Drawing.Color.White;
+            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
+            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(175, 34);
+            this.btnHelp.Text = "Help";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(153, 78);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainMDI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(213)))), ((int)(((byte)(225)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1779, 1050);
+            this.ClientSize = new System.Drawing.Size(1581, 840);
             this.Controls.Add(this.tsNavigation);
             this.Controls.Add(this.pnlHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1530, 879);
+            this.MinimumSize = new System.Drawing.Size(1362, 713);
             this.Name = "MainMDI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dr MT Khan Dental Practice";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tsNavigation.ResumeLayout(false);
             this.tsNavigation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +279,6 @@
         private System.Windows.Forms.ToolStripButton btnBilling;
         private System.Windows.Forms.ToolStripButton btnReports;
         private System.Windows.Forms.ToolStripButton btnStaff;
+        private System.Windows.Forms.ToolStripButton btnHelp;
     }
 }

@@ -150,5 +150,10 @@ namespace Dental_Practice_Management_System
         private void pnlHeader_Paint(object sender, PaintEventArgs e)
         {
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Help());
+        }
     }
 }
