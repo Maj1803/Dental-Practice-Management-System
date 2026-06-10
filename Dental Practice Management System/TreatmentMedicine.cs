@@ -236,16 +236,10 @@ namespace Dental_Practice_Management_System
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving treatment details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            if (!string.IsNullOrEmpty(txtPresciptionAllergies.Text))
-            {
-                txtPresciptionAllergies.Text = "Allergies: " + txtPresciptionAllergies.Text;
-            }
-            else
-            {
-                txtPresciptionAllergies.Text = "No known allergies";
-
-            }
+            LoadTreatmentHistory();
+            
            // HideAllPanels();
            // pnlPrescribeMedication.Visible = true;
         }
@@ -393,7 +387,17 @@ namespace Dental_Practice_Management_System
                 DataRow[] rows = dt.Select("Appointment_ID = " + cmbAppointment.SelectedValue.ToString());
                 if (rows.Length == 0)
                 {
-                    MessageBox.Show("No treatment record found for the selected appointment. Please save treatment details first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult goToTreatment = MessageBox.Show(
+                    "No treatment record found for this appointment.\n\nYou must save a treatment before prescribing medication.\n\nWould you like to go to Add Treatment now?","Treatment Required",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                    if (goToTreatment == DialogResult.Yes)
+                    {
+                        HideAllPanels();
+                        pnlPatientDetails.Visible = true;
+                        pnlAddTreatment.Visible = true;
+                    }
+
+
+                    //MessageBox.Show("No treatment record found for the selected appointment. Please save treatment details first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 int patientTreatmentId = Convert.ToInt32(rows[0]["PatientTreatment_ID"]);
@@ -408,14 +412,14 @@ namespace Dental_Practice_Management_System
                 DialogResult printQuery = MessageBox.Show("Would you like to print this prescription now?", "Print Document", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (printQuery == DialogResult.Yes)
                 {
-                    // If you already have your separate print button code written, 
-                    // you can cleanly call its click event directly:
+                    
                     btnPrintPrescription_Click(this, EventArgs.Empty);
                 }
                 cmbMedicine.SelectedIndex = -1;
                 txtQuantity.Clear();
                 txtDosage.Clear();
                 txtCodeMedicine.Clear();
+                LoadTreatmentHistory(); // Refresh treatment history to show new prescription details
 
             }
             catch (Exception ex)
@@ -482,13 +486,14 @@ namespace Dental_Practice_Management_System
         }
         private void ClearDiagnosisDetails()
         {
-            txtAppointmentDiagnosisID.Clear();
+           // txtAppointmentDiagnosisID.Clear();
             cmbDiagnosis.Text = string.Empty;
             cmbDiagnosis.SelectedIndex = -1;
             txtDiagnosisNotes.Clear();
             txtPatientNameDiag.Clear();
             txtPatientIDDiag.Clear();
             txtAppointmentDateDiag.Clear();
+            CopyAppointmentToDiagnosisPanel();
         }
         private void CopyPatientToPrescriptionPanel()
         {
