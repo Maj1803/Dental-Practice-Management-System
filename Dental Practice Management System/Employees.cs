@@ -120,6 +120,24 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
+            if (txtNationalID.Text.Length != 13 || !txtNationalID.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Please enter a valid 13-digit national ID number.");
+                return;
+            }
+
+            if (txtEmail.Text.Contains("@") == false || txtEmail.Text.Contains(".") == false)
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
+            if (txtContactNo.Text.Length != 10 || !txtContactNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Please enter a valid 10-digit contact number.");
+                return;
+            }
+
             employeeTableAdapter.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtRole.Text, txtContactNo.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text, txtNationalID.Text, Convert.ToInt32(numAge.Value), Convert.ToInt32(gvUpdateEmployee.CurrentRow.Cells[0].Value));
             MessageBox.Show("Employee Updated Successfully.");
             employeeTableAdapter.Fill(this.dsDentist.Employee);
@@ -142,12 +160,29 @@ namespace Dental_Practice_Management_System
 
         private void btnCreate_Click_1(object sender, EventArgs e)
         {
-            if (txtFirstName.Text == "" || txtSurname.Text == "" || txtRole.Text == "" || txtContactNo.Text == "" || txtEmail.Text == "" || txtUsername.Text == "" || txtPassword.Text == "" || txtNationalID.Text == "")
+            if (txtCreateFirstName.Text == "" || txtCreateSurname.Text == "" || txtCreateRole.Text == "" || txtCreateContactNo.Text == "" || txtCreateEmail.Text == "" || txtCreateUsername.Text == "" || txtCreatePassword.Text == "" || txtCreateNationalID.Text == "")
             {
                 MessageBox.Show("Please fill in all fields.");
                 return;
             }
 
+            if (txtCreateEmail.Text.Contains("@") == false || txtCreateEmail.Text.Contains(".") == false)
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
+            if (txtCreateNationalID.Text.Length != 13 || !txtCreateNationalID.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Please enter a valid 13-digit national ID number.");
+                return;
+            }
+
+            if (txtCreateContactNo.Text.Length != 10 || !txtCreateContactNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Please enter a valid 10-digit contact number.");
+                return;
+            }
 
             employeeTableAdapter.InsertQuery(txtCreateFirstName.Text, txtCreateSurname.Text, txtCreateRole.Text, txtCreateContactNo.Text, txtCreateEmail.Text, txtCreateUsername.Text, txtCreatePassword.Text, txtCreateNationalID.Text, Convert.ToInt32(numCreateAge.Value));
             MessageBox.Show("Employee Added Successfully.");

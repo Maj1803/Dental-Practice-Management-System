@@ -119,6 +119,7 @@
             this.txtSearchEmployees = new System.Windows.Forms.TextBox();
             this.lblSearchEmployees = new System.Windows.Forms.Label();
             this.employeeTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.EmployeeTableAdapter();
+            this.label22 = new System.Windows.Forms.Label();
             this.pnlCreateEmployee.SuspendLayout();
             this.grpCreateEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCreateAge)).BeginInit();
@@ -575,6 +576,7 @@
             // grpUpdatePatients
             // 
             this.grpUpdatePatients.BackColor = System.Drawing.SystemColors.Control;
+            this.grpUpdatePatients.Controls.Add(this.label22);
             this.grpUpdatePatients.Controls.Add(this.numAge);
             this.grpUpdatePatients.Controls.Add(this.gvUpdateEmployee);
             this.grpUpdatePatients.Controls.Add(this.btnUpdateCancel);
@@ -1087,6 +1089,16 @@
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
             // 
+            // label22
+            // 
+            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label22.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label22.Location = new System.Drawing.Point(911, 62);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(355, 66);
+            this.label22.TabIndex = 26;
+            this.label22.Text = "To update an employee, please click on one record in the table ";
+            // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1216,5 +1228,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtCreateFirstName;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label22;
     }
 }

@@ -115,6 +115,18 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
+            if (txtCreateEmail.Text.Contains("@") == false || txtCreateEmail.Text.Contains(".") == false)
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
+            if (txtCreateContactNo.Text.All(char.IsDigit) == false || txtCreateContactNo.Text.Length < 10)
+            {
+                MessageBox.Show("Please enter a valid contact number.");
+                return;
+            }
+
             patientTableAdapter1.CreateQuery(txtCreateFirstName.Text, txtCreateSurname.Text, txtCreateContactNo.Text, txtCreateStreet.Text, txtCreateSuburb.Text, txtCreateCity.Text, txtCreateCode.Text, txtCreateEmail.Text, txtCreateAllergies.Text, (dtpDOB.Value).ToString());
             MessageBox.Show("Patient created successfully.");
             patientTableAdapter1.Fill(this.dsDentist.Patient);
@@ -180,9 +192,26 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
+            if (txtEmail.Text.Contains("@") == false || txtEmail.Text.Contains(".") == false)
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
+            if (txtContactNo.Text.All(char.IsDigit) == false || txtContactNo.Text.Length < 10)
+            {
+                MessageBox.Show("Please enter a valid contact number.");
+                return;
+            }
+
             patientTableAdapter1.UpdateQuery(txtFirstName.Text, txtSurname.Text, txtContactNo.Text, txtStreet.Text, txtSuburb.Text, txtCity.Text, txtCode.Text, txtEmail.Text, txtAllergies.Text, (dtpUpdateDOB.Value).ToString(), Convert.ToInt32(gvUpdatePatient.CurrentRow.Cells[0].Value));
             MessageBox.Show("Patient updated successfully.");
             patientTableAdapter1.Fill(this.dsDentist.Patient);
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
