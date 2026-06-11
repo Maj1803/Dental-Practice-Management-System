@@ -17,12 +17,12 @@
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointments));
             this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -32,6 +32,22 @@
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlUpdateAppointment = new System.Windows.Forms.Panel();
             this.grpUpdateDetails = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtUpdStatus = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtCurrentTime = new System.Windows.Forms.TextBox();
+            this.txtCurrentDate = new System.Windows.Forms.TextBox();
+            this.txtDentistName = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtPatientEmailAdd = new System.Windows.Forms.TextBox();
+            this.txtPatientNo = new System.Windows.Forms.TextBox();
+            this.txtPatientName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnClearUpdate = new System.Windows.Forms.Button();
             this.btnSaveUpdate = new System.Windows.Forms.Button();
             this.txtUpdateReason = new System.Windows.Forms.TextBox();
@@ -43,6 +59,7 @@
             this.cmbUpdateAction = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpFindAppointment = new System.Windows.Forms.GroupBox();
+            this.btnMarkAllCompleted = new System.Windows.Forms.Button();
             this.btnClearUpdateFilter = new System.Windows.Forms.Button();
             this.dtpUpdateFilterDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,14 +70,7 @@
             this.lblUpdateSearch = new System.Windows.Forms.Label();
             this.pnlBookAppointment = new System.Windows.Forms.Panel();
             this.grpAppointmentDetails = new System.Windows.Forms.GroupBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtPatient = new System.Windows.Forms.TextBox();
-            this.lblPatientNum = new System.Windows.Forms.Label();
-            this.txtPatientNum = new System.Windows.Forms.TextBox();
             this.lblDentistNum = new System.Windows.Forms.Label();
-            this.txtDentistNum = new System.Windows.Forms.TextBox();
             this.btnClearBooking = new System.Windows.Forms.Button();
             this.btnConfirmBooking = new System.Windows.Forms.Button();
             this.txtAppointmentNotes = new System.Windows.Forms.TextBox();
@@ -71,6 +81,17 @@
             this.lblAppointmentDate = new System.Windows.Forms.Label();
             this.cmbDentist = new System.Windows.Forms.ComboBox();
             this.lblDentist = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDentistEmail = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDentistNum = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPatientNum = new System.Windows.Forms.TextBox();
+            this.lblPatientNum = new System.Windows.Forms.Label();
+            this.txtPatient = new System.Windows.Forms.TextBox();
             this.grpPatientInfo = new System.Windows.Forms.GroupBox();
             this.dgvPatientResults = new System.Windows.Forms.DataGridView();
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
@@ -86,43 +107,22 @@
             this.txtSearchAppointments = new System.Windows.Forms.TextBox();
             this.lblSearchAppointments = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDentistEmail = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtDentistName = new System.Windows.Forms.TextBox();
-            this.txtCurrentDate = new System.Windows.Forms.TextBox();
-            this.txtCurrentTime = new System.Windows.Forms.TextBox();
-            this.txtPatientName = new System.Windows.Forms.TextBox();
-            this.txtPatientNo = new System.Windows.Forms.TextBox();
-            this.txtPatientEmailAdd = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtUpdStatus = new System.Windows.Forms.TextBox();
-            this.btnMarkAllCompleted = new System.Windows.Forms.Button();
             this.pnlContent.SuspendLayout();
             this.pnlUpdateAppointment.SuspendLayout();
             this.grpUpdateDetails.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.grpFindAppointment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateAppointments)).BeginInit();
             this.pnlBookAppointment.SuspendLayout();
             this.grpAppointmentDetails.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.grpPatientInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).BeginInit();
             this.pnlViewAppointments.SuspendLayout();
             this.grpViewFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -196,6 +196,8 @@
             // pnlContent
             // 
             this.pnlContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlContent.Controls.Add(this.pnlBookAppointment);
+            this.pnlContent.Controls.Add(this.pnlViewAppointments);
             this.pnlContent.Controls.Add(this.pnlUpdateAppointment);
             this.pnlContent.Location = new System.Drawing.Point(83, 166);
             this.pnlContent.Name = "pnlContent";
@@ -236,6 +238,194 @@
             this.grpUpdateDetails.TabIndex = 1;
             this.grpUpdateDetails.TabStop = false;
             this.grpUpdateDetails.Text = "Update Details";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtUpdStatus);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.txtCurrentTime);
+            this.groupBox4.Controls.Add(this.txtCurrentDate);
+            this.groupBox4.Controls.Add(this.txtDentistName);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(271, 37);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(342, 214);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Appointment Details";
+            // 
+            // txtUpdStatus
+            // 
+            this.txtUpdStatus.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUpdStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUpdStatus.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtUpdStatus.Location = new System.Drawing.Point(203, 60);
+            this.txtUpdStatus.Name = "txtUpdStatus";
+            this.txtUpdStatus.ReadOnly = true;
+            this.txtUpdStatus.Size = new System.Drawing.Size(127, 25);
+            this.txtUpdStatus.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(199, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 20);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Status";
+            // 
+            // txtCurrentTime
+            // 
+            this.txtCurrentTime.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCurrentTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentTime.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtCurrentTime.Location = new System.Drawing.Point(19, 171);
+            this.txtCurrentTime.Name = "txtCurrentTime";
+            this.txtCurrentTime.ReadOnly = true;
+            this.txtCurrentTime.Size = new System.Drawing.Size(154, 25);
+            this.txtCurrentTime.TabIndex = 9;
+            // 
+            // txtCurrentDate
+            // 
+            this.txtCurrentDate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCurrentDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentDate.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtCurrentDate.Location = new System.Drawing.Point(19, 111);
+            this.txtCurrentDate.Name = "txtCurrentDate";
+            this.txtCurrentDate.ReadOnly = true;
+            this.txtCurrentDate.Size = new System.Drawing.Size(154, 25);
+            this.txtCurrentDate.TabIndex = 8;
+            // 
+            // txtDentistName
+            // 
+            this.txtDentistName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDentistName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDentistName.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtDentistName.Location = new System.Drawing.Point(20, 56);
+            this.txtDentistName.Name = "txtDentistName";
+            this.txtDentistName.ReadOnly = true;
+            this.txtDentistName.Size = new System.Drawing.Size(154, 25);
+            this.txtDentistName.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(15, 148);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 20);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Current Time";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(16, 91);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 20);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Current Date";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(16, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 20);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Dentist";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtPatientEmailAdd);
+            this.groupBox3.Controls.Add(this.txtPatientNo);
+            this.groupBox3.Controls.Add(this.txtPatientName);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(15, 33);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(222, 214);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Patient Details";
+            // 
+            // txtPatientEmailAdd
+            // 
+            this.txtPatientEmailAdd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientEmailAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatientEmailAdd.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatientEmailAdd.Location = new System.Drawing.Point(19, 172);
+            this.txtPatientEmailAdd.Name = "txtPatientEmailAdd";
+            this.txtPatientEmailAdd.ReadOnly = true;
+            this.txtPatientEmailAdd.Size = new System.Drawing.Size(154, 25);
+            this.txtPatientEmailAdd.TabIndex = 12;
+            // 
+            // txtPatientNo
+            // 
+            this.txtPatientNo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatientNo.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatientNo.Location = new System.Drawing.Point(19, 115);
+            this.txtPatientNo.Name = "txtPatientNo";
+            this.txtPatientNo.ReadOnly = true;
+            this.txtPatientNo.Size = new System.Drawing.Size(154, 25);
+            this.txtPatientNo.TabIndex = 11;
+            // 
+            // txtPatientName
+            // 
+            this.txtPatientName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatientName.Location = new System.Drawing.Point(19, 58);
+            this.txtPatientName.Name = "txtPatientName";
+            this.txtPatientName.ReadOnly = true;
+            this.txtPatientName.Size = new System.Drawing.Size(154, 25);
+            this.txtPatientName.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(15, 152);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Email Address";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(15, 96);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 20);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Phone Number";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(15, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 20);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Name";
             // 
             // btnClearUpdate
             // 
@@ -372,6 +562,20 @@
             this.grpFindAppointment.TabStop = false;
             this.grpFindAppointment.Text = "Find Appointment";
             // 
+            // btnMarkAllCompleted
+            // 
+            this.btnMarkAllCompleted.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnMarkAllCompleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMarkAllCompleted.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnMarkAllCompleted.ForeColor = System.Drawing.Color.AliceBlue;
+            this.btnMarkAllCompleted.Location = new System.Drawing.Point(893, 37);
+            this.btnMarkAllCompleted.Name = "btnMarkAllCompleted";
+            this.btnMarkAllCompleted.Size = new System.Drawing.Size(173, 34);
+            this.btnMarkAllCompleted.TabIndex = 11;
+            this.btnMarkAllCompleted.Text = "Mark All as Completed";
+            this.btnMarkAllCompleted.UseVisualStyleBackColor = false;
+            this.btnMarkAllCompleted.Click += new System.EventHandler(this.btnMarkAllCompleted_Click);
+            // 
             // btnClearUpdateFilter
             // 
             this.btnClearUpdateFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -434,23 +638,23 @@
             // 
             this.dgvUpdateAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUpdateAppointments.BackgroundColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUpdateAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUpdateAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvUpdateAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUpdateAppointments.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUpdateAppointments.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUpdateAppointments.EnableHeadersVisualStyles = false;
             this.dgvUpdateAppointments.Location = new System.Drawing.Point(15, 88);
             this.dgvUpdateAppointments.MultiSelect = false;
@@ -489,7 +693,7 @@
             this.pnlBookAppointment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBookAppointment.Controls.Add(this.grpAppointmentDetails);
             this.pnlBookAppointment.Controls.Add(this.grpPatientInfo);
-            this.pnlBookAppointment.Location = new System.Drawing.Point(83, 166);
+            this.pnlBookAppointment.Location = new System.Drawing.Point(0, 0);
             this.pnlBookAppointment.Name = "pnlBookAppointment";
             this.pnlBookAppointment.Size = new System.Drawing.Size(1241, 503);
             this.pnlBookAppointment.TabIndex = 0;
@@ -519,75 +723,6 @@
             this.grpAppointmentDetails.TabStop = false;
             this.grpAppointmentDetails.Text = "Appointment Details";
             // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblEmail.Location = new System.Drawing.Point(15, 152);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(103, 20);
-            this.lblEmail.TabIndex = 19;
-            this.lblEmail.Text = "Email Address";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
-            this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtEmail.Location = new System.Drawing.Point(19, 175);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(185, 25);
-            this.txtEmail.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(17, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 20);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Patient Name";
-            // 
-            // txtPatient
-            // 
-            this.txtPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
-            this.txtPatient.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPatient.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtPatient.Location = new System.Drawing.Point(19, 54);
-            this.txtPatient.Name = "txtPatient";
-            this.txtPatient.ReadOnly = true;
-            this.txtPatient.Size = new System.Drawing.Size(185, 25);
-            this.txtPatient.TabIndex = 16;
-            // 
-            // lblPatientNum
-            // 
-            this.lblPatientNum.AutoSize = true;
-            this.lblPatientNum.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblPatientNum.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPatientNum.Location = new System.Drawing.Point(17, 96);
-            this.lblPatientNum.Name = "lblPatientNum";
-            this.lblPatientNum.Size = new System.Drawing.Size(105, 20);
-            this.lblPatientNum.TabIndex = 15;
-            this.lblPatientNum.Text = "Phone number";
-            // 
-            // txtPatientNum
-            // 
-            this.txtPatientNum.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
-            this.txtPatientNum.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPatientNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPatientNum.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtPatientNum.Location = new System.Drawing.Point(19, 119);
-            this.txtPatientNum.Name = "txtPatientNum";
-            this.txtPatientNum.ReadOnly = true;
-            this.txtPatientNum.Size = new System.Drawing.Size(185, 25);
-            this.txtPatientNum.TabIndex = 14;
-            // 
             // lblDentistNum
             // 
             this.lblDentistNum.AutoSize = true;
@@ -598,18 +733,6 @@
             this.lblDentistNum.Size = new System.Drawing.Size(105, 20);
             this.lblDentistNum.TabIndex = 13;
             this.lblDentistNum.Text = "Phone number";
-            // 
-            // txtDentistNum
-            // 
-            this.txtDentistNum.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
-            this.txtDentistNum.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDentistNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDentistNum.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtDentistNum.Location = new System.Drawing.Point(22, 115);
-            this.txtDentistNum.Name = "txtDentistNum";
-            this.txtDentistNum.ReadOnly = true;
-            this.txtDentistNum.Size = new System.Drawing.Size(185, 25);
-            this.txtDentistNum.TabIndex = 12;
             // 
             // btnClearBooking
             // 
@@ -727,6 +850,139 @@
             this.lblDentist.TabIndex = 0;
             this.lblDentist.Text = "Dentist";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtDentistEmail);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtDentistNum);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(309, 33);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(230, 222);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dentist Details";
+            // 
+            // txtDentistEmail
+            // 
+            this.txtDentistEmail.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtDentistEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDentistEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDentistEmail.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtDentistEmail.Location = new System.Drawing.Point(22, 175);
+            this.txtDentistEmail.Name = "txtDentistEmail";
+            this.txtDentistEmail.ReadOnly = true;
+            this.txtDentistEmail.Size = new System.Drawing.Size(185, 25);
+            this.txtDentistEmail.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(18, 152);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 20);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Email Address";
+            // 
+            // txtDentistNum
+            // 
+            this.txtDentistNum.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtDentistNum.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDentistNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDentistNum.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtDentistNum.Location = new System.Drawing.Point(22, 115);
+            this.txtDentistNum.Name = "txtDentistNum";
+            this.txtDentistNum.ReadOnly = true;
+            this.txtDentistNum.Size = new System.Drawing.Size(185, 25);
+            this.txtDentistNum.TabIndex = 12;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblEmail);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtEmail);
+            this.groupBox2.Controls.Add(this.txtPatientNum);
+            this.groupBox2.Controls.Add(this.lblPatientNum);
+            this.groupBox2.Controls.Add(this.txtPatient);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(9, 33);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(259, 220);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Patient Details";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblEmail.Location = new System.Drawing.Point(15, 152);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(103, 20);
+            this.lblEmail.TabIndex = 19;
+            this.lblEmail.Text = "Email Address";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(17, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 20);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Patient Name";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtEmail.Location = new System.Drawing.Point(19, 175);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
+            this.txtEmail.Size = new System.Drawing.Size(185, 25);
+            this.txtEmail.TabIndex = 18;
+            // 
+            // txtPatientNum
+            // 
+            this.txtPatientNum.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtPatientNum.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatientNum.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatientNum.Location = new System.Drawing.Point(19, 119);
+            this.txtPatientNum.Name = "txtPatientNum";
+            this.txtPatientNum.ReadOnly = true;
+            this.txtPatientNum.Size = new System.Drawing.Size(185, 25);
+            this.txtPatientNum.TabIndex = 14;
+            // 
+            // lblPatientNum
+            // 
+            this.lblPatientNum.AutoSize = true;
+            this.lblPatientNum.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblPatientNum.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPatientNum.Location = new System.Drawing.Point(17, 96);
+            this.lblPatientNum.Name = "lblPatientNum";
+            this.lblPatientNum.Size = new System.Drawing.Size(105, 20);
+            this.lblPatientNum.TabIndex = 15;
+            this.lblPatientNum.Text = "Phone number";
+            // 
+            // txtPatient
+            // 
+            this.txtPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
+            this.txtPatient.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPatient.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.txtPatient.Location = new System.Drawing.Point(19, 54);
+            this.txtPatient.Name = "txtPatient";
+            this.txtPatient.ReadOnly = true;
+            this.txtPatient.Size = new System.Drawing.Size(185, 25);
+            this.txtPatient.TabIndex = 16;
+            // 
             // grpPatientInfo
             // 
             this.grpPatientInfo.Controls.Add(this.dgvPatientResults);
@@ -745,23 +1001,23 @@
             // 
             this.dgvPatientResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPatientResults.BackgroundColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPatientResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPatientResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPatientResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPatientResults.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPatientResults.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPatientResults.EnableHeadersVisualStyles = false;
             this.dgvPatientResults.Location = new System.Drawing.Point(12, 86);
             this.dgvPatientResults.MultiSelect = false;
@@ -798,7 +1054,7 @@
             // 
             this.pnlViewAppointments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlViewAppointments.Controls.Add(this.grpViewFilters);
-            this.pnlViewAppointments.Location = new System.Drawing.Point(83, 158);
+            this.pnlViewAppointments.Location = new System.Drawing.Point(0, 0);
             this.pnlViewAppointments.Name = "pnlViewAppointments";
             this.pnlViewAppointments.Size = new System.Drawing.Size(1241, 503);
             this.pnlViewAppointments.TabIndex = 5;
@@ -840,23 +1096,23 @@
             // 
             this.dgvAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAppointments.BackgroundColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAppointments.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAppointments.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAppointments.EnableHeadersVisualStyles = false;
             this.dgvAppointments.Location = new System.Drawing.Point(14, 171);
             this.dgvAppointments.MultiSelect = false;
@@ -947,260 +1203,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtDentistEmail);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtDentistNum);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(309, 33);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 222);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dentist Details";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblEmail);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtEmail);
-            this.groupBox2.Controls.Add(this.txtPatientNum);
-            this.groupBox2.Controls.Add(this.lblPatientNum);
-            this.groupBox2.Controls.Add(this.txtPatient);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(9, 33);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(259, 220);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Patient Details";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(18, 152);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 20);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Email Address";
-            // 
-            // txtDentistEmail
-            // 
-            this.txtDentistEmail.AccessibleRole = System.Windows.Forms.AccessibleRole.WhiteSpace;
-            this.txtDentistEmail.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDentistEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDentistEmail.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtDentistEmail.Location = new System.Drawing.Point(22, 175);
-            this.txtDentistEmail.Name = "txtDentistEmail";
-            this.txtDentistEmail.ReadOnly = true;
-            this.txtDentistEmail.Size = new System.Drawing.Size(185, 25);
-            this.txtDentistEmail.TabIndex = 20;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtPatientEmailAdd);
-            this.groupBox3.Controls.Add(this.txtPatientNo);
-            this.groupBox3.Controls.Add(this.txtPatientName);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(15, 33);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(222, 214);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Patient Details";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txtUpdStatus);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.txtCurrentTime);
-            this.groupBox4.Controls.Add(this.txtCurrentDate);
-            this.groupBox4.Controls.Add(this.txtDentistName);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(271, 37);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(342, 214);
-            this.groupBox4.TabIndex = 11;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Appointment Details";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(15, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 20);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Name";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(15, 96);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 20);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Phone Number";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(15, 152);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 20);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Email Address";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(16, 37);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 20);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Dentist";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(16, 91);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(93, 20);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Current Date";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(15, 148);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(94, 20);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Current Time";
-            // 
-            // txtDentistName
-            // 
-            this.txtDentistName.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDentistName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDentistName.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtDentistName.Location = new System.Drawing.Point(20, 56);
-            this.txtDentistName.Name = "txtDentistName";
-            this.txtDentistName.ReadOnly = true;
-            this.txtDentistName.Size = new System.Drawing.Size(154, 25);
-            this.txtDentistName.TabIndex = 7;
-            // 
-            // txtCurrentDate
-            // 
-            this.txtCurrentDate.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCurrentDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrentDate.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtCurrentDate.Location = new System.Drawing.Point(19, 111);
-            this.txtCurrentDate.Name = "txtCurrentDate";
-            this.txtCurrentDate.ReadOnly = true;
-            this.txtCurrentDate.Size = new System.Drawing.Size(154, 25);
-            this.txtCurrentDate.TabIndex = 8;
-            // 
-            // txtCurrentTime
-            // 
-            this.txtCurrentTime.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCurrentTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrentTime.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtCurrentTime.Location = new System.Drawing.Point(19, 171);
-            this.txtCurrentTime.Name = "txtCurrentTime";
-            this.txtCurrentTime.ReadOnly = true;
-            this.txtCurrentTime.Size = new System.Drawing.Size(154, 25);
-            this.txtCurrentTime.TabIndex = 9;
-            // 
-            // txtPatientName
-            // 
-            this.txtPatientName.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPatientName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtPatientName.Location = new System.Drawing.Point(19, 58);
-            this.txtPatientName.Name = "txtPatientName";
-            this.txtPatientName.ReadOnly = true;
-            this.txtPatientName.Size = new System.Drawing.Size(154, 25);
-            this.txtPatientName.TabIndex = 10;
-            // 
-            // txtPatientNo
-            // 
-            this.txtPatientNo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPatientNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPatientNo.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtPatientNo.Location = new System.Drawing.Point(19, 115);
-            this.txtPatientNo.Name = "txtPatientNo";
-            this.txtPatientNo.ReadOnly = true;
-            this.txtPatientNo.Size = new System.Drawing.Size(154, 25);
-            this.txtPatientNo.TabIndex = 11;
-            // 
-            // txtPatientEmailAdd
-            // 
-            this.txtPatientEmailAdd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPatientEmailAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPatientEmailAdd.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtPatientEmailAdd.Location = new System.Drawing.Point(19, 172);
-            this.txtPatientEmailAdd.Name = "txtPatientEmailAdd";
-            this.txtPatientEmailAdd.ReadOnly = true;
-            this.txtPatientEmailAdd.Size = new System.Drawing.Size(154, 25);
-            this.txtPatientEmailAdd.TabIndex = 12;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(199, 37);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 20);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Status";
-            // 
-            // txtUpdStatus
-            // 
-            this.txtUpdStatus.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUpdStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpdStatus.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.txtUpdStatus.Location = new System.Drawing.Point(203, 60);
-            this.txtUpdStatus.Name = "txtUpdStatus";
-            this.txtUpdStatus.ReadOnly = true;
-            this.txtUpdStatus.Size = new System.Drawing.Size(127, 25);
-            this.txtUpdStatus.TabIndex = 11;
-            // 
-            // btnMarkAllCompleted
-            // 
-            this.btnMarkAllCompleted.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            this.btnMarkAllCompleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMarkAllCompleted.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnMarkAllCompleted.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnMarkAllCompleted.Location = new System.Drawing.Point(893, 37);
-            this.btnMarkAllCompleted.Name = "btnMarkAllCompleted";
-            this.btnMarkAllCompleted.Size = new System.Drawing.Size(173, 34);
-            this.btnMarkAllCompleted.TabIndex = 11;
-            this.btnMarkAllCompleted.Text = "Mark All as Completed";
-            this.btnMarkAllCompleted.UseVisualStyleBackColor = false;
-            this.btnMarkAllCompleted.Click += new System.EventHandler(this.btnMarkAllCompleted_Click);
-            // 
             // Appointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1209,8 +1211,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1435, 750);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlViewAppointments);
-            this.Controls.Add(this.pnlBookAppointment);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.btnUpdateAppointment);
@@ -1233,12 +1233,20 @@
             this.pnlUpdateAppointment.ResumeLayout(false);
             this.grpUpdateDetails.ResumeLayout(false);
             this.grpUpdateDetails.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.grpFindAppointment.ResumeLayout(false);
             this.grpFindAppointment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateAppointments)).EndInit();
             this.pnlBookAppointment.ResumeLayout(false);
             this.grpAppointmentDetails.ResumeLayout(false);
             this.grpAppointmentDetails.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.grpPatientInfo.ResumeLayout(false);
             this.grpPatientInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatientResults)).EndInit();
@@ -1247,14 +1255,6 @@
             this.grpViewFilters.ResumeLayout(false);
             this.grpViewFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
