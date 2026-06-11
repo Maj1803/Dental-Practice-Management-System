@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Dental_Practice_Management_System
@@ -47,6 +48,29 @@ namespace Dental_Practice_Management_System
                 btnLogin_Click(sender, e);
         }
 
+        private bool IsValidPassword(string password)
+        {
+            string errors = "";
+
+            if (!Regex.IsMatch(password, @"[A-Z]"))
+                errors += "• At least one uppercase letter\n";
+
+            if (!Regex.IsMatch(password, @"[0-9]"))
+                errors += "• At least one number\n";
+
+            if (!Regex.IsMatch(password, @"[!@#$%^&*()_+\-=\[\]{};':""\\|,.<>\/?]"))
+                errors += "• At least one symbol (e.g. !@#$%^&*)\n";
+
+            if (errors != "")
+            {
+                MessageBox.Show("Password must contain:\n\n" + errors,
+                    "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
@@ -58,6 +82,13 @@ namespace Dental_Practice_Management_System
 
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
+
+            if (!IsValidPassword(password))
+            {
+                txtPassword.Clear();
+                txtPassword.Focus();
+                return;
+            }
 
             try
             {
@@ -158,13 +189,15 @@ namespace Dental_Practice_Management_System
             }
             catch (Exception)
             {
-
             }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+        }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
         }
     }
 }
