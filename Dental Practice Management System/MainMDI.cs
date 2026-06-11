@@ -50,6 +50,9 @@ namespace Dental_Practice_Management_System
             {
                 btnTreatments.Enabled = false;
                 btnTreatments.ForeColor = Color.Gray;
+
+                btnReports.Enabled = false;
+                btnReports.ForeColor = Color.Gray;
             }
         }
 
@@ -79,28 +82,24 @@ namespace Dental_Practice_Management_System
             OpenChildForm(new Dashboard(userFullName));
         }
 
-        // --- PATIENTS: Dentist blocked ---
         private void btnPatientsForm_Click_1(object sender, EventArgs e)
         {
             if (userRole == "Dentist") { ShowAccessDenied("Patients"); return; }
             OpenChildForm(new Patients());
         }
 
-        // --- APPOINTMENTS: Dentist blocked ---
         private void btnAppointmentsForm_Click_1(object sender, EventArgs e)
         {
             if (userRole == "Dentist") { ShowAccessDenied("Appointments"); return; }
             OpenChildForm(new Appointments());
         }
 
-        // --- TREATMENTS: Receptionist blocked ---
         private void btnTreatmentMedicineForm_Click_1(object sender, EventArgs e)
         {
             if (userRole == "Receptionist") { ShowAccessDenied("Treatments"); return; }
             OpenChildForm(new TreatmentMedicine());
         }
 
-        // --- BILLING: Dentist blocked ---
         private void btnBillingForm_Click_1(object sender, EventArgs e)
         {
             if (userRole == "Dentist") { ShowAccessDenied("Billing"); return; }
@@ -109,12 +108,12 @@ namespace Dental_Practice_Management_System
 
         private void btnReportsForm_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Reports());
+            if (userRole == "Receptionist") { ShowAccessDenied("Reports"); return; }
+            OpenChildForm(new Reports());
         }
 
         private void btnStaffForm_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Staff());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -129,28 +128,24 @@ namespace Dental_Practice_Management_System
             OpenChildForm(new Dashboard(userFullName));
         }
 
-        // --- PATIENTS: Dentist blocked ---
         private void btnPatients_Click(object sender, EventArgs e)
         {
             if (userRole == "Dentist") { ShowAccessDenied("Patients"); return; }
             OpenChildForm(new Patients());
         }
 
-        // --- APPOINTMENTS: Dentist blocked ---
         private void btnAppointments_Click(object sender, EventArgs e)
         {
             if (userRole == "Dentist") { ShowAccessDenied("Appointments"); return; }
             OpenChildForm(new Appointments());
         }
 
-        // --- TREATMENTS: Receptionist blocked ---
         private void btnTreatments_Click(object sender, EventArgs e)
         {
             if (userRole == "Receptionist") { ShowAccessDenied("Treatments"); return; }
             OpenChildForm(new TreatmentMedicine());
         }
 
-        // --- BILLING: Dentist blocked ---
         private void btnBilling_Click(object sender, EventArgs e)
         {
             if (userRole == "Dentist") { ShowAccessDenied("Billing"); return; }
@@ -159,6 +154,7 @@ namespace Dental_Practice_Management_System
 
         private void btnReports_Click(object sender, EventArgs e)
         {
+            if (userRole == "Receptionist") { ShowAccessDenied("Reports"); return; }
             OpenChildForm(new Reports());
         }
 
