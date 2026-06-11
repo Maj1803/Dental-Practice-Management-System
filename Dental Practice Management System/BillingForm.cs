@@ -368,6 +368,8 @@ namespace Dental_Practice_Management_System
             try
             {
                 decimal balanceD = 0;
+                string stat = "partially paid";
+
                 if (currentBalance < amountPaid)
                 {
                     MessageBox.Show("Amount paid is bigger than balance due");
@@ -376,23 +378,22 @@ namespace Dental_Practice_Management_System
                 else
                 {
                     balanceD = currentBalance - amountPaid;
+
+                    if (balanceD == 0)
+                    {
+                        stat = "paid";
+                    }
                 }
                 int paymentID = CreatePaymentID();
 
                 paymentTableAdapter.Insert(paymentID, Convert.ToInt32(searchInvoiceID), amountPaid, cmbMethod.Text, dateTimePicker1.Value);
 
-                MessageBox.Show("Payment has been saved");
-
-                              
-
-                
-
+                MessageBox.Show("Payment has been saved" + Environment.NewLine + " Amount Paid: R" + amountPaid.ToString("F2") + Environment.NewLine + "Balance Due: R" + balanceD.ToString("F2"));  
                 
                 
-                MessageBox.Show(balanceD.ToString());
                 dsDentist.Invoice.Clear();
 
-                invoiceTableAdapter.UpdateQuery( "paid", balanceD, searchInvoiceID);
+                invoiceTableAdapter.UpdateQuery("paid", balanceD, searchInvoiceID);
 
 
                 
@@ -568,11 +569,15 @@ namespace Dental_Practice_Management_System
                 string lName = words[1];
 
                 patientTableAdapter.FillByPatientName(dsDentist.Patient, fName, lName);*/
+                dsDentist.EnforceConstraints = false;
+
                 dsDentist.Patient.Clear();
 
                 patientTableAdapter.FillByAppointmentID(dsDentist.Patient, Convert.ToInt32(txtAppt.Text));
 
                 appointmentID = txtAppt.Text.Trim();
+
+                dsDentist.EnforceConstraints = true;
 
                 /*if (dsDentist.Patient.Rows.Count > 0) { dgvPatient.DataSource = dsDentist.Patient; appointmentID = txtAppt.Text; } else { dgvPatient.DataSource = null; MessageBox.Show("Error: Appointment ID not found."); }*/
             }
@@ -599,6 +604,8 @@ namespace Dental_Practice_Management_System
 
             try
             {
+
+
                 dsDentist.Invoice.Clear();
 
                 int rows = invoiceTableAdapter.Fill(dsDentist.Invoice);
@@ -652,6 +659,7 @@ namespace Dental_Practice_Management_System
                         }
                     }
 
+                    rtxtbxDetails.Clear();
                     rtxtbxDetails.AppendText("Invoice Details for Invoice ID Number: " + invoiceID + "\n");
                     rtxtbxDetails.AppendText("----------------------------------------\n");
                     rtxtbxDetails.AppendText(invoices);
@@ -723,6 +731,7 @@ namespace Dental_Practice_Management_System
                 int rows = patientTableAdapter.Fill(dsDentist.Patient);
 
                 string patientName = txtPatientName.Text.Trim();
+
                 patientName = patientName.ToLower();
 
                 bool found = false;
@@ -737,6 +746,7 @@ namespace Dental_Practice_Management_System
                     {
                         found = true;
                         patientID = Convert.ToInt32(row["Patient_ID"]);
+
                     }
 
                 }
@@ -755,7 +765,7 @@ namespace Dental_Practice_Management_System
                     {
                         found2 = true;
                         appointmentID = Convert.ToInt32(row["Appointment_ID"]);
-
+                                                
                         dsDentist.Invoice.Clear();
 
                         int rows3 = invoiceTableAdapter.Fill(dsDentist.Invoice);
@@ -772,43 +782,44 @@ namespace Dental_Practice_Management_System
                             {
                                 found3 = true;
                                 invoiceID = Convert.ToInt32(row2["invoice_id"]);
+
+                                int rows4 = paymentTableAdapter.Fill(dsDentist.Payment);
+
+
+                                bool found4 = false;
+
+
+                                foreach (DataRow row3 in dsDentist.Payment.Rows)
+                                {
+                                    int iID = Convert.ToInt32(row3["invoice_id"]);
+
+                                    if (iID == invoiceID)
+                                    {
+                                        found3 = true;
+
+                                        paymentHistory +=
+                                            "Payment ID: " + row3["payment_id"] + Environment.NewLine +
+                                            "Amount: R" + row3["payment_amount"] + Environment.NewLine +
+                                            "Method: " + row3["payment_method"] + Environment.NewLine +
+                                            "Date: " +
+                                            Convert.ToDateTime(row3["payment_date"])
+                                                .ToShortDateString() +
+                                            Environment.NewLine +
+                                            "------------------------" +
+                                            Environment.NewLine;
+
+                                    }
+
+                                }
                             }
 
                         }
-
-                        int rows4 = paymentTableAdapter.Fill(dsDentist.Payment);
-
-
-                        bool found4 = false;
-
-
-                        foreach (DataRow row3 in dsDentist.Payment.Rows)
-                        {
-                            int iID = Convert.ToInt32(row3["invoice_id"]);
-
-                            if (iID == invoiceID)
-                            {
-                                found3 = true;
-
-                                paymentHistory +=
-                                    "Payment ID: " + row3["payment_id"] + Environment.NewLine +
-                                    "Amount: R" + row3["payment_amount"] + Environment.NewLine +
-                                    "Method: " + row3["payment_method"] + Environment.NewLine +
-                                    "Date: " +
-                                    Convert.ToDateTime(row3["payment_date"])
-                                        .ToShortDateString() +
-                                    Environment.NewLine +
-                                    "------------------------" +
-                                    Environment.NewLine;
-
-                            }
-
-                        }
+                       
                     }
 
                 }
 
-                rtxtbxPaymentHistory.AppendText("Payment History for Patient: " + patientName + "\n");
+                rtxtbxPaymentHistory.AppendText("Payment History for Patient: " + char.ToUpper(patientName[0]) + patientName.Substring(1) + "\n");
                 rtxtbxPaymentHistory.AppendText("----------------------------------------\n");
                 rtxtbxPaymentHistory.AppendText(paymentHistory);
 

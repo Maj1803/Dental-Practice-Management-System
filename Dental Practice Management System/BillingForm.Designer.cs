@@ -44,9 +44,6 @@
             this.btnReceipt = new System.Windows.Forms.Button();
             this.btnClear1 = new System.Windows.Forms.Button();
             this.dgvPatient = new System.Windows.Forms.DataGridView();
-            this.patientFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -84,6 +81,9 @@
             this.patientTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
             this.dsDentistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.patientFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -244,37 +244,15 @@
             this.patientLastNameDataGridViewTextBoxColumn,
             this.patientPhoneNumberDataGridViewTextBoxColumn});
             this.dgvPatient.DataSource = this.patientBindingSource;
-            this.dgvPatient.Location = new System.Drawing.Point(20, 208);
+            this.dgvPatient.Location = new System.Drawing.Point(26, 208);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.ReadOnly = true;
             this.dgvPatient.RowHeadersWidth = 51;
             this.dgvPatient.RowTemplate.Height = 24;
-            this.dgvPatient.Size = new System.Drawing.Size(1203, 128);
+            this.dgvPatient.ShowCellErrors = false;
+            this.dgvPatient.ShowRowErrors = false;
+            this.dgvPatient.Size = new System.Drawing.Size(1215, 128);
             this.dgvPatient.TabIndex = 12;
-            // 
-            // patientFirstNameDataGridViewTextBoxColumn
-            // 
-            this.patientFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Patient_First_Name";
-            this.patientFirstNameDataGridViewTextBoxColumn.HeaderText = "Patient_First_Name";
-            this.patientFirstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patientFirstNameDataGridViewTextBoxColumn.Name = "patientFirstNameDataGridViewTextBoxColumn";
-            this.patientFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // patientLastNameDataGridViewTextBoxColumn
-            // 
-            this.patientLastNameDataGridViewTextBoxColumn.DataPropertyName = "Patient_Last_Name";
-            this.patientLastNameDataGridViewTextBoxColumn.HeaderText = "Patient_Last_Name";
-            this.patientLastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patientLastNameDataGridViewTextBoxColumn.Name = "patientLastNameDataGridViewTextBoxColumn";
-            this.patientLastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // patientPhoneNumberDataGridViewTextBoxColumn
-            // 
-            this.patientPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Patient_Phone_Number";
-            this.patientPhoneNumberDataGridViewTextBoxColumn.HeaderText = "Patient_Phone_Number";
-            this.patientPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patientPhoneNumberDataGridViewTextBoxColumn.Name = "patientPhoneNumberDataGridViewTextBoxColumn";
-            this.patientPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // patientBindingSource
             // 
@@ -336,9 +314,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label5.Location = new System.Drawing.Point(15, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(479, 29);
+            this.label5.Size = new System.Drawing.Size(418, 29);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Search Appointment (Enter Appointment ID)";
+            this.label5.Text = "Search Patient (Enter Appointment ID)";
             // 
             // label6
             // 
@@ -406,9 +384,9 @@
             // pnlInvoice
             // 
             this.pnlInvoice.Controls.Add(this.grpInvoice);
-            this.pnlInvoice.Location = new System.Drawing.Point(52, 250);
+            this.pnlInvoice.Location = new System.Drawing.Point(23, 250);
             this.pnlInvoice.Name = "pnlInvoice";
-            this.pnlInvoice.Size = new System.Drawing.Size(1265, 677);
+            this.pnlInvoice.Size = new System.Drawing.Size(1350, 677);
             this.pnlInvoice.TabIndex = 21;
             // 
             // grpInvoice
@@ -423,9 +401,9 @@
             this.grpInvoice.Controls.Add(this.btnClear1);
             this.grpInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpInvoice.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpInvoice.Location = new System.Drawing.Point(33, 19);
+            this.grpInvoice.Location = new System.Drawing.Point(3, 19);
             this.grpInvoice.Name = "grpInvoice";
-            this.grpInvoice.Size = new System.Drawing.Size(1200, 658);
+            this.grpInvoice.Size = new System.Drawing.Size(1327, 658);
             this.grpInvoice.TabIndex = 0;
             this.grpInvoice.TabStop = false;
             this.grpInvoice.Text = "Invoice";
@@ -445,9 +423,9 @@
             // pnlPayment
             // 
             this.pnlPayment.Controls.Add(this.grpPayment);
-            this.pnlPayment.Location = new System.Drawing.Point(52, 250);
+            this.pnlPayment.Location = new System.Drawing.Point(26, 250);
             this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(1286, 674);
+            this.pnlPayment.Size = new System.Drawing.Size(1344, 674);
             this.pnlPayment.TabIndex = 22;
             // 
             // grpPayment
@@ -509,9 +487,9 @@
             // pnlPaymentHistory
             // 
             this.pnlPaymentHistory.Controls.Add(this.grpPaymentHistory);
-            this.pnlPaymentHistory.Location = new System.Drawing.Point(52, 250);
+            this.pnlPaymentHistory.Location = new System.Drawing.Point(26, 253);
             this.pnlPaymentHistory.Name = "pnlPaymentHistory";
-            this.pnlPaymentHistory.Size = new System.Drawing.Size(1286, 674);
+            this.pnlPaymentHistory.Size = new System.Drawing.Size(1341, 671);
             this.pnlPaymentHistory.TabIndex = 23;
             // 
             // grpPaymentHistory
@@ -523,16 +501,16 @@
             this.grpPaymentHistory.Controls.Add(this.label8);
             this.grpPaymentHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPaymentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpPaymentHistory.Location = new System.Drawing.Point(26, 20);
+            this.grpPaymentHistory.Location = new System.Drawing.Point(26, 19);
             this.grpPaymentHistory.Name = "grpPaymentHistory";
-            this.grpPaymentHistory.Size = new System.Drawing.Size(1236, 634);
+            this.grpPaymentHistory.Size = new System.Drawing.Size(1236, 635);
             this.grpPaymentHistory.TabIndex = 0;
             this.grpPaymentHistory.TabStop = false;
             this.grpPaymentHistory.Text = "Payment History";
             // 
             // rtxtbxPaymentHistory
             // 
-            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(47, 289);
+            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(75, 287);
             this.rtxtbxPaymentHistory.Name = "rtxtbxPaymentHistory";
             this.rtxtbxPaymentHistory.Size = new System.Drawing.Size(491, 212);
             this.rtxtbxPaymentHistory.TabIndex = 6;
@@ -552,7 +530,7 @@
             // 
             // txtPatientName
             // 
-            this.txtPatientName.Location = new System.Drawing.Point(48, 160);
+            this.txtPatientName.Location = new System.Drawing.Point(75, 161);
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.Size = new System.Drawing.Size(208, 38);
             this.txtPatientName.TabIndex = 4;
@@ -574,7 +552,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label8.Location = new System.Drawing.Point(43, 89);
+            this.label8.Location = new System.Drawing.Point(70, 87);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(470, 29);
             this.label8.TabIndex = 2;
@@ -644,11 +622,35 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // patientFirstNameDataGridViewTextBoxColumn
+            // 
+            this.patientFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Patient_First_Name";
+            this.patientFirstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
+            this.patientFirstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.patientFirstNameDataGridViewTextBoxColumn.Name = "patientFirstNameDataGridViewTextBoxColumn";
+            this.patientFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // patientLastNameDataGridViewTextBoxColumn
+            // 
+            this.patientLastNameDataGridViewTextBoxColumn.DataPropertyName = "Patient_Last_Name";
+            this.patientLastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
+            this.patientLastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.patientLastNameDataGridViewTextBoxColumn.Name = "patientLastNameDataGridViewTextBoxColumn";
+            this.patientLastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // patientPhoneNumberDataGridViewTextBoxColumn
+            // 
+            this.patientPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Patient_Phone_Number";
+            this.patientPhoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            this.patientPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.patientPhoneNumberDataGridViewTextBoxColumn.Name = "patientPhoneNumberDataGridViewTextBoxColumn";
+            this.patientPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1365, 953);
+            this.ClientSize = new System.Drawing.Size(1389, 953);
             this.Controls.Add(this.pnlPaymentHistory);
             this.Controls.Add(this.pnlPayment);
             this.Controls.Add(this.pnlInvoice);
@@ -723,9 +725,6 @@
         private System.Windows.Forms.Panel pnlInvoice;
         private System.Windows.Forms.GroupBox grpInvoice;
         private System.Windows.Forms.BindingSource dsDentistBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientFirstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientLastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientPhoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel pnlPayment;
         private System.Windows.Forms.GroupBox grpPayment;
         private System.Windows.Forms.Button btnClear2;
@@ -740,5 +739,8 @@
         private System.Windows.Forms.Button btnSearch2;
         private System.Windows.Forms.RichTextBox rtxtbxPaymentHistory;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientFirstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientLastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientPhoneNumberDataGridViewTextBoxColumn;
     }
 }
