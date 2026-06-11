@@ -249,7 +249,7 @@
             this.dgvPatient.ReadOnly = true;
             this.dgvPatient.RowHeadersWidth = 51;
             this.dgvPatient.RowTemplate.Height = 24;
-            this.dgvPatient.Size = new System.Drawing.Size(1066, 128);
+            this.dgvPatient.Size = new System.Drawing.Size(1203, 128);
             this.dgvPatient.TabIndex = 12;
             // 
             // patientFirstNameDataGridViewTextBoxColumn

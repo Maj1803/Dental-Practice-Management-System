@@ -18,6 +18,7 @@ namespace Dental_Practice_Management_System
         decimal total = 0;
         string patientFullName, patientPhone = "";
         int searchInvoiceID = -1;
+        decimal currentBalance = 0;
         public BillingForm()
         {
             InitializeComponent();
@@ -366,64 +367,35 @@ namespace Dental_Practice_Management_System
 
             try
             {
+                decimal balanceD = 0;
+                if (currentBalance < amountPaid)
+                {
+                    MessageBox.Show("Amount paid is bigger than balance due");
+                    return;
+                }
+                else
+                {
+                    balanceD = currentBalance - amountPaid;
+                }
                 int paymentID = CreatePaymentID();
 
-                paymentTableAdapter.Insert(paymentID, Convert.ToInt32(txtInvoiceID.Text), amountPaid, cmbMethod.Text, dateTimePicker1.Value);
+                paymentTableAdapter.Insert(paymentID, Convert.ToInt32(searchInvoiceID), amountPaid, cmbMethod.Text, dateTimePicker1.Value);
 
                 MessageBox.Show("Payment has been saved");
 
-                dsDentist.Patient.Clear();
+                              
 
-                int rows = patientTableAdapter.Fill(dsDentist.Patient);
+                
 
-                int rows2 = treatmentTableAdapter.FillByAppointmentID(dsDentist.Treatment, Convert.ToInt32(appointmentID));
+                
+                
+                MessageBox.Show(balanceD.ToString());
+                dsDentist.Invoice.Clear();
 
-                DataRow patientRow = dsDentist.Patient.Rows[0];                
-
-                Invoice frm = new Invoice();
-
-                frm.dgvInvoiceTreatment.DataSource = treatmentBindingSource1;
-
-                frm.lblAppointment.Text = appointmentID;
+                invoiceTableAdapter.UpdateQuery( "paid", balanceD, searchInvoiceID);
 
 
-                frm.lblDate.Text = DateTime.Now.ToShortDateString();
-
-                frm.lblPatientName.Text = patientFullName;
-
-                frm.lblPatientNumber.Text = patientPhone;
-
-                frm.lblTotal.Text = "R " + total;
-
-                decimal VAT = total * 0.15m;
-
-                frm.lblVAT.Text = "R " + VAT.ToString("0.00");
-
-                decimal grandtotal = total + VAT;
- 
-                frm.lblGrandTotal.Text = "R " + grandtotal.ToString("0.00");
-
-                frm.lblInvoiceID.Text = txtInvoiceID.Text;
-
-                /*dsDentist.Invoice.Clear();
-                invoiceTableAdapter.Fill(dsDentist.Invoice);
-
-                var row = dsDentist.Invoice.FindByinvoice_id(searchInvoiceID);
-
-                row.invoice_balance_due = grandtotal - amount;
-                invoiceTableAdapter.Update(dsDentist.Invoice);*/
-
-                frm.dgvInvoiceTreatment.DataSource = dgvTreatment.DataSource;
-
-                frm.grpPayment.Visible = true;
-
-                decimal balanceD = grandtotal - amountPaid;
-
-                frm.lblAmountPaid.Text = "R " + amountPaid.ToString("0.00");
-
-                frm.lblBalance.Text = "R " + balanceD.ToString("0.00");
-
-                frm.ShowDialog();
+                
 
             }
             catch (Exception ex)
@@ -585,25 +557,24 @@ namespace Dental_Practice_Management_System
                 dgvPatient.DataSource = patientBindingSource;
                 return;
             }
-
             try
             {
+                /*dsDentist.Patient.Clear();
+
+                appointmentID = txtAppt.Text;
+                string[] words = appointmentID.Split(' ');
+
+                string fName = words[0];
+                string lName = words[1];
+
+                patientTableAdapter.FillByPatientName(dsDentist.Patient, fName, lName);*/
                 dsDentist.Patient.Clear();
 
                 patientTableAdapter.FillByAppointmentID(dsDentist.Patient, Convert.ToInt32(txtAppt.Text));
 
                 appointmentID = txtAppt.Text.Trim();
-               
-                /*if (dsDentist.Patient.Rows.Count > 0)
-                {
-                    dgvPatient.DataSource = dsDentist.Patient;
-                    appointmentID = txtAppt.Text;
-                }
-                else
-                {
-                    dgvPatient.DataSource = null;
-                    MessageBox.Show("Error: Appointment ID not found.");
-                }*/
+
+                /*if (dsDentist.Patient.Rows.Count > 0) { dgvPatient.DataSource = dsDentist.Patient; appointmentID = txtAppt.Text; } else { dgvPatient.DataSource = null; MessageBox.Show("Error: Appointment ID not found."); }*/
             }
             catch (FormatException)
             {
@@ -677,6 +648,7 @@ namespace Dental_Practice_Management_System
                             Environment.NewLine +
                             "----------------------------------------" +
                             Environment.NewLine;
+                            currentBalance = Convert.ToDecimal(row["invoice_balance_due"]);
                         }
                     }
 
@@ -758,7 +730,7 @@ namespace Dental_Practice_Management_System
 
                 foreach (DataRow row in dsDentist.Patient.Rows)
                 {
-                    string name = row["Patient_First_Name"].ToString();
+                    string name = row["Patient_First_Name"].ToString().Trim();
                     name = name.ToLower();
 
                     if (name == patientName)
@@ -783,6 +755,8 @@ namespace Dental_Practice_Management_System
                     {
                         found2 = true;
                         appointmentID = Convert.ToInt32(row["Appointment_ID"]);
+
+                        dsDentist.Invoice.Clear();
 
                         int rows3 = invoiceTableAdapter.Fill(dsDentist.Invoice);
 
