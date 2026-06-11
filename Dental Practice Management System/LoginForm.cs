@@ -161,5 +161,10 @@ namespace Dental_Practice_Management_System
 
             }
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

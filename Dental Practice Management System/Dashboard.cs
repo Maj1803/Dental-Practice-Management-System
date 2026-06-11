@@ -64,9 +64,10 @@ namespace Dental_Practice_Management_System
 
                     while (reader.Read())
                     {
+
                         dgvSchedule.Rows.Add(
-                            reader["Slot_Start_Time"].ToString(),
                             reader["PatientName"].ToString(),
+                            reader["Slot_Start_Time"].ToString(),
                             reader["TreatmentName"] == DBNull.Value
                                 ? "No Treatment"
                                 : reader["TreatmentName"].ToString(),
@@ -75,7 +76,7 @@ namespace Dental_Practice_Management_System
                     }
 
                     dgvSchedule.ClearSelection();
-                    dgvSchedule.CurrentCell = null; // Prevent first row auto-selection
+                    dgvSchedule.CurrentCell = null;
                 }
             }
             catch (Exception ex)
@@ -95,7 +96,7 @@ namespace Dental_Practice_Management_System
                 ScrollToBottom();
 
                 dgvSchedule.ClearSelection();
-                dgvSchedule.CurrentCell = null; // Prevent first row auto-selection
+                dgvSchedule.CurrentCell = null;
             }
             catch (Exception ex)
             {
@@ -188,8 +189,9 @@ namespace Dental_Practice_Management_System
                 {
                     conn.Open();
 
+    
                     SqlCommand cmd = new SqlCommand(
-                        @"SELECT
+                        @"SELECT DISTINCT
                             p.Patient_First_Name + ' ' + p.Patient_Last_Name AS PatientName,
                             i.invoice_total_amount
                           FROM Invoice i
