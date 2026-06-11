@@ -897,7 +897,8 @@
             // 
             // Help
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1417, 703);
             this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
