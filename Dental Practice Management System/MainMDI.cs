@@ -29,7 +29,28 @@ namespace Dental_Practice_Management_System
                     ctl.BackColor = Color.FromArgb(203, 213, 225);
                 }
             }
+            ApplyRolePermissions();
             OpenChildForm(new Dashboard(userFullName));
+        }
+
+        private void ApplyRolePermissions()
+        {
+            if (userRole == "Dentist")
+            {
+                btnPatients.Enabled = false;
+                btnPatients.ForeColor = Color.Gray;
+
+                btnAppointments.Enabled = false;
+                btnAppointments.ForeColor = Color.Gray;
+
+                btnBilling.Enabled = false;
+                btnBilling.ForeColor = Color.Gray;
+            }
+            else if (userRole == "Receptionist")
+            {
+                btnTreatments.Enabled = false;
+                btnTreatments.ForeColor = Color.Gray;
+            }
         }
 
         private void OpenChildForm(Form childForm)
@@ -143,7 +164,6 @@ namespace Dental_Practice_Management_System
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Staff());
             OpenChildForm(new Employees());
         }
 
@@ -154,6 +174,10 @@ namespace Dental_Practice_Management_System
         private void btnHelp_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Help());
+        }
+
+        private void MainMDI_Load(object sender, EventArgs e)
+        {
         }
     }
 }
