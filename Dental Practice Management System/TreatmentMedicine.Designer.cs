@@ -113,6 +113,7 @@
             this.treatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.TreatmentTableAdapter();
             this.patientTreatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTreatmentTableAdapter();
             this.vw_PatientAppointmentDetailsTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter();
+            this.btnSkipPrescription = new System.Windows.Forms.Button();
             this.pnlPatientDetails.SuspendLayout();
             this.grpViewPatientDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vwPatientAppointmentDetailsBindingSource)).BeginInit();
@@ -574,6 +575,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpPrescribeMedication.AutoSize = true;
+            this.grpPrescribeMedication.Controls.Add(this.btnSkipPrescription);
             this.grpPrescribeMedication.Controls.Add(this.btnPrintPrescription);
             this.grpPrescribeMedication.Controls.Add(this.txtDosage);
             this.grpPrescribeMedication.Controls.Add(this.lblDosage);
@@ -604,9 +606,9 @@
             this.btnPrintPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintPrescription.ForeColor = System.Drawing.Color.White;
-            this.btnPrintPrescription.Location = new System.Drawing.Point(330, 295);
+            this.btnPrintPrescription.Location = new System.Drawing.Point(447, 295);
             this.btnPrintPrescription.Name = "btnPrintPrescription";
-            this.btnPrintPrescription.Size = new System.Drawing.Size(210, 39);
+            this.btnPrintPrescription.Size = new System.Drawing.Size(163, 39);
             this.btnPrintPrescription.TabIndex = 21;
             this.btnPrintPrescription.Text = "Print Prescription";
             this.btnPrintPrescription.UseVisualStyleBackColor = false;
@@ -642,7 +644,7 @@
             // cmbMedicine
             // 
             this.cmbMedicine.FormattingEnabled = true;
-            this.cmbMedicine.Location = new System.Drawing.Point(107, 92);
+            this.cmbMedicine.Location = new System.Drawing.Point(162, 87);
             this.cmbMedicine.Name = "cmbMedicine";
             this.cmbMedicine.Size = new System.Drawing.Size(168, 28);
             this.cmbMedicine.TabIndex = 17;
@@ -656,7 +658,7 @@
             this.btnClearPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearPrescription.ForeColor = System.Drawing.Color.White;
-            this.btnClearPrescription.Location = new System.Drawing.Point(221, 295);
+            this.btnClearPrescription.Location = new System.Drawing.Point(182, 295);
             this.btnClearPrescription.Name = "btnClearPrescription";
             this.btnClearPrescription.Size = new System.Drawing.Size(74, 39);
             this.btnClearPrescription.TabIndex = 16;
@@ -672,7 +674,7 @@
             this.btnSavePrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSavePrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSavePrescription.ForeColor = System.Drawing.Color.White;
-            this.btnSavePrescription.Location = new System.Drawing.Point(29, 295);
+            this.btnSavePrescription.Location = new System.Drawing.Point(16, 295);
             this.btnSavePrescription.Name = "btnSavePrescription";
             this.btnSavePrescription.Size = new System.Drawing.Size(151, 39);
             this.btnSavePrescription.TabIndex = 15;
@@ -685,7 +687,7 @@
             this.lblAllergies.AutoSize = true;
             this.lblAllergies.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAllergies.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAllergies.Location = new System.Drawing.Point(26, 44);
+            this.lblAllergies.Location = new System.Drawing.Point(26, 46);
             this.lblAllergies.Name = "lblAllergies";
             this.lblAllergies.Size = new System.Drawing.Size(65, 17);
             this.lblAllergies.TabIndex = 12;
@@ -725,7 +727,7 @@
             // txtPresciptionAllergies
             // 
             this.txtPresciptionAllergies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPresciptionAllergies.Location = new System.Drawing.Point(107, 39);
+            this.txtPresciptionAllergies.Location = new System.Drawing.Point(105, 46);
             this.txtPresciptionAllergies.Name = "txtPresciptionAllergies";
             this.txtPresciptionAllergies.Size = new System.Drawing.Size(186, 27);
             this.txtPresciptionAllergies.TabIndex = 1;
@@ -737,9 +739,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.label5.Location = new System.Drawing.Point(11, 92);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 25);
+            this.label5.Size = new System.Drawing.Size(145, 25);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Medicine";
+            this.label5.Text = "Medicine Name";
             // 
             // pnlTreatmentHistory
             // 
@@ -781,7 +783,7 @@
             this.dgvTreatmentHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTreatmentHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvTreatmentHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTreatmentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTreatmentHistory.Location = new System.Drawing.Point(18, 86);
             this.dgvTreatmentHistory.Name = "dgvTreatmentHistory";
@@ -1089,6 +1091,22 @@
             // 
             this.vw_PatientAppointmentDetailsTableAdapter.ClearBeforeFill = true;
             // 
+            // btnSkipPrescription
+            // 
+            this.btnSkipPrescription.BackColor = System.Drawing.Color.DimGray;
+            this.btnSkipPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSkipPrescription.FlatAppearance.BorderSize = 0;
+            this.btnSkipPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSkipPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSkipPrescription.ForeColor = System.Drawing.Color.White;
+            this.btnSkipPrescription.Location = new System.Drawing.Point(266, 295);
+            this.btnSkipPrescription.Name = "btnSkipPrescription";
+            this.btnSkipPrescription.Size = new System.Drawing.Size(160, 39);
+            this.btnSkipPrescription.TabIndex = 22;
+            this.btnSkipPrescription.Text = "Skip Prescription";
+            this.btnSkipPrescription.UseVisualStyleBackColor = false;
+            this.btnSkipPrescription.Click += new System.EventHandler(this.btnSkipPrescription_Click);
+            // 
             // TreatmentMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1232,5 +1250,6 @@
         private System.Windows.Forms.Label lblAllergyWarning;
         private System.Windows.Forms.TextBox txtAppointmentDiagnosisID;
         private System.Windows.Forms.Button btnPrintPrescription;
+        private System.Windows.Forms.Button btnSkipPrescription;
     }
 }

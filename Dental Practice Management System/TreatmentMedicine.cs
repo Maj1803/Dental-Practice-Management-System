@@ -160,6 +160,7 @@ namespace Dental_Practice_Management_System
                 {
                     lblAllergyWarning.Visible = false;
                 }
+                workflow("AppointmentSelected");
             }
         }
 
@@ -230,8 +231,8 @@ namespace Dental_Practice_Management_System
                     txtTreatmentNotes.Text.Trim(), // Treatment_Notes
                     DateTime.Now // Treatment_Date (or use a value from a control if available)
                 );
-                MessageBox.Show("Treatment details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Treatment details saved successfully! Moving to Prescription.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                workflow("TreatmentSaved");
             }
             catch (Exception ex)
             {
@@ -420,7 +421,7 @@ namespace Dental_Practice_Management_System
                 txtDosage.Clear();
                 txtCodeMedicine.Clear();
                 LoadTreatmentHistory(); // Refresh treatment history to show new prescription details
-
+                workflow("Complete");
             }
             catch (Exception ex)
             {
@@ -465,9 +466,10 @@ namespace Dental_Practice_Management_System
                     null,
                     DateTime.Now // Diagnosis_Date (or use a value from a control if available)
                 );
-                MessageBox.Show("Diagnosis details saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Diagnosis details saved successfully! Moving to Treatment Details.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDiagnosisNotes.Clear();
                 cmbDiagnosis.SelectedIndex = -1;
+                workflow("DiagnosisSaved");
             }
             catch (Exception ex)
             {
@@ -528,40 +530,55 @@ namespace Dental_Practice_Management_System
 
             try
             {
-                // 2. Fetch the active Appointment ID from your ComboBox selection
+                
                 int activeAppointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
+                DateTime appointmentDate = DateTime.Now;
+                if (cmbAppointment.SelectedItem != null)
+                {
+                    DataRowView row = (DataRowView)cmbAppointment.SelectedItem;
+                    if (row["Appointment_Date"] != DBNull.Value)
+                    {
+                        appointmentDate = Convert.ToDateTime(row["Appointment_Date"]);
+                    }
+                }
 
-                // 3. Create instances of your typed Dataset and DataAdapters
+                
                 dsDentist reportingDataSet = new dsDentist();
                 var apptViewAdapter = new dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter();
                 var treatmentAdapter = new dsDentistTableAdapters.PatientTreatmentTableAdapter();
                 var prescriptionAdapter = new dsDentistTableAdapters.PrescriptionTableAdapter();
                 var medicineAdapter = new dsDentistTableAdapters.MedicineTableAdapter();
 
-                // 4. Fill the DataTables to load the database records into memory
+                
                 apptViewAdapter.Fill(reportingDataSet.vw_PatientAppointmentDetails);
                 treatmentAdapter.Fill(reportingDataSet.PatientTreatment);
                 prescriptionAdapter.Fill(reportingDataSet.Prescription);
                 medicineAdapter.Fill(reportingDataSet.Medicine);
 
-                // 5. Initialize your custom Crystal Report layout object matching rptPrescription.rpt
+                
                 rptPrescription reportInstance = new rptPrescription();
 
-                // Pass your populated dataset structure directly to the report template
+                
                 reportInstance.SetDataSource(reportingDataSet);
 
-                // 6. FILTER SELECTION: Tell Crystal Reports to ONLY target the active prescription 
-                // by matching the Appointment_ID through the database relationship link chain.
-                string crystalSelectionFormula = "{PatientTreatment.Appointment_ID} = " + activeAppointmentId;
 
-                // 7. Initialize your view window form: PrescriptionReportView
+                string crystalSelectionFormula = string.Format(
+            "{{PatientTreatment.Appointment_ID}} = {0} AND Date({{PatientTreatment.Date_Recorded}}) = Date({1}, {2}, {3})",
+            activeAppointmentId,
+            appointmentDate.Year,
+            appointmentDate.Month,
+            appointmentDate.Day
+        );
+        
+
+                
                 PrescriptionReportView viewerForm = new PrescriptionReportView();
 
-                // Feed the report instance and filter formula into your custom viewer: crystalReportViewerPrescription
+                
                 viewerForm.crystalReportViewerPrescription.ReportSource = reportInstance;
                 viewerForm.crystalReportViewerPrescription.SelectionFormula = crystalSelectionFormula;
 
-                // 8. Open up the report view panel as a modal dialog box
+                
                 viewerForm.ShowDialog();
             }
             catch (Exception ex)
@@ -570,6 +587,59 @@ namespace Dental_Practice_Management_System
                                 "Reporting System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+        private void workflow(string step)
+        {
+            HideAllPanels();
+            pnlPatientDetails.Visible = true;
+
+            btnAddDiagnosis.Enabled = false;
+            btnAddTreatment.Enabled = false;
+            btnPrescribeMedication.Enabled = false;
+            btnTreatmentHistory.Enabled = false;
+
+            switch (step)
+            {
+                case "AppointmentSelected":
+                    btnAddDiagnosis.Enabled = true;
+                    pnlAddDiagnosis.Visible = true;
+                    CopyAppointmentToDiagnosisPanel();
+                    break;
+                case "DiagnosisSaved":
+                    btnAddDiagnosis.Enabled = true;
+                    pnlAddTreatment.Visible = true;
+                    break;
+                case "TreatmentSaved":
+                    btnAddDiagnosis.Enabled = true;
+                    btnAddTreatment.Enabled = true;
+                    btnPrescribeMedication.Enabled = true;
+                    pnlPrescribeMedication.Visible = true;
+                    CopyPatientToPrescriptionPanel();
+                    break;
+                case "Complete":
+                    btnAddDiagnosis.Enabled = true;
+                    btnAddTreatment.Enabled = true;
+                    btnPrescribeMedication.Enabled = true;
+                    btnTreatmentHistory.Enabled = true;
+                    pnlTreatmentHistory.Visible = true;
+                    LoadTreatmentHistory();
+                    break;
+
+            }
+        }
+
+        private void btnSkipPrescription_Click(object sender, EventArgs e)
+        {
+            cmbMedicine.SelectedIndex = -1;
+            txtQuantity.Clear();
+            txtDosage.Clear();
+            txtCodeMedicine.Clear();
+
+            // Move straight to the final history step
+            MessageBox.Show("Consultation session completed. Loading treatment history.",
+                            "Session Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            workflow("Complete");
         }
     }
     }
