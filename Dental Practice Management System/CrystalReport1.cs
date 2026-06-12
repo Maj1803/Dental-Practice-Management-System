@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dental_Practice_Management_System.AppReports {
+namespace Dental_Practice_Management_System {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace Dental_Practice_Management_System.AppReports {
         
         public override string FullResourceName {
             get {
-                return "Dental_Practice_Management_System.AppReports.CrystalReport1.rpt";
+                return "Dental_Practice_Management_System.CrystalReport1.rpt";
             }
             set {
                 // Do nothing

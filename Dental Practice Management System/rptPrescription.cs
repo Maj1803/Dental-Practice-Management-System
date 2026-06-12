@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dental_Practice_Management_System.AppReports {
+namespace Dental_Practice_Management_System {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Dental_Practice_Management_System.AppReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class TreatmentHistory : ReportClass {
+    public class rptPrescription : ReportClass {
         
-        public TreatmentHistory() {
+        public rptPrescription() {
         }
         
         public override string ResourceName {
             get {
-                return "TreatmentHistory.rpt";
+                return "rptPrescription.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Dental_Practice_Management_System.AppReports {
         
         public override string FullResourceName {
             get {
-                return "Dental_Practice_Management_System.AppReports.TreatmentHistory.rpt";
+                return "Dental_Practice_Management_System.rptPrescription.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Dental_Practice_Management_System.AppReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Dental_Practice_Management_System.AppReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,33 +82,17 @@ namespace Dental_Practice_Management_System.AppReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[6];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedTreatmentHistory : Component, ICachedReport {
+    public class CachedrptPrescription : Component, ICachedReport {
         
-        public CachedTreatmentHistory() {
+        public CachedrptPrescription() {
         }
         
         [Browsable(false)]
@@ -145,7 +129,7 @@ namespace Dental_Practice_Management_System.AppReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            TreatmentHistory rpt = new TreatmentHistory();
+            rptPrescription rpt = new rptPrescription();
             rpt.Site = this.Site;
             return rpt;
         }
