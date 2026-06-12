@@ -547,7 +547,7 @@
             // 
             this.btnClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnClear2.Location = new System.Drawing.Point(1063, 572);
+            this.btnClear2.Location = new System.Drawing.Point(1063, 508);
             this.btnClear2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear2.Name = "btnClear2";
             this.btnClear2.Size = new System.Drawing.Size(132, 47);
