@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dental_Practice_Management_System.AppReports {
+namespace Dental_Practice_Management_System {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Dental_Practice_Management_System.AppReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptAppointments : ReportClass {
+    public class TreatmentHistory : ReportClass {
         
-        public rptAppointments() {
+        public TreatmentHistory() {
         }
         
         public override string ResourceName {
             get {
-                return "rptAppointments.rpt";
+                return "TreatmentHistory.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Dental_Practice_Management_System.AppReports {
         
         public override string FullResourceName {
             get {
-                return "Dental_Practice_Management_System.AppReports.rptAppointments.rpt";
+                return "Dental_Practice_Management_System.TreatmentHistory.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Dental_Practice_Management_System.AppReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -82,7 +82,7 @@ namespace Dental_Practice_Management_System.AppReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -106,9 +106,9 @@ namespace Dental_Practice_Management_System.AppReports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptAppointments : Component, ICachedReport {
+    public class CachedTreatmentHistory : Component, ICachedReport {
         
-        public CachedrptAppointments() {
+        public CachedTreatmentHistory() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace Dental_Practice_Management_System.AppReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptAppointments rpt = new rptAppointments();
+            TreatmentHistory rpt = new TreatmentHistory();
             rpt.Site = this.Site;
             return rpt;
         }

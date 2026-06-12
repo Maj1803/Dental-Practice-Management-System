@@ -1,6 +1,5 @@
 ﻿using Dental_Practice_Management_System.dsDentistTableAdapters;
 using System;
-using Dental_Practice_Management_System.AppReports;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -557,7 +556,7 @@ namespace Dental_Practice_Management_System
                 medicineAdapter.Fill(reportingDataSet.Medicine);
 
 
-                AppReports.rptPrescription reportInstance = new AppReports.rptPrescription();
+                rptPrescription reportInstance = new rptPrescription();
 
                 
                 reportInstance.SetDataSource(reportingDataSet);
