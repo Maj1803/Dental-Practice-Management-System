@@ -17,8 +17,9 @@ namespace Dental_Practice_Management_System
         private bool isMedicineLoading = false; // Flag to prevent event firing during loading
         private DataTable medicineData; // Store medicine data for easy access
         private dsDentistTableAdapters.MedicineTableAdapter medicineTableAdapter = new dsDentistTableAdapters.MedicineTableAdapter();
-        
-        
+        private string savedDiagnosisCode = "";
+        private string savedDiagnosisNotes = "";
+
         public TreatmentMedicine()
         {
             InitializeComponent();
@@ -222,15 +223,25 @@ namespace Dental_Practice_Management_System
             }
             try
             {
-               // DataTable dt = patientTreatmentTableAdapter.GetData();
-               // DataRow[] rows = dt.Select("Appointment_ID = " + cmbAppointment.SelectedValue.ToString());
-                
-                patientTreatmentTableAdapter.InsertTreatment(
-                    Convert.ToInt32(cmbAppointment.SelectedValue), // Appointment_ID
-                    Convert.ToInt32(cmbTreatment.SelectedValue), // Treatment_ID
-                    txtTreatmentNotes.Text.Trim(), // Treatment_Notes
-                    DateTime.Now // Treatment_Date (or use a value from a control if available)
-                );
+                // DataTable dt = patientTreatmentTableAdapter.GetData();
+                // DataRow[] rows = dt.Select("Appointment_ID = " + cmbAppointment.SelectedValue.ToString());
+                int appointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
+                int treatmentId = Convert.ToInt32(cmbTreatment.SelectedValue);
+                string treatmentNotes = txtTreatmentNotes.Text.Trim();
+
+                patientTreatmentTableAdapter.InsertDiagnosis(
+                    appointmentId,       // @Appointment_ID
+                    treatmentId,         // @TreatmentID
+                    savedDiagnosisCode,  // @Diagnosis
+                       savedDiagnosisNotes, // @Diagnosis_Notes
+                        treatmentNotes,      // @Treatment_Notes
+                           DateTime.Now);       // @Date_Recorded
+        
+                //Convert.ToInt32(cmbAppointment.SelectedValue), // Appointment_ID
+                //Convert.ToInt32(cmbTreatment.SelectedValue), // Treatment_ID
+                //txtTreatmentNotes.Text.Trim(), // Treatment_Notes
+                //DateTime.Now // Treatment_Date (or use a value from a control if available)
+                // );
                 MessageBox.Show("Treatment details saved successfully! Moving to Prescription.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 workflow("TreatmentSaved");
             }
@@ -454,7 +465,8 @@ namespace Dental_Practice_Management_System
                 MessageBox.Show("Please enter a diagnosis code before saving.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            try
+
+           /* try
             {
                 int appointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
                 //int patientId = Convert.ToInt32(txtPatientIDDiag.Text);
@@ -465,16 +477,18 @@ namespace Dental_Practice_Management_System
                     txtDiagnosisNotes.Text.Trim(), // Diagnosis_Notes
                     null,
                     DateTime.Now // Diagnosis_Date (or use a value from a control if available)
-                );
-                MessageBox.Show("Diagnosis details saved successfully! Moving to Treatment Details.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               */ //);
+            savedDiagnosisCode = cmbDiagnosis.Text;
+            savedDiagnosisNotes = txtDiagnosisNotes.Text.Trim();
+            MessageBox.Show("Diagnosis details saved successfully! Moving to Treatment Details.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDiagnosisNotes.Clear();
                 cmbDiagnosis.SelectedIndex = -1;
                 workflow("DiagnosisSaved");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error saving diagnosis details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           // }
+            //catch (Exception ex)
+            //{
+              //  MessageBox.Show("Error saving diagnosis details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
