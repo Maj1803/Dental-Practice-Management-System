@@ -57,6 +57,7 @@ namespace Dental_Practice_Management_System
             dgvTreatment.MultiSelect = false;
 
             btnTreatment.Visible = false;
+            btnInvoice.Enabled = false;
 
             FixBillingLayout();
 
@@ -531,18 +532,19 @@ namespace Dental_Practice_Management_System
 
                 currentBalance = newBalance;
 
-                //clear fields
-                txtPaymentAmount.Clear();
-                cmbMethod.SelectedIndex = -1;
-                dateTimePicker1.Value = DateTime.Today;
+                string paymentMethod = cmbMethod.Text;
 
                 string receipt = "--- PAYMENT RECEIPT ---\n" +
                      "Invoice ID: " + searchInvoiceID + "\n" +
                      "Payment ID: " + paymentID + "\n" +
                      "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
-                     "Method: " + cmbMethod.Text + "\n" +
+                     "Method: " + paymentMethod + "\n" +
                      "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
                      "-----------------------";
+
+                txtPaymentAmount.Clear();
+                cmbMethod.SelectedIndex = -1;
+                dateTimePicker1.Value = DateTime.Today;
 
                 MessageBox.Show(receipt, "Payment Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -710,7 +712,7 @@ namespace Dental_Practice_Management_System
 
             treatmentBindingSource1.DataSource = null;
             dgvTreatment.DataSource = null;
-            btnInvoice.Enabled = true;
+            btnInvoice.Enabled = false;
         }
 
         private void ClearPaymentPanel()

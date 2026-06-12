@@ -60,6 +60,7 @@
             this.btnPaymentHistory = new System.Windows.Forms.Button();
             this.pnlInvoice = new System.Windows.Forms.Panel();
             this.grpInvoice = new System.Windows.Forms.GroupBox();
+            this.lblSelectedBillingPatient = new System.Windows.Forms.RichTextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.grpPayment = new System.Windows.Forms.GroupBox();
@@ -84,7 +85,6 @@
             this.patientTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
             this.dsDentistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lblSelectedBillingPatient = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -104,10 +104,11 @@
             // 
             // txtAppt
             // 
+            this.txtAppt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAppt.Location = new System.Drawing.Point(21, 117);
             this.txtAppt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAppt.Name = "txtAppt";
-            this.txtAppt.Size = new System.Drawing.Size(171, 38);
+            this.txtAppt.Size = new System.Drawing.Size(262, 38);
             this.txtAppt.TabIndex = 0;
             this.txtAppt.TextChanged += new System.EventHandler(this.txtAppt_TextChanged);
             // 
@@ -206,6 +207,7 @@
             // 
             // txtInvoiceID
             // 
+            this.txtInvoiceID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInvoiceID.Location = new System.Drawing.Point(41, 116);
             this.txtInvoiceID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtInvoiceID.Name = "txtInvoiceID";
@@ -278,7 +280,7 @@
             this.patientFirstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.patientFirstNameDataGridViewTextBoxColumn.Name = "patientFirstNameDataGridViewTextBoxColumn";
             this.patientFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.patientFirstNameDataGridViewTextBoxColumn.Width = 190;
+            this.patientFirstNameDataGridViewTextBoxColumn.Width = 173;
             // 
             // patientLastNameDataGridViewTextBoxColumn
             // 
@@ -287,7 +289,7 @@
             this.patientLastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.patientLastNameDataGridViewTextBoxColumn.Name = "patientLastNameDataGridViewTextBoxColumn";
             this.patientLastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.patientLastNameDataGridViewTextBoxColumn.Width = 188;
+            this.patientLastNameDataGridViewTextBoxColumn.Width = 172;
             // 
             // patientPhoneNumberDataGridViewTextBoxColumn
             // 
@@ -296,7 +298,7 @@
             this.patientPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.patientPhoneNumberDataGridViewTextBoxColumn.Name = "patientPhoneNumberDataGridViewTextBoxColumn";
             this.patientPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.patientPhoneNumberDataGridViewTextBoxColumn.Width = 245;
+            this.patientPhoneNumberDataGridViewTextBoxColumn.Width = 223;
             // 
             // patientBindingSource
             // 
@@ -459,11 +461,23 @@
             this.grpInvoice.TabStop = false;
             this.grpInvoice.Text = "Invoice";
             // 
+            // lblSelectedBillingPatient
+            // 
+            this.lblSelectedBillingPatient.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblSelectedBillingPatient.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectedBillingPatient.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblSelectedBillingPatient.Location = new System.Drawing.Point(853, 131);
+            this.lblSelectedBillingPatient.Name = "lblSelectedBillingPatient";
+            this.lblSelectedBillingPatient.Size = new System.Drawing.Size(357, 214);
+            this.lblSelectedBillingPatient.TabIndex = 26;
+            this.lblSelectedBillingPatient.Text = "";
+            this.lblSelectedBillingPatient.TextChanged += new System.EventHandler(this.lblSelectedBillingPatient_TextChanged);
+            // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSearch.Location = new System.Drawing.Point(227, 117);
+            this.btnSearch.Location = new System.Drawing.Point(307, 117);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(136, 38);
@@ -593,6 +607,7 @@
             // 
             // txtPatientName
             // 
+            this.txtPatientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPatientName.Location = new System.Drawing.Point(75, 161);
             this.txtPatientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPatientName.Name = "txtPatientName";
@@ -686,18 +701,6 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // lblSelectedBillingPatient
-            // 
-            this.lblSelectedBillingPatient.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblSelectedBillingPatient.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedBillingPatient.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblSelectedBillingPatient.Location = new System.Drawing.Point(853, 131);
-            this.lblSelectedBillingPatient.Name = "lblSelectedBillingPatient";
-            this.lblSelectedBillingPatient.Size = new System.Drawing.Size(357, 214);
-            this.lblSelectedBillingPatient.TabIndex = 26;
-            this.lblSelectedBillingPatient.Text = "";
-            this.lblSelectedBillingPatient.TextChanged += new System.EventHandler(this.lblSelectedBillingPatient_TextChanged);
             // 
             // BillingForm
             // 
