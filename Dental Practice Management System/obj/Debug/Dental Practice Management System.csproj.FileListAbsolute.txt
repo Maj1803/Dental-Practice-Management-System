@@ -61,23 +61,6 @@ C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dent
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.PrescriptionReportView.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Reports.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental P.0574DD40.Up2Date
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.AssemblyReference.cache
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Appointments.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.AvailabilityOverride.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.BillingForm.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Employees.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Invoice.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Patients.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.PrescriptionReportView.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Properties.Resources.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Reports.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Template.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.TreatmentMedicine.resources
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.GenerateResource.cache
-C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.CoreCompileInputs.cache
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.rpt
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.cs
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
@@ -120,6 +103,10 @@ C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Denta
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.ForgotPassword.resources
+C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.ForgotPassword.resources
+C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Help.resources
+C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
+C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Help.resources
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.rpt
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.cs
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
@@ -142,12 +129,26 @@ C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\stdole.dll
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.AssemblyReference.cache
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Appointments.resources
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.ForgotPassword.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Help.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.AvailabilityOverride.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.BillingForm.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Dashboard.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Employees.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Invoice.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.LoginForm.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.MainMDI.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Patients.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.PrescriptionReportView.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Properties.Resources.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Reports.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Template.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.TreatmentMedicine.resources
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.GenerateResource.cache
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.csproj.CoreCompileInputs.cache
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental P.0574DD40.Up2Date
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.pdb
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
-C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.ForgotPassword.resources
-C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Help.resources
-C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
-C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Help.resources
