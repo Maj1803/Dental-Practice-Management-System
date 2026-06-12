@@ -1,4 +1,5 @@
 ﻿using System;
+using Dental_Practice_Management_System.AppReports;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,11 +23,6 @@ namespace Dental_Practice_Management_System
 
             hiddenTabInvoice = tabPage2;
             hiddenTabTreatment = tabPage3;
-
-            this.TreatmentHistory1 = new Dental_Practice_Management_System.TreatmentHistory();
-            this.InvoiceSummary1 = new Dental_Practice_Management_System.InvoiceSummary();
-            this.rptAppointments1 = new Dental_Practice_Management_System.rptAppointments();
-        
 
             if (tabControl1.TabPages.Contains(hiddenTabInvoice))
             {

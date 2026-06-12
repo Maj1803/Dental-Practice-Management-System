@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f33489e (fix reports error)
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.pdb
@@ -109,9 +112,14 @@ C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dent
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Help.resources
 C:\Users\Nashwah Mahomed\OneDrive\Desktop\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental Practice Management System.exe.config
 C:\Users\katel\OneDrive\Documents\GitHub\Dental-Practice-Management-System\Dental Practice Management System\obj\Debug\Dental_Practice_Management_System.Help.resources
+<<<<<<< HEAD
 >>>>>>> parent of 77fb901 (file organisation)
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.rpt
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\CrystalReport1.cs
+=======
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\AppReports\CrystalReport1.rpt
+C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\AppReports\CrystalReport1.cs
+>>>>>>> parent of f33489e (fix reports error)
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe.config
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.exe
 C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\Dental Practice Management System\bin\Debug\Dental Practice Management System.pdb
