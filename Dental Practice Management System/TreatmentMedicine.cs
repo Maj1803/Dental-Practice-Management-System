@@ -63,7 +63,10 @@ namespace Dental_Practice_Management_System
             //cmbAppointment.SelectedIndex = -1;
             DataView appointmentView = new DataView(dsDentist.vw_PatientAppointmentDetails);
             appointmentView.RowFilter = "Appointment_Status <> 'Cancelled'";
+            appointmentView.Sort = "Appointment_ID DESC";
             cmbAppointment.DataSource = appointmentView;
+
+
             cmbAppointment.SelectedIndex = -1;//no selection by default
                                               //cmbAppointment.SelectedIndexChanged -= cmbAppointment_SelectedIndexChanged;
                                               //this.patientTreatmentTableAdapter.Fill(this.dsDentist1.PatientTreatment);
@@ -541,20 +544,34 @@ namespace Dental_Practice_Management_System
                                 "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (cmbMedicine.SelectedIndex == -1 || cmbMedicine.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a medicine before printing the prescription.",
+                                "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbMedicine.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtQuantity.Text))
+            {
+                MessageBox.Show("Please enter a quantity before printing.",
+                                "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQuantity.Focus();
+                return;
+            }
+            else if (!int.TryParse(txtQuantity.Text.Trim(), out int qty) || qty <= 0)
+            {
+                MessageBox.Show("Please enter a valid numeric number for the quantity (e.g., 1, 2, 10).",
+                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQuantity.SelectAll();
+                txtQuantity.Focus();
+                return;
+            }
 
             try
             {
                 
                 int activeAppointmentId = Convert.ToInt32(cmbAppointment.SelectedValue);
-                DateTime appointmentDate = DateTime.Now;
-                if (cmbAppointment.SelectedItem != null)
-                {
-                    DataRowView row = (DataRowView)cmbAppointment.SelectedItem;
-                    if (row["Appointment_Date"] != DBNull.Value)
-                    {
-                        appointmentDate = Convert.ToDateTime(row["Appointment_Date"]);
-                    }
-                }
+               
 
                 
                 dsDentist reportingDataSet = new dsDentist();
@@ -576,13 +593,9 @@ namespace Dental_Practice_Management_System
                 reportInstance.SetDataSource(reportingDataSet);
 
 
-                string crystalSelectionFormula = string.Format(
-            "{{PatientTreatment.Appointment_ID}} = {0} AND Date({{PatientTreatment.Date_Recorded}}) = Date({1}, {2}, {3})",
-            activeAppointmentId,
-            appointmentDate.Year,
-            appointmentDate.Month,
-            appointmentDate.Day
-        );
+                string crystalSelectionFormula = string.Format("{{PatientTreatment.Appointment_ID}} = {0}", activeAppointmentId);
+                reportInstance.RecordSelectionFormula = crystalSelectionFormula;
+        
         
 
                 
@@ -590,7 +603,7 @@ namespace Dental_Practice_Management_System
 
                 
                 viewerForm.crystalReportViewerPrescription.ReportSource = reportInstance;
-                viewerForm.crystalReportViewerPrescription.SelectionFormula = crystalSelectionFormula;
+                //viewerForm.crystalReportViewerPrescription.SelectionFormula = crystalSelectionFormula;
 
                 
                 viewerForm.ShowDialog();
