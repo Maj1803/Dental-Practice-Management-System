@@ -54,22 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChildForms\Appointments.cs">
+    <Compile Include="Appointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\Appointments.Designer.cs">
+    <Compile Include="Appointments.Designer.cs">
       <DependentUpon>Appointments.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\ForgotPassword.cs">
+    <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\ForgotPassword.Designer.cs">
+    <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\Help.cs">
+    <Compile Include="Help.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\Help.Designer.cs">
+    <Compile Include="Help.Designer.cs">
       <DependentUpon>Help.cs</DependentUpon>
     </Compile>
     <Compile Include="rptAppointments.cs">
@@ -78,16 +78,16 @@
       <DependentUpon>rptAppointments.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChildForms\AvailabilityOverride.cs">
+    <Compile Include="AvailabilityOverride.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\AvailabilityOverride.Designer.cs">
+    <Compile Include="AvailabilityOverride.Designer.cs">
       <DependentUpon>AvailabilityOverride.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\BillingForm.cs">
+    <Compile Include="BillingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\BillingForm.Designer.cs">
+    <Compile Include="BillingForm.Designer.cs">
       <DependentUpon>BillingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CrystalReport1.cs">
@@ -97,10 +97,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChildForms\Dashboard.cs">
+    <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\Dashboard.Designer.cs">
+    <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="dsDentist.cs">
@@ -111,16 +111,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDentist.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\Employees.cs">
+    <Compile Include="Employees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\Employees.Designer.cs">
+    <Compile Include="Employees.Designer.cs">
       <DependentUpon>Employees.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\Invoice.cs">
+    <Compile Include="Invoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\Invoice.Designer.cs">
+    <Compile Include="Invoice.Designer.cs">
       <DependentUpon>Invoice.cs</DependentUpon>
     </Compile>
     <Compile Include="InvoiceSummary.cs">
@@ -129,34 +129,34 @@
       <DependentUpon>InvoiceSummary.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChildForms\LoginForm.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\LoginForm.Designer.cs">
+    <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\MainMDI.cs">
+    <Compile Include="MainMDI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\MainMDI.Designer.cs">
+    <Compile Include="MainMDI.Designer.cs">
       <DependentUpon>MainMDI.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\Patients.cs">
+    <Compile Include="Patients.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\Patients.Designer.cs">
+    <Compile Include="Patients.Designer.cs">
       <DependentUpon>Patients.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\PrescriptionReportView.cs">
+    <Compile Include="PrescriptionReportView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\PrescriptionReportView.Designer.cs">
+    <Compile Include="PrescriptionReportView.Designer.cs">
       <DependentUpon>PrescriptionReportView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChildForms\Reports.cs">
+    <Compile Include="Reports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\Reports.Designer.cs">
+    <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
     <Compile Include="rptPrescription.cs">
@@ -165,10 +165,10 @@
       <DependentUpon>rptPrescription.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChildForms\Template.cs">
+    <Compile Include="Template.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\Template.Designer.cs">
+    <Compile Include="Template.Designer.cs">
       <DependentUpon>Template.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -179,29 +179,29 @@
       <DependentUpon>TreatmentHistory.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChildForms\TreatmentMedicine.cs">
+    <Compile Include="TreatmentMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildForms\TreatmentMedicine.Designer.cs">
+    <Compile Include="TreatmentMedicine.Designer.cs">
       <DependentUpon>TreatmentMedicine.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChildForms\Appointments.resx">
+    <EmbeddedResource Include="Appointments.resx">
       <DependentUpon>Appointments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\ForgotPassword.resx">
+    <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\Help.resx">
+    <EmbeddedResource Include="Help.resx">
       <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptAppointments.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptAppointments.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\AvailabilityOverride.resx">
+    <EmbeddedResource Include="AvailabilityOverride.resx">
       <DependentUpon>AvailabilityOverride.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\BillingForm.resx">
+    <EmbeddedResource Include="BillingForm.resx">
       <DependentUpon>BillingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport1.rpt">
@@ -209,29 +209,29 @@
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\Dashboard.resx">
+    <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\Employees.resx">
+    <EmbeddedResource Include="Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\Invoice.resx">
+    <EmbeddedResource Include="Invoice.resx">
       <DependentUpon>Invoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InvoiceSummary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InvoiceSummary.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\LoginForm.resx">
+    <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\MainMDI.resx">
+    <EmbeddedResource Include="MainMDI.resx">
       <DependentUpon>MainMDI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\Patients.resx">
+    <EmbeddedResource Include="Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\PrescriptionReportView.resx">
+    <EmbeddedResource Include="PrescriptionReportView.resx">
       <DependentUpon>PrescriptionReportView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -244,21 +244,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ChildForms\Reports.resx">
+    <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptPrescription.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPrescription.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\Template.resx">
+    <EmbeddedResource Include="Template.resx">
       <DependentUpon>Template.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TreatmentHistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>TreatmentHistory.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChildForms\TreatmentMedicine.resx">
+    <EmbeddedResource Include="TreatmentMedicine.resx">
       <DependentUpon>TreatmentMedicine.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dsDentist.xsc">
@@ -291,6 +291,9 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Child Forms\" />
+    <Folder Include="Main Forms\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
