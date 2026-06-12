@@ -1,4 +1,5 @@
 ﻿using System;
+using Dental_Practice_Management_System.AppReports;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

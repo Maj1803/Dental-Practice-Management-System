@@ -32,10 +32,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.rptAppointments1 = new Dental_Practice_Management_System.rptAppointments();
+            this.rptAppointments1 = new Dental_Practice_Management_System.AppReports.rptAppointments();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.InvoiceSummary1 = new Dental_Practice_Management_System.InvoiceSummary();
+            this.InvoiceSummary1 = new Dental_Practice_Management_System.AppReports.InvoiceSummary();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,13 +43,13 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.TreatmentHistory1 = new Dental_Practice_Management_System.TreatmentHistory();
+            this.TreatmentHistory1 = new Dental_Practice_Management_System.AppReports.TreatmentHistory();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbPatientID = new System.Windows.Forms.ComboBox();
             this.cmbPatientName = new System.Windows.Forms.ComboBox();
-            this.CrystalReport11 = new Dental_Practice_Management_System.CrystalReport1();
+            this.CrystalReport11 = new Dental_Practice_Management_System.AppReports.CrystalReport1();
             this.dsDentist1 = new Dental_Practice_Management_System.dsDentist();
             this.tableAdapterManager1 = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
             this.tableAdapterManager2 = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
@@ -341,7 +341,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private CrystalReport1 CrystalReport11;
+        private AppReports.CrystalReport1 CrystalReport11;
         private dsDentist dsDentist1;
         private dsDentistTableAdapters.TableAdapterManager tableAdapterManager1;
         private dsDentistTableAdapters.TableAdapterManager tableAdapterManager2;
@@ -350,9 +350,9 @@
         private dsDentistTableAdapters.QueriesTableAdapter queriesTableAdapter2;
         private Appointments Appointments1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
-        private InvoiceSummary InvoiceSummary1;
+        private AppReports.InvoiceSummary InvoiceSummary1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer3;
-        private TreatmentHistory TreatmentHistory1;
+        private AppReports.TreatmentHistory TreatmentHistory1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -363,6 +363,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private rptAppointments rptAppointments1;
+        private AppReports.rptAppointments rptAppointments1;
     }
 }
