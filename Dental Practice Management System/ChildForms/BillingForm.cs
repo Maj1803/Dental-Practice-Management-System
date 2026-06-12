@@ -43,6 +43,7 @@ namespace Dental_Practice_Management_System
             label5.Text = "Search Patient Name";
             label8.Text = "Search Patient Name";
             label1.Text = "Invoice ID";
+            label4.Text = "Treatments for Selected Patient";
             btnShowDetails.Text = "Load Invoice";
             btnReceipt.Text = "Save Payment";
 
@@ -326,13 +327,18 @@ namespace Dental_Practice_Management_System
                     {
                         int existingInvoiceID = Convert.ToInt32(row["invoice_id"]);
 
-                        MessageBox.Show(
-                            "An invoice already exists for this appointment.\n\n" +
-                            "Invoice ID: " + existingInvoiceID + "\n\n" +
-                            "The existing invoice will now be opened for viewing.");
+                        DialogResult result = MessageBox.Show(
+                            "An invoice already exists for this appointment. Would you like to view the existing invoice?",
+                            "Invoice Already Exists",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
 
-                        lastOpenedInvoiceID = existingInvoiceID;
-                        OpenInvoicePopup(existingInvoiceID, row);
+                        if (result == DialogResult.Yes)
+                        {
+                            lastOpenedInvoiceID = existingInvoiceID;
+                            OpenInvoicePopup(existingInvoiceID, row);
+                        }
+
                         return;
                     }
                 }
@@ -381,9 +387,9 @@ namespace Dental_Practice_Management_System
             frm.lblDate.Text = invoiceDate.ToShortDateString();
             frm.lblPatientName.Text = patientFullName;
             frm.lblPatientNumber.Text = patientPhone;
-            frm.lblTotal.Text = "R " + totalBeforeVat.ToString("0.00");
-            frm.lblVAT.Text = "R " + vat.ToString("0.00");
-            frm.lblGrandTotal.Text = "R " + grandTotal.ToString("0.00");
+            frm.lblTotal.Text = "R" + totalBeforeVat.ToString("0.00");
+            frm.lblVAT.Text = "R" + vat.ToString("0.00");
+            frm.lblGrandTotal.Text = "R" + grandTotal.ToString("0.00");
             frm.lblInvoiceID.Text = invoiceID.ToString();
             frm.grpPayment.Visible = false;
             frm.ShowDialog();
@@ -501,8 +507,20 @@ namespace Dental_Practice_Management_System
 
                 currentBalance = newBalance;
 
-                MessageBox.Show("Payment saved successfully.\nAmount Paid: R" + amountPaid.ToString("0.00") +
-                                "\nBalance Due: R" + newBalance.ToString("0.00"));
+                //clear fields
+                txtPaymentAmount.Clear();
+                cmbMethod.SelectedIndex = -1;
+                dateTimePicker1.Value = DateTime.Today;
+
+                string receipt = "--- PAYMENT RECEIPT ---\n" +
+                     "Invoice ID: " + searchInvoiceID + "\n" +
+                     "Payment ID: " + paymentID + "\n" +
+                     "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
+                     "Method: " + cmbMethod.Text + "\n" +
+                     "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
+                     "-----------------------";
+
+                MessageBox.Show(receipt, "Payment Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 btnShowDetails_Click(sender, e);
             }
@@ -514,8 +532,9 @@ namespace Dental_Practice_Management_System
 
         private void btnSearch2_Click(object sender, EventArgs e)
         {
-            string search = txtPatientName.Text.Trim().ToLower();
             rtxtbxPaymentHistory.Clear();
+
+            string search = txtPatientName.Text.Trim().ToLower();
 
             if (search == "")
             {
