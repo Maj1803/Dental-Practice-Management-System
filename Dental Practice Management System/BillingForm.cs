@@ -79,19 +79,19 @@ namespace Dental_Practice_Management_System
             grpInvoice.Location = new Point(3, 3);
             grpInvoice.Size = new Size(1080, 500);
 
-            dgvPatient.Location = new Point(20, 170);
-            dgvPatient.Size = new Size(980, 110);
+           // dgvPatient.Location = new Point(20, 170);
+            //dgvPatient.Size = new Size(980, 110);
 
             btnTreatment.Visible = false;
 
-            lblSelectedBillingPatient.Location = new Point(20, 295);
+            //lblSelectedBillingPatient.Location = new Point(20, 295);
             lblSelectedBillingPatient.AutoSize = true;
-            lblSelectedBillingPatient.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-            lblSelectedBillingPatient.ForeColor = Color.FromArgb(0, 102, 204);
+           // lblSelectedBillingPatient.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+           // lblSelectedBillingPatient.ForeColor = Color.FromArgb(0, 102, 204);
 
-            dgvTreatment.Location = new Point(170, 330);
-            dgvTreatment.Size = new Size(620, 135);
-            dgvTreatment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgvTreatment.Location = new Point(170, 330);
+            //dgvTreatment.Size = new Size(620, 135);
+           // dgvTreatment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             btnInvoice.Location = new Point(830, 335);
             btnInvoice.Size = new Size(220, 45);
@@ -156,7 +156,14 @@ namespace Dental_Practice_Management_System
             {
                 dsDentist.EnforceConstraints = false;
                 dsDentist.Patient.Clear();
+                dsDentist.Appointment.Clear();
+                dsDentist.Treatment.Clear();
+                dsDentist.Invoice.Clear();
+                
                 patientTableAdapter.Fill(dsDentist.Patient);
+                appointmentTableAdapter.Fill(dsDentist.Appointment);
+                treatmentTableAdapter.Fill(dsDentist.Treatment);
+                invoiceTableAdapter.Fill(dsDentist.Invoice);
 
                 DataTable results = dsDentist.Patient.Clone();
 
@@ -167,6 +174,7 @@ namespace Dental_Practice_Management_System
                     string full = first + " " + last;
 
                     if (first.Contains(search) || last.Contains(search) || full.Contains(search))
+
                         results.ImportRow(row);
                 }
 
@@ -218,7 +226,11 @@ namespace Dental_Practice_Management_System
             total = 0;
             dgvTreatment.DataSource = null;
 
-            lblSelectedBillingPatient.Text = "Selected Patient: " + patientFullName;
+            //lblSelectedBillingPatient.Text = "Selected Patient: " + patientFullName;
+            lblSelectedBillingPatient.Text = "Selected Patient:\n" +
+                                     $"Name: {patientFullName}\n" +
+                                     $"Phone: {patientPhone}\n" +
+                                     $"Patient ID: {selectedPatientID}";
 
             LoadTreatmentForSelectedPatient();
         }
@@ -240,10 +252,20 @@ namespace Dental_Practice_Management_System
                     .OrderByDescending(r => Convert.ToDateTime(r["Appointment_Date"]))
                     .ToList();
 
+
+
                 if (appointments.Count == 0)
                 {
-                    MessageBox.Show("This patient has no appointments, so no treatment can be loaded.");
+                    dgvTreatment.DataSource = null;
+                    total = 0;
+                    selectedAppointmentID = -1;
+
+                   
+                    lblSelectedBillingPatient.Text += "\n\nStatus: No treatments found for this patient.";
+                    btnInvoice.Enabled = false; 
                     return;
+                   // MessageBox.Show("This patient has no appointments, so no treatment can be loaded.");
+                   // return;
                 }
 
                 foreach (DataRow appt in appointments)
@@ -273,6 +295,7 @@ namespace Dental_Practice_Management_System
                                 total += Convert.ToDecimal(treatmentRow.Cells["treatmentCost"].Value);
                             }
                         }
+                        btnInvoice.Enabled = true;
 
                         return;
                     }
@@ -281,8 +304,9 @@ namespace Dental_Practice_Management_System
                 dgvTreatment.DataSource = null;
                 total = 0;
                 selectedAppointmentID = -1;
-
-                MessageBox.Show("This patient has appointments, but no treatment has been assigned yet.");
+                lblSelectedBillingPatient.Text += "\n\nStatus: No treatments found for this patient.";
+                // MessageBox.Show("This patient has appointments, but no treatment has been assigned yet.");
+                btnInvoice.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -678,13 +702,15 @@ namespace Dental_Practice_Management_System
             patientPhone = "";
             total = 0;
 
-            lblSelectedBillingPatient.Text = "Selected Patient: none";
+            //lblSelectedBillingPatient.Text = "Selected Patient: none";
+            lblSelectedBillingPatient.Text = "Selected Patient:\nName: none\nPhone: none\nPatientID: none";
 
             patientBindingSource.DataSource = null;
             dgvPatient.DataSource = patientBindingSource;
 
             treatmentBindingSource1.DataSource = null;
             dgvTreatment.DataSource = null;
+            btnInvoice.Enabled = true;
         }
 
         private void ClearPaymentPanel()
@@ -722,5 +748,10 @@ namespace Dental_Practice_Management_System
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
         private void lblTotall_Click(object sender, EventArgs e) { }
         private void groupBox2_Enter(object sender, EventArgs e) { }
+
+        private void lblSelectedBillingPatient_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
