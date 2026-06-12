@@ -69,6 +69,7 @@
             this.dsDentist1 = new Dental_Practice_Management_System.dsDentist();
             this.pnlPrescribeMedication = new System.Windows.Forms.Panel();
             this.grpPrescribeMedication = new System.Windows.Forms.GroupBox();
+            this.btnSkipPrescription = new System.Windows.Forms.Button();
             this.btnPrintPrescription = new System.Windows.Forms.Button();
             this.txtDosage = new System.Windows.Forms.TextBox();
             this.lblDosage = new System.Windows.Forms.Label();
@@ -113,7 +114,6 @@
             this.treatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.TreatmentTableAdapter();
             this.patientTreatmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTreatmentTableAdapter();
             this.vw_PatientAppointmentDetailsTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.vw_PatientAppointmentDetailsTableAdapter();
-            this.btnSkipPrescription = new System.Windows.Forms.Button();
             this.pnlPatientDetails.SuspendLayout();
             this.grpViewPatientDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vwPatientAppointmentDetailsBindingSource)).BeginInit();
@@ -597,6 +597,22 @@
             this.grpPrescribeMedication.TabIndex = 3;
             this.grpPrescribeMedication.TabStop = false;
             this.grpPrescribeMedication.Text = "Prescribe Medication Details";
+            // 
+            // btnSkipPrescription
+            // 
+            this.btnSkipPrescription.BackColor = System.Drawing.Color.DimGray;
+            this.btnSkipPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSkipPrescription.FlatAppearance.BorderSize = 0;
+            this.btnSkipPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSkipPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSkipPrescription.ForeColor = System.Drawing.Color.White;
+            this.btnSkipPrescription.Location = new System.Drawing.Point(266, 295);
+            this.btnSkipPrescription.Name = "btnSkipPrescription";
+            this.btnSkipPrescription.Size = new System.Drawing.Size(160, 39);
+            this.btnSkipPrescription.TabIndex = 22;
+            this.btnSkipPrescription.Text = "Skip Prescription";
+            this.btnSkipPrescription.UseVisualStyleBackColor = false;
+            this.btnSkipPrescription.Click += new System.EventHandler(this.btnSkipPrescription_Click);
             // 
             // btnPrintPrescription
             // 
@@ -1091,29 +1107,15 @@
             // 
             this.vw_PatientAppointmentDetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // btnSkipPrescription
-            // 
-            this.btnSkipPrescription.BackColor = System.Drawing.Color.DimGray;
-            this.btnSkipPrescription.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnSkipPrescription.FlatAppearance.BorderSize = 0;
-            this.btnSkipPrescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSkipPrescription.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSkipPrescription.ForeColor = System.Drawing.Color.White;
-            this.btnSkipPrescription.Location = new System.Drawing.Point(266, 295);
-            this.btnSkipPrescription.Name = "btnSkipPrescription";
-            this.btnSkipPrescription.Size = new System.Drawing.Size(160, 39);
-            this.btnSkipPrescription.TabIndex = 22;
-            this.btnSkipPrescription.Text = "Skip Prescription";
-            this.btnSkipPrescription.UseVisualStyleBackColor = false;
-            this.btnSkipPrescription.Click += new System.EventHandler(this.btnSkipPrescription_Click);
-            // 
             // TreatmentMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1415, 708);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlPrescribeMedication);
             this.Controls.Add(this.pnlAddDiagnosis);
             this.Controls.Add(this.pnlAddTreatment);
@@ -1127,7 +1129,11 @@
             this.Controls.Add(this.pnlPatientDetails);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TreatmentMedicine";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Treatment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TreatmentMedicine_Load);
