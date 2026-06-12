@@ -199,5 +199,10 @@ namespace Dental_Practice_Management_System
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
         }
+
+        private void lblClock_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

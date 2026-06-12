@@ -56,6 +56,13 @@
             this.appointmentTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentTableAdapter();
             this.queriesTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
             this.queriesTableAdapter2 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.btnGenerate = new System.Windows.Forms.Button();
             this.Appointments1 = new Dental_Practice_Management_System.Appointments();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -64,6 +71,7 @@
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -82,6 +90,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.crystalReportViewer1);
+            this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -96,10 +105,10 @@
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 3);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 59);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = this.rptAppointments1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1049, 532);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1049, 476);
             this.crystalReportViewer1.TabIndex = 0;
             // 
             // tabPage2
@@ -292,6 +301,80 @@
             // 
             this.appointmentTableAdapter1.ClearBeforeFill = true;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnGenerate);
+            this.panel3.Controls.Add(this.dtpEnd);
+            this.panel3.Controls.Add(this.dtpStart);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1049, 56);
+            this.panel3.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(25, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 22);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Filter by Date:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(477, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 22);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "End Date:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(153, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 22);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Start Date:";
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStart.Location = new System.Drawing.Point(244, 14);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(215, 27);
+            this.dtpStart.TabIndex = 3;
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEnd.Location = new System.Drawing.Point(562, 14);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(223, 27);
+            this.dtpEnd.TabIndex = 4;
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.ForeColor = System.Drawing.Color.White;
+            this.btnGenerate.Location = new System.Drawing.Point(915, 10);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(120, 34);
+            this.btnGenerate.TabIndex = 5;
+            this.btnGenerate.Text = "Generate";
+            this.btnGenerate.UseVisualStyleBackColor = false;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
             // Appointments1
             // 
             this.Appointments1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -330,6 +413,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -364,5 +449,12 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private rptAppointments rptAppointments1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.DateTimePicker dtpEnd;
+        private System.Windows.Forms.DateTimePicker dtpStart;
     }
 }

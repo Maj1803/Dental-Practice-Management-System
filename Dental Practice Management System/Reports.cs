@@ -23,6 +23,10 @@ namespace Dental_Practice_Management_System
             hiddenTabInvoice = tabPage2;
             hiddenTabTreatment = tabPage3;
 
+            this.TreatmentHistory1 = new Dental_Practice_Management_System.TreatmentHistory();
+            this.InvoiceSummary1 = new Dental_Practice_Management_System.InvoiceSummary();
+            this.rptAppointments1 = new Dental_Practice_Management_System.rptAppointments();
+
             if (tabControl1.TabPages.Contains(hiddenTabInvoice))
             {
                 tabControl1.TabPages.Remove(hiddenTabInvoice);
@@ -38,77 +42,20 @@ namespace Dental_Practice_Management_System
         {
             try
             {
-                //    dsDentistTableAdapters.QueriesTableAdapter globalQueries = new dsDentistTableAdapters.QueriesTableAdapter();
-                //    DataTable dynamicTable = new DataTable();
-                //    globalQueries.FillReportApp();
-                //    this.CrystalReport11.SetDataSource(dynamicTable);
-                //    this.crystalReportViewer1.ReportSource = this.CrystalReport11;
-                //    this.crystalReportViewer1.RefreshReport();
-
-                //dsDentist ds = new dsDentist();
-                //ds.EnforceConstraints = false;
-                //dsDentistTableAdapters.AppointmentTableAdapter appointmentAdapter = new dsDentistTableAdapters.AppointmentTableAdapter();
-                //appointmentAdapter.FillByApp(ds.Appointment);
-                //this.CrystalReport11.SetDatabaseLogon("GroupWst33", "9d3dx", "146.230.177.46", "GroupWst33");
-                //this.CrystalReport11.SetDataSource(ds);
-                //this.crystalReportViewer1.ReportSource = this.CrystalReport11;
-                //this.crystalReportViewer1.RefreshReport();
-
-                //dsDentist ds = new dsDentist();
-
-                //// 1. Temporarily disable dataset validation checking to bypass any constraint crashes
-                //ds.EnforceConstraints = false;
-
-                //// 2. Instantiate the exact TableAdapter visible in your screenshot
-                //dsDentistTableAdapters.AppointmentViewTableAdapter viewAdapter =
-                //    new dsDentistTableAdapters.AppointmentViewTableAdapter();
-
-                //// 3. Populate the AppointmentView DataTable inside your dataset container
-                //viewAdapter.Fill(ds.AppointmentView);
-
-                // 4. Send the populated dataset directly into Crystal Reports
-                //this.CrystalReport11.SetDataSource(ds);
-                //this.CrystalReport11.SetDataSource(ds.AppointmentView);
-                //DataTable dt = ds.AppointmentView;
-                //dt.TableName = "v_AppointmentReport"; // Force-rename it to trick the engine
-                //this.CrystalReport11.SetDataSource(dt);
-
-                // 5. Connect to the interface viewer object on your Form window
-                //this.crystalReportViewer1.ReportSource = this.CrystalReport11;
-
-                //this.CrystalReport11.Database.Tables[0].SetDataSource((DataTable)ds.AppointmentView);
-
-                //this.crystalReportViewer1.ReportSource = this.CrystalReport11;
-                //this.crystalReportViewer1.RefreshReport();
-
-                //// 6. Paint the layout page onto the screen
-                //this.crystalReportViewer1.RefreshReport();
-
-
+                // Create a local instance of the dataset structure
                 dsDentist ds = new dsDentist();
-
-                // 1. Disable data validation rules to prevent crashes
                 ds.EnforceConstraints = false;
 
-                // 2. Instantiate your specific table adapter
                 dsDentistTableAdapters.AppointmentViewTableAdapter viewAdapter =
                     new dsDentistTableAdapters.AppointmentViewTableAdapter();
 
                 viewAdapter.Connection.ConnectionString = "Server=146.230.177.46;Database=GroupWst33;User Id=GroupWst33;Password=9d3dx;";
-
-                // 3. Populate your DataTable array container
                 viewAdapter.Fill(ds.AppointmentView);
 
-                // --- THE MAGIC FIX STARTS HERE ---
-                // 4. Force feed the rows into the absolute first table layout template index slot
-                // This strips away name matching completely!
+                // Strip away structural matching and bind straight to table index 0
                 this.rptAppointments1.Database.Tables[0].SetDataSource((DataTable)ds.AppointmentView);
-                // --- THE MAGIC FIX ENDS HERE ---
 
-                // 5. Connect the loaded template container straight to your UI window viewer
                 this.crystalReportViewer1.ReportSource = this.rptAppointments1;
-
-                // 6. Draw the complete report layout page onto the screen
                 this.crystalReportViewer1.RefreshReport();
             }
             catch (Exception ex)
@@ -120,7 +67,74 @@ namespace Dental_Practice_Management_System
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Left blank intentionally
+        }
 
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            if (dtpStart.Value.Date > dtpEnd.Value.Date)
+            {
+                MessageBox.Show("The Start Date cannot be further ahead than the End Date. Please choose a valid date range.",
+                                "Invalid Date Range",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            DateTime startDateWithTime = dtpStart.Value.Date;
+            DateTime endDateWithTime = dtpEnd.Value.Date.AddDays(1).AddSeconds(-1);
+
+            try
+            {
+                dsDentist dsFiltered = new dsDentist();
+
+                dsFiltered.EnforceConstraints = false;
+
+                string connectionString = "Server=146.230.177.46;Database=GroupWst33;User Id=GroupWst33;Password=9d3dx;";
+
+                string query = @"SELECT        
+                            a.Appointment_ID, 
+                            0 AS Employee_ID,            -- Dummy ID to bypass validation
+                            a.Appointment_Date, 
+                            a.Appointment_Status, 
+                            p.Patient_First_Name, 
+                            p.Patient_Last_Name, 
+                            p.Patient_Phone_Number, 
+                            '' AS Employee_First_Name,   -- Dummy string to bypass validation
+                            e.Employee_Last_Name, 
+                            t.Slot_Start_Time
+                        FROM dbo.Appointment AS a 
+                        INNER JOIN dbo.Patient AS p ON a.Patient_ID = p.Patient_ID 
+                        INNER JOIN dbo.Employee AS e ON a.Employee_ID = e.Employee_ID 
+                        INNER JOIN dbo.Timeslot AS t ON a.Timeslot_ID = t.Timeslot_ID
+                        WHERE a.Appointment_Date BETWEEN @StartDate AND @EndDate";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@StartDate", startDateWithTime);
+                        cmd.Parameters.AddWithValue("@EndDate", endDateWithTime);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dsFiltered.AppointmentView);
+                        }
+                    }
+                }
+
+                this.rptAppointments1.Database.Tables[0].SetDataSource((DataTable)dsFiltered.AppointmentView);
+
+                this.crystalReportViewer1.ReportSource = this.rptAppointments1;
+                this.crystalReportViewer1.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while filtering report data: {ex.Message}",
+                                "Database Pipeline Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
     }
 }
