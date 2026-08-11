@@ -239,7 +239,12 @@ namespace Dental_Practice_Management_System
 
         private void LoadNewSlotsForUpdate()
         {
-            if (selectedEmployeeID == -1) return;
+            if (selectedEmployeeID == -1)
+                return;
+
+            if (cmbUpdateAction.SelectedItem == null ||
+                cmbUpdateAction.SelectedItem.ToString() != "Reschedule")
+                return;
 
             try
             {
@@ -262,9 +267,8 @@ namespace Dental_Practice_Management_System
                 cmbNewTimeSlot.Format -= cmbTimeSlot_Format;
                 cmbNewTimeSlot.Format += cmbTimeSlot_Format;
 
-                if (cmbNewTimeSlot.Items.Count == 0)
-                    MessageBox.Show("No available slots for this date. Please choose another date.",
-                        "No Slots Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Do NOT show popup here. It is annoying during date changes.
+                // If no slots, user will just see empty dropdown.
             }
             catch (Exception ex)
             {
@@ -364,6 +368,9 @@ namespace Dental_Practice_Management_System
 
                 dtpNewDate.Enabled = false;
                 cmbNewTimeSlot.Enabled = false;
+
+                dtpNewDate.ValueChanged -= dtpNewDate_ValueChanged;
+                dtpNewDate.ValueChanged += dtpNewDate_ValueChanged;
 
                 txtUpdateSearch.TextChanged += txtUpdateSearch_TextChanged;
                 txtSearchPatient.TextChanged += txtSearchPatient_TextChanged;
@@ -721,7 +728,7 @@ namespace Dental_Practice_Management_System
                         ResetUpdatePanel();
                     }
                 }
-                else if (action == "Completed")
+                else if (action == "Complete")
                 {
                     DateTime apptDate = Convert.ToDateTime(
                         dgvUpdateAppointments.CurrentRow.Cells["Appointment_Date"].Value);
@@ -900,13 +907,19 @@ namespace Dental_Practice_Management_System
 
         private void dtpNewDate_ValueChanged(object sender, EventArgs e)
         {
-            if (selectedEmployeeID != -1 && cmbUpdateAction.SelectedItem?.ToString() == "Reschedule")
+            if (cmbUpdateAction.SelectedItem != null &&
+                cmbUpdateAction.SelectedItem.ToString() == "Reschedule" &&
+                selectedAppointmentID != -1 &&
+                selectedEmployeeID != -1)
+            {
                 LoadNewSlotsForUpdate();
+            }
         }
 
         private void cmbUpdateAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbUpdateAction.SelectedItem == null) return;
+            if (cmbUpdateAction.SelectedItem == null)
+                return;
 
             string action = cmbUpdateAction.SelectedItem.ToString();
             bool isReschedule = action == "Reschedule";
@@ -914,13 +927,10 @@ namespace Dental_Practice_Management_System
             dtpNewDate.Enabled = isReschedule;
             cmbNewTimeSlot.Enabled = isReschedule;
 
-            if (!isReschedule)
-            {
-                cmbNewTimeSlot.DataSource = null;
-                cmbNewTimeSlot.Items.Clear();
-                cmbNewTimeSlot.Text = "";
-            }
-            else if (selectedAppointmentID != -1)
+            cmbNewTimeSlot.DataSource = null;
+            cmbNewTimeSlot.Items.Clear();
+
+            if (isReschedule && selectedAppointmentID != -1 && selectedEmployeeID != -1)
             {
                 LoadNewSlotsForUpdate();
             }
@@ -1081,14 +1091,14 @@ namespace Dental_Practice_Management_System
 
             if (cmbUpdateStatusFilter.SelectedItem?.ToString() == "Past Scheduled")
             {
-                cmbUpdateAction.Items.Add("Completed");
+                cmbUpdateAction.Items.Add("Complete");
                 cmbUpdateAction.SelectedIndex = 0;
             }
             else
             {
                 cmbUpdateAction.Items.Add("Reschedule");
                 cmbUpdateAction.Items.Add("Cancel");
-                cmbUpdateAction.Items.Add("Completed");
+                cmbUpdateAction.Items.Add("Complete");
                 cmbUpdateAction.SelectedIndex = -1;
             }
         }
