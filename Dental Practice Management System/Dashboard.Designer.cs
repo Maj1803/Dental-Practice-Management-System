@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.pnlAppointments = new System.Windows.Forms.Panel();
@@ -39,7 +39,7 @@
             this.pnlPatients = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblPatientsText = new System.Windows.Forms.Label();
-            this.lblPatientsCount = new System.Windows.Forms.Label();
+            this.lblMTD = new System.Windows.Forms.Label();
             this.pnlInvoices = new System.Windows.Forms.Panel();
             this.lblInvoicesText = new System.Windows.Forms.LinkLabel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -141,7 +141,7 @@
             this.pnlPatients.BackColor = System.Drawing.Color.White;
             this.pnlPatients.Controls.Add(this.panel3);
             this.pnlPatients.Controls.Add(this.lblPatientsText);
-            this.pnlPatients.Controls.Add(this.lblPatientsCount);
+            this.pnlPatients.Controls.Add(this.lblMTD);
             this.pnlPatients.Location = new System.Drawing.Point(614, 71);
             this.pnlPatients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPatients.Name = "pnlPatients";
@@ -161,21 +161,21 @@
             // 
             this.lblPatientsText.AutoSize = true;
             this.lblPatientsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientsText.Location = new System.Drawing.Point(53, 98);
+            this.lblPatientsText.Location = new System.Drawing.Point(102, 98);
             this.lblPatientsText.Name = "lblPatientsText";
-            this.lblPatientsText.Size = new System.Drawing.Size(232, 22);
+            this.lblPatientsText.Size = new System.Drawing.Size(137, 22);
             this.lblPatientsText.TabIndex = 1;
-            this.lblPatientsText.Text = "Appointments This Week";
+            this.lblPatientsText.Text = "MTD Revenue";
             // 
-            // lblPatientsCount
+            // lblMTD
             // 
-            this.lblPatientsCount.AutoSize = true;
-            this.lblPatientsCount.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientsCount.Location = new System.Drawing.Point(148, 16);
-            this.lblPatientsCount.Name = "lblPatientsCount";
-            this.lblPatientsCount.Size = new System.Drawing.Size(56, 65);
-            this.lblPatientsCount.TabIndex = 0;
-            this.lblPatientsCount.Text = "0";
+            this.lblMTD.AutoSize = true;
+            this.lblMTD.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMTD.Location = new System.Drawing.Point(85, 16);
+            this.lblMTD.Name = "lblMTD";
+            this.lblMTD.Size = new System.Drawing.Size(56, 65);
+            this.lblMTD.TabIndex = 0;
+            this.lblMTD.Text = "0";
             // 
             // pnlInvoices
             // 
@@ -285,14 +285,14 @@
             this.dgvSchedule.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSchedule.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvSchedule.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPatient,
@@ -486,7 +486,7 @@
         private System.Windows.Forms.Panel pnlInvoices;
         private System.Windows.Forms.Label lblAppointmentsText;
         private System.Windows.Forms.Label lblAppointmentsCount;
-        private System.Windows.Forms.Label lblPatientsCount;
+        private System.Windows.Forms.Label lblMTD;
         private System.Windows.Forms.Label lblPatientsText;
         private System.Windows.Forms.Label lblInvoicesCount;
         private System.Windows.Forms.Panel panel1;
