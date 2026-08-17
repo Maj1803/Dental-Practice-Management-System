@@ -44,9 +44,6 @@
             this.btnReceipt = new System.Windows.Forms.Button();
             this.btnClear1 = new System.Windows.Forms.Button();
             this.dgvPatient = new System.Windows.Forms.DataGridView();
-            this.patientFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,6 +82,11 @@
             this.patientTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTableAdapter();
             this.dsDentistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.searchTimer = new System.Windows.Forms.Timer(this.components);
+            this.Patient_First_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient_Last_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient_Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -258,9 +260,10 @@
             this.dgvPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.patientFirstNameDataGridViewTextBoxColumn,
-            this.patientLastNameDataGridViewTextBoxColumn,
-            this.patientPhoneNumberDataGridViewTextBoxColumn});
+            this.Patient_First_Name,
+            this.Patient_Last_Name,
+            this.Patient_Phone_Number,
+            this.Patient_ID});
             this.dgvPatient.DataSource = this.patientBindingSource;
             this.dgvPatient.Location = new System.Drawing.Point(27, 208);
             this.dgvPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -272,33 +275,6 @@
             this.dgvPatient.ShowRowErrors = false;
             this.dgvPatient.Size = new System.Drawing.Size(793, 128);
             this.dgvPatient.TabIndex = 12;
-            // 
-            // patientFirstNameDataGridViewTextBoxColumn
-            // 
-            this.patientFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Patient_First_Name";
-            this.patientFirstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
-            this.patientFirstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patientFirstNameDataGridViewTextBoxColumn.Name = "patientFirstNameDataGridViewTextBoxColumn";
-            this.patientFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.patientFirstNameDataGridViewTextBoxColumn.Width = 173;
-            // 
-            // patientLastNameDataGridViewTextBoxColumn
-            // 
-            this.patientLastNameDataGridViewTextBoxColumn.DataPropertyName = "Patient_Last_Name";
-            this.patientLastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
-            this.patientLastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patientLastNameDataGridViewTextBoxColumn.Name = "patientLastNameDataGridViewTextBoxColumn";
-            this.patientLastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.patientLastNameDataGridViewTextBoxColumn.Width = 172;
-            // 
-            // patientPhoneNumberDataGridViewTextBoxColumn
-            // 
-            this.patientPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Patient_Phone_Number";
-            this.patientPhoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
-            this.patientPhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patientPhoneNumberDataGridViewTextBoxColumn.Name = "patientPhoneNumberDataGridViewTextBoxColumn";
-            this.patientPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.patientPhoneNumberDataGridViewTextBoxColumn.Width = 223;
             // 
             // patientBindingSource
             // 
@@ -702,6 +678,46 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // searchTimer
+            // 
+            this.searchTimer.Interval = 300;
+            // 
+            // Patient_First_Name
+            // 
+            this.Patient_First_Name.DataPropertyName = "Patient_First_Name";
+            this.Patient_First_Name.HeaderText = "First Name";
+            this.Patient_First_Name.MinimumWidth = 6;
+            this.Patient_First_Name.Name = "Patient_First_Name";
+            this.Patient_First_Name.ReadOnly = true;
+            this.Patient_First_Name.Width = 190;
+            // 
+            // Patient_Last_Name
+            // 
+            this.Patient_Last_Name.DataPropertyName = "Patient_Last_Name";
+            this.Patient_Last_Name.HeaderText = "Last Name";
+            this.Patient_Last_Name.MinimumWidth = 6;
+            this.Patient_Last_Name.Name = "Patient_Last_Name";
+            this.Patient_Last_Name.ReadOnly = true;
+            this.Patient_Last_Name.Width = 188;
+            // 
+            // Patient_Phone_Number
+            // 
+            this.Patient_Phone_Number.DataPropertyName = "Patient_Phone_Number";
+            this.Patient_Phone_Number.HeaderText = "Phone Number";
+            this.Patient_Phone_Number.MinimumWidth = 6;
+            this.Patient_Phone_Number.Name = "Patient_Phone_Number";
+            this.Patient_Phone_Number.ReadOnly = true;
+            this.Patient_Phone_Number.Width = 223;
+            // 
+            // Patient_ID
+            // 
+            this.Patient_ID.DataPropertyName = "Patient_ID";
+            this.Patient_ID.HeaderText = "Patient ID";
+            this.Patient_ID.MinimumWidth = 6;
+            this.Patient_ID.Name = "Patient_ID";
+            this.Patient_ID.ReadOnly = true;
+            this.Patient_ID.Width = 162;
+            // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -797,9 +813,11 @@
         private System.Windows.Forms.Button btnSearch2;
         private System.Windows.Forms.RichTextBox rtxtbxPaymentHistory;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientFirstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientLastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientPhoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.RichTextBox lblSelectedBillingPatient;
+        private System.Windows.Forms.Timer searchTimer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Patient_First_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Patient_Last_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Patient_Phone_Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Patient_ID;
     }
 }

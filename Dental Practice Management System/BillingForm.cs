@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Web.UI.WebControls.WebParts;
 using System.Windows.Forms;
 
 namespace Dental_Practice_Management_System
@@ -19,9 +22,71 @@ namespace Dental_Practice_Management_System
         string patientFullName = "";
         string patientPhone = "";
 
+        int DGPatientID = -1;
+        String DGPatientName = "";
+        String DGPatientSurname = "";
+        String DGPatientNumber = "";
+
+        //String constr = "Data Source=146.230.177.46;Persist Security Info=True;User ID=GroupWst33;Password=●●●●●●;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio";
+        string constr = @"Server=146.230.177.46;User Id=GroupWst33;Password=9d3dx;Encrypt=True;TrustServerCertificate=True;";
         public BillingForm()
         {
             InitializeComponent();
+
+            searchTimer.Tick += searchTimer_Tick;
+
+            txtAppt.TextChanged += txtAppt_TextChanged;
+        }
+
+       /* private void dgvPatient_CellClick(Object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) { return; }
+
+            DataGridViewRow row = dgvPatient.Rows[e.RowIndex];
+
+            int id = Convert.ToInt32(row.Cells["Patient_ID"].Value);
+            DGPatientName = row.Cells["Patient_First_Name"].Value.ToString();
+            DGPatientSurname = row.Cells["Patient_Last_Name"].Value.ToString();
+            DGPatientNumber = row.Cells["Patient_First_Name"].Value.ToString();
+        }*/
+
+        private void txtAppt_TextChanged(Object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+            searchTimer.Start();
+        }
+
+        private void searchTimer_Tick(Object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+            SearchData(txtAppt.Text.Trim());
+        }
+
+        private void SearchData(String searchVal)
+        {
+            string query = @"SELECT Patient_ID, Patient_First_Name, Patient_Last_Name, Patient_Phone_Number FROM Patient WHERE Patient_First_name LIKE @searchVal";
+
+            using (SqlConnection con = new SqlConnection(constr)) 
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.Parameters.AddWithValue("@searchVal", searchVal + "%");
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                try
+                {
+                    con.Open();
+                    adapter.Fill(dt);
+                    dgvPatient.DataSource = dt;
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+
+            }
+
         }
 
         private void BillingForm_Load(object sender, EventArgs e)
@@ -103,6 +168,8 @@ namespace Dental_Practice_Management_System
             btnClear1.Size = new Size(120, 38);
             btnClear1.BringToFront();
         }
+
+        
 
         private void ShowPanel(Panel panel)
         {
@@ -191,7 +258,7 @@ namespace Dental_Practice_Management_System
                     dgvPatient.ClearSelection();
                     dgvPatient.Rows[0].Selected = true;
                     patientBindingSource.Position = 0;
-                    SelectCurrentPatientAndLoadTreatment();
+                   // SelectCurrentPatientAndLoadTreatment(e);
                 }
             }
             catch (Exception ex)
@@ -205,23 +272,25 @@ namespace Dental_Practice_Management_System
             if (e.RowIndex < 0)
                 return;
 
-            SelectCurrentPatientAndLoadTreatment();
+            SelectCurrentPatientAndLoadTreatment(e);
         }
 
-        private void SelectCurrentPatientAndLoadTreatment()
+        private void SelectCurrentPatientAndLoadTreatment(DataGridViewCellEventArgs e)
         {
-            if (patientBindingSource.Current == null)
+            /*if (patientBindingSource.Current == null)
                 return;
 
             DataRowView rowView = patientBindingSource.Current as DataRowView;
             if (rowView == null)
                 return;
 
-            DataRow row = rowView.Row;
+            DataRow row = rowView.Row;*/
 
-            selectedPatientID = Convert.ToInt32(row["Patient_ID"]);
-            patientFullName = row["Patient_First_Name"] + " " + row["Patient_Last_Name"];
-            patientPhone = row["Patient_Phone_Number"].ToString();
+            DataGridViewRow row = dgvPatient.Rows[e.RowIndex];
+
+            selectedPatientID = Convert.ToInt32(row.Cells["Patient_ID"].Value);
+            patientFullName = row.Cells["Patient_First_Name"].Value.ToString() + " " + row.Cells["Patient_Last_Name"].Value.ToString();
+            patientPhone = row.Cells["Patient_Phone_Number"].Value.ToString();
 
             selectedAppointmentID = -1;
             total = 0;
@@ -532,15 +601,49 @@ namespace Dental_Practice_Management_System
 
                 currentBalance = newBalance;
 
-                string paymentMethod = cmbMethod.Text;
+                string paymentMethod = cmbMethod.SelectedItem.ToString();
 
-                string receipt = "--- PAYMENT RECEIPT ---\n" +
-                     "Invoice ID: " + searchInvoiceID + "\n" +
-                     "Payment ID: " + paymentID + "\n" +
-                     "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
-                     "Method: " + paymentMethod + "\n" +
-                     "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
-                     "-----------------------";
+                String receipt = "";
+
+                if (paymentMethod == "Cash")
+                {
+                    if (amountPaid > newBalance)
+                    {
+                        decimal changeGiven = amountPaid - currentBalance;
+
+                        receipt = "--- PAYMENT RECEIPT ---\n" +
+                       "Invoice ID: " + searchInvoiceID + "\n" +
+                       "Payment ID: " + paymentID + "\n" +
+                       "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
+                       "Method: " + paymentMethod + "\n" +
+                       "VAT: R" + (currentBalance * (15 / 115)).ToString("0.00") + "\n" +
+                       "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
+                       "Change Given: R" + changeGiven.ToString("0.00") + "\n" +
+                       "-----------------------";
+
+                    }
+                    else
+                    {
+                        receipt = "--- PAYMENT RECEIPT ---\n" +
+                         "Invoice ID: " + searchInvoiceID + "\n" +
+                         "Payment ID: " + paymentID + "\n" +
+                         "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
+                         "Method: " + paymentMethod + "\n" +
+                         "VAT: " + (currentBalance * (15 / 115)).ToString("0.00") + "\n" +
+                         "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
+                         "-----------------------";
+                    }
+                }
+                else {
+                    receipt = "--- PAYMENT RECEIPT ---\n" +
+                         "Invoice ID: " + searchInvoiceID + "\n" +
+                         "Payment ID: " + paymentID + "\n" +
+                         "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
+                         "Method: " + paymentMethod + "\n" +
+                         "VAT: " + (currentBalance * (15 / 115)).ToString("0.00") + "\n" +
+                         "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
+                         "-----------------------";
+                 }
 
                 txtPaymentAmount.Clear();
                 cmbMethod.SelectedIndex = -1;
@@ -736,7 +839,6 @@ namespace Dental_Practice_Management_System
         private void btnClear2_Click(object sender, EventArgs e) { ClearPaymentPanel(); }
         private void btnClear3_Click(object sender, EventArgs e) { ClearHistoryPanel(); }
 
-        private void txtAppt_TextChanged(object sender, EventArgs e) { }
         private void txtApptID_TextChanged(object sender, EventArgs e) { }
         private void textBox2_TextChanged(object sender, EventArgs e) { }
         private void txtInvoiceID_TextChanged(object sender, EventArgs e) { }
