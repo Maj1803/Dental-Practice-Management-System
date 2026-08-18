@@ -553,6 +553,8 @@ namespace Dental_Practice_Management_System
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
+
             if (searchInvoiceID == -1)
             {
                 MessageBox.Show("Please load invoice details first.");
@@ -571,6 +573,8 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
+            string paymentMethod = cmbMethod.SelectedItem.ToString();
+
             if (!decimal.TryParse(txtPaymentAmount.Text.Trim(), out decimal amountPaid))
             {
                 MessageBox.Show("Please enter a valid payment amount.");
@@ -583,7 +587,7 @@ namespace Dental_Practice_Management_System
                 return;
             }
 
-            if (amountPaid > currentBalance)
+            if ((amountPaid > currentBalance)&&(paymentMethod!="Cash"))
             {
                 MessageBox.Show("Payment amount cannot be bigger than the balance due.");
                 return;
@@ -592,34 +596,34 @@ namespace Dental_Practice_Management_System
             try
             {
                 decimal newBalance = currentBalance - amountPaid;
-                string status = newBalance == 0 ? "Paid" : "Partial";
+                string status = newBalance <= 0 ? "Paid" : "Partial";
 
                 int paymentID = CreatePaymentID();
 
-                paymentTableAdapter.Insert(paymentID, searchInvoiceID, amountPaid, cmbMethod.Text, dateTimePicker1.Value);
-                invoiceTableAdapter.UpdateQuery(status, newBalance, searchInvoiceID);
-
-                currentBalance = newBalance;
-
-                string paymentMethod = cmbMethod.SelectedItem.ToString();
-
+                //currentBalance = newBalance;
+                
+                decimal vat = currentBalance*((decimal)15/115);
+                
                 String receipt = "";
 
                 if (paymentMethod == "Cash")
                 {
-                    if (amountPaid > newBalance)
+                    if (amountPaid > currentBalance)
                     {
                         decimal changeGiven = amountPaid - currentBalance;
-
+                        newBalance = 0;
+                        
                         receipt = "--- PAYMENT RECEIPT ---\n" +
                        "Invoice ID: " + searchInvoiceID + "\n" +
                        "Payment ID: " + paymentID + "\n" +
                        "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
                        "Method: " + paymentMethod + "\n" +
-                       "VAT: R" + (currentBalance * (15 / 115)).ToString("0.00") + "\n" +
+                       "VAT: R" + vat.ToString("0.00") + "\n" +
                        "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
                        "Change Given: R" + changeGiven.ToString("0.00") + "\n" +
                        "-----------------------";
+
+                        amountPaid = currentBalance;
 
                     }
                     else
@@ -629,7 +633,7 @@ namespace Dental_Practice_Management_System
                          "Payment ID: " + paymentID + "\n" +
                          "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
                          "Method: " + paymentMethod + "\n" +
-                         "VAT: " + (currentBalance * (15 / 115)).ToString("0.00") + "\n" +
+                         "VAT: " + vat.ToString("0.00") + "\n" +
                          "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
                          "-----------------------";
                     }
@@ -640,10 +644,15 @@ namespace Dental_Practice_Management_System
                          "Payment ID: " + paymentID + "\n" +
                          "Amount Paid: R" + amountPaid.ToString("0.00") + "\n" +
                          "Method: " + paymentMethod + "\n" +
-                         "VAT: " + (currentBalance * (15 / 115)).ToString("0.00") + "\n" +
+                         "VAT: " + vat.ToString("0.00") + "\n" +
                          "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
                          "-----------------------";
                  }
+
+                paymentTableAdapter.Insert(paymentID, searchInvoiceID, amountPaid, cmbMethod.Text, dateTimePicker1.Value);
+                invoiceTableAdapter.UpdateQuery(status, newBalance, searchInvoiceID);
+
+                currentBalance = newBalance;
 
                 txtPaymentAmount.Clear();
                 cmbMethod.SelectedIndex = -1;
