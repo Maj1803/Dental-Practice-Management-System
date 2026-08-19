@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InvoiceDataSet" targetNamespace="http://tempuri.org/InvoiceDataSet.xsd" xmlns:mstns="http://tempuri.org/InvoiceDataSet.xsd" xmlns="http://tempuri.org/InvoiceDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InvoiceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="InvoiceDataSet" msprop:Generator_DataSetName="InvoiceDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="InvoiceHeader" msprop:Generator_RowEvHandlerName="InvoiceHeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceHeaderRowDeleted" msprop:Generator_RowDeletingName="InvoiceHeaderRowDeleting" msprop:Generator_RowEvArgName="InvoiceHeaderRowChangeEvent" msprop:Generator_TablePropName="InvoiceHeader" msprop:Generator_RowChangedName="InvoiceHeaderRowChanged" msprop:Generator_RowChangingName="InvoiceHeaderRowChanging" msprop:Generator_TableClassName="InvoiceHeaderDataTable" msprop:Generator_RowClassName="InvoiceHeaderRow" msprop:Generator_TableVarName="tableInvoiceHeader" msprop:Generator_UserTableName="InvoiceHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="invoice_ID" msprop:Generator_ColumnPropNameInRow="invoice_ID" msprop:Generator_ColumnPropNameInTable="invoice_IDColumn" msprop:Generator_ColumnVarNameInTable="columninvoice_ID" msprop:Generator_UserColumnName="invoice_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="invoice_date" msprop:Generator_ColumnPropNameInRow="invoice_date" msprop:Generator_ColumnPropNameInTable="invoice_dateColumn" msprop:Generator_ColumnVarNameInTable="columninvoice_date" msprop:Generator_UserColumnName="invoice_date" type="xs:string" minOccurs="0" />
+              <xs:element name="invoice_total_amount" msprop:Generator_ColumnPropNameInRow="invoice_total_amount" msprop:Generator_ColumnPropNameInTable="invoice_total_amountColumn" msprop:Generator_ColumnVarNameInTable="columninvoice_total_amount" msprop:Generator_UserColumnName="invoice_total_amount" type="xs:string" minOccurs="0" />
+              <xs:element name="invoice_status" msprop:Generator_ColumnPropNameInRow="invoice_status" msprop:Generator_ColumnPropNameInTable="invoice_statusColumn" msprop:Generator_ColumnVarNameInTable="columninvoice_status" msprop:Generator_UserColumnName="invoice_status" type="xs:string" minOccurs="0" />
+              <xs:element name="Appointment_ID" msprop:Generator_ColumnPropNameInRow="Appointment_ID" msprop:Generator_ColumnPropNameInTable="Appointment_IDColumn" msprop:Generator_ColumnVarNameInTable="columnAppointment_ID" msprop:Generator_UserColumnName="Appointment_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="Apppointment_Date" msprop:Generator_ColumnPropNameInRow="Apppointment_Date" msprop:Generator_ColumnPropNameInTable="Apppointment_DateColumn" msprop:Generator_ColumnVarNameInTable="columnApppointment_Date" msprop:Generator_UserColumnName="Apppointment_Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Patient_ID" msprop:Generator_ColumnPropNameInRow="Patient_ID" msprop:Generator_ColumnPropNameInTable="Patient_IDColumn" msprop:Generator_ColumnVarNameInTable="columnPatient_ID" msprop:Generator_UserColumnName="Patient_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="Patient_First_Name" msprop:Generator_ColumnPropNameInRow="Patient_First_Name" msprop:Generator_ColumnPropNameInTable="Patient_First_NameColumn" msprop:Generator_ColumnVarNameInTable="columnPatient_First_Name" msprop:Generator_UserColumnName="Patient_First_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Patient_Last_Name" msprop:Generator_ColumnPropNameInRow="Patient_Last_Name" msprop:Generator_ColumnPropNameInTable="Patient_Last_NameColumn" msprop:Generator_ColumnVarNameInTable="columnPatient_Last_Name" msprop:Generator_UserColumnName="Patient_Last_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Patient_Phone_Number" msprop:Generator_ColumnPropNameInRow="Patient_Phone_Number" msprop:Generator_ColumnPropNameInTable="Patient_Phone_NumberColumn" msprop:Generator_ColumnVarNameInTable="columnPatient_Phone_Number" msprop:Generator_UserColumnName="Patient_Phone_Number" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InvoiceItems" msprop:Generator_RowEvHandlerName="InvoiceItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceItemsRowDeleted" msprop:Generator_RowDeletingName="InvoiceItemsRowDeleting" msprop:Generator_RowEvArgName="InvoiceItemsRowChangeEvent" msprop:Generator_TablePropName="InvoiceItems" msprop:Generator_RowChangedName="InvoiceItemsRowChanged" msprop:Generator_RowChangingName="InvoiceItemsRowChanging" msprop:Generator_TableClassName="InvoiceItemsDataTable" msprop:Generator_RowClassName="InvoiceItemsRow" msprop:Generator_TableVarName="tableInvoiceItems" msprop:Generator_UserTableName="InvoiceItems">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TreatmentID" msprop:Generator_ColumnPropNameInRow="TreatmentID" msprop:Generator_ColumnPropNameInTable="TreatmentIDColumn" msprop:Generator_ColumnVarNameInTable="columnTreatmentID" msprop:Generator_UserColumnName="TreatmentID" type="xs:string" minOccurs="0" />
+              <xs:element name="TreatmentName" msprop:Generator_ColumnPropNameInRow="TreatmentName" msprop:Generator_ColumnPropNameInTable="TreatmentNameColumn" msprop:Generator_ColumnVarNameInTable="columnTreatmentName" msprop:Generator_UserColumnName="TreatmentName" type="xs:string" minOccurs="0" />
+              <xs:element name="TreatmentDescription" msprop:Generator_ColumnPropNameInRow="TreatmentDescription" msprop:Generator_ColumnPropNameInTable="TreatmentDescriptionColumn" msprop:Generator_ColumnVarNameInTable="columnTreatmentDescription" msprop:Generator_UserColumnName="TreatmentDescription" type="xs:string" minOccurs="0" />
+              <xs:element name="TreatmentCost" msprop:Generator_ColumnPropNameInRow="TreatmentCost" msprop:Generator_ColumnPropNameInTable="TreatmentCostColumn" msprop:Generator_ColumnVarNameInTable="columnTreatmentCost" msprop:Generator_UserColumnName="TreatmentCost" type="xs:string" minOccurs="0" />
+              <xs:element name="PatientTreatment_ID" msprop:Generator_ColumnPropNameInRow="PatientTreatment_ID" msprop:Generator_ColumnPropNameInTable="PatientTreatment_IDColumn" msprop:Generator_ColumnVarNameInTable="columnPatientTreatment_ID" msprop:Generator_UserColumnName="PatientTreatment_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="Appointment_ID" msprop:Generator_ColumnPropNameInRow="Appointment_ID" msprop:Generator_ColumnPropNameInTable="Appointment_IDColumn" msprop:Generator_ColumnVarNameInTable="columnAppointment_ID" msprop:Generator_UserColumnName="Appointment_ID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

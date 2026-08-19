@@ -1,9 +1,14 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Windows.Forms;
 
@@ -171,7 +176,7 @@ namespace Dental_Practice_Management_System
 
         
 
-        private void ShowPanel(Panel panel)
+        private void ShowPanel(System.Windows.Forms.Panel panel)
         {
             pnlInvoice.Visible = false;
             pnlPayment.Visible = false;
@@ -430,7 +435,8 @@ namespace Dental_Practice_Management_System
                         if (result == DialogResult.Yes)
                         {
                             lastOpenedInvoiceID = existingInvoiceID;
-                            OpenInvoicePopup(existingInvoiceID, row);
+                            //OpenInvoicePopup(existingInvoiceID, row);
+                            OpenCrystalInvoice(lastOpenedInvoiceID, row);
                         }
 
                         return;
@@ -446,16 +452,286 @@ namespace Dental_Practice_Management_System
                 invoiceTableAdapter.Insert(invoiceID, selectedAppointmentID, paymentID, DateTime.Now, grandTotal, "Unpaid", grandTotal);
 
                 lastOpenedInvoiceID = invoiceID;
-                OpenInvoicePopup(invoiceID, null);
+
+                foreach(DataRow row in dsDentist.Invoice.Rows)
+                {
+                    if (Convert.ToInt32(row["appointment_id"]) == selectedAppointmentID)
+                            {
+                        OpenCrystalInvoice(lastOpenedInvoiceID, row);
+                    }
+                }
+
+                //OpenInvoicePopup(invoiceID, null);
+
+                GenerateAndViewInvoice(lastOpenedInvoiceID);
 
                 MessageBox.Show("Invoice generated successfully.\nInvoice ID: " + invoiceID);
+
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error generating invoice: " + ex.Message);
             }
         }
+        private void OpenCrystalInvoice(int invoiceID, DataRow existingInvoiceRow)
+        {
+            try
+            {
+                decimal grandTotal;
+                DateTime invoiceDate;
 
+
+
+                if (existingInvoiceRow == null)
+                {
+                    grandTotal = total + (total * 0.15m);
+                    invoiceDate = DateTime.Now;
+                }
+                else
+                {
+                    grandTotal = Convert.ToDecimal(
+                    existingInvoiceRow["invoice_total_amount"]);
+
+
+
+                    invoiceDate = Convert.ToDateTime(
+                    existingInvoiceRow["invoice_date"]);
+                }
+
+
+
+                decimal totalBeforeVat = grandTotal / 1.15m;
+                decimal vat = grandTotal - totalBeforeVat;
+
+                InvoiceBreakdown report = new InvoiceBreakdown();
+
+                DataTable treatmentTable =
+         dgvTreatment.DataSource as DataTable;
+
+
+
+               /* if (treatmentTable != null)
+                {
+                    report.SetDataSource();
+                }*/
+
+
+
+                // Set report parameters
+                report.SetParameterValue(
+                                         "invoice_ID",
+                                         invoiceID);
+
+
+
+                report.SetParameterValue(
+                "Appointment_ID",
+                selectedAppointmentID);
+
+
+
+                report.SetParameterValue(
+                "invoice_date",
+                invoiceDate);
+
+
+
+                report.SetParameterValue(
+                "Patient_First_Name",
+                patientFullName);
+
+
+                report.SetParameterValue(
+                "Patient_Phone_Number",
+                patientPhone);
+
+
+
+                /*report.SetParameterValue(
+                "pSubtotal",
+                totalBeforeVat);
+
+
+
+                report.SetParameterValue(
+                "pVAT",
+                vat);*/
+
+
+
+                report.SetParameterValue(
+                "invoice_total_amount",
+                grandTotal);
+
+
+                /*
+                Open report viewer
+                InvoiceReportViewer viewer =
+         new InvoiceReportViewer();
+
+
+
+                viewer.crystalReportViewer1.ReportSource = report;
+                viewer.crystalReportViewer1.Refresh();
+
+
+
+                viewer.ShowDialog();
+
+
+
+                Clean up report
+                */
+                /*crystalReportViewer1.ReportSource = report;
+                crystalReportViewer1.Refresh();*/
+
+                MessageBox.Show("Done");
+
+                report.Close();
+                report.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                "Error displaying invoice report: " + ex.Message,
+                "Crystal Reports Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        public void GenerateAndViewInvoice(int invoiceID)
+        {
+            byte[] pdfBytes = GenerateInvoicePdf(invoiceID);
+            string tempPath = Path.Combine(Path.GetTempPath(), $"Invoice_{invoiceID}.pdf");
+            File.WriteAllBytes(tempPath, pdfBytes);
+            Process.Start(new ProcessStartInfo(tempPath) { UseShellExecute = true});
+        }
+        public byte[] GenerateInvoicePdf(int invoiceId)
+        {
+            ReportDocument report = new ReportDocument();
+
+            try
+            {
+                string reportPath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "InvoiceBreakdown.rpt"
+                );
+
+                report.Load(reportPath);
+                                
+                DataSet dataSet = new DataSet();
+
+                using (SqlConnection connection =
+                new SqlConnection(constr))
+                {
+                    connection.Open();
+
+                    string headerQuery = @"
+                                         SELECT
+                                         I.invoice_id,
+                                         I.invoice_date,
+                                         I.invoice_total_amount,
+                                         I.invoice_status,
+
+                                         A.Appointment_ID,
+                                         A.Appointment_Date,
+
+                                         P.Patient_ID,
+                                         P.Patient_First_Name,
+                                         P.Patient_Last_Name,
+                                         P.Patient_Phone_Number
+
+                                         FROM INVOICE I
+
+                                         INNER JOIN APPOINTMENT A
+                                         ON I.appointment_id = A.Appointment_ID
+
+                                         INNER JOIN PATIENT P
+                                         ON A.Patient_ID = P.Patient_ID
+
+                                         WHERE I.invoice_id = @InvoiceID
+                                         ";
+
+                    using (SqlCommand command =
+                    new SqlCommand(headerQuery, connection))
+                    {
+                        command.Parameters.AddWithValue(
+                        "@InvoiceID",
+                        invoiceId
+                        );
+
+                        using (SqlDataAdapter adapter =
+                        new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataSet, "InvoiceHeader");
+                        }
+                    }
+
+                    string treatmentQuery = @"
+                                             SELECT
+                                             PT.PatientTreatment_ID,
+                                             PT.Appointment_ID,
+
+                                             T.TreatmentID,
+                                             T.TreatmentName,
+                                             T.TreatmentDescription,
+                                             T.TreatmentCost
+
+                                             FROM PATIENTTREATMENT PT
+
+                                             INNER JOIN TREATMENT T
+                                             ON PT.TreatmentID = T.TreatmentID
+
+                                             INNER JOIN APPOINTMENT A
+                                             ON PT.Appointment_ID = A.Appointment_ID
+
+                                             INNER JOIN INVOICE I
+                                             ON A.Appointment_ID = I.appointment_id
+
+                                             WHERE I.invoice_id = @InvoiceID
+                                             ";
+
+                    using (SqlCommand command =
+                    new SqlCommand(treatmentQuery, connection))
+                    {
+                        command.Parameters.AddWithValue(
+                        "@InvoiceID",
+                        invoiceId
+                        );
+
+                        using (SqlDataAdapter adapter =
+                        new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataSet, "InvoiceItems");
+                        }
+                    }
+                }
+
+
+                report.SetDataSource(dataSet);
+
+                using (Stream stream =
+                report.ExportToStream(
+                ExportFormatType.PortableDocFormat))
+                {
+                    using (MemoryStream memoryStream =
+                    new MemoryStream())
+                    {
+                        stream.CopyTo(memoryStream);
+
+                        return memoryStream.ToArray();
+                    }
+                }
+            }
+            finally
+            {
+                report.Close();
+                report.Dispose();
+            }
+        }
         private void OpenInvoicePopup(int invoiceID, DataRow existingInvoiceRow)
         {
             decimal grandTotal;
