@@ -12,7 +12,7 @@ namespace MTKhan_Dentist.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             // Register link
-            RegisterHyperLink.NavigateUrl = "Register";
+            //RegisterHyperLink.NavigateUrl = "Register";
 
             // Forgot Password link
             ForgotPasswordHyperLink.NavigateUrl = "Forgot";
@@ -22,11 +22,11 @@ namespace MTKhan_Dentist.Account
                 Request.QueryString["ReturnUrl"]
             );
 
-            if (!String.IsNullOrEmpty(returnUrl))
-            {
-                RegisterHyperLink.NavigateUrl +=
-                    "?ReturnUrl=" + returnUrl;
-            }
+            //if (!String.IsNullOrEmpty(returnUrl))
+           // {
+              //  RegisterHyperLink.NavigateUrl +=
+               //     "?ReturnUrl=" + returnUrl;
+            //}
         }
 
 
