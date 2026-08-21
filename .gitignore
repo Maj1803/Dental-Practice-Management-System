@@ -1,8 +1,9 @@
+## Visual Studio / IDE files
 .vs/
-bin/
-obj/
 *.suo
 *.user
+*.userosscache
+*.sln.docstates
 *.vsidx
 *.db
 *.db-shm
@@ -10,3 +11,79 @@ obj/
 *.dtbcache*
 *.cache
 *.backup.json
+
+## Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+## ASP.NET specifics
+*.Publish.xml
+*.pubxml
+*.pubxml.user
+*.azurePubxml
+*.publishproj
+PublishScripts/
+App_Data/
+*.ldf
+*.mdf
+
+## Windows Forms / general .NET
+*.pdb
+*.ilk
+*.meta
+*.iobj
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp_proj
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+## NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+## ReSharper / other tools
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Environment / secrets
+*.env
+appsettings.Development.json
