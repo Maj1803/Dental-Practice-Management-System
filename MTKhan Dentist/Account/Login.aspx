@@ -16,13 +16,13 @@
                         
                         <!-- Role Selection -->
                         <div class="text-center mb-4">
-                            <div class="btn-group" role="group" aria-label="Role selection">
-                                <input type="radio" class="btn-check" name="role" id="roleReceptionist" autocomplete="off" checked>
-                                <label class="btn btn-outline-primary" for="roleReceptionist">Receptionist</label>
-                                
-                                <input type="radio" class="btn-check" name="role" id="roleDentist" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="roleDentist">Dentist</label>
-                            </div>
+                        <div class="btn-group" role="group" aria-label="Role selection">
+                        <input type="radio" class="btn-check" name="role" id="roleReceptionist" autocomplete="off" checked>
+                        <label class="btn btn-info" for="roleReceptionist">Receptionist</label>
+        
+                        <input type="radio" class="btn-check" name="role" id="roleDentist" autocomplete="off">
+                        <label class="btn btn-info" for="roleDentist">Dentist</label>
+                        </div>
                         </div>
                         
                         
