@@ -13,86 +13,57 @@ namespace MTKhan_Dentist.Account
         {
         }
 
-
         protected void Forgot(object sender, EventArgs e)
         {
-            // Check validation
-            if (!IsValid)
+            if (IsValid)
             {
-                return;
-            }
+                // Get User Manager
+                var manager =
+                    Context.GetOwinContext()
+                    .GetUserManager<ApplicationUserManager>();
 
+                // Check passwords match
+                if (NewPassword.Text != ConfirmPassword.Text)
+                {
+                    FailureText.Text = "Passwords do not match.";
+                    ErrorMessage.Visible = true;
+                    return;
+                }
 
-            // Check that passwords match
-            if (NewPassword.Text != ConfirmPassword.Text)
-            {
-                FailureText.Text =
-                    "The passwords do not match.";
+                // Find the user by email
+                var user = manager.FindByEmail(Email.Text);
 
-                ErrorMessage.Visible = true;
+                if (user == null)
+                {
+                    FailureText.Text = "No account found with that email.";
+                    ErrorMessage.Visible = true;
+                    return;
+                }
 
-                return;
-            }
+                // Remove the old password and set the new one
+                var removeResult = manager.RemovePassword(user.Id);
 
+                if (!removeResult.Succeeded)
+                {
+                    FailureText.Text = "Something went wrong. Please try again.";
+                    ErrorMessage.Visible = true;
+                    return;
+                }
 
-            // Get ASP.NET Identity User Manager
-            var manager =
-                Context.GetOwinContext()
-                .GetUserManager<ApplicationUserManager>();
+                var addResult = manager.AddPassword(user.Id, NewPassword.Text);
 
+                if (!addResult.Succeeded)
+                {
+                    // AddPassword fails if the password doesn't meet Identity's
+                    // configured requirements (length, complexity, etc.)
+                    FailureText.Text = string.Join(" ", addResult.Errors);
+                    ErrorMessage.Visible = true;
+                    return;
+                }
 
-            // Find user by email
-            ApplicationUser user =
-                manager.FindByName(Email.Text);
-
-
-            // Check if user exists
-            if (user == null)
-            {
-                FailureText.Text =
-                    "No account was found with this email address.";
-
-                ErrorMessage.Visible = true;
-
-                return;
-            }
-
-
-            // Generate a password reset token
-            string code =
-                manager.GeneratePasswordResetToken(
-                    user.Id
-                );
-
-
-            // Reset the password
-            IdentityResult result =
-                manager.ResetPassword(
-                    user.Id,
-                    code,
-                    NewPassword.Text
-                );
-
-
-            // Check whether reset was successful
-            if (result.Succeeded)
-            {
-                // Hide reset form
+                // Success - show confirmation, hide the form
                 loginForm.Visible = false;
-
-                // Show success message
                 DisplayEmail.Visible = true;
-            }
-            else
-            {
-                // Display errors
-                FailureText.Text =
-                    string.Join(
-                        "<br />",
-                        result.Errors
-                    );
-
-                ErrorMessage.Visible = true;
             }
         }
     }
