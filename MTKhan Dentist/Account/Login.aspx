@@ -7,6 +7,12 @@
                 <div class="card shadow-sm mt-4">
                     <div class="card-body p-4">
                         <h2 class="card-title text-center mb-4">Dr MT Khan Dental Practice</h2>
+
+                        <!-- Welcome Back Message -->
+                        <p class="text-center mb-2" style="color: #78C2AD; font-weight: 600; font-size: 1.1rem;">Welcome Back!</p>
+
+                        <!-- Log in as text -->
+                        <p class="text-center text-muted mb-3" style="font-size: 0.9rem; letter-spacing: 1px;">Log in as</p>
                         
                         <!-- Role Selection -->
                         <div class="text-center mb-4">
@@ -19,8 +25,7 @@
                             </div>
                         </div>
                         
-                        <!-- Log in as text -->
-                        <p class="text-center text-muted mb-4">Log in as</p>
+                        
 
                         <!-- Error Message -->
                         <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
@@ -64,8 +69,7 @@
                             <asp:Button runat="server" OnClick="LogIn" Text="Login" CssClass="btn btn-primary btn-lg" />
                         </div>
 
-                        <!-- Welcome Back Message -->
-                        <p class="text-center text-muted mt-3">Welcome Back!</p>
+                        
                     </div>
                 </div>
             </div>
