@@ -54,8 +54,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="privateAreaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="privateAreaDropdown">
                         <li><h6 class="dropdown-header">Patient</h6></li>
+                         <li><a class="dropdown-item" href="/PrivatePages/PatientDashboard.aspx">Patient Dashboard</a></li>
                         <li><a class="dropdown-item" href="/PrivatePages/MyAppointments.aspx">My Appointments</a></li>
-                        <li><a class="dropdown-item" href="/PrivatePages/PatientDashboard.aspx">Patient Dashboard</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><h6 class="dropdown-header">Staff</h6></li>
                         <li><a class="dropdown-item" href="/PrivatePages/StaffDashboard.aspx">Staff Dashboard</a></li>
