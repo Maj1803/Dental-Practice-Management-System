@@ -14,6 +14,8 @@ namespace MTKhan_Dentist
         {
             RegisterJQueryScriptManager();
 
+            
+
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                             "~/Scripts/WebForms/WebForms.js",
                             "~/Scripts/WebForms/WebUIValidation.js",
