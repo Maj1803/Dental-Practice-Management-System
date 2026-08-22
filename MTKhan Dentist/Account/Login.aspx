@@ -14,16 +14,28 @@
                         <!-- Log in as text -->
                         <p class="text-center text-muted mb-3" style="font-size: 0.9rem; letter-spacing: 1px;">Log in as</p>
                         
-                        <!-- Role Selection -->
-                        <div class="text-center mb-4">
-                        <div class="btn-group" role="group" aria-label="Role selection">
-                        <input type="radio" class="btn-check" name="role" id="roleReceptionist" autocomplete="off" checked>
-                        <label class="btn btn-info" for="roleReceptionist">Receptionist</label>
-        
-                        <input type="radio" class="btn-check" name="role" id="roleDentist" autocomplete="off">
-                        <label class="btn btn-info" for="roleDentist">Dentist</label>
+                        <!-- User Type Selection: Staff or Patient (ALWAYS VISIBLE) -->
+                        <div class="text-center mb-3">
+                            <div class="btn-group" role="group" aria-label="User type selection">
+                                <asp:RadioButton ID="rbStaff" runat="server" GroupName="UserType" CssClass="btn-check" AutoPostBack="true" OnCheckedChanged="UserType_Changed" />
+                                <asp:Label ID="lblStaff" runat="server" AssociatedControlID="rbStaff" CssClass="btn btn-outline-info" Text="Staff"></asp:Label>
+                                
+                                <asp:RadioButton ID="rbPatient" runat="server" GroupName="UserType" CssClass="btn-check" AutoPostBack="true" OnCheckedChanged="UserType_Changed" Checked="true" />
+                                <asp:Label ID="lblPatient" runat="server" AssociatedControlID="rbPatient" CssClass="btn btn-info" Text="Patient"></asp:Label>
+                            </div>
                         </div>
-                        </div>
+
+                        <!-- Staff Role Selection: Receptionist or Dentist (HIDDEN by default) -->
+                        <asp:Panel ID="pnlStaffRoles" runat="server" CssClass="text-center mb-4" Visible="false">
+                            <div class="btn-group" role="group" aria-label="Staff role selection">
+                                <asp:RadioButton ID="rbReceptionist" runat="server" GroupName="StaffRole" CssClass="btn-check" AutoPostBack="true" OnCheckedChanged="StaffRole_Changed" Checked="true" />
+                                <asp:Label ID="lblReceptionist" runat="server" AssociatedControlID="rbReceptionist" CssClass="btn btn-secondary" Text="Receptionist"></asp:Label>
+                                
+                                <asp:RadioButton ID="rbDentist" runat="server" GroupName="StaffRole" CssClass="btn-check" AutoPostBack="true" OnCheckedChanged="StaffRole_Changed" />
+                                <asp:Label ID="lblDentist" runat="server" AssociatedControlID="rbDentist" CssClass="btn btn-outline-secondary" Text="Dentist"></asp:Label>
+                            </div>
+                        </asp:Panel>
+
                         
                         
 
@@ -75,4 +87,49 @@
             </div>
         </div>
     </main>
+    <style>
+        /* Active state for Staff button - solid color */
+        .btn-group .btn-check:checked + .btn-info {
+            background-color: #138496 !important;
+            border-color: #117a8b !important;
+            color: #fff !important;
+        }
+        
+        /* Hover state for Staff button */
+        .btn-group .btn-info:hover {
+            background-color: #138496 !important;
+            border-color: #117a8b !important;
+        }
+        
+        /* Active state for Patient button - solid color */
+        .btn-group .btn-check:checked + .btn-outline-info {
+            background-color: #17a2b8 !important;
+            color: #fff !important;
+        }
+        
+        /* Active state for Receptionist button */
+        .btn-group .btn-check:checked + .btn-secondary {
+            background-color: #545b62 !important;
+            border-color: #4e555b !important;
+            color: #fff !important;
+        }
+        
+        /* Hover state for Receptionist */
+        .btn-group .btn-secondary:hover {
+            background-color: #545b62 !important;
+            border-color: #4e555b !important;
+        }
+        
+        /* Active state for Dentist button */
+        .btn-group .btn-check:checked + .btn-outline-secondary {
+            background-color: #6c757d !important;
+            color: #fff !important;
+        }
+        
+        /* Animation for staff roles appearing */
+        #pnlStaffRoles {
+            transition: all 0.3s ease;
+        }
+    </style>
 </asp:Content>
+
