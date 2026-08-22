@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MTKhan_Dentist._Default" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<%--<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <main>
         <section class="row" aria-labelledby="aspnetTitle">
@@ -38,6 +38,18 @@
                     <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
                 </p>
             </section>
+        </div>
+    </main>
+
+</asp:Content>--%>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    <main>
+               <div class="dental-hero">
+            <div class="hero-text">
+                <h1>WELCOME TO DR MT. KHAN DENTAL PRACTICE</h1>
+                <p>Your trusted partner in lifelong dental health.</p>
+            </div>
         </div>
     </main>
 
