@@ -45,12 +45,13 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <main>
-               <div class="dental-hero">
-            <div class="hero-text">
-                <h1>WELCOME TO DR MT. KHAN DENTAL PRACTICE</h1>
-                <p>Your trusted partner in lifelong dental health.</p>
-            </div>
-        </div>
+              <div class="dental-hero">
+    <div class="hero-text">
+        <p class="hero-eyebrow">WELCOME TO</p>
+        <h1>DR MT. KHAN DENTAL PRACTICE</h1>
+        <p class="hero-slogan">Your trusted dental provider.</p>
+    </div>
+</div>
     </main>
 
 </asp:Content>
