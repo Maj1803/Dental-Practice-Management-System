@@ -162,6 +162,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Images\dental-background.jpeg" />
+    <Content Include="Images\google-icon.jpeg" />
     <Content Include="logo\dental-logo.png" />
     <Content Include="RequestApp.aspx" />
     <Content Include="Contact.aspx" />
