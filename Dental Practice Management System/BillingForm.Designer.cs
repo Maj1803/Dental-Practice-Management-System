@@ -44,6 +44,10 @@
             this.btnReceipt = new System.Windows.Forms.Button();
             this.btnClear1 = new System.Windows.Forms.Button();
             this.dgvPatient = new System.Windows.Forms.DataGridView();
+            this.Patient_First_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient_Last_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient_Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patient_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,7 +62,6 @@
             this.pnlInvoice = new System.Windows.Forms.Panel();
             this.grpInvoice = new System.Windows.Forms.GroupBox();
             this.lblSelectedBillingPatient = new System.Windows.Forms.RichTextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.grpPayment = new System.Windows.Forms.GroupBox();
             this.rtxtbxDetails = new System.Windows.Forms.RichTextBox();
@@ -83,10 +86,12 @@
             this.dsDentistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.searchTimer = new System.Windows.Forms.Timer(this.components);
-            this.Patient_First_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Patient_Last_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Patient_Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Patient_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvUnpaid = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dgvPaid = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dgvPartial = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -102,6 +107,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentistBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnpaid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartial)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAppt
@@ -132,19 +140,19 @@
             // 
             this.dgvTreatment.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.dgvTreatment.AutoGenerateColumns = false;
-            this.dgvTreatment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvTreatment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTreatment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTreatment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.treatmentNameDataGridViewTextBoxColumn,
             this.treatmentCost});
             this.dgvTreatment.DataSource = this.treatmentBindingSource1;
-            this.dgvTreatment.Location = new System.Drawing.Point(21, 412);
+            this.dgvTreatment.Location = new System.Drawing.Point(6, 431);
             this.dgvTreatment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvTreatment.Name = "dgvTreatment";
             this.dgvTreatment.ReadOnly = true;
             this.dgvTreatment.RowHeadersWidth = 51;
             this.dgvTreatment.RowTemplate.Height = 24;
-            this.dgvTreatment.Size = new System.Drawing.Size(748, 140);
+            this.dgvTreatment.Size = new System.Drawing.Size(841, 140);
             this.dgvTreatment.TabIndex = 2;
             // 
             // treatmentNameDataGridViewTextBoxColumn
@@ -154,7 +162,6 @@
             this.treatmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.treatmentNameDataGridViewTextBoxColumn.Name = "treatmentNameDataGridViewTextBoxColumn";
             this.treatmentNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.treatmentNameDataGridViewTextBoxColumn.Width = 260;
             // 
             // treatmentCost
             // 
@@ -163,7 +170,6 @@
             this.treatmentCost.MinimumWidth = 6;
             this.treatmentCost.Name = "treatmentCost";
             this.treatmentCost.ReadOnly = true;
-            this.treatmentCost.Width = 243;
             // 
             // treatmentBindingSource1
             // 
@@ -257,7 +263,7 @@
             // 
             this.dgvPatient.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dgvPatient.AutoGenerateColumns = false;
-            this.dgvPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Patient_First_Name,
@@ -265,7 +271,7 @@
             this.Patient_Phone_Number,
             this.Patient_ID});
             this.dgvPatient.DataSource = this.patientBindingSource;
-            this.dgvPatient.Location = new System.Drawing.Point(27, 208);
+            this.dgvPatient.Location = new System.Drawing.Point(24, 230);
             this.dgvPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.ReadOnly = true;
@@ -273,8 +279,40 @@
             this.dgvPatient.RowTemplate.Height = 24;
             this.dgvPatient.ShowCellErrors = false;
             this.dgvPatient.ShowRowErrors = false;
-            this.dgvPatient.Size = new System.Drawing.Size(793, 128);
+            this.dgvPatient.Size = new System.Drawing.Size(823, 176);
             this.dgvPatient.TabIndex = 12;
+            // 
+            // Patient_First_Name
+            // 
+            this.Patient_First_Name.DataPropertyName = "Patient_First_Name";
+            this.Patient_First_Name.HeaderText = "First Name";
+            this.Patient_First_Name.MinimumWidth = 6;
+            this.Patient_First_Name.Name = "Patient_First_Name";
+            this.Patient_First_Name.ReadOnly = true;
+            // 
+            // Patient_Last_Name
+            // 
+            this.Patient_Last_Name.DataPropertyName = "Patient_Last_Name";
+            this.Patient_Last_Name.HeaderText = "Last Name";
+            this.Patient_Last_Name.MinimumWidth = 6;
+            this.Patient_Last_Name.Name = "Patient_Last_Name";
+            this.Patient_Last_Name.ReadOnly = true;
+            // 
+            // Patient_Phone_Number
+            // 
+            this.Patient_Phone_Number.DataPropertyName = "Patient_Phone_Number";
+            this.Patient_Phone_Number.HeaderText = "Phone Number";
+            this.Patient_Phone_Number.MinimumWidth = 6;
+            this.Patient_Phone_Number.Name = "Patient_Phone_Number";
+            this.Patient_Phone_Number.ReadOnly = true;
+            // 
+            // Patient_ID
+            // 
+            this.Patient_ID.DataPropertyName = "Patient_ID";
+            this.Patient_ID.HeaderText = "Patient ID";
+            this.Patient_ID.MinimumWidth = 6;
+            this.Patient_ID.Name = "Patient_ID";
+            this.Patient_ID.ReadOnly = true;
             // 
             // patientBindingSource
             // 
@@ -334,7 +372,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label5.Location = new System.Drawing.Point(15, 69);
+            this.label5.Location = new System.Drawing.Point(22, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(418, 29);
             this.label5.TabIndex = 13;
@@ -412,14 +450,12 @@
             this.pnlInvoice.Location = new System.Drawing.Point(27, 202);
             this.pnlInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlInvoice.Name = "pnlInvoice";
-            this.pnlInvoice.Size = new System.Drawing.Size(1349, 677);
+            this.pnlInvoice.Size = new System.Drawing.Size(1349, 672);
             this.pnlInvoice.TabIndex = 21;
             // 
             // grpInvoice
             // 
             this.grpInvoice.Controls.Add(this.lblSelectedBillingPatient);
-            this.grpInvoice.Controls.Add(this.btnSearch);
-            this.grpInvoice.Controls.Add(this.label5);
             this.grpInvoice.Controls.Add(this.txtAppt);
             this.grpInvoice.Controls.Add(this.dgvPatient);
             this.grpInvoice.Controls.Add(this.btnTreatment);
@@ -428,11 +464,11 @@
             this.grpInvoice.Controls.Add(this.btnClear1);
             this.grpInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpInvoice.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpInvoice.Location = new System.Drawing.Point(3, 18);
+            this.grpInvoice.Location = new System.Drawing.Point(3, 2);
             this.grpInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpInvoice.Name = "grpInvoice";
             this.grpInvoice.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpInvoice.Size = new System.Drawing.Size(1327, 658);
+            this.grpInvoice.Size = new System.Drawing.Size(1327, 674);
             this.grpInvoice.TabIndex = 0;
             this.grpInvoice.TabStop = false;
             this.grpInvoice.Text = "Invoice";
@@ -442,33 +478,20 @@
             this.lblSelectedBillingPatient.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblSelectedBillingPatient.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSelectedBillingPatient.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblSelectedBillingPatient.Location = new System.Drawing.Point(853, 131);
+            this.lblSelectedBillingPatient.Location = new System.Drawing.Point(853, 139);
             this.lblSelectedBillingPatient.Name = "lblSelectedBillingPatient";
             this.lblSelectedBillingPatient.Size = new System.Drawing.Size(357, 214);
             this.lblSelectedBillingPatient.TabIndex = 26;
             this.lblSelectedBillingPatient.Text = "";
             this.lblSelectedBillingPatient.TextChanged += new System.EventHandler(this.lblSelectedBillingPatient_TextChanged);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSearch.Location = new System.Drawing.Point(307, 117);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(136, 38);
-            this.btnSearch.TabIndex = 24;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // pnlPayment
             // 
             this.pnlPayment.Controls.Add(this.grpPayment);
-            this.pnlPayment.Location = new System.Drawing.Point(27, 250);
+            this.pnlPayment.Location = new System.Drawing.Point(27, 200);
             this.pnlPayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(1344, 674);
+            this.pnlPayment.Size = new System.Drawing.Size(1344, 724);
             this.pnlPayment.TabIndex = 22;
             // 
             // grpPayment
@@ -535,15 +558,20 @@
             // pnlPaymentHistory
             // 
             this.pnlPaymentHistory.Controls.Add(this.grpPaymentHistory);
-            this.pnlPaymentHistory.Location = new System.Drawing.Point(27, 254);
+            this.pnlPaymentHistory.Location = new System.Drawing.Point(27, 202);
             this.pnlPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPaymentHistory.Name = "pnlPaymentHistory";
-            this.pnlPaymentHistory.Size = new System.Drawing.Size(1341, 671);
+            this.pnlPaymentHistory.Size = new System.Drawing.Size(1349, 704);
             this.pnlPaymentHistory.TabIndex = 23;
             // 
             // grpPaymentHistory
             // 
-            this.grpPaymentHistory.Controls.Add(this.rtxtbxPaymentHistory);
+            this.grpPaymentHistory.Controls.Add(this.label14);
+            this.grpPaymentHistory.Controls.Add(this.dgvPartial);
+            this.grpPaymentHistory.Controls.Add(this.label10);
+            this.grpPaymentHistory.Controls.Add(this.dgvPaid);
+            this.grpPaymentHistory.Controls.Add(this.label9);
+            this.grpPaymentHistory.Controls.Add(this.dgvUnpaid);
             this.grpPaymentHistory.Controls.Add(this.btnSearch2);
             this.grpPaymentHistory.Controls.Add(this.txtPatientName);
             this.grpPaymentHistory.Controls.Add(this.btnClear3);
@@ -554,17 +582,17 @@
             this.grpPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpPaymentHistory.Name = "grpPaymentHistory";
             this.grpPaymentHistory.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpPaymentHistory.Size = new System.Drawing.Size(1236, 635);
+            this.grpPaymentHistory.Size = new System.Drawing.Size(1297, 911);
             this.grpPaymentHistory.TabIndex = 0;
             this.grpPaymentHistory.TabStop = false;
             this.grpPaymentHistory.Text = "Payment History";
             // 
             // rtxtbxPaymentHistory
             // 
-            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(75, 231);
+            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(1003, 4);
             this.rtxtbxPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtxtbxPaymentHistory.Name = "rtxtbxPaymentHistory";
-            this.rtxtbxPaymentHistory.Size = new System.Drawing.Size(1109, 212);
+            this.rtxtbxPaymentHistory.Size = new System.Drawing.Size(305, 90);
             this.rtxtbxPaymentHistory.TabIndex = 6;
             this.rtxtbxPaymentHistory.Text = "";
             // 
@@ -594,7 +622,7 @@
             // 
             this.btnClear3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnClear3.Location = new System.Drawing.Point(1023, 528);
+            this.btnClear3.Location = new System.Drawing.Point(1091, 602);
             this.btnClear3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear3.Name = "btnClear3";
             this.btnClear3.Size = new System.Drawing.Size(163, 52);
@@ -682,41 +710,68 @@
             // 
             this.searchTimer.Interval = 300;
             // 
-            // Patient_First_Name
+            // dgvUnpaid
             // 
-            this.Patient_First_Name.DataPropertyName = "Patient_First_Name";
-            this.Patient_First_Name.HeaderText = "First Name";
-            this.Patient_First_Name.MinimumWidth = 6;
-            this.Patient_First_Name.Name = "Patient_First_Name";
-            this.Patient_First_Name.ReadOnly = true;
-            this.Patient_First_Name.Width = 190;
+            this.dgvUnpaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUnpaid.Location = new System.Drawing.Point(19, 267);
+            this.dgvUnpaid.Name = "dgvUnpaid";
+            this.dgvUnpaid.RowHeadersWidth = 51;
+            this.dgvUnpaid.RowTemplate.Height = 24;
+            this.dgvUnpaid.Size = new System.Drawing.Size(423, 324);
+            this.dgvUnpaid.TabIndex = 6;
             // 
-            // Patient_Last_Name
+            // label9
             // 
-            this.Patient_Last_Name.DataPropertyName = "Patient_Last_Name";
-            this.Patient_Last_Name.HeaderText = "Last Name";
-            this.Patient_Last_Name.MinimumWidth = 6;
-            this.Patient_Last_Name.Name = "Patient_Last_Name";
-            this.Patient_Last_Name.ReadOnly = true;
-            this.Patient_Last_Name.Width = 188;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label9.Location = new System.Drawing.Point(96, 223);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(201, 29);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Unpaid Payments";
             // 
-            // Patient_Phone_Number
+            // dgvPaid
             // 
-            this.Patient_Phone_Number.DataPropertyName = "Patient_Phone_Number";
-            this.Patient_Phone_Number.HeaderText = "Phone Number";
-            this.Patient_Phone_Number.MinimumWidth = 6;
-            this.Patient_Phone_Number.Name = "Patient_Phone_Number";
-            this.Patient_Phone_Number.ReadOnly = true;
-            this.Patient_Phone_Number.Width = 223;
+            this.dgvPaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPaid.Location = new System.Drawing.Point(476, 267);
+            this.dgvPaid.Name = "dgvPaid";
+            this.dgvPaid.RowHeadersWidth = 51;
+            this.dgvPaid.RowTemplate.Height = 24;
+            this.dgvPaid.Size = new System.Drawing.Size(402, 324);
+            this.dgvPaid.TabIndex = 8;
             // 
-            // Patient_ID
+            // label10
             // 
-            this.Patient_ID.DataPropertyName = "Patient_ID";
-            this.Patient_ID.HeaderText = "Patient ID";
-            this.Patient_ID.MinimumWidth = 6;
-            this.Patient_ID.Name = "Patient_ID";
-            this.Patient_ID.ReadOnly = true;
-            this.Patient_ID.Width = 162;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label10.Location = new System.Drawing.Point(569, 228);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(173, 29);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Paid Payments";
+            // 
+            // dgvPartial
+            // 
+            this.dgvPartial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPartial.Location = new System.Drawing.Point(930, 265);
+            this.dgvPartial.Name = "dgvPartial";
+            this.dgvPartial.RowHeadersWidth = 51;
+            this.dgvPartial.RowTemplate.Height = 24;
+            this.dgvPartial.Size = new System.Drawing.Size(345, 326);
+            this.dgvPartial.TabIndex = 10;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label14.Location = new System.Drawing.Point(1021, 228);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(192, 29);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Partial Payments";
             // 
             // BillingForm
             // 
@@ -724,6 +779,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1389, 902);
+            this.Controls.Add(this.rtxtbxPaymentHistory);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnPaymentHistory);
             this.Controls.Add(this.btnProcessPayment);
             this.Controls.Add(this.btnAddInvoice);
@@ -754,6 +811,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentistBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnpaid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartial)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -807,7 +867,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnClear3;
         private System.Windows.Forms.TextBox txtPatientName;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnShowDetails;
         private System.Windows.Forms.RichTextBox rtxtbxDetails;
         private System.Windows.Forms.Button btnSearch2;
@@ -819,5 +878,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Patient_Last_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Patient_Phone_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Patient_ID;
+        private System.Windows.Forms.DataGridView dgvPaid;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dgvUnpaid;
+        private System.Windows.Forms.DataGridView dgvPartial;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label14;
     }
 }
