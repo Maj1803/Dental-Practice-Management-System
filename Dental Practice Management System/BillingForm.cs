@@ -882,7 +882,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
             {
 
-                string query1 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Unpaid"";
+                string query1 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Unpaid "";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
@@ -954,7 +954,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
                 }
 
-                string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Partially Paid"";
+                string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Partially Paid" ";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
@@ -1058,8 +1058,9 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
                                 string status = row["invoice_status"].ToString();
 
-                                if (status == "Paid)
-            
+                                if (status == "Paid")
+
+
 
             {
 
@@ -1067,8 +1068,9 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
                                 }
 
-                                else if (status == "Unpaid)
-                    
+                                else if (status == "Unpaid")
+
+
 
             {
 
@@ -1112,7 +1114,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
             {
 
-                search = "Unpaid"
+                search = "Unpaid";
         
             string query1 = @"SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
 
@@ -1188,7 +1190,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
                 }
 
-                search = "Partially paid"
+                search = "Partially paid";
         
 
         string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
@@ -1295,8 +1297,9 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
                                 string status = row["invoice_status"].ToString();
 
-                                if (status == "Paid)
-            
+                                if (status == "Paid")
+
+
 
             {
 
@@ -1304,8 +1307,9 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
                                 }
 
-                                else if (status == "Unpaid)
-                    
+                                else if (status == "Unpaid" )
+
+
 
             {
 
