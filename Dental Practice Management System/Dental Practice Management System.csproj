@@ -86,6 +86,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="InvoiceViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceViewer.Designer.cs">
+      <DependentUpon>InvoiceViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptAppointments.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -211,6 +217,9 @@
     <EmbeddedResource Include="InvoiceBreakdown.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InvoiceBreakdown.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceViewer.resx">
+      <DependentUpon>InvoiceViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptAppointments.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

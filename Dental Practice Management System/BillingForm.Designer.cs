@@ -69,11 +69,17 @@
             this.btnClear2 = new System.Windows.Forms.Button();
             this.pnlPaymentHistory = new System.Windows.Forms.Panel();
             this.grpPaymentHistory = new System.Windows.Forms.GroupBox();
-            this.rtxtbxPaymentHistory = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dgvPartial = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dgvPaid = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dgvUnpaid = new System.Windows.Forms.DataGridView();
             this.btnSearch2 = new System.Windows.Forms.Button();
             this.txtPatientName = new System.Windows.Forms.TextBox();
             this.btnClear3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.rtxtbxPaymentHistory = new System.Windows.Forms.RichTextBox();
             this.paymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentTableAdapter();
@@ -86,12 +92,7 @@
             this.dsDentistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.searchTimer = new System.Windows.Forms.Timer(this.components);
-            this.dgvUnpaid = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dgvPaid = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dgvPartial = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
+            this.patientTreatmentTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.PatientTreatmentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist)).BeginInit();
@@ -103,13 +104,13 @@
             this.grpPayment.SuspendLayout();
             this.pnlPaymentHistory.SuspendLayout();
             this.grpPaymentHistory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnpaid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentistBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUnpaid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPartial)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAppt
@@ -587,14 +588,68 @@
             this.grpPaymentHistory.TabStop = false;
             this.grpPaymentHistory.Text = "Payment History";
             // 
-            // rtxtbxPaymentHistory
+            // label14
             // 
-            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(1003, 4);
-            this.rtxtbxPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rtxtbxPaymentHistory.Name = "rtxtbxPaymentHistory";
-            this.rtxtbxPaymentHistory.Size = new System.Drawing.Size(305, 90);
-            this.rtxtbxPaymentHistory.TabIndex = 6;
-            this.rtxtbxPaymentHistory.Text = "";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label14.Location = new System.Drawing.Point(1021, 228);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(192, 29);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Partial Payments";
+            // 
+            // dgvPartial
+            // 
+            this.dgvPartial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPartial.Location = new System.Drawing.Point(930, 265);
+            this.dgvPartial.Name = "dgvPartial";
+            this.dgvPartial.RowHeadersWidth = 51;
+            this.dgvPartial.RowTemplate.Height = 24;
+            this.dgvPartial.Size = new System.Drawing.Size(345, 326);
+            this.dgvPartial.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label10.Location = new System.Drawing.Point(569, 228);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(173, 29);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Paid Payments";
+            // 
+            // dgvPaid
+            // 
+            this.dgvPaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPaid.Location = new System.Drawing.Point(476, 267);
+            this.dgvPaid.Name = "dgvPaid";
+            this.dgvPaid.RowHeadersWidth = 51;
+            this.dgvPaid.RowTemplate.Height = 24;
+            this.dgvPaid.Size = new System.Drawing.Size(402, 324);
+            this.dgvPaid.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label9.Location = new System.Drawing.Point(96, 223);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(201, 29);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Unpaid Payments";
+            // 
+            // dgvUnpaid
+            // 
+            this.dgvUnpaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUnpaid.Location = new System.Drawing.Point(19, 267);
+            this.dgvUnpaid.Name = "dgvUnpaid";
+            this.dgvUnpaid.RowHeadersWidth = 51;
+            this.dgvUnpaid.RowTemplate.Height = 24;
+            this.dgvUnpaid.Size = new System.Drawing.Size(423, 324);
+            this.dgvUnpaid.TabIndex = 6;
             // 
             // btnSearch2
             // 
@@ -641,6 +696,15 @@
             this.label8.Size = new System.Drawing.Size(470, 29);
             this.label8.TabIndex = 2;
             this.label8.Text = "Search Patient Name (Enter Patient Name)";
+            // 
+            // rtxtbxPaymentHistory
+            // 
+            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(1003, 4);
+            this.rtxtbxPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rtxtbxPaymentHistory.Name = "rtxtbxPaymentHistory";
+            this.rtxtbxPaymentHistory.Size = new System.Drawing.Size(305, 90);
+            this.rtxtbxPaymentHistory.TabIndex = 6;
+            this.rtxtbxPaymentHistory.Text = "";
             // 
             // paymentBindingSource
             // 
@@ -710,68 +774,9 @@
             // 
             this.searchTimer.Interval = 300;
             // 
-            // dgvUnpaid
+            // patientTreatmentTableAdapter1
             // 
-            this.dgvUnpaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUnpaid.Location = new System.Drawing.Point(19, 267);
-            this.dgvUnpaid.Name = "dgvUnpaid";
-            this.dgvUnpaid.RowHeadersWidth = 51;
-            this.dgvUnpaid.RowTemplate.Height = 24;
-            this.dgvUnpaid.Size = new System.Drawing.Size(423, 324);
-            this.dgvUnpaid.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label9.Location = new System.Drawing.Point(96, 223);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(201, 29);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Unpaid Payments";
-            // 
-            // dgvPaid
-            // 
-            this.dgvPaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPaid.Location = new System.Drawing.Point(476, 267);
-            this.dgvPaid.Name = "dgvPaid";
-            this.dgvPaid.RowHeadersWidth = 51;
-            this.dgvPaid.RowTemplate.Height = 24;
-            this.dgvPaid.Size = new System.Drawing.Size(402, 324);
-            this.dgvPaid.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label10.Location = new System.Drawing.Point(569, 228);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(173, 29);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Paid Payments";
-            // 
-            // dgvPartial
-            // 
-            this.dgvPartial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPartial.Location = new System.Drawing.Point(930, 265);
-            this.dgvPartial.Name = "dgvPartial";
-            this.dgvPartial.RowHeadersWidth = 51;
-            this.dgvPartial.RowTemplate.Height = 24;
-            this.dgvPartial.Size = new System.Drawing.Size(345, 326);
-            this.dgvPartial.TabIndex = 10;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label14.Location = new System.Drawing.Point(1021, 228);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(192, 29);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Partial Payments";
+            this.patientTreatmentTableAdapter1.ClearBeforeFill = true;
             // 
             // BillingForm
             // 
@@ -807,13 +812,13 @@
             this.pnlPaymentHistory.ResumeLayout(false);
             this.grpPaymentHistory.ResumeLayout(false);
             this.grpPaymentHistory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnpaid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentistBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUnpaid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPaid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPartial)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -884,5 +889,7 @@
         private System.Windows.Forms.DataGridView dgvPartial;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label14;
+        private CachedCrystalReport1 cachedCrystalReport11;
+        private dsDentistTableAdapters.PatientTreatmentTableAdapter patientTreatmentTableAdapter1;
     }
 }

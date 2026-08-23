@@ -1,5 +1,8 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.ReportSource;
 using CrystalDecisions.Shared;
+using CrystalDecisions.Windows.Forms;
+using Dental_Practice_Management_System.dsDentistTableAdapters;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,9 +11,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Dental_Practice_Management_System
 {
@@ -41,6 +46,7 @@ namespace Dental_Practice_Management_System
             searchTimer.Tick += searchTimer_Tick;
 
             txtAppt.TextChanged += txtAppt_TextChanged;
+            txtPatientName.TextChanged += txtPatientName_TextChanged;
         }
 
        /* private void dgvPatient_CellClick(Object sender, DataGridViewCellEventArgs e)
@@ -55,6 +61,18 @@ namespace Dental_Practice_Management_System
             DGPatientNumber = row.Cells["Patient_First_Name"].Value.ToString();
         }*/
 
+        
+ 
+private void txtPatientName_TextChanged(object sender, EventArgs e)
+
+{
+
+    searchTimer.Stop();
+
+            searchTimer.Start();
+
+}
+ 
         private void txtAppt_TextChanged(Object sender, EventArgs e)
         {
             searchTimer.Stop();
@@ -65,6 +83,7 @@ namespace Dental_Practice_Management_System
         {
             searchTimer.Stop();
             SearchData(txtAppt.Text.Trim());
+            LoadPaymentHistory(txtPatientName.Text.Trim());
         }
 
         private void SearchData(String searchVal)
@@ -102,7 +121,8 @@ namespace Dental_Practice_Management_System
             treatmentTableAdapter.Fill(dsDentist.Treatment);
             paymentTableAdapter.Fill(dsDentist.Payment);
             invoiceTableAdapter.Fill(dsDentist.Invoice);
-            appointmentTableAdapter.Fill(dsDentist.Appointment);
+            appointmentTableAdapter.Fill(dsDentist.Appointment);            
+            patientTreatmentTableAdapter1.Fill(dsDentist.PatientTreatment);
 
             cmbMethod.Items.Clear();
             cmbMethod.Items.Add("Cash");
@@ -212,6 +232,8 @@ namespace Dental_Practice_Management_System
         private void btnPaymentHistory_Click(object sender, EventArgs e)
         {
             ShowPanel(pnlPaymentHistory);
+            LoadPaymentHistory(txtPatientName.Text.Trim());
+        
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -436,7 +458,7 @@ namespace Dental_Practice_Management_System
                         {
                             lastOpenedInvoiceID = existingInvoiceID;
                             //OpenInvoicePopup(existingInvoiceID, row);
-                            OpenCrystalInvoice(lastOpenedInvoiceID, row);
+                            OpenCrystalInvoice(lastOpenedInvoiceID);
                         }
 
                         return;
@@ -453,17 +475,19 @@ namespace Dental_Practice_Management_System
 
                 lastOpenedInvoiceID = invoiceID;
 
-                foreach(DataRow row in dsDentist.Invoice.Rows)
+                /*foreach(DataRow row in dsDentist.Invoice.Rows)
                 {
                     if (Convert.ToInt32(row["appointment_id"]) == selectedAppointmentID)
                             {
-                        OpenCrystalInvoice(lastOpenedInvoiceID, row);
+                        OpenCrystalInvoice(lastOpenedInvoiceID);
                     }
                 }
 
                 //OpenInvoicePopup(invoiceID, null);
 
-                GenerateAndViewInvoice(lastOpenedInvoiceID);
+                GenerateAndViewInvoice(lastOpenedInvoiceID);*/
+
+                OpenCrystalInvoice(lastOpenedInvoiceID);
 
                 MessageBox.Show("Invoice generated successfully.\nInvoice ID: " + invoiceID);
 
@@ -475,122 +499,28 @@ namespace Dental_Practice_Management_System
                 MessageBox.Show("Error generating invoice: " + ex.Message);
             }
         }
-        private void OpenCrystalInvoice(int invoiceID, DataRow existingInvoiceRow)
+        private void OpenCrystalInvoice(int invoiceID)
         {
             try
             {
-                decimal grandTotal;
-                DateTime invoiceDate;
+                dsDentist.EnforceConstraints = false;
 
+                dsDentist.Patient.Clear();
+                dsDentist.Appointment.Clear();
+                dsDentist.PatientTreatment.Clear();
+                dsDentist.Treatment.Clear();
+                dsDentist.Invoice.Clear();
 
+                patientTableAdapter.Fill(dsDentist.Patient);
+                appointmentTableAdapter.Fill(dsDentist.Appointment);
+                patientTreatmentTableAdapter1.Fill(dsDentist.PatientTreatment);
+                treatmentTableAdapter.Fill(dsDentist.Treatment);
+                invoiceTableAdapter.Fill(dsDentist.Invoice);
 
-                if (existingInvoiceRow == null)
-                {
-                    grandTotal = total + (total * 0.15m);
-                    invoiceDate = DateTime.Now;
-                }
-                else
-                {
-                    grandTotal = Convert.ToDecimal(
-                    existingInvoiceRow["invoice_total_amount"]);
+                InvoiceViewer form = new InvoiceViewer(dsDentist, invoiceID);
 
-
-
-                    invoiceDate = Convert.ToDateTime(
-                    existingInvoiceRow["invoice_date"]);
-                }
-
-
-
-                decimal totalBeforeVat = grandTotal / 1.15m;
-                decimal vat = grandTotal - totalBeforeVat;
-
-                InvoiceBreakdown report = new InvoiceBreakdown();
-
-                DataTable treatmentTable =
-         dgvTreatment.DataSource as DataTable;
-
-
-
-               /* if (treatmentTable != null)
-                {
-                    report.SetDataSource();
-                }*/
-
-
-
-                // Set report parameters
-                report.SetParameterValue(
-                                         "invoice_ID",
-                                         invoiceID);
-
-
-
-                report.SetParameterValue(
-                "Appointment_ID",
-                selectedAppointmentID);
-
-
-
-                report.SetParameterValue(
-                "invoice_date",
-                invoiceDate);
-
-
-
-                report.SetParameterValue(
-                "Patient_First_Name",
-                patientFullName);
-
-
-                report.SetParameterValue(
-                "Patient_Phone_Number",
-                patientPhone);
-
-
-
-                /*report.SetParameterValue(
-                "pSubtotal",
-                totalBeforeVat);
-
-
-
-                report.SetParameterValue(
-                "pVAT",
-                vat);*/
-
-
-
-                report.SetParameterValue(
-                "invoice_total_amount",
-                grandTotal);
-
-
-                /*
-                Open report viewer
-                InvoiceReportViewer viewer =
-         new InvoiceReportViewer();
-
-
-
-                viewer.crystalReportViewer1.ReportSource = report;
-                viewer.crystalReportViewer1.Refresh();
-
-
-
-                viewer.ShowDialog();
-
-
-
-                Clean up report
-                */
-                /*crystalReportViewer1.ReportSource = report;
-                crystalReportViewer1.Refresh();*/
-
-                MessageBox.Show("Done");
-
-                report.Close();
-                report.Dispose();
+                form.ShowDialog();
+                
             }
             catch (Exception ex)
             {
@@ -942,6 +872,473 @@ namespace Dental_Practice_Management_System
             {
                 MessageBox.Show("Error saving payment: " + ex.Message);
             }
+        }
+
+        private void LoadPaymentHistory(string search)
+
+        {
+
+            if (search == "")
+
+            {
+
+                string query1 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Unpaid"";
+
+                using (SqlConnection con = new SqlConnection(constr))
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+
+                {
+
+                    //cmd.Parameters.AddWithValue("@searchVal", searchVal + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    try
+
+                    {
+
+                        con.Open();
+
+                        adapter.Fill(dt);
+
+                        dgvUnpaid.DataSource = dt;
+
+                    }
+
+                    catch (Exception e)
+
+                    {
+
+                        MessageBox.Show(e.Message);
+
+                    }
+
+                }
+
+                string query1 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Paid"";
+
+                using (SqlConnection con = new SqlConnection(constr))
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+
+                {
+
+                    //cmd.Parameters.AddWithValue("@searchVal", searchVal + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    try
+
+                    {
+
+                        con.Open();
+
+                        adapter.Fill(dt);
+
+                        dgvPaid.DataSource = dt;
+
+                    }
+
+                    catch (Exception e)
+
+                    {
+
+                        MessageBox.Show(e.Message);
+
+                    }
+
+                }
+
+                string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Partially Paid"";
+
+                using (SqlConnection con = new SqlConnection(constr))
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+
+                {
+
+                    //cmd.Parameters.AddWithValue("@searchVal", searchVal + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    try
+
+                    {
+
+                        con.Open();
+
+                        adapter.Fill(dt);
+
+                        dgvPartial.DataSource = dt;
+
+                    }
+
+                    catch (Exception e)
+
+                    {
+
+                        MessageBox.Show(e.Message);
+
+                    }
+
+                }
+
+            }
+
+            else
+
+            {
+
+                string query4 = @"
+
+    SELECT 
+
+        Payment.payment_id,
+
+        Invoice.invoice_id,
+
+        Payment.payment_amount,
+
+        Payment.payment_method,
+
+        Payment.payment_date,
+
+        Invoice.invoice_status
+
+    FROM Patient
+
+    INNER JOIN Appointment
+
+        ON Patient.Patient_ID = Appointment.Patient_ID
+
+    INNER JOIN Invoice
+
+        ON Appointment.Appointment_Invoice_ID = Invoice.invoice_id
+
+    INNER JOIN Payment
+
+        ON Payment.payment_id = Invoice.invoice_payment_id
+
+    WHERE Patient.Patient_First_Name LIKE @search";
+
+                using (SqlConnection con = new SqlConnection(constr))
+
+                using (SqlCommand cmd = new SqlCommand(query1, con))
+
+                {
+
+                    cmd.Parameters.AddWithValue("@search", search + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    try
+
+                    {
+
+                        con.Open();
+
+                        adapter.Fill(dt);
+
+                        if (dt.Rows.Count > 0)
+
+                        {
+
+                            foreach (DataRow row in dt.Rows)
+
+                            {
+
+                                string status = row["invoice_status"].ToString();
+
+                                if (status == "Paid)
+            
+
+            {
+
+                                    dgvPaid.DataSource = dt;
+
+                                }
+
+                                else if (status == "Unpaid)
+                    
+
+            {
+
+                                    dgvUnpaid.DataSource = dt;
+
+                                }
+
+                                else
+
+                                {
+
+                                    dgvPartial.DataSource = dt;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    catch (Exception e)
+
+                    {
+
+                        MessageBox.Show(e.Message);
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        private void LoadPaymentHistory(string search)
+
+        {
+
+            if (search == "")
+
+            {
+
+                search = "Unpaid"
+        
+            string query1 = @"SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
+
+                using (SqlConnection con = new SqlConnection(constr))
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+
+                {
+
+                    cmd.Parameters.AddWithValue("@search", search);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    try
+
+                    {
+
+                        con.Open();
+
+                        adapter.Fill(dt);
+
+                        dgvUnpaid.DataSource = dt;
+
+                    }
+
+                    catch (Exception e)
+
+                    {
+
+                        MessageBox.Show(e.Message);
+
+                    }
+
+                }
+
+                search = "Paid";
+
+                string query1 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
+
+                using (SqlConnection con = new SqlConnection(constr))
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+
+                {
+
+                    cmd.Parameters.AddWithValue("@search", search);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    try
+
+                    {
+
+                        con.Open();
+
+                        adapter.Fill(dt);
+
+                        dgvPaid.DataSource = dt;
+
+                    }
+
+                    catch (Exception e)
+
+                    {
+
+                        MessageBox.Show(e.Message);
+
+                    }
+
+                }
+
+                search = "Partially paid"
+        
+
+        string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
+
+                using (SqlConnection con = new SqlConnection(constr))
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+
+                {
+
+                    cmd.Parameters.AddWithValue("@search", search);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    try
+
+                    {
+
+                        con.Open();
+
+                        adapter.Fill(dt);
+
+                        dgvPartial.DataSource = dt;
+
+                    }
+
+                    catch (Exception e)
+
+                    {
+
+                        MessageBox.Show(e.Message);
+
+                    }
+
+                }
+
+            }
+
+            else
+
+            {
+
+                string query4 = @"
+
+    SELECT 
+
+        Payment.payment_id,
+
+        Invoice.invoice_id,
+
+        Payment.payment_amount,
+
+        Payment.payment_method,
+
+        Payment.payment_date,
+
+        Invoice.invoice_status
+
+    FROM Patient
+
+    INNER JOIN Appointment
+
+        ON Patient.Patient_ID = Appointment.Patient_ID
+
+    INNER JOIN Invoice
+
+        ON Appointment.Appointment_Invoice_ID = Invoice.invoice_id
+
+    INNER JOIN Payment
+
+        ON Payment.payment_id = Invoice.invoice_payment_id
+
+    WHERE Patient.Patient_First_Name LIKE @search";
+
+                using (SqlConnection con = new SqlConnection(constr))
+
+                using (SqlCommand cmd = new SqlCommand(query1, con))
+
+                {
+
+                    cmd.Parameters.AddWithValue("@search", search + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    try
+
+                    {
+
+                        con.Open();
+
+                        adapter.Fill(dt);
+
+                        if (dt.Rows.Count > 0)
+
+                        {
+
+                            foreach (DataRow row in dt.Rows)
+
+                            {
+
+                                string status = row["invoice_status"].ToString();
+
+                                if (status == "Paid)
+            
+
+            {
+
+                                    dgvPaid.DataSource = dt;
+
+                                }
+
+                                else if (status == "Unpaid)
+                    
+
+            {
+
+                                    dgvUnpaid.DataSource = dt;
+
+                                }
+
+                                else
+
+                                {
+
+                                    dgvPartial.DataSource = dt;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    catch (Exception e)
+
+                    {
+
+                        MessageBox.Show(e.Message);
+
+                    }
+
+                }
+
+            }
+
         }
 
         private void btnSearch2_Click(object sender, EventArgs e)
