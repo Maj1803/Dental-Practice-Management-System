@@ -49,30 +49,30 @@ namespace Dental_Practice_Management_System
             txtPatientName.TextChanged += txtPatientName_TextChanged;
         }
 
-       /* private void dgvPatient_CellClick(Object sender, DataGridViewCellEventArgs e)
+        /* private void dgvPatient_CellClick(Object sender, DataGridViewCellEventArgs e)
+         {
+             if (e.RowIndex < 0) { return; }
+
+             DataGridViewRow row = dgvPatient.Rows[e.RowIndex];
+
+             int id = Convert.ToInt32(row.Cells["Patient_ID"].Value);
+             DGPatientName = row.Cells["Patient_First_Name"].Value.ToString();
+             DGPatientSurname = row.Cells["Patient_Last_Name"].Value.ToString();
+             DGPatientNumber = row.Cells["Patient_First_Name"].Value.ToString();
+         }*/
+
+
+
+        private void txtPatientName_TextChanged(object sender, EventArgs e)
+
         {
-            if (e.RowIndex < 0) { return; }
 
-            DataGridViewRow row = dgvPatient.Rows[e.RowIndex];
-
-            int id = Convert.ToInt32(row.Cells["Patient_ID"].Value);
-            DGPatientName = row.Cells["Patient_First_Name"].Value.ToString();
-            DGPatientSurname = row.Cells["Patient_Last_Name"].Value.ToString();
-            DGPatientNumber = row.Cells["Patient_First_Name"].Value.ToString();
-        }*/
-
-        
- 
-private void txtPatientName_TextChanged(object sender, EventArgs e)
-
-{
-
-    searchTimer.Stop();
+            searchTimer.Stop();
 
             searchTimer.Start();
 
-}
- 
+        }
+
         private void txtAppt_TextChanged(Object sender, EventArgs e)
         {
             searchTimer.Stop();
@@ -90,7 +90,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
         {
             string query = @"SELECT Patient_ID, Patient_First_Name, Patient_Last_Name, Patient_Phone_Number FROM Patient WHERE Patient_First_name LIKE @searchVal";
 
-            using (SqlConnection con = new SqlConnection(constr)) 
+            using (SqlConnection con = new SqlConnection(constr))
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
                 cmd.Parameters.AddWithValue("@searchVal", searchVal + "%");
@@ -104,7 +104,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                     adapter.Fill(dt);
                     dgvPatient.DataSource = dt;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     MessageBox.Show(e.Message);
                 }
@@ -121,7 +121,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
             treatmentTableAdapter.Fill(dsDentist.Treatment);
             paymentTableAdapter.Fill(dsDentist.Payment);
             invoiceTableAdapter.Fill(dsDentist.Invoice);
-            appointmentTableAdapter.Fill(dsDentist.Appointment);            
+            appointmentTableAdapter.Fill(dsDentist.Appointment);
             patientTreatmentTableAdapter1.Fill(dsDentist.PatientTreatment);
 
             cmbMethod.Items.Clear();
@@ -170,19 +170,19 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
             grpInvoice.Location = new Point(3, 3);
             grpInvoice.Size = new Size(1080, 500);
 
-           // dgvPatient.Location = new Point(20, 170);
+            // dgvPatient.Location = new Point(20, 170);
             //dgvPatient.Size = new Size(980, 110);
 
             btnTreatment.Visible = false;
 
             //lblSelectedBillingPatient.Location = new Point(20, 295);
             lblSelectedBillingPatient.AutoSize = true;
-           // lblSelectedBillingPatient.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
-           // lblSelectedBillingPatient.ForeColor = Color.FromArgb(0, 102, 204);
+            // lblSelectedBillingPatient.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+            // lblSelectedBillingPatient.ForeColor = Color.FromArgb(0, 102, 204);
 
             //dgvTreatment.Location = new Point(170, 330);
             //dgvTreatment.Size = new Size(620, 135);
-           // dgvTreatment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // dgvTreatment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             btnInvoice.Location = new Point(830, 335);
             btnInvoice.Size = new Size(220, 45);
@@ -194,7 +194,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
             btnClear1.BringToFront();
         }
 
-        
+
 
         private void ShowPanel(System.Windows.Forms.Panel panel)
         {
@@ -232,8 +232,8 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
         private void btnPaymentHistory_Click(object sender, EventArgs e)
         {
             ShowPanel(pnlPaymentHistory);
-            LoadPaymentHistory(txtPatientName.Text.Trim());
-        
+            LoadPaymentHistory("");
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -254,7 +254,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                 dsDentist.Appointment.Clear();
                 dsDentist.Treatment.Clear();
                 dsDentist.Invoice.Clear();
-                
+
                 patientTableAdapter.Fill(dsDentist.Patient);
                 appointmentTableAdapter.Fill(dsDentist.Appointment);
                 treatmentTableAdapter.Fill(dsDentist.Treatment);
@@ -285,7 +285,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                     dgvPatient.ClearSelection();
                     dgvPatient.Rows[0].Selected = true;
                     patientBindingSource.Position = 0;
-                   // SelectCurrentPatientAndLoadTreatment(e);
+                    // SelectCurrentPatientAndLoadTreatment(e);
                 }
             }
             catch (Exception ex)
@@ -357,12 +357,12 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                     total = 0;
                     selectedAppointmentID = -1;
 
-                   
+
                     lblSelectedBillingPatient.Text += "\n\nStatus: No treatments found for this patient.";
-                    btnInvoice.Enabled = false; 
+                    btnInvoice.Enabled = false;
                     return;
-                   // MessageBox.Show("This patient has no appointments, so no treatment can be loaded.");
-                   // return;
+                    // MessageBox.Show("This patient has no appointments, so no treatment can be loaded.");
+                    // return;
                 }
 
                 foreach (DataRow appt in appointments)
@@ -520,7 +520,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                 InvoiceViewer form = new InvoiceViewer(dsDentist, invoiceID);
 
                 form.ShowDialog();
-                
+
             }
             catch (Exception ex)
             {
@@ -537,7 +537,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
             byte[] pdfBytes = GenerateInvoicePdf(invoiceID);
             string tempPath = Path.Combine(Path.GetTempPath(), $"Invoice_{invoiceID}.pdf");
             File.WriteAllBytes(tempPath, pdfBytes);
-            Process.Start(new ProcessStartInfo(tempPath) { UseShellExecute = true});
+            Process.Start(new ProcessStartInfo(tempPath) { UseShellExecute = true });
         }
         public byte[] GenerateInvoicePdf(int invoiceId)
         {
@@ -551,7 +551,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                 );
 
                 report.Load(reportPath);
-                                
+
                 DataSet dataSet = new DataSet();
 
                 using (SqlConnection connection =
@@ -759,7 +759,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+
 
             if (searchInvoiceID == -1)
             {
@@ -793,7 +793,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                 return;
             }
 
-            if ((amountPaid > currentBalance)&&(paymentMethod!="Cash"))
+            if ((amountPaid > currentBalance) && (paymentMethod != "Cash"))
             {
                 MessageBox.Show("Payment amount cannot be bigger than the balance due.");
                 return;
@@ -807,9 +807,9 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                 int paymentID = CreatePaymentID();
 
                 //currentBalance = newBalance;
-                
-                decimal vat = currentBalance*((decimal)15/115);
-                
+
+                decimal vat = currentBalance * ((decimal)15 / 115);
+
                 String receipt = "";
 
                 if (paymentMethod == "Cash")
@@ -818,7 +818,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                     {
                         decimal changeGiven = amountPaid - currentBalance;
                         newBalance = 0;
-                        
+
                         receipt = "--- PAYMENT RECEIPT ---\n" +
                        "Invoice ID: " + searchInvoiceID + "\n" +
                        "Payment ID: " + paymentID + "\n" +
@@ -844,7 +844,8 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                          "-----------------------";
                     }
                 }
-                else {
+                else
+                {
                     receipt = "--- PAYMENT RECEIPT ---\n" +
                          "Invoice ID: " + searchInvoiceID + "\n" +
                          "Payment ID: " + paymentID + "\n" +
@@ -853,7 +854,7 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                          "VAT: " + vat.ToString("0.00") + "\n" +
                          "Remaining Balance: R" + newBalance.ToString("0.00") + "\n" +
                          "-----------------------";
-                 }
+                }
 
                 paymentTableAdapter.Insert(paymentID, searchInvoiceID, amountPaid, cmbMethod.Text, dateTimePicker1.Value);
                 invoiceTableAdapter.UpdateQuery(status, newBalance, searchInvoiceID);
@@ -882,245 +883,13 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
             {
 
-                string query1 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Unpaid "";
+                search = "Unpaid";
 
-                using (SqlConnection con = new SqlConnection(constr))
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
-
-                {
-
-                    //cmd.Parameters.AddWithValue("@searchVal", searchVal + "%");
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-                    DataTable dt = new DataTable();
-
-                    try
-
-                    {
-
-                        con.Open();
-
-                        adapter.Fill(dt);
-
-                        dgvUnpaid.DataSource = dt;
-
-                    }
-
-                    catch (Exception e)
-
-                    {
-
-                        MessageBox.Show(e.Message);
-
-                    }
-
-                }
-
-                string query1 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Paid"";
-
-                using (SqlConnection con = new SqlConnection(constr))
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
-
-                {
-
-                    //cmd.Parameters.AddWithValue("@searchVal", searchVal + "%");
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-                    DataTable dt = new DataTable();
-
-                    try
-
-                    {
-
-                        con.Open();
-
-                        adapter.Fill(dt);
-
-                        dgvPaid.DataSource = dt;
-
-                    }
-
-                    catch (Exception e)
-
-                    {
-
-                        MessageBox.Show(e.Message);
-
-                    }
-
-                }
-
-                string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = "Partially Paid" ";
-
-                using (SqlConnection con = new SqlConnection(constr))
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
-
-                {
-
-                    //cmd.Parameters.AddWithValue("@searchVal", searchVal + "%");
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-                    DataTable dt = new DataTable();
-
-                    try
-
-                    {
-
-                        con.Open();
-
-                        adapter.Fill(dt);
-
-                        dgvPartial.DataSource = dt;
-
-                    }
-
-                    catch (Exception e)
-
-                    {
-
-                        MessageBox.Show(e.Message);
-
-                    }
-
-                }
-
-            }
-
-            else
-
-            {
-
-                string query4 = @"
-
-    SELECT 
-
-        Payment.payment_id,
-
-        Invoice.invoice_id,
-
-        Payment.payment_amount,
-
-        Payment.payment_method,
-
-        Payment.payment_date,
-
-        Invoice.invoice_status
-
-    FROM Patient
-
-    INNER JOIN Appointment
-
-        ON Patient.Patient_ID = Appointment.Patient_ID
-
-    INNER JOIN Invoice
-
-        ON Appointment.Appointment_Invoice_ID = Invoice.invoice_id
-
-    INNER JOIN Payment
-
-        ON Payment.payment_id = Invoice.invoice_payment_id
-
-    WHERE Patient.Patient_First_Name LIKE @search";
+                string query1 = @"SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
                 using (SqlCommand cmd = new SqlCommand(query1, con))
-
-                {
-
-                    cmd.Parameters.AddWithValue("@search", search + "%");
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-                    DataTable dt = new DataTable();
-
-                    try
-
-                    {
-
-                        con.Open();
-
-                        adapter.Fill(dt);
-
-                        if (dt.Rows.Count > 0)
-
-                        {
-
-                            foreach (DataRow row in dt.Rows)
-
-                            {
-
-                                string status = row["invoice_status"].ToString();
-
-                                if (status == "Paid")
-
-
-
-            {
-
-                                    dgvPaid.DataSource = dt;
-
-                                }
-
-                                else if (status == "Unpaid")
-
-
-
-            {
-
-                                    dgvUnpaid.DataSource = dt;
-
-                                }
-
-                                else
-
-                                {
-
-                                    dgvPartial.DataSource = dt;
-
-                                }
-
-                            }
-
-                        }
-
-                    }
-
-                    catch (Exception e)
-
-                    {
-
-                        MessageBox.Show(e.Message);
-
-                    }
-
-                }
-
-            }
-
-        }
-
-        private void LoadPaymentHistory(string search)
-
-        {
-
-            if (search == "")
-
-            {
-
-                search = "Unpaid";
-        
-            string query1 = @"SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
-
-                using (SqlConnection con = new SqlConnection(constr))
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
 
                 {
 
@@ -1154,11 +923,11 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
 
                 search = "Paid";
 
-                string query1 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
+                string query2 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query2, con))
 
                 {
 
@@ -1191,13 +960,13 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                 }
 
                 search = "Partially paid";
-        
 
-        string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
+
+                string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query3, con))
 
                 {
 
@@ -1236,40 +1005,39 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
             {
 
                 string query4 = @"
+								SELECT 
 
-    SELECT 
+									Payment.payment_id,
 
-        Payment.payment_id,
+									Invoice.invoice_id,
 
-        Invoice.invoice_id,
+									Payment.payment_amount,
 
-        Payment.payment_amount,
+									Payment.payment_method,
 
-        Payment.payment_method,
+									Payment.payment_date,
 
-        Payment.payment_date,
+									Invoice.invoice_status
 
-        Invoice.invoice_status
+								FROM Patient
 
-    FROM Patient
+								INNER JOIN Appointment
 
-    INNER JOIN Appointment
+									ON Patient.Patient_ID = Appointment.Patient_ID
 
-        ON Patient.Patient_ID = Appointment.Patient_ID
+								INNER JOIN Invoice
 
-    INNER JOIN Invoice
+									ON Appointment.Appointment_Invoice_ID = Invoice.invoice_id
 
-        ON Appointment.Appointment_Invoice_ID = Invoice.invoice_id
+								INNER JOIN Payment
 
-    INNER JOIN Payment
+									ON Payment.payment_id = Invoice.invoice_payment_id
 
-        ON Payment.payment_id = Invoice.invoice_payment_id
-
-    WHERE Patient.Patient_First_Name LIKE @search";
+								WHERE Patient.Patient_First_Name LIKE @search OR Patient.Patient_Last_Name LIKE @search";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
-                using (SqlCommand cmd = new SqlCommand(query1, con))
+                using (SqlCommand cmd = new SqlCommand(query4, con))
 
                 {
 
@@ -1298,27 +1066,18 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
                                 string status = row["invoice_status"].ToString();
 
                                 if (status == "Paid")
-
-
-
-            {
+                                {
 
                                     dgvPaid.DataSource = dt;
 
                                 }
-
-                                else if (status == "Unpaid" )
-
-
-
-            {
+                                else if (status == "Unpaid")
+                                {
 
                                     dgvUnpaid.DataSource = dt;
 
                                 }
-
                                 else
-
                                 {
 
                                     dgvPartial.DataSource = dt;
@@ -1545,3 +1304,6 @@ private void txtPatientName_TextChanged(object sender, EventArgs e)
         }
     }
 }
+
+
+
