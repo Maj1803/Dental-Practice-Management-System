@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Web.UI.WebControls;
@@ -46,7 +47,7 @@ namespace Dental_Practice_Management_System
             searchTimer.Tick += searchTimer_Tick;
 
             txtAppt.TextChanged += txtAppt_TextChanged;
-            txtPatientName.TextChanged += txtPatientName_TextChanged;
+            
         }
 
         /* private void dgvPatient_CellClick(Object sender, DataGridViewCellEventArgs e)
@@ -146,7 +147,7 @@ namespace Dental_Practice_Management_System
             dgvTreatment.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTreatment.MultiSelect = false;
 
-            btnTreatment.Visible = false;
+            //btnTreatment.Visible = false;
             btnInvoice.Enabled = false;
 
             FixBillingLayout();
@@ -173,7 +174,7 @@ namespace Dental_Practice_Management_System
             // dgvPatient.Location = new Point(20, 170);
             //dgvPatient.Size = new Size(980, 110);
 
-            btnTreatment.Visible = false;
+            //btnTreatment.Visible = false;
 
             //lblSelectedBillingPatient.Location = new Point(20, 295);
             lblSelectedBillingPatient.AutoSize = true;
@@ -232,6 +233,7 @@ namespace Dental_Practice_Management_System
         private void btnPaymentHistory_Click(object sender, EventArgs e)
         {
             ShowPanel(pnlPaymentHistory);
+            txtPatientName.TextChanged += txtPatientName_TextChanged;
             LoadPaymentHistory("");
 
         }
@@ -503,7 +505,7 @@ namespace Dental_Practice_Management_System
         {
             try
             {
-                dsDentist.EnforceConstraints = false;
+                /*dsDentist.EnforceConstraints = false;
 
                 dsDentist.Patient.Clear();
                 dsDentist.Appointment.Clear();
@@ -515,9 +517,41 @@ namespace Dental_Practice_Management_System
                 appointmentTableAdapter.Fill(dsDentist.Appointment);
                 patientTreatmentTableAdapter1.Fill(dsDentist.PatientTreatment);
                 treatmentTableAdapter.Fill(dsDentist.Treatment);
-                invoiceTableAdapter.Fill(dsDentist.Invoice);
+                invoiceTableAdapter.Fill(dsDentist.Invoice);*/
 
-                InvoiceViewer form = new InvoiceViewer(dsDentist, invoiceID);
+                DataSet invoiceData = new DataSet();
+
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    con.Open();
+
+                    string headerQuery = @"SELECT I.invoice_id,I.invoice_date,I.invoice_total_amount,I.invoice_status,I.invoice_balance_due,A.Appointment_ID,A.Appointment_Date,P.Patient_ID,P.Patient_First_Name,P.Patient_Last_Name,P.Patient_Phone_Number FROM Invoice I INNER JOIN Appointment A ON I.appointment_id = A.Appointment_ID INNER JOIN Patient P ON A.Patient_ID = P.Patient_ID WHERE I.invoice_id = @InvoiceID";
+
+                    using(SqlCommand com = new SqlCommand(headerQuery, con))
+                    {
+                        com.Parameters.AddWithValue("@InvoiceID", invoiceID);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(com))
+                        {
+                            adapter.Fill(invoiceData, "InvoiceHeader");
+                        }
+                    }
+
+                    string treatmentQuery = @"SELECT PT.PatientTreatment_ID,PT.Appointment_ID,T.TreatmentID,T.TreatmentName,T.TreatmentDescription,T.TreatmentCost FROM PatientTreatment PT INNER JOIN Treatment T ON PT.TreatmentID = T.TreatmentID INNER JOIN Appointment A ON PT.Appointment_ID = A.Appointment_ID INNER JOIN Invoice I ON A.Appointment_ID = I.appointment_id WHERE I.invoice_id = @InvoiceID";
+
+                    using (SqlCommand com2 = new SqlCommand(treatmentQuery, con))
+                    {
+                        com2.Parameters.AddWithValue("@InvoiceID", invoiceID);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(com2))
+                        {
+                            adapter.Fill(invoiceData, "InvoiceItems");
+                        }
+                    }
+                }
+                               
+
+                InvoiceViewer form = new InvoiceViewer(invoiceData, invoiceID);
 
                 form.ShowDialog();
 
@@ -525,7 +559,7 @@ namespace Dental_Practice_Management_System
             catch (Exception ex)
             {
                 MessageBox.Show(
-                "Error displaying invoice report: " + ex.Message,
+                "Error displaying invoice report: " + ex.ToString(),
                 "Crystal Reports Error",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
@@ -885,7 +919,7 @@ namespace Dental_Practice_Management_System
 
                 search = "Unpaid";
 
-                string query1 = @"SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
+                string query1 = @"SELECT Payment.payment_id, Payment.invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.invoice_id = Invoice.invoice_id and Invoice.invoice_status = @search";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
@@ -923,7 +957,7 @@ namespace Dental_Practice_Management_System
 
                 search = "Paid";
 
-                string query2 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
+                string query2 = "SELECT Payment.payment_id, Payment.invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.invoice_id = Invoice.invoice_id and Invoice.invoice_status = @search";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
@@ -959,10 +993,10 @@ namespace Dental_Practice_Management_System
 
                 }
 
-                search = "Partially paid";
+                search = "Partial";
 
 
-                string query3 = "SELECT payment_id, invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.payment_id = Invoice_invoice_id and Invoice.invoice_status = @search";
+                string query3 = "SELECT Payment.payment_id, Payment.invoice_id, payment_amount, payment_method, payment_date FROM Payment, Invoice WHERE Payment.invoice_id = Invoice.invoice_id and Invoice.invoice_status = @search";
 
                 using (SqlConnection con = new SqlConnection(constr))
 
@@ -1004,7 +1038,7 @@ namespace Dental_Practice_Management_System
 
             {
 
-                string query4 = @"
+                /*string query4 = @"
 								SELECT 
 
 									Payment.payment_id,
@@ -1027,11 +1061,11 @@ namespace Dental_Practice_Management_System
 
 								INNER JOIN Invoice
 
-									ON Appointment.Appointment_Invoice_ID = Invoice.invoice_id
+									ON Appointment.Appointment_ID = Invoice.appointment_id
 
 								INNER JOIN Payment
 
-									ON Payment.payment_id = Invoice.invoice_payment_id
+									ON Payment.invoice_id = Invoice.invoice_id
 
 								WHERE Patient.Patient_First_Name LIKE @search OR Patient.Patient_Last_Name LIKE @search";
 
@@ -1069,24 +1103,32 @@ namespace Dental_Practice_Management_System
                                 {
 
                                     dgvPaid.DataSource = dt;
+                                    dgvPartial.Rows.Clear();
+                                    dgvUnpaid.Rows.Clear();
 
                                 }
                                 else if (status == "Unpaid")
                                 {
 
                                     dgvUnpaid.DataSource = dt;
+                                    dgvPaid.Rows.Clear();
+                                    dgvPartial.Rows.Clear();
 
                                 }
                                 else
                                 {
 
                                     dgvPartial.DataSource = dt;
+                                    dgvPaid.Rows.Clear();
+                                    dgvUnpaid.Rows.Clear();
 
                                 }
 
                             }
 
                         }
+
+
 
                     }
 
@@ -1098,6 +1140,76 @@ namespace Dental_Practice_Management_System
 
                     }
 
+                }*/
+
+                string query4 = @"
+        SELECT
+            Payment.payment_id,
+            Invoice.invoice_id,
+            Payment.payment_amount,
+            Payment.payment_method,
+            Payment.payment_date,
+            Invoice.invoice_status
+        FROM Patient
+        INNER JOIN Appointment
+            ON Patient.Patient_ID = Appointment.Patient_ID
+        INNER JOIN Invoice
+            ON Appointment.Appointment_ID = Invoice.appointment_id
+        INNER JOIN Payment
+            ON Payment.invoice_id = Invoice.invoice_id
+        WHERE Patient.Patient_First_Name = @search
+           OR Patient.Patient_Last_Name = @search";
+
+                using (SqlConnection con = new SqlConnection(constr))
+                using (SqlCommand cmd = new SqlCommand(query4, con))
+                {
+                    // Exact match instead of LIKE
+                    cmd.Parameters.AddWithValue("@search", search.Trim());
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+
+                    try
+                    {
+                        con.Open();
+                        adapter.Fill(dt);
+
+                        // Clear ALL grids first
+                        dgvPaid.DataSource = null;
+                        dgvUnpaid.DataSource = null;
+                        dgvPartial.DataSource = null;
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            // Check the status of the matching records
+                            string status = dt.Rows[0]["invoice_status"].ToString();
+
+                            if (status == "Paid")
+                            {
+                                dgvPaid.DataSource = dt;
+                            }
+                            else if (status == "Unpaid")
+                            {
+                                dgvUnpaid.DataSource = dt;
+                            }
+                            else if (status == "Partial")
+                            {
+                                dgvPartial.DataSource = dt;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                                "No exact patient match found.",
+                                "Search",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
                 }
 
             }
@@ -1106,7 +1218,7 @@ namespace Dental_Practice_Management_System
 
         private void btnSearch2_Click(object sender, EventArgs e)
         {
-            rtxtbxPaymentHistory.Clear();
+            //rtxtbxPaymentHistory.Clear();
 
             string search = txtPatientName.Text.Trim().ToLower();
 
@@ -1193,7 +1305,7 @@ namespace Dental_Practice_Management_System
                 if (!foundPayment)
                     history += "No payment history found for this patient." + Environment.NewLine;
 
-                rtxtbxPaymentHistory.Text = history;
+                //rtxtbxPaymentHistory.Text = history;
             }
             catch (Exception ex)
             {
@@ -1277,7 +1389,7 @@ namespace Dental_Practice_Management_System
         private void ClearHistoryPanel()
         {
             txtPatientName.Clear();
-            rtxtbxPaymentHistory.Clear();
+            //rtxtbxPaymentHistory.Clear();
         }
 
         private void btnClear_Click(object sender, EventArgs e) { ClearInvoicePanel(); }

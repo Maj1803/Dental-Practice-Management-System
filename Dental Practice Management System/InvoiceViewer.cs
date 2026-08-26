@@ -26,9 +26,7 @@ namespace Dental_Practice_Management_System
             InvoiceBreakdown report = new InvoiceBreakdown();
 
             report.SetDataSource(reportData);
-
-            report.SetParameterValue("InvoiceID", invoiceID);
-                        
+                                    
             reportViewer.Show();
 
             reportViewer.ReportSource = report;

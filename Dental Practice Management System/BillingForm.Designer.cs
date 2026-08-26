@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtAppt = new System.Windows.Forms.TextBox();
-            this.btnTreatment = new System.Windows.Forms.Button();
             this.dgvTreatment = new System.Windows.Forms.DataGridView();
             this.treatmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.treatmentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +60,7 @@
             this.btnPaymentHistory = new System.Windows.Forms.Button();
             this.pnlInvoice = new System.Windows.Forms.Panel();
             this.grpInvoice = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblSelectedBillingPatient = new System.Windows.Forms.RichTextBox();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.grpPayment = new System.Windows.Forms.GroupBox();
@@ -79,7 +79,6 @@
             this.txtPatientName = new System.Windows.Forms.TextBox();
             this.btnClear3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.rtxtbxPaymentHistory = new System.Windows.Forms.RichTextBox();
             this.paymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentTableAdapter();
@@ -123,20 +122,6 @@
             this.txtAppt.TabIndex = 0;
             this.txtAppt.TextChanged += new System.EventHandler(this.txtAppt_TextChanged);
             // 
-            // btnTreatment
-            // 
-            this.btnTreatment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTreatment.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnTreatment.Location = new System.Drawing.Point(27, 412);
-            this.btnTreatment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnTreatment.Name = "btnTreatment";
-            this.btnTreatment.Size = new System.Drawing.Size(201, 38);
-            this.btnTreatment.TabIndex = 1;
-            this.btnTreatment.Text = "Load Treatment";
-            this.btnTreatment.UseVisualStyleBackColor = true;
-            this.btnTreatment.Visible = false;
-            this.btnTreatment.Click += new System.EventHandler(this.btnTreatment_Click);
-            // 
             // dgvTreatment
             // 
             this.dgvTreatment.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -147,13 +132,13 @@
             this.treatmentNameDataGridViewTextBoxColumn,
             this.treatmentCost});
             this.dgvTreatment.DataSource = this.treatmentBindingSource1;
-            this.dgvTreatment.Location = new System.Drawing.Point(6, 431);
+            this.dgvTreatment.Location = new System.Drawing.Point(21, 478);
             this.dgvTreatment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvTreatment.Name = "dgvTreatment";
             this.dgvTreatment.ReadOnly = true;
             this.dgvTreatment.RowHeadersWidth = 51;
             this.dgvTreatment.RowTemplate.Height = 24;
-            this.dgvTreatment.Size = new System.Drawing.Size(841, 140);
+            this.dgvTreatment.Size = new System.Drawing.Size(848, 140);
             this.dgvTreatment.TabIndex = 2;
             // 
             // treatmentNameDataGridViewTextBoxColumn
@@ -186,7 +171,7 @@
             // 
             this.btnInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInvoice.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnInvoice.Location = new System.Drawing.Point(404, 581);
+            this.btnInvoice.Location = new System.Drawing.Point(1075, 508);
             this.btnInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInvoice.Name = "btnInvoice";
             this.btnInvoice.Size = new System.Drawing.Size(224, 49);
@@ -251,7 +236,7 @@
             // 
             this.btnClear1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnClear1.Location = new System.Drawing.Point(666, 586);
+            this.btnClear1.Location = new System.Drawing.Point(1199, 634);
             this.btnClear1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear1.Name = "btnClear1";
             this.btnClear1.Size = new System.Drawing.Size(100, 38);
@@ -272,7 +257,7 @@
             this.Patient_Phone_Number,
             this.Patient_ID});
             this.dgvPatient.DataSource = this.patientBindingSource;
-            this.dgvPatient.Location = new System.Drawing.Point(24, 230);
+            this.dgvPatient.Location = new System.Drawing.Point(17, 190);
             this.dgvPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.ReadOnly = true;
@@ -280,7 +265,7 @@
             this.dgvPatient.RowTemplate.Height = 24;
             this.dgvPatient.ShowCellErrors = false;
             this.dgvPatient.ShowRowErrors = false;
-            this.dgvPatient.Size = new System.Drawing.Size(823, 176);
+            this.dgvPatient.Size = new System.Drawing.Size(848, 176);
             this.dgvPatient.TabIndex = 12;
             // 
             // Patient_First_Name
@@ -373,11 +358,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label5.Location = new System.Drawing.Point(22, 169);
+            this.label5.Location = new System.Drawing.Point(16, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(418, 29);
+            this.label5.Size = new System.Drawing.Size(430, 29);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Search Patient (Enter Appointment ID)";
+            this.label5.Text = "Search Patient (Enter and select name)";
             // 
             // label6
             // 
@@ -408,7 +393,7 @@
             this.btnAddInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnAddInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddInvoice.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddInvoice.Location = new System.Drawing.Point(259, 133);
+            this.btnAddInvoice.Location = new System.Drawing.Point(277, 118);
             this.btnAddInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddInvoice.Name = "btnAddInvoice";
             this.btnAddInvoice.Size = new System.Drawing.Size(237, 65);
@@ -422,7 +407,7 @@
             this.btnProcessPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnProcessPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcessPayment.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnProcessPayment.Location = new System.Drawing.Point(593, 133);
+            this.btnProcessPayment.Location = new System.Drawing.Point(594, 118);
             this.btnProcessPayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProcessPayment.Name = "btnProcessPayment";
             this.btnProcessPayment.Size = new System.Drawing.Size(237, 65);
@@ -436,7 +421,7 @@
             this.btnPaymentHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(155)))));
             this.btnPaymentHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentHistory.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPaymentHistory.Location = new System.Drawing.Point(933, 133);
+            this.btnPaymentHistory.Location = new System.Drawing.Point(922, 118);
             this.btnPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPaymentHistory.Name = "btnPaymentHistory";
             this.btnPaymentHistory.Size = new System.Drawing.Size(237, 65);
@@ -451,15 +436,16 @@
             this.pnlInvoice.Location = new System.Drawing.Point(27, 202);
             this.pnlInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlInvoice.Name = "pnlInvoice";
-            this.pnlInvoice.Size = new System.Drawing.Size(1349, 672);
+            this.pnlInvoice.Size = new System.Drawing.Size(1349, 720);
             this.pnlInvoice.TabIndex = 21;
             // 
             // grpInvoice
             // 
+            this.grpInvoice.Controls.Add(this.label11);
             this.grpInvoice.Controls.Add(this.lblSelectedBillingPatient);
+            this.grpInvoice.Controls.Add(this.label5);
             this.grpInvoice.Controls.Add(this.txtAppt);
             this.grpInvoice.Controls.Add(this.dgvPatient);
-            this.grpInvoice.Controls.Add(this.btnTreatment);
             this.grpInvoice.Controls.Add(this.btnInvoice);
             this.grpInvoice.Controls.Add(this.dgvTreatment);
             this.grpInvoice.Controls.Add(this.btnClear1);
@@ -469,17 +455,28 @@
             this.grpInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpInvoice.Name = "grpInvoice";
             this.grpInvoice.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpInvoice.Size = new System.Drawing.Size(1327, 674);
+            this.grpInvoice.Size = new System.Drawing.Size(1327, 700);
             this.grpInvoice.TabIndex = 0;
             this.grpInvoice.TabStop = false;
             this.grpInvoice.Text = "Invoice";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label11.Location = new System.Drawing.Point(19, 433);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(283, 29);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Patient Treatment Details";
             // 
             // lblSelectedBillingPatient
             // 
             this.lblSelectedBillingPatient.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblSelectedBillingPatient.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSelectedBillingPatient.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblSelectedBillingPatient.Location = new System.Drawing.Point(853, 139);
+            this.lblSelectedBillingPatient.Location = new System.Drawing.Point(942, 51);
             this.lblSelectedBillingPatient.Name = "lblSelectedBillingPatient";
             this.lblSelectedBillingPatient.Size = new System.Drawing.Size(357, 214);
             this.lblSelectedBillingPatient.TabIndex = 26;
@@ -492,7 +489,7 @@
             this.pnlPayment.Location = new System.Drawing.Point(27, 200);
             this.pnlPayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(1344, 724);
+            this.pnlPayment.Size = new System.Drawing.Size(1344, 634);
             this.pnlPayment.TabIndex = 22;
             // 
             // grpPayment
@@ -562,7 +559,7 @@
             this.pnlPaymentHistory.Location = new System.Drawing.Point(27, 202);
             this.pnlPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPaymentHistory.Name = "pnlPaymentHistory";
-            this.pnlPaymentHistory.Size = new System.Drawing.Size(1349, 704);
+            this.pnlPaymentHistory.Size = new System.Drawing.Size(1389, 757);
             this.pnlPaymentHistory.TabIndex = 23;
             // 
             // grpPaymentHistory
@@ -579,11 +576,11 @@
             this.grpPaymentHistory.Controls.Add(this.label8);
             this.grpPaymentHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPaymentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpPaymentHistory.Location = new System.Drawing.Point(27, 18);
+            this.grpPaymentHistory.Location = new System.Drawing.Point(0, -2);
             this.grpPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpPaymentHistory.Name = "grpPaymentHistory";
             this.grpPaymentHistory.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpPaymentHistory.Size = new System.Drawing.Size(1297, 911);
+            this.grpPaymentHistory.Size = new System.Drawing.Size(1341, 931);
             this.grpPaymentHistory.TabIndex = 0;
             this.grpPaymentHistory.TabStop = false;
             this.grpPaymentHistory.Text = "Payment History";
@@ -602,11 +599,11 @@
             // dgvPartial
             // 
             this.dgvPartial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPartial.Location = new System.Drawing.Point(930, 265);
+            this.dgvPartial.Location = new System.Drawing.Point(-7, 492);
             this.dgvPartial.Name = "dgvPartial";
             this.dgvPartial.RowHeadersWidth = 51;
             this.dgvPartial.RowTemplate.Height = 24;
-            this.dgvPartial.Size = new System.Drawing.Size(345, 326);
+            this.dgvPartial.Size = new System.Drawing.Size(1298, 110);
             this.dgvPartial.TabIndex = 10;
             // 
             // label10
@@ -623,11 +620,11 @@
             // dgvPaid
             // 
             this.dgvPaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPaid.Location = new System.Drawing.Point(476, 267);
+            this.dgvPaid.Location = new System.Drawing.Point(-7, 417);
             this.dgvPaid.Name = "dgvPaid";
             this.dgvPaid.RowHeadersWidth = 51;
             this.dgvPaid.RowTemplate.Height = 24;
-            this.dgvPaid.Size = new System.Drawing.Size(402, 324);
+            this.dgvPaid.Size = new System.Drawing.Size(1298, 138);
             this.dgvPaid.TabIndex = 8;
             // 
             // label9
@@ -644,11 +641,11 @@
             // dgvUnpaid
             // 
             this.dgvUnpaid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUnpaid.Location = new System.Drawing.Point(19, 267);
+            this.dgvUnpaid.Location = new System.Drawing.Point(-18, 267);
             this.dgvUnpaid.Name = "dgvUnpaid";
             this.dgvUnpaid.RowHeadersWidth = 51;
             this.dgvUnpaid.RowTemplate.Height = 24;
-            this.dgvUnpaid.Size = new System.Drawing.Size(423, 324);
+            this.dgvUnpaid.Size = new System.Drawing.Size(1309, 124);
             this.dgvUnpaid.TabIndex = 6;
             // 
             // btnSearch2
@@ -677,10 +674,10 @@
             // 
             this.btnClear3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnClear3.Location = new System.Drawing.Point(1091, 602);
+            this.btnClear3.Location = new System.Drawing.Point(1091, 607);
             this.btnClear3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear3.Name = "btnClear3";
-            this.btnClear3.Size = new System.Drawing.Size(163, 52);
+            this.btnClear3.Size = new System.Drawing.Size(163, 47);
             this.btnClear3.TabIndex = 3;
             this.btnClear3.Text = "Clear";
             this.btnClear3.UseVisualStyleBackColor = true;
@@ -696,15 +693,6 @@
             this.label8.Size = new System.Drawing.Size(470, 29);
             this.label8.TabIndex = 2;
             this.label8.Text = "Search Patient Name (Enter Patient Name)";
-            // 
-            // rtxtbxPaymentHistory
-            // 
-            this.rtxtbxPaymentHistory.Location = new System.Drawing.Point(1003, 4);
-            this.rtxtbxPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rtxtbxPaymentHistory.Name = "rtxtbxPaymentHistory";
-            this.rtxtbxPaymentHistory.Size = new System.Drawing.Size(305, 90);
-            this.rtxtbxPaymentHistory.TabIndex = 6;
-            this.rtxtbxPaymentHistory.Text = "";
             // 
             // paymentBindingSource
             // 
@@ -783,9 +771,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1389, 902);
-            this.Controls.Add(this.rtxtbxPaymentHistory);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(1458, 970);
             this.Controls.Add(this.btnPaymentHistory);
             this.Controls.Add(this.btnProcessPayment);
             this.Controls.Add(this.btnAddInvoice);
@@ -827,7 +813,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtAppt;
-        private System.Windows.Forms.Button btnTreatment;
         private System.Windows.Forms.DataGridView dgvTreatment;
         private System.Windows.Forms.Button btnInvoice;
         private System.Windows.Forms.TextBox txtPaymentAmount;
@@ -875,7 +860,6 @@
         private System.Windows.Forms.Button btnShowDetails;
         private System.Windows.Forms.RichTextBox rtxtbxDetails;
         private System.Windows.Forms.Button btnSearch2;
-        private System.Windows.Forms.RichTextBox rtxtbxPaymentHistory;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.RichTextBox lblSelectedBillingPatient;
         private System.Windows.Forms.Timer searchTimer;
@@ -891,5 +875,6 @@
         private System.Windows.Forms.Label label14;
         private CachedCrystalReport1 cachedCrystalReport11;
         private dsDentistTableAdapters.PatientTreatmentTableAdapter patientTreatmentTableAdapter1;
+        private System.Windows.Forms.Label label11;
     }
 }
