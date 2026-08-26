@@ -60,7 +60,6 @@
             this.btnPaymentHistory = new System.Windows.Forms.Button();
             this.pnlInvoice = new System.Windows.Forms.Panel();
             this.grpInvoice = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.lblSelectedBillingPatient = new System.Windows.Forms.RichTextBox();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.grpPayment = new System.Windows.Forms.GroupBox();
@@ -115,7 +114,7 @@
             // txtAppt
             // 
             this.txtAppt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAppt.Location = new System.Drawing.Point(21, 117);
+            this.txtAppt.Location = new System.Drawing.Point(21, 95);
             this.txtAppt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAppt.Name = "txtAppt";
             this.txtAppt.Size = new System.Drawing.Size(262, 38);
@@ -436,12 +435,11 @@
             this.pnlInvoice.Location = new System.Drawing.Point(27, 202);
             this.pnlInvoice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlInvoice.Name = "pnlInvoice";
-            this.pnlInvoice.Size = new System.Drawing.Size(1349, 720);
+            this.pnlInvoice.Size = new System.Drawing.Size(1349, 706);
             this.pnlInvoice.TabIndex = 21;
             // 
             // grpInvoice
             // 
-            this.grpInvoice.Controls.Add(this.label11);
             this.grpInvoice.Controls.Add(this.lblSelectedBillingPatient);
             this.grpInvoice.Controls.Add(this.label5);
             this.grpInvoice.Controls.Add(this.txtAppt);
@@ -459,17 +457,6 @@
             this.grpInvoice.TabIndex = 0;
             this.grpInvoice.TabStop = false;
             this.grpInvoice.Text = "Invoice";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label11.Location = new System.Drawing.Point(19, 433);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(283, 29);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "Patient Treatment Details";
             // 
             // lblSelectedBillingPatient
             // 
@@ -556,10 +543,10 @@
             // pnlPaymentHistory
             // 
             this.pnlPaymentHistory.Controls.Add(this.grpPaymentHistory);
-            this.pnlPaymentHistory.Location = new System.Drawing.Point(27, 202);
+            this.pnlPaymentHistory.Location = new System.Drawing.Point(27, 187);
             this.pnlPaymentHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPaymentHistory.Name = "pnlPaymentHistory";
-            this.pnlPaymentHistory.Size = new System.Drawing.Size(1389, 757);
+            this.pnlPaymentHistory.Size = new System.Drawing.Size(1389, 772);
             this.pnlPaymentHistory.TabIndex = 23;
             // 
             // grpPaymentHistory
@@ -771,7 +758,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1458, 970);
+            this.ClientSize = new System.Drawing.Size(1458, 919);
             this.Controls.Add(this.btnPaymentHistory);
             this.Controls.Add(this.btnProcessPayment);
             this.Controls.Add(this.btnAddInvoice);
@@ -875,6 +862,5 @@
         private System.Windows.Forms.Label label14;
         private CachedCrystalReport1 cachedCrystalReport11;
         private dsDentistTableAdapters.PatientTreatmentTableAdapter patientTreatmentTableAdapter1;
-        private System.Windows.Forms.Label label11;
     }
 }
