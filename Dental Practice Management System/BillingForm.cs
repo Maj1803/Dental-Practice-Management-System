@@ -1038,105 +1038,137 @@ namespace Dental_Practice_Management_System
             {
 
 
-                string query4 = @"
-								SELECT
-									Payment.payment_id,
-									Invoice.invoice_id,
-									Payment.payment_amount,
-									Payment.payment_method,
-									Payment.payment_date,
-									Invoice.invoice_status
-								FROM Patient
-								INNER JOIN Appointment
-									ON Patient.Patient_ID = Appointment.Patient_ID
-								INNER JOIN Invoice
-									ON Appointment.Appointment_ID = Invoice.appointment_id
-								INNER JOIN Payment
-									ON Payment.invoice_id = Invoice.invoice_id
-								WHERE Patient.Patient_First_Name = @search
-								   OR Patient.Patient_Last_Name = @search";
+                dgvPaid.DataSource = null;
+                dgvUnpaid.DataSource = null;
+                dgvPartial.DataSource = null;
+
+                search = search.Trim();
+
+                if (string.IsNullOrWhiteSpace(search))
+                {
+                    MessageBox.Show(
+                        "Please enter a patient name.",
+                        "Search",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    return;
+                }
+
+                string query = @"
+					SELECT
+						Payment.payment_id,
+						Invoice.invoice_id,
+						Payment.payment_amount,
+						Payment.payment_method,
+						Payment.payment_date,
+						Invoice.invoice_status
+					FROM Patient
+					INNER JOIN Appointment
+						ON Patient.Patient_ID = Appointment.Patient_ID
+					INNER JOIN Invoice
+						ON Appointment.Appointment_ID = Invoice.appointment_id
+					INNER JOIN Payment
+						ON Payment.invoice_id = Invoice.invoice_id
+					WHERE
+						Patient.Patient_First_Name + ' ' + Patient.Patient_Last_Name = @search
+						OR Patient.Patient_First_Name = @search
+						OR Patient.Patient_Last_Name = @search
+					ORDER BY Payment.payment_date DESC";
 
                 using (SqlConnection con = new SqlConnection(constr))
-                using (SqlCommand cmd = new SqlCommand(query4, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@search", search.Trim());
+                    cmd.Parameters.AddWithValue("@search", search);
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
 
                     try
                     {
                         con.Open();
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         adapter.Fill(dt);
 
-                        dgvPaid.DataSource = null;
-                        dgvUnpaid.DataSource = null;
-                        dgvPartial.DataSource = null;
-
-                        if (dt.Rows.Count > 0)
-                        {
-                            DataTable paidTable = dt.Clone();
-                            DataTable unpaidTable = dt.Clone();
-                            DataTable partialTable = dt.Clone();
-
-                            foreach (DataRow row in dt.Rows)
-                            {
-                                string status = row["invoice_status"].ToString();
-
-                                if (status == "Paid")
-                                {
-                                    paidTable.ImportRow(row);
-                                }
-                                else if (status == "Unpaid")
-                                {
-                                    unpaidTable.ImportRow(row);
-                                }
-                                else if (status == "Partial")
-                                {
-                                    partialTable.ImportRow(row);
-                                }
-                            }
-
-                            if (paidTable.Rows.Count > 0)
-                            {
-                                dgvPaid.DataSource = paidTable;
-                            }
-
-                            if (unpaidTable.Rows.Count > 0)
-                            {
-                                dgvUnpaid.DataSource = unpaidTable;
-                            }
-
-                            if (partialTable.Rows.Count > 0)
-                            {
-                                dgvPartial.DataSource = partialTable;
-                            }
-                        }
-                        else
+                        if (dt.Rows.Count == 0)
                         {
                             MessageBox.Show(
-                                "No exact patient match found.",
+                                "No payment history found for " + search + ".",
                                 "Search",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
+
+                            return;
+                        }
+
+                        DataTable paidTable = dt.Clone();
+                        DataTable unpaidTable = dt.Clone();
+                        DataTable partialTable = dt.Clone();
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string status = row["invoice_status"].ToString().Trim();
+
+                            if (status.Equals("Paid", StringComparison.OrdinalIgnoreCase))
+                            {
+                                paidTable.ImportRow(row);
+                            }
+                            else if (status.Equals("Unpaid", StringComparison.OrdinalIgnoreCase))
+                            {
+                                unpaidTable.ImportRow(row);
+                            }
+                            else if (status.Equals("Partial", StringComparison.OrdinalIgnoreCase))
+                            {
+                                partialTable.ImportRow(row);
+                            }
+                        }
+
+                        if (paidTable.Rows.Count > 0)
+                        {
+                            dgvPaid.DataSource = paidTable;
+                        }
+                        else if (unpaidTable.Rows.Count > 0)
+                        {
+                            dgvUnpaid.DataSource = unpaidTable;
+                        }
+                        else if (partialTable.Rows.Count > 0)
+                        {
+                            dgvPartial.DataSource = partialTable;
                         }
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show(e.Message);
+                        MessageBox.Show(
+                            "Error loading payment history: " + ex.Message,
+                            "Database Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
             }
 
         }
 
-        
+
 
         private void btnSearch2_Click(object sender, EventArgs e)
         {
-            LoadPaymentHistory(txtPatientName.Text.Trim());
+            string search = txtPatientName.Text.Trim();
 
-            string search = txtPatientName.Text.Trim().ToLower();
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                MessageBox.Show(
+                    "Please enter a patient name.",
+                    "Search",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                return;
+            }
+
+            LoadPaymentHistory(search);
+
+            /*string search = txtPatientName.Text.Trim().ToLower();
 
             if (search == "")
             {
@@ -1226,7 +1258,7 @@ namespace Dental_Practice_Management_System
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading payment history: " + ex.Message);
-            }
+            }*/
         }
 
         private int CreateInvoiceID()
@@ -1345,11 +1377,13 @@ namespace Dental_Practice_Management_System
         {
 
         }
+
+        private void dgvPartial_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
-
-
-
 //using CrystalDecisions.CrystalReports.Engine;
 //using CrystalDecisions.ReportSource;
 //using CrystalDecisions.Shared;
@@ -1585,7 +1619,7 @@ namespace Dental_Practice_Management_System
 //        private void btnPaymentHistory_Click(object sender, EventArgs e)
 //        {
 //            ShowPanel(pnlPaymentHistory);
-//            txtPatientName.TextChanged += txtPatientName_TextChanged;
+//            //txtPatientName.TextChanged += txtPatientName_TextChanged;
 //            LoadPaymentHistory("");
 
 //        }
@@ -1879,7 +1913,7 @@ namespace Dental_Practice_Management_System
 
 //                    string headerQuery = @"SELECT I.invoice_id,I.invoice_date,I.invoice_total_amount,I.invoice_status,I.invoice_balance_due,A.Appointment_ID,A.Appointment_Date,P.Patient_ID,P.Patient_First_Name,P.Patient_Last_Name,P.Patient_Phone_Number FROM Invoice I INNER JOIN Appointment A ON I.appointment_id = A.Appointment_ID INNER JOIN Patient P ON A.Patient_ID = P.Patient_ID WHERE I.invoice_id = @InvoiceID";
 
-//                    using(SqlCommand com = new SqlCommand(headerQuery, con))
+//                    using (SqlCommand com = new SqlCommand(headerQuery, con))
 //                    {
 //                        com.Parameters.AddWithValue("@InvoiceID", invoiceID);
 
@@ -2262,7 +2296,6 @@ namespace Dental_Practice_Management_System
 //        }
 
 //        private void LoadPaymentHistory(string search)
-
 //        {
 
 //            if (search == "")
@@ -2390,132 +2423,28 @@ namespace Dental_Practice_Management_System
 
 //            {
 
-//                /*string query4 = @"
-//								SELECT 
-
-//									Payment.payment_id,
-
-//									Invoice.invoice_id,
-
-//									Payment.payment_amount,
-
-//									Payment.payment_method,
-
-//									Payment.payment_date,
-
-//									Invoice.invoice_status
-
-//								FROM Patient
-
-//								INNER JOIN Appointment
-
-//									ON Patient.Patient_ID = Appointment.Patient_ID
-
-//								INNER JOIN Invoice
-
-//									ON Appointment.Appointment_ID = Invoice.appointment_id
-
-//								INNER JOIN Payment
-
-//									ON Payment.invoice_id = Invoice.invoice_id
-
-//								WHERE Patient.Patient_First_Name LIKE @search OR Patient.Patient_Last_Name LIKE @search";
-
-//                using (SqlConnection con = new SqlConnection(constr))
-
-//                using (SqlCommand cmd = new SqlCommand(query4, con))
-
-//                {
-
-//                    cmd.Parameters.AddWithValue("@search", search + "%");
-
-//                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-//                    DataTable dt = new DataTable();
-
-//                    try
-
-//                    {
-
-//                        con.Open();
-
-//                        adapter.Fill(dt);
-
-//                        if (dt.Rows.Count > 0)
-
-//                        {
-
-//                            foreach (DataRow row in dt.Rows)
-
-//                            {
-
-//                                string status = row["invoice_status"].ToString();
-
-//                                if (status == "Paid")
-//                                {
-
-//                                    dgvPaid.DataSource = dt;
-//                                    dgvPartial.Rows.Clear();
-//                                    dgvUnpaid.Rows.Clear();
-
-//                                }
-//                                else if (status == "Unpaid")
-//                                {
-
-//                                    dgvUnpaid.DataSource = dt;
-//                                    dgvPaid.Rows.Clear();
-//                                    dgvPartial.Rows.Clear();
-
-//                                }
-//                                else
-//                                {
-
-//                                    dgvPartial.DataSource = dt;
-//                                    dgvPaid.Rows.Clear();
-//                                    dgvUnpaid.Rows.Clear();
-
-//                                }
-
-//                            }
-
-//                        }
-
-
-
-//                    }
-
-//                    catch (Exception e)
-
-//                    {
-
-//                        MessageBox.Show(e.Message);
-
-//                    }
-
-//                }*/
 
 //                string query4 = @"
-//        SELECT
-//            Payment.payment_id,
-//            Invoice.invoice_id,
-//            Payment.payment_amount,
-//            Payment.payment_method,
-//            Payment.payment_date,
-//            Invoice.invoice_status
-//        FROM Patient
-//        INNER JOIN Appointment
-//            ON Patient.Patient_ID = Appointment.Patient_ID
-//        INNER JOIN Invoice
-//            ON Appointment.Appointment_ID = Invoice.appointment_id
-//        INNER JOIN Payment
-//            ON Payment.invoice_id = Invoice.invoice_id
-//        WHERE Patient.Patient_First_Name = @search
-//           OR Patient.Patient_Last_Name = @search";
+//								SELECT
+//									Payment.payment_id,
+//									Invoice.invoice_id,
+//									Payment.payment_amount,
+//									Payment.payment_method,
+//									Payment.payment_date,
+//									Invoice.invoice_status
+//								FROM Patient
+//								INNER JOIN Appointment
+//									ON Patient.Patient_ID = Appointment.Patient_ID
+//								INNER JOIN Invoice
+//									ON Appointment.Appointment_ID = Invoice.appointment_id
+//								INNER JOIN Payment
+//									ON Payment.invoice_id = Invoice.invoice_id
+//								WHERE Patient.Patient_First_Name = @search
+//								   OR Patient.Patient_Last_Name = @search";
 
 //                using (SqlConnection con = new SqlConnection(constr))
 //                using (SqlCommand cmd = new SqlCommand(query4, con))
 //                {
-//                    // Exact match instead of LIKE
 //                    cmd.Parameters.AddWithValue("@search", search.Trim());
 
 //                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -2526,27 +2455,47 @@ namespace Dental_Practice_Management_System
 //                        con.Open();
 //                        adapter.Fill(dt);
 
-//                        // Clear ALL grids first
 //                        dgvPaid.DataSource = null;
 //                        dgvUnpaid.DataSource = null;
 //                        dgvPartial.DataSource = null;
 
 //                        if (dt.Rows.Count > 0)
 //                        {
-//                            // Check the status of the matching records
-//                            string status = dt.Rows[0]["invoice_status"].ToString();
+//                            DataTable paidTable = dt.Clone();
+//                            DataTable unpaidTable = dt.Clone();
+//                            DataTable partialTable = dt.Clone();
 
-//                            if (status == "Paid")
+//                            foreach (DataRow row in dt.Rows)
 //                            {
-//                                dgvPaid.DataSource = dt;
+//                                string status = row["invoice_status"].ToString();
+
+//                                if (status == "Paid")
+//                                {
+//                                    paidTable.ImportRow(row);
+//                                }
+//                                else if (status == "Unpaid")
+//                                {
+//                                    unpaidTable.ImportRow(row);
+//                                }
+//                                else if (status == "Partial")
+//                                {
+//                                    partialTable.ImportRow(row);
+//                                }
 //                            }
-//                            else if (status == "Unpaid")
+
+//                            if (paidTable.Rows.Count > 0)
 //                            {
-//                                dgvUnpaid.DataSource = dt;
+//                                dgvPaid.DataSource = paidTable;
 //                            }
-//                            else if (status == "Partial")
+
+//                            if (unpaidTable.Rows.Count > 0)
 //                            {
-//                                dgvPartial.DataSource = dt;
+//                                dgvUnpaid.DataSource = unpaidTable;
+//                            }
+
+//                            if (partialTable.Rows.Count > 0)
+//                            {
+//                                dgvPartial.DataSource = partialTable;
 //                            }
 //                        }
 //                        else
@@ -2563,14 +2512,15 @@ namespace Dental_Practice_Management_System
 //                        MessageBox.Show(e.Message);
 //                    }
 //                }
-
 //            }
 
 //        }
 
+
+
 //        private void btnSearch2_Click(object sender, EventArgs e)
 //        {
-//            //rtxtbxPaymentHistory.Clear();
+//            LoadPaymentHistory(txtPatientName.Text.Trim());
 
 //            string search = txtPatientName.Text.Trim().ToLower();
 
@@ -2766,8 +2716,27 @@ namespace Dental_Practice_Management_System
 //        {
 
 //        }
+
+//        private void grpInvoice_Enter(object sender, EventArgs e)
+//        {
+
+//        }
+
+//        private void dgvUnpaid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+//        {
+
+//        }
+
+//        private void txtPatientName_TextChanged_1(object sender, EventArgs e)
+//        {
+
+//        }
 //    }
 //}
+
+
+
+
 
 
 
