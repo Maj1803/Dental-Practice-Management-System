@@ -11,26 +11,6 @@ namespace MTKhan_Dentist.Account
         {
         }
 
-        // ==================== PANEL TOGGLE ====================
-
-        protected void BtnSelectPatient_Click(object sender, EventArgs e)
-        {
-            PatientPanel.Visible = true;
-            StaffPanel.Visible = false;
-
-            BtnSelectPatient.CssClass = "btn btn-info";
-            BtnSelectStaff.CssClass = "btn btn-outline-info";
-        }
-
-        protected void BtnSelectStaff_Click(object sender, EventArgs e)
-        {
-            PatientPanel.Visible = false;
-            StaffPanel.Visible = true;
-
-            BtnSelectPatient.CssClass = "btn btn-outline-info";
-            BtnSelectStaff.CssClass = "btn btn-info";
-        }
-
         // ==================== REGISTER PATIENT ====================
 
         protected void BtnRegisterPatient_Click(object sender, EventArgs e)
@@ -69,51 +49,6 @@ namespace MTKhan_Dentist.Account
                 }
 
                 // Redirect to login after successful registration
-                Response.Redirect("~/Account/Login");
-            }
-            catch (Exception ex)
-            {
-                FailureText.Text = "Registration failed: " + ex.Message;
-                ErrorMessage.Visible = true;
-            }
-        }
-
-        // ==================== REGISTER STAFF ====================
-
-        protected void BtnRegisterStaff_Click(object sender, EventArgs e)
-        {
-            if (!Page.IsValid) return;
-
-            try
-            {
-                string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    string query = @"INSERT INTO Employee 
-                        (Employee_First_Name, Employee_Last_Name, Employee_Role, 
-                         Employee_Phone_Number, Employee_Email, Employee_Username, 
-                         Employee_Password, Employee_National_ID, Employee_Age)
-                        VALUES 
-                        (@FirstName, @LastName, @Role, 
-                         @Phone, @Email, @Username, 
-                         @Password, @NationalID, @Age)";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@FirstName", StaffFirstName.Text.Trim());
-                    cmd.Parameters.AddWithValue("@LastName", StaffLastName.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Role", StaffRole.SelectedValue);
-                    cmd.Parameters.AddWithValue("@Phone", StaffPhone.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Email", StaffEmail.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Username", StaffUsername.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Password", StaffPassword.Text);
-                    cmd.Parameters.AddWithValue("@NationalID", StaffNationalID.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Age", Convert.ToInt32(StaffAge.Text));
-
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-
                 Response.Redirect("~/Account/Login");
             }
             catch (Exception ex)

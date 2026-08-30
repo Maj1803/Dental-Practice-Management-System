@@ -6,157 +6,138 @@
 //     the code is regenerated. 
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 namespace MTKhan_Dentist.Account
 {
+
+
     public partial class Register
     {
-        /// <summary>
-        /// BtnSelectPatient control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Button BtnSelectPatient;
-
-        /// <summary>
-        /// BtnSelectStaff control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Button BtnSelectStaff;
 
         /// <summary>
         /// ErrorMessage control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder ErrorMessage;
 
         /// <summary>
         /// FailureText control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Literal FailureText;
-
-        // ==================== Patient Controls ====================
-
-        /// <summary>
-        /// PatientPanel control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Panel PatientPanel;
 
         /// <summary>
         /// PatientFirstName control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientFirstName;
 
         /// <summary>
         /// PatientLastName control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientLastName;
 
         /// <summary>
         /// PatientPhone control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientPhone;
 
         /// <summary>
         /// PatientEmail control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientEmail;
 
         /// <summary>
         /// PatientDOB control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientDOB;
 
         /// <summary>
         /// PatientAllergies control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientAllergies;
 
         /// <summary>
         /// PatientStreet control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientStreet;
 
         /// <summary>
         /// PatientSuburb control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientSuburb;
 
         /// <summary>
         /// PatientCity control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientCity;
 
         /// <summary>
         /// PatientCode control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientCode;
 
         /// <summary>
         /// BtnRegisterPatient control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnRegisterPatient;
-
-        // ==================== Staff Controls ====================
-
-        /// <summary>
-        /// StaffPanel control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Panel StaffPanel;
-
-        /// <summary>
-        /// StaffFirstName control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffFirstName;
-
-        /// <summary>
-        /// StaffLastName control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffLastName;
-
-        /// <summary>
-        /// StaffRole control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.DropDownList StaffRole;
-
-        /// <summary>
-        /// StaffPhone control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffPhone;
-
-        /// <summary>
-        /// StaffEmail control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffEmail;
-
-        /// <summary>
-        /// StaffNationalID control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffNationalID;
-
-        /// <summary>
-        /// StaffAge control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffAge;
-
-        /// <summary>
-        /// StaffUsername control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffUsername;
-
-        /// <summary>
-        /// StaffPassword control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffPassword;
-
-        /// <summary>
-        /// StaffConfirmPassword control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.TextBox StaffConfirmPassword;
-
-        /// <summary>
-        /// BtnRegisterStaff control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Button BtnRegisterStaff;
 
         /// <summary>
         /// LoginHyperLink control.
         /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink LoginHyperLink;
     }
 }
