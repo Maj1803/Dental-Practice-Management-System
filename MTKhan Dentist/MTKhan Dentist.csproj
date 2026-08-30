@@ -161,6 +161,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="contact.jpg" />
     <Content Include="Images\dental-background.jpeg" />
     <Content Include="Images\google-icon.jpeg" />
     <Content Include="logo\dental-logo.png" />

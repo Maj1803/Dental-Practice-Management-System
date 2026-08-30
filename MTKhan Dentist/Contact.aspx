@@ -45,11 +45,11 @@
         <!-- Top Section: Visual & Form -->
         <div class="row align-items-center g-5 mb-5">
             <!-- Left Side: Hero Image with Asymmetric Curve -->
-            <div class="col-lg-6 d-none d-lg-block">
-                <div class="pe-lg-4">
-                    <img src="" alt="Dr MT Khan Dental Practice" class="contact-hero-img shadow-sm" />
-                </div>
-            </div>
+            <div class="col-lg-6">
+    <div class="pe-lg-4">
+        <img src="~/contact.jpg" alt="Dr MT Khan Dental Practice" class="contact-hero-img shadow-sm" runat="server" />
+    </div>
+</div>
 
             <!-- Right Side: Contact Form -->
             <div class="col-lg-6">
