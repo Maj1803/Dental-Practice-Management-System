@@ -154,7 +154,7 @@
                             For acute swelling, trauma, or emergency toothache requiring same-day care, please phone the practice immediately.
                         </p>
                         <a href="tel:+27396820000" class="btn btn-danger btn-sm fw-bold w-100">
-                            Call Practice: (039) 682 0000
+                            Call Practice: (039) 681 2670
                         </a>
                     </div>
                 </div>
