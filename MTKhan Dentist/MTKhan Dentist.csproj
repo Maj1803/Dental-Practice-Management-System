@@ -164,7 +164,7 @@
     <Content Include="contact.jpg" />
     <Content Include="Images\dental-background.jpeg" />
     <Content Include="Images\google-icon.jpeg" />
-    <Content Include="Images\new-logo.jpeg" />
+    <Content Include="Images\new-logo.png" />
     <Content Include="logo\dental-logo.png" />
     <Content Include="RequestApp.aspx" />
     <Content Include="Contact.aspx" />
