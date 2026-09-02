@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using MTKhan_Dentist.Models;
+using System;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using MTKhan_Dentist.Models;
-using Microsoft.Owin.Security;
 
 namespace MTKhan_Dentist.Account
 {
@@ -101,88 +102,114 @@ namespace MTKhan_Dentist.Account
                 lblReceptionist.CssClass = "btn btn-outline-secondary";
             }
         }
-
-        protected async void LogIn(object sender, EventArgs e)
+        protected void LogIn(object sender, EventArgs e)
         {
             if (IsValid)
             {
-                // Get selected user type and role
-                string userType = rbStaff.Checked ? "Staff" : "Patient";
-                string selectedRole = "";
+                // Determine which role was selected
+                string selectedRole;
 
-                if (userType == "Staff")
-                {
-                    selectedRole = rbDentist.Checked ? "Dentist" : "Receptionist";
-                }
-                else
+                if (rbPatient.Checked)
                 {
                     selectedRole = "Patient";
                 }
+                else if (rbDentist.Checked)
+                {
+                    selectedRole = "Dentist";
+                }
+                else
+                {
+                    selectedRole = "Receptionist";
+                }
 
                 // Get User Manager
-                var manager =
-                    Context.GetOwinContext()
+                var manager = Context.GetOwinContext()
                     .GetUserManager<ApplicationUserManager>();
 
                 // Get Sign In Manager
-                var signinManager =
-                    Context.GetOwinContext()
+                var signinManager = Context.GetOwinContext()
                     .GetUserManager<ApplicationSignInManager>();
 
-                // Check login details
-                var result =
-                    await signinManager.PasswordSignInAsync(
-                        Email.Text,
-                        Password.Text,
-                        RememberMe.Checked,
-                        shouldLockout: false
-                    );
+                // Validate username and password
+                var result = signinManager.PasswordSignIn(
+                    Email.Text,
+                    Password.Text,
+                    RememberMe.Checked,
+                    shouldLockout: false
+                );
 
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        // Get the user
-                        var user = await manager.FindByEmailAsync(Email.Text);
 
-                        // Check if user has the selected role
-                        bool isInRole = await manager.IsInRoleAsync(user.Id, selectedRole);
+                        // Get the user
+                        var user = manager.FindByEmail(Email.Text);
+
+                        if (user == null)
+                        {
+                            FailureText.Text = "User account could not be found.";
+                            ErrorMessage.Visible = true;
+                            return;
+                        }
+
+                        // Check whether the user has the selected role
+                        bool isInRole = manager.IsInRole(user.Id, selectedRole);
 
                         if (isInRole)
                         {
-                            // Store user info in session
+                            // Store user information
                             Session["UserId"] = user.Id;
                             Session["UserEmail"] = user.Email;
                             Session["UserRole"] = selectedRole;
-                            Session["UserType"] = userType;
 
-                            // Redirect based on role
-                            if (selectedRole == "Dentist")
+                            // Patient
+                            if (selectedRole == "Patient")
                             {
+                                Session["UserType"] = "Patient";
+                                Response.Redirect("~/Patient/Dashboard.aspx");
+                            }
+
+                            // Dentist
+                            else if (selectedRole == "Dentist")
+                            {
+                                Session["UserType"] = "Staff";
                                 Response.Redirect("~/Dentist/Dashboard.aspx");
                             }
+
+                            // Receptionist
                             else if (selectedRole == "Receptionist")
                             {
+                                Session["UserType"] = "Staff";
                                 Response.Redirect("~/Receptionist/Dashboard.aspx");
-                            }
-                            else
-                            {
-                                Response.Redirect("~/Patient/Dashboard.aspx");
                             }
                         }
                         else
                         {
-                            // User doesn't have the selected role - sign out
-                            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-                            FailureText.Text = "You are not authorized to login as " + selectedRole;
+                            // Password was correct but the selected role
+                            // does not match the user's assigned role.
+
+                            Context.GetOwinContext()
+                                .Authentication
+                                .SignOut(
+                                    DefaultAuthenticationTypes.ApplicationCookie
+                                );
+
+                            FailureText.Text =
+                                "You are not authorized to login as "
+                                + selectedRole + ".";
+
                             ErrorMessage.Visible = true;
                         }
+
                         break;
 
                     case SignInStatus.LockedOut:
+
                         Response.Redirect("/Account/Lockout");
                         break;
 
                     case SignInStatus.RequiresVerification:
+
                         Response.Redirect(
                             String.Format(
                                 "/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
@@ -191,11 +218,14 @@ namespace MTKhan_Dentist.Account
                             ),
                             true
                         );
+
                         break;
 
                     case SignInStatus.Failure:
+
                     default:
-                        FailureText.Text = "Invalid login attempt.";
+
+                        FailureText.Text = "Invalid login attempt";
                         ErrorMessage.Visible = true;
                         break;
                 }
