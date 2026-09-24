@@ -36,9 +36,6 @@
                             </div>
                         </asp:Panel>
 
-                        
-                        
-
                         <!-- Error Message -->
                         <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                             <p class="text-danger">
@@ -55,12 +52,20 @@
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" CssClass="text-danger" ErrorMessage="The email field is required." />
                         </div>
 
-                        <!-- PASSWORD -->
+                        <!-- PASSWORD (with show/hide eye toggle) -->
                         <div class="mb-3">
                             <asp:Label runat="server" AssociatedControlID="Password" CssClass="form-label">
                                 Password
                             </asp:Label>
-                            <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" placeholder="Enter your password" />
+                            <div class="input-group">
+                                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" placeholder="Enter your password" ClientIDMode="Static" />
+                                <button type="button" class="btn btn-outline-secondary" id="togglePassword" tabindex="-1" aria-label="Show password">
+                                    <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </button>
+                            </div>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
                         </div>
 
@@ -130,6 +135,44 @@
         #pnlStaffRoles {
             transition: all 0.3s ease;
         }
-    </style>
-</asp:Content>
 
+        /* Make the eye button look cleaner */
+        #togglePassword {
+            border-color: #ced4da;
+            background-color: #fff;
+            color: #6c757d;
+        }
+        #togglePassword:hover {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        #togglePassword:focus {
+            box-shadow: none;
+            outline: none;
+        }
+    </style>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            var toggleBtn = document.getElementById("togglePassword");
+            var pwdInput = document.getElementById("Password");
+            var eyeIcon = document.getElementById("eyeIcon");
+
+            if (!toggleBtn || !pwdInput || !eyeIcon) return;
+
+            toggleBtn.addEventListener("click", function () {
+                if (pwdInput.type === "password") {
+                    pwdInput.type = "text";
+                    toggleBtn.setAttribute("aria-label", "Hide password");
+                    // Eye-with-slash icon
+                    eyeIcon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+                } else {
+                    pwdInput.type = "password";
+                    toggleBtn.setAttribute("aria-label", "Show password");
+                    // Plain eye icon
+                    eyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+                }
+            });
+        });
+    </script>
+</asp:Content>
