@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MTKhan_Dentist.Models;
+using System.Data.Entity;
 
 namespace MTKhan_Dentist.Models
 {
@@ -32,17 +33,22 @@ namespace MTKhan_Dentist.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            //
+            Database.SetInitializer<ApplicationDbContext>(null);
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MTKhan_Dentist.Models.Employee> Employees { get; set; }
     }
 }
 
-#region Helpers
-namespace MTKhan_Dentist
+
+    #region Helpers
+    namespace MTKhan_Dentist
 {
     public static class IdentityHelper
     {

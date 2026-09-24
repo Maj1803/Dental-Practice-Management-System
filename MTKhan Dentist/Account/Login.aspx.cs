@@ -7,12 +7,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 
+
 namespace MTKhan_Dentist.Account
 {
     public partial class Login : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 // Patient is selected by default
@@ -157,30 +159,40 @@ namespace MTKhan_Dentist.Account
 
                         if (isInRole)
                         {
-                            // Store user information
                             Session["UserId"] = user.Id;
                             Session["UserEmail"] = user.Email;
                             Session["UserRole"] = selectedRole;
+                            Session["UserType"] = (selectedRole == "Patient") ? "Patient" : "Staff";
 
-                            // Patient
+                            // Look up Employee record for staff
+                            if (selectedRole != "Patient")
+                            {
+                                using (var db = new ApplicationDbContext())
+                                {
+                                    var emp = db.Employees
+                                        .FirstOrDefault(x => x.AspNetUserId == user.Id);
+
+                                    if (emp != null)
+                                    {
+                                        Session["EmployeeId"] = emp.Employee_ID;
+                                        Session["EmployeeName"] = emp.Employee_First_Name
+                                                                  + " " + emp.Employee_Last_Name;
+                                        Session["EmployeeRole"] = emp.Employee_Role;
+                                    }
+                                }
+                            }
+
                             if (selectedRole == "Patient")
                             {
-                                Session["UserType"] = "Patient";
-                                Response.Redirect("~/Patient/Dashboard.aspx");
+                                Response.Redirect("~/PrivatePages/PatientDashboard.aspx");
                             }
-
-                            // Dentist
                             else if (selectedRole == "Dentist")
                             {
-                                Session["UserType"] = "Staff";
-                                Response.Redirect("~/Dentist/Dashboard.aspx");
+                                Response.Redirect("~/PrivatePages/StaffDashboard.aspx");
                             }
-
-                            // Receptionist
                             else if (selectedRole == "Receptionist")
                             {
-                                Session["UserType"] = "Staff";
-                                Response.Redirect("~/Receptionist/Dashboard.aspx");
+                                Response.Redirect("~/PrivatePages/StaffDashboard.aspx");
                             }
                         }
                         else
@@ -228,6 +240,8 @@ namespace MTKhan_Dentist.Account
                         FailureText.Text = "Invalid login attempt";
                         ErrorMessage.Visible = true;
                         break;
+                        
+                
                 }
             }
         }

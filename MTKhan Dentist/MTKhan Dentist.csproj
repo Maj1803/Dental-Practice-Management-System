@@ -374,6 +374,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="RequestApp.aspx.cs">
       <DependentUpon>RequestApp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
