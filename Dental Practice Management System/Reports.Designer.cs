@@ -33,6 +33,17 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.rptAppointments1 = new Dental_Practice_Management_System.rptAppointments();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cmbDentistFilter = new System.Windows.Forms.ComboBox();
+            this.cmbStatusFilter = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnGenerate = new System.Windows.Forms.Button();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.InvoiceSummary1 = new Dental_Practice_Management_System.InvoiceSummary();
@@ -56,22 +67,15 @@
             this.appointmentTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.AppointmentTableAdapter();
             this.queriesTableAdapter1 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
             this.queriesTableAdapter2 = new Dental_Practice_Management_System.dsDentistTableAdapters.QueriesTableAdapter();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.btnGenerate = new System.Windows.Forms.Button();
             this.Appointments1 = new Dental_Practice_Management_System.Appointments();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -105,11 +109,131 @@
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 59);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 90);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = this.rptAppointments1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1049, 476);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1049, 445);
             this.crystalReportViewer1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.cmbDentistFilter);
+            this.panel3.Controls.Add(this.cmbStatusFilter);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.btnGenerate);
+            this.panel3.Controls.Add(this.dtpEnd);
+            this.panel3.Controls.Add(this.dtpStart);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1049, 87);
+            this.panel3.TabIndex = 1;
+            // 
+            // cmbDentistFilter
+            // 
+            this.cmbDentistFilter.FormattingEnabled = true;
+            this.cmbDentistFilter.Location = new System.Drawing.Point(538, 51);
+            this.cmbDentistFilter.Name = "cmbDentistFilter";
+            this.cmbDentistFilter.Size = new System.Drawing.Size(223, 28);
+            this.cmbDentistFilter.TabIndex = 9;
+            // 
+            // cmbStatusFilter
+            // 
+            this.cmbStatusFilter.FormattingEnabled = true;
+            this.cmbStatusFilter.Items.AddRange(new object[] {
+            "Completed",
+            "Cancelled",
+            "Scheduled",
+            "All"});
+            this.cmbStatusFilter.Location = new System.Drawing.Point(226, 53);
+            this.cmbStatusFilter.Name = "cmbStatusFilter";
+            this.cmbStatusFilter.Size = new System.Drawing.Size(215, 28);
+            this.cmbStatusFilter.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(469, 51);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 22);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Dentist:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(154, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 22);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Status:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.ForeColor = System.Drawing.Color.White;
+            this.btnGenerate.Location = new System.Drawing.Point(915, 20);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(120, 44);
+            this.btnGenerate.TabIndex = 5;
+            this.btnGenerate.Text = "Generate";
+            this.btnGenerate.UseVisualStyleBackColor = false;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEnd.Location = new System.Drawing.Point(538, 14);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(223, 27);
+            this.dtpEnd.TabIndex = 4;
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStart.Location = new System.Drawing.Point(226, 14);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(215, 27);
+            this.dtpStart.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(133, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 22);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Start Date:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(450, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 22);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "End Date:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 22);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Filter by Date:";
             // 
             // tabPage2
             // 
@@ -301,85 +425,12 @@
             // 
             this.appointmentTableAdapter1.ClearBeforeFill = true;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnGenerate);
-            this.panel3.Controls.Add(this.dtpEnd);
-            this.panel3.Controls.Add(this.dtpStart);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1049, 56);
-            this.panel3.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(25, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 22);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Filter by Date:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(477, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 22);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "End Date:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(153, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 22);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Start Date:";
-            // 
-            // dtpStart
-            // 
-            this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpStart.Location = new System.Drawing.Point(244, 14);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(215, 27);
-            this.dtpStart.TabIndex = 3;
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEnd.Location = new System.Drawing.Point(562, 14);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(223, 27);
-            this.dtpEnd.TabIndex = 4;
-            // 
-            // btnGenerate
-            // 
-            this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.ForeColor = System.Drawing.Color.White;
-            this.btnGenerate.Location = new System.Drawing.Point(915, 10);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(120, 34);
-            this.btnGenerate.TabIndex = 5;
-            this.btnGenerate.Text = "Generate";
-            this.btnGenerate.UseVisualStyleBackColor = false;
-            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
-            // 
             // Appointments1
             // 
+            this.Appointments1.AutoScroll = true;
             this.Appointments1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Appointments1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Appointments1.ClientSize = new System.Drawing.Size(1435, 750);
+            this.Appointments1.ClientSize = new System.Drawing.Size(1386, 750);
             this.Appointments1.ControlBox = false;
             this.Appointments1.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Appointments1.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -406,6 +457,8 @@
             this.Load += new System.EventHandler(this.Reports_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -413,8 +466,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDentist1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -456,5 +507,9 @@
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbDentistFilter;
+        private System.Windows.Forms.ComboBox cmbStatusFilter;
+        private System.Windows.Forms.Label label9;
     }
 }
