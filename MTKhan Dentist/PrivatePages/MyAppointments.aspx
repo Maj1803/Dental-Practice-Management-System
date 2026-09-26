@@ -72,55 +72,42 @@
                 <div class="table-responsive">
 
                     <table class="table appointment-table mb-0">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Dentist</th>
+            <th>Appointment</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <asp:Repeater ID="rptUpcoming" runat="server">
+            <ItemTemplate>
+                <tr>
+                    <td><%# Eval("Appointment_Date", "{0:dd MMM yyyy}") %></td>
+                    <td><%# Eval("Time") %></td>
+                    <td><%# Eval("Dentist") %></td>
+                    <td><%# Eval("TreatmentName") %></td>
+                    <td>
+                        <span class='badge <%# Eval("StatusBadgeClass") %>'>
+                            <%# Eval("Appointment_Status") %>
+                        </span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-outline-primary rounded-pill" disabled>Reschedule</button>
+                        <button type="button" class="btn btn-sm btn-outline-danger rounded-pill" disabled>Cancel</button>
+                    </td>
+                </tr>
+            </ItemTemplate>
+        </asp:Repeater>
+    </tbody>
+</table>
 
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Dentist</th>
-                                <th>Appointment</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>28 Aug 2026</td>
-
-                                <td>10:30</td>
-
-                                <td>Dr. Khan</td>
-
-                                <td>Routine Check-up</td>
-
-                                <td>
-                                    <span class="badge bg-success">
-                                        Scheduled
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <button type="button"
-                                            class="btn btn-sm btn-outline-primary rounded-pill"
-                                            disabled>
-                                        Reschedule
-                                    </button>
-
-                                    <button type="button"
-                                            class="btn btn-sm btn-outline-danger rounded-pill"
-                                            disabled>
-                                        Cancel
-                                    </button>
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
+<asp:Panel ID="pnlNoUpcoming" runat="server" Visible="false" CssClass="text-muted p-3">
+    No upcoming appointments.
+</asp:Panel>
 
                 </div>
 
@@ -140,58 +127,37 @@
                 <div class="table-responsive">
 
                     <table class="table appointment-table mb-0">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Dentist</th>
+            <th>Appointment</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <asp:Repeater ID="rptPast" runat="server">
+            <ItemTemplate>
+                <tr>
+                    <td><%# Eval("Appointment_Date", "{0:dd MMM yyyy}") %></td>
+                    <td><%# Eval("Time") %></td>
+                    <td><%# Eval("Dentist") %></td>
+                    <td><%# Eval("TreatmentName") %></td>
+                    <td>
+                        <span class='badge <%# Eval("StatusBadgeClass") %>'>
+                            <%# Eval("Appointment_Status") %>
+                        </span>
+                    </td>
+                </tr>
+            </ItemTemplate>
+        </asp:Repeater>
+    </tbody>
+</table>
 
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Dentist</th>
-                                <th>Appointment</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>14 Jun 2026</td>
-
-                                <td>09:00</td>
-
-                                <td>Dr. Khan</td>
-
-                                <td>Filling Replacement</td>
-
-                                <td>
-                                    <span class="badge bg-secondary">
-                                        Completed
-                                    </span>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>02 Mar 2026</td>
-
-                                <td>11:15</td>
-
-                                <td>Dr. Khan</td>
-
-                                <td>Routine Check-up</td>
-
-                                <td>
-                                    <span class="badge bg-danger">
-                                        Cancelled
-                                    </span>
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
+<asp:Panel ID="pnlNoPast" runat="server" Visible="false" CssClass="text-muted p-3">
+    No past appointments.
+</asp:Panel>
 
                 </div>
 
@@ -201,11 +167,7 @@
 
 
         
-        <p class="text-muted small mt-4">
-            Note: This is a mock M3 screen using static appointment data.
-            Reschedule and cancellation actions are displayed for demonstration
-            and will be implemented in M4.
-        </p>
+        
 
     </div>
 

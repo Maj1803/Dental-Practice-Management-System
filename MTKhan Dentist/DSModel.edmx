@@ -1,0 +1,1183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="Appointment_ID" />
+          </Key>
+          <Property Name="Appointment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Patient_ID" Type="int" Nullable="false" />
+          <Property Name="Employee_ID" Type="int" Nullable="false" />
+          <Property Name="Timeslot_ID" Type="int" Nullable="false" />
+          <Property Name="Appointment_Date" Type="date" Nullable="false" />
+          <Property Name="Appointment_Notes" Type="text" />
+          <Property Name="Appointment_Follow_Up_Date" Type="date" />
+          <Property Name="Appointment_Status" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Availability_Override">
+          <Key>
+            <PropertyRef Name="Override_ID" />
+          </Key>
+          <Property Name="Override_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Target_Date" Type="date" Nullable="false" />
+          <Property Name="Timeslot_ID" Type="int" />
+          <Property Name="Is_Full_Day" Type="bit" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="100" />
+          <Property Name="Employee_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_First_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Last_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Phone_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_National_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_Age" Type="int" />
+          <Property Name="AspNetUserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="invoice_id" />
+          </Key>
+          <Property Name="invoice_id" Type="int" Nullable="false" />
+          <Property Name="appointment_id" Type="int" Nullable="false" />
+          <Property Name="payment_id" Type="int" />
+          <Property Name="invoice_date" Type="date" Nullable="false" />
+          <Property Name="invoice_total_amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="invoice_status" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="invoice_balance_due" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="MedicineID" />
+          </Key>
+          <Property Name="MedicineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicineName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MedicineCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+          </Key>
+          <Property Name="Patient_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Patient_First_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patient_Last_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patient_Phone_Number" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Patient_Street" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Patient_Suburb" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patient_City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patient_Code" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Patient_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Patient_Allergies" Type="varchar(max)" />
+          <Property Name="Patient_DOB" Type="date" Nullable="false" />
+          <Property Name="AspNetUserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="PatientTreatment">
+          <Key>
+            <PropertyRef Name="PatientTreatment_ID" />
+          </Key>
+          <Property Name="PatientTreatment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Appointment_ID" Type="int" Nullable="false" />
+          <Property Name="TreatmentID" Type="int" />
+          <Property Name="Diagnosis" Type="varchar" MaxLength="100" />
+          <Property Name="Diagnosis_Notes" Type="varchar" MaxLength="500" />
+          <Property Name="Treatment_Notes" Type="varchar" MaxLength="500" />
+          <Property Name="Date_Recorded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="int" Nullable="false" />
+          <Property Name="invoice_id" Type="int" Nullable="false" />
+          <Property Name="payment_amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="payment_method" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="payment_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prescription">
+          <Key>
+            <PropertyRef Name="Prescription_ID" />
+          </Key>
+          <Property Name="Prescription_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientTreatment_ID" Type="int" Nullable="false" />
+          <Property Name="MedicineID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="varchar" MaxLength="50" />
+          <Property Name="Dosage_Instructions" Type="varchar" MaxLength="500" />
+          <Property Name="Date_Issued" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StaffMessage">
+          <Key>
+            <PropertyRef Name="Message_ID" />
+          </Key>
+          <Property Name="Message_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sender_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Message_Text" Type="nvarchar" MaxLength="500" />
+          <Property Name="Sent_At" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Timeslot">
+          <Key>
+            <PropertyRef Name="Timeslot_ID" />
+          </Key>
+          <Property Name="Timeslot_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Slot_Start_Time" Type="time" Precision="0" Nullable="false" />
+          <Property Name="Duration_Minutes" Type="int" Nullable="false" />
+          <Property Name="Day_Of_Week" Type="int" Nullable="false" />
+          <Property Name="Is_Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Treatment">
+          <Key>
+            <PropertyRef Name="TreatmentID" />
+          </Key>
+          <Property Name="TreatmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TreatmentName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TreatmentDescription" Type="varchar(max)" />
+          <Property Name="TreatmentCost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TreatmentDuration" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Appointme__Emplo__5BE2A6F2">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Patie__5AEE82B9">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Patient_ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Patient_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Timeslot">
+          <End Role="Timeslot" Type="Self.Timeslot" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeslot">
+              <PropertyRef Name="Timeslot_ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Timeslot_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Availability_Override_Timeslot_ID">
+          <End Role="Timeslot" Type="Self.Timeslot" Multiplicity="0..1" />
+          <End Role="Availability_Override" Type="Self.Availability_Override" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeslot">
+              <PropertyRef Name="Timeslot_ID" />
+            </Principal>
+            <Dependent Role="Availability_Override">
+              <PropertyRef Name="Timeslot_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AvailabilityOverride_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Availability_Override" Type="Self.Availability_Override" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Availability_Override">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Override_Timeslot">
+          <End Role="Timeslot" Type="Self.Timeslot" Multiplicity="0..1" />
+          <End Role="Availability_Override" Type="Self.Availability_Override" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeslot">
+              <PropertyRef Name="Timeslot_ID" />
+            </Principal>
+            <Dependent Role="Availability_Override">
+              <PropertyRef Name="Timeslot_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="AspNetUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientTreatment_Appointment">
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="1" />
+          <End Role="PatientTreatment" Type="Self.PatientTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="Appointment_ID" />
+            </Principal>
+            <Dependent Role="PatientTreatment">
+              <PropertyRef Name="Appointment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientTreatment_Treatment">
+          <End Role="Treatment" Type="Self.Treatment" Multiplicity="0..1" />
+          <End Role="PatientTreatment" Type="Self.PatientTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treatment">
+              <PropertyRef Name="TreatmentID" />
+            </Principal>
+            <Dependent Role="PatientTreatment">
+              <PropertyRef Name="TreatmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Payment">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
+          <End Role="Payment1" Type="Self.Payment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="payment_id" />
+            </Principal>
+            <Dependent Role="Payment1">
+              <PropertyRef Name="payment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Medicine">
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicine">
+              <PropertyRef Name="MedicineID" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="MedicineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DSModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Availability_Override" EntityType="Self.Availability_Override" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientTreatment" EntityType="Self.PatientTreatment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffMessage" EntityType="Self.StaffMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Timeslot" EntityType="Self.Timeslot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Appointme__Emplo__5BE2A6F2" Association="Self.FK__Appointme__Emplo__5BE2A6F2">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Patie__5AEE82B9" Association="Self.FK__Appointme__Patie__5AEE82B9">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Timeslot" Association="Self.FK_Appointment_Timeslot">
+            <End Role="Timeslot" EntitySet="Timeslot" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Availability_Override_Timeslot_ID" Association="Self.FK_Availability_Override_Timeslot_ID">
+            <End Role="Timeslot" EntitySet="Timeslot" />
+            <End Role="Availability_Override" EntitySet="Availability_Override" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AvailabilityOverride_Employee" Association="Self.FK_AvailabilityOverride_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Availability_Override" EntitySet="Availability_Override" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Override_Timeslot" Association="Self.FK_Override_Timeslot">
+            <End Role="Timeslot" EntitySet="Timeslot" />
+            <End Role="Availability_Override" EntitySet="Availability_Override" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_AspNetUsers" Association="Self.FK_Patient_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientTreatment_Appointment" Association="Self.FK_PatientTreatment_Appointment">
+            <End Role="Appointment" EntitySet="Appointment" />
+            <End Role="PatientTreatment" EntitySet="PatientTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientTreatment_Treatment" Association="Self.FK_PatientTreatment_Treatment">
+            <End Role="Treatment" EntitySet="Treatment" />
+            <End Role="PatientTreatment" EntitySet="PatientTreatment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Payment" Association="Self.FK_Payment_Payment">
+            <End Role="Payment" EntitySet="Payment" />
+            <End Role="Payment1" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Medicine" Association="Self.FK_Prescription_Medicine">
+            <End Role="Medicine" EntitySet="Medicine" />
+            <End Role="Prescription" EntitySet="Prescription" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="Appointment_ID" />
+          </Key>
+          <Property Name="Appointment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Patient_ID" Type="Int32" Nullable="false" />
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+          <Property Name="Timeslot_ID" Type="Int32" Nullable="false" />
+          <Property Name="Appointment_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Appointment_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Appointment_Follow_Up_Date" Type="DateTime" Precision="0" />
+          <Property Name="Appointment_Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Appointme__Emplo__5BE2A6F2" FromRole="Appointment" ToRole="Employee" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK__Appointme__Patie__5AEE82B9" FromRole="Appointment" ToRole="Patient" />
+          <NavigationProperty Name="Timeslot" Relationship="Self.FK_Appointment_Timeslot" FromRole="Appointment" ToRole="Timeslot" />
+          <NavigationProperty Name="PatientTreatments" Relationship="DSModel.FK_PatientTreatment_Appointment" FromRole="Appointment" ToRole="PatientTreatment" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK_Patient_AspNetUsers" FromRole="AspNetUsers" ToRole="Patient" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Availability_Override">
+          <Key>
+            <PropertyRef Name="Override_ID" />
+          </Key>
+          <Property Name="Override_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Target_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Timeslot_ID" Type="Int32" />
+          <Property Name="Is_Full_Day" Type="Boolean" Nullable="false" />
+          <Property Name="Reason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_ID" Type="Int32" />
+          <NavigationProperty Name="Timeslot" Relationship="Self.FK_Availability_Override_Timeslot_ID" FromRole="Availability_Override" ToRole="Timeslot" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_AvailabilityOverride_Employee" FromRole="Availability_Override" ToRole="Employee" />
+          <NavigationProperty Name="Timeslot1" Relationship="Self.FK_Override_Timeslot" FromRole="Availability_Override" ToRole="Timeslot" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Phone_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_National_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_Age" Type="Int32" />
+          <Property Name="AspNetUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK__Appointme__Emplo__5BE2A6F2" FromRole="Employee" ToRole="Appointment" />
+          <NavigationProperty Name="Availability_Override" Relationship="Self.FK_AvailabilityOverride_Employee" FromRole="Employee" ToRole="Availability_Override" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="invoice_id" />
+          </Key>
+          <Property Name="invoice_id" Type="Int32" Nullable="false" />
+          <Property Name="appointment_id" Type="Int32" Nullable="false" />
+          <Property Name="payment_id" Type="Int32" />
+          <Property Name="invoice_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="invoice_total_amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="invoice_status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="invoice_balance_due" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="MedicineID" />
+          </Key>
+          <Property Name="MedicineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicineName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicineCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Medicine" FromRole="Medicine" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+          </Key>
+          <Property Name="Patient_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Patient_First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patient_Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patient_Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patient_Street" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patient_Suburb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patient_City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patient_Code" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Patient_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Patient_Allergies" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Patient_DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AspNetUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK__Appointme__Patie__5AEE82B9" FromRole="Patient" ToRole="Appointment" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Patient_AspNetUsers" FromRole="Patient" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="PatientTreatment">
+          <Key>
+            <PropertyRef Name="PatientTreatment_ID" />
+          </Key>
+          <Property Name="PatientTreatment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Appointment_ID" Type="Int32" Nullable="false" />
+          <Property Name="TreatmentID" Type="Int32" />
+          <Property Name="Diagnosis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Diagnosis_Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Treatment_Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Recorded" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Treatment" Relationship="Self.FK_PatientTreatment_Treatment" FromRole="PatientTreatment" ToRole="Treatment" />
+          <NavigationProperty Name="Appointment" Relationship="DSModel.FK_PatientTreatment_Appointment" FromRole="PatientTreatment" ToRole="Appointment" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="Int32" Nullable="false" />
+          <Property Name="invoice_id" Type="Int32" Nullable="false" />
+          <Property Name="payment_amount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="payment_method" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="payment_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Payment1" Relationship="Self.FK_Payment_Payment" FromRole="Payment" ToRole="Payment1" />
+          <NavigationProperty Name="Payment2" Relationship="Self.FK_Payment_Payment" FromRole="Payment1" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="Prescription">
+          <Key>
+            <PropertyRef Name="Prescription_ID" />
+          </Key>
+          <Property Name="Prescription_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientTreatment_ID" Type="Int32" Nullable="false" />
+          <Property Name="MedicineID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dosage_Instructions" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Issued" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Medicine" Relationship="Self.FK_Prescription_Medicine" FromRole="Prescription" ToRole="Medicine" />
+        </EntityType>
+        <EntityType Name="StaffMessage">
+          <Key>
+            <PropertyRef Name="Message_ID" />
+          </Key>
+          <Property Name="Message_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Message_Text" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Sent_At" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Timeslot">
+          <Key>
+            <PropertyRef Name="Timeslot_ID" />
+          </Key>
+          <Property Name="Timeslot_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Slot_Start_Time" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="Duration_Minutes" Type="Int32" Nullable="false" />
+          <Property Name="Day_Of_Week" Type="Int32" Nullable="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Timeslot" FromRole="Timeslot" ToRole="Appointment" />
+          <NavigationProperty Name="Availability_Override" Relationship="Self.FK_Availability_Override_Timeslot_ID" FromRole="Timeslot" ToRole="Availability_Override" />
+          <NavigationProperty Name="Availability_Override1" Relationship="Self.FK_Override_Timeslot" FromRole="Timeslot" ToRole="Availability_Override" />
+        </EntityType>
+        <EntityType Name="Treatment">
+          <Key>
+            <PropertyRef Name="TreatmentID" />
+          </Key>
+          <Property Name="TreatmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TreatmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TreatmentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TreatmentCost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TreatmentDuration" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PatientTreatments" Relationship="Self.FK_PatientTreatment_Treatment" FromRole="Treatment" ToRole="PatientTreatment" />
+        </EntityType>
+        <Association Name="FK__Appointme__Emplo__5BE2A6F2">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Patie__5AEE82B9">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Patient_ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Patient_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Timeslot">
+          <End Role="Timeslot" Type="Self.Timeslot" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeslot">
+              <PropertyRef Name="Timeslot_ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Timeslot_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="AspNetUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Availability_Override_Timeslot_ID">
+          <End Role="Timeslot" Type="Self.Timeslot" Multiplicity="0..1" />
+          <End Role="Availability_Override" Type="Self.Availability_Override" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeslot">
+              <PropertyRef Name="Timeslot_ID" />
+            </Principal>
+            <Dependent Role="Availability_Override">
+              <PropertyRef Name="Timeslot_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AvailabilityOverride_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Availability_Override" Type="Self.Availability_Override" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Availability_Override">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Override_Timeslot">
+          <End Role="Timeslot" Type="Self.Timeslot" Multiplicity="0..1" />
+          <End Role="Availability_Override" Type="Self.Availability_Override" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeslot">
+              <PropertyRef Name="Timeslot_ID" />
+            </Principal>
+            <Dependent Role="Availability_Override">
+              <PropertyRef Name="Timeslot_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Medicine">
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicine">
+              <PropertyRef Name="MedicineID" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="MedicineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientTreatment_Treatment">
+          <End Role="Treatment" Type="Self.Treatment" Multiplicity="0..1" />
+          <End Role="PatientTreatment" Type="Self.PatientTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treatment">
+              <PropertyRef Name="TreatmentID" />
+            </Principal>
+            <Dependent Role="PatientTreatment">
+              <PropertyRef Name="TreatmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Payment">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
+          <End Role="Payment1" Type="Self.Payment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="payment_id" />
+            </Principal>
+            <Dependent Role="Payment1">
+              <PropertyRef Name="payment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DSEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Availability_Override" EntityType="Self.Availability_Override" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicine" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="PatientTreatments" EntityType="Self.PatientTreatment" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Prescriptions" EntityType="Self.Prescription" />
+          <EntitySet Name="StaffMessages" EntityType="Self.StaffMessage" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Timeslots" EntityType="Self.Timeslot" />
+          <EntitySet Name="Treatments" EntityType="Self.Treatment" />
+          <AssociationSet Name="FK__Appointme__Emplo__5BE2A6F2" Association="Self.FK__Appointme__Emplo__5BE2A6F2">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Patie__5AEE82B9" Association="Self.FK__Appointme__Patie__5AEE82B9">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Timeslot" Association="Self.FK_Appointment_Timeslot">
+            <End Role="Timeslot" EntitySet="Timeslots" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_AspNetUsers" Association="Self.FK_Patient_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Availability_Override_Timeslot_ID" Association="Self.FK_Availability_Override_Timeslot_ID">
+            <End Role="Timeslot" EntitySet="Timeslots" />
+            <End Role="Availability_Override" EntitySet="Availability_Override" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AvailabilityOverride_Employee" Association="Self.FK_AvailabilityOverride_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Availability_Override" EntitySet="Availability_Override" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Override_Timeslot" Association="Self.FK_Override_Timeslot">
+            <End Role="Timeslot" EntitySet="Timeslots" />
+            <End Role="Availability_Override" EntitySet="Availability_Override" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Medicine" Association="Self.FK_Prescription_Medicine">
+            <End Role="Medicine" EntitySet="Medicines" />
+            <End Role="Prescription" EntitySet="Prescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientTreatment_Treatment" Association="Self.FK_PatientTreatment_Treatment">
+            <End Role="Treatment" EntitySet="Treatments" />
+            <End Role="PatientTreatment" EntitySet="PatientTreatments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Payment" Association="Self.FK_Payment_Payment">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Payment1" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientTreatment_Appointment" Association="DSModel.FK_PatientTreatment_Appointment">
+            <End Role="Appointment" EntitySet="Appointments" />
+            <End Role="PatientTreatment" EntitySet="PatientTreatments" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_PatientTreatment_Appointment">
+          <End Type="DSModel.Appointment" Role="Appointment" Multiplicity="1" />
+          <End Type="DSModel.PatientTreatment" Role="PatientTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="Appointment_ID" />
+            </Principal>
+            <Dependent Role="PatientTreatment">
+              <PropertyRef Name="Appointment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DSModelStoreContainer" CdmEntityContainer="DSEntity">
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="DSModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="Appointment_ID" ColumnName="Appointment_ID" />
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Timeslot_ID" ColumnName="Timeslot_ID" />
+                <ScalarProperty Name="Appointment_Date" ColumnName="Appointment_Date" />
+                <ScalarProperty Name="Appointment_Notes" ColumnName="Appointment_Notes" />
+                <ScalarProperty Name="Appointment_Follow_Up_Date" ColumnName="Appointment_Follow_Up_Date" />
+                <ScalarProperty Name="Appointment_Status" ColumnName="Appointment_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DSModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DSModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DSModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DSModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Availability_Override">
+            <EntityTypeMapping TypeName="DSModel.Availability_Override">
+              <MappingFragment StoreEntitySet="Availability_Override">
+                <ScalarProperty Name="Override_ID" ColumnName="Override_ID" />
+                <ScalarProperty Name="Target_Date" ColumnName="Target_Date" />
+                <ScalarProperty Name="Timeslot_ID" ColumnName="Timeslot_ID" />
+                <ScalarProperty Name="Is_Full_Day" ColumnName="Is_Full_Day" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="DSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Employee_First_Name" ColumnName="Employee_First_Name" />
+                <ScalarProperty Name="Employee_Last_Name" ColumnName="Employee_Last_Name" />
+                <ScalarProperty Name="Employee_Role" ColumnName="Employee_Role" />
+                <ScalarProperty Name="Employee_Phone_Number" ColumnName="Employee_Phone_Number" />
+                <ScalarProperty Name="Employee_Email" ColumnName="Employee_Email" />
+                <ScalarProperty Name="Employee_Username" ColumnName="Employee_Username" />
+                <ScalarProperty Name="Employee_Password" ColumnName="Employee_Password" />
+                <ScalarProperty Name="Employee_National_ID" ColumnName="Employee_National_ID" />
+                <ScalarProperty Name="Employee_Age" ColumnName="Employee_Age" />
+                <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="DSModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+                <ScalarProperty Name="appointment_id" ColumnName="appointment_id" />
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="invoice_date" ColumnName="invoice_date" />
+                <ScalarProperty Name="invoice_total_amount" ColumnName="invoice_total_amount" />
+                <ScalarProperty Name="invoice_status" ColumnName="invoice_status" />
+                <ScalarProperty Name="invoice_balance_due" ColumnName="invoice_balance_due" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicines">
+            <EntityTypeMapping TypeName="DSModel.Medicine">
+              <MappingFragment StoreEntitySet="Medicine">
+                <ScalarProperty Name="MedicineID" ColumnName="MedicineID" />
+                <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+                <ScalarProperty Name="MedicineCode" ColumnName="MedicineCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="DSModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+                <ScalarProperty Name="Patient_First_Name" ColumnName="Patient_First_Name" />
+                <ScalarProperty Name="Patient_Last_Name" ColumnName="Patient_Last_Name" />
+                <ScalarProperty Name="Patient_Phone_Number" ColumnName="Patient_Phone_Number" />
+                <ScalarProperty Name="Patient_Street" ColumnName="Patient_Street" />
+                <ScalarProperty Name="Patient_Suburb" ColumnName="Patient_Suburb" />
+                <ScalarProperty Name="Patient_City" ColumnName="Patient_City" />
+                <ScalarProperty Name="Patient_Code" ColumnName="Patient_Code" />
+                <ScalarProperty Name="Patient_Email" ColumnName="Patient_Email" />
+                <ScalarProperty Name="Patient_Allergies" ColumnName="Patient_Allergies" />
+                <ScalarProperty Name="Patient_DOB" ColumnName="Patient_DOB" />
+                <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientTreatments">
+            <EntityTypeMapping TypeName="DSModel.PatientTreatment">
+              <MappingFragment StoreEntitySet="PatientTreatment">
+                <ScalarProperty Name="PatientTreatment_ID" ColumnName="PatientTreatment_ID" />
+                <ScalarProperty Name="Appointment_ID" ColumnName="Appointment_ID" />
+                <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
+                <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+                <ScalarProperty Name="Diagnosis_Notes" ColumnName="Diagnosis_Notes" />
+                <ScalarProperty Name="Treatment_Notes" ColumnName="Treatment_Notes" />
+                <ScalarProperty Name="Date_Recorded" ColumnName="Date_Recorded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="DSModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+                <ScalarProperty Name="payment_amount" ColumnName="payment_amount" />
+                <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+                <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prescriptions">
+            <EntityTypeMapping TypeName="DSModel.Prescription">
+              <MappingFragment StoreEntitySet="Prescription">
+                <ScalarProperty Name="Prescription_ID" ColumnName="Prescription_ID" />
+                <ScalarProperty Name="PatientTreatment_ID" ColumnName="PatientTreatment_ID" />
+                <ScalarProperty Name="MedicineID" ColumnName="MedicineID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Dosage_Instructions" ColumnName="Dosage_Instructions" />
+                <ScalarProperty Name="Date_Issued" ColumnName="Date_Issued" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffMessages">
+            <EntityTypeMapping TypeName="DSModel.StaffMessage">
+              <MappingFragment StoreEntitySet="StaffMessage">
+                <ScalarProperty Name="Message_ID" ColumnName="Message_ID" />
+                <ScalarProperty Name="Sender_Name" ColumnName="Sender_Name" />
+                <ScalarProperty Name="Message_Text" ColumnName="Message_Text" />
+                <ScalarProperty Name="Sent_At" ColumnName="Sent_At" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timeslots">
+            <EntityTypeMapping TypeName="DSModel.Timeslot">
+              <MappingFragment StoreEntitySet="Timeslot">
+                <ScalarProperty Name="Timeslot_ID" ColumnName="Timeslot_ID" />
+                <ScalarProperty Name="Slot_Start_Time" ColumnName="Slot_Start_Time" />
+                <ScalarProperty Name="Duration_Minutes" ColumnName="Duration_Minutes" />
+                <ScalarProperty Name="Day_Of_Week" ColumnName="Day_Of_Week" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Treatments">
+            <EntityTypeMapping TypeName="DSModel.Treatment">
+              <MappingFragment StoreEntitySet="Treatment">
+                <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
+                <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+                <ScalarProperty Name="TreatmentDescription" ColumnName="TreatmentDescription" />
+                <ScalarProperty Name="TreatmentCost" ColumnName="TreatmentCost" />
+                <ScalarProperty Name="TreatmentDuration" ColumnName="TreatmentDuration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DSModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
