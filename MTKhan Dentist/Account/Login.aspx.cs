@@ -164,10 +164,46 @@ namespace MTKhan_Dentist.Account
                             Session["UserRole"] = selectedRole;
                             Session["UserType"] = (selectedRole == "Patient") ? "Patient" : "Staff";
 
-                            // Look up Employee record for staff
-                            if (selectedRole != "Patient")
+                            // -------------------------------------------------
+                            // PATIENT: look up Patient record, store Patient_ID
+                            // -------------------------------------------------
+                            if (selectedRole == "Patient")
                             {
-                                using (var db = new ApplicationDbContext())
+                                using (var db = new DSEntity())
+                                {
+                                    var patient = db.Patients
+                                        .FirstOrDefault(p => p.AspNetUserId == user.Id);
+
+                                    if (patient == null)
+                                    {
+                                        // Signed in OK but no Patient row is linked.
+                                        // Don't let them through — sign them out.
+                                        Context.GetOwinContext()
+                                            .Authentication
+                                            .SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+                                        FailureText.Text =
+                                            "No patient record is linked to this account. " +
+                                            "Please contact reception.";
+                                        ErrorMessage.Visible = true;
+                                        return;
+                                    }
+
+                                    Session["PatientId"] = patient.Patient_ID;
+                                    Session["PatientName"] = patient.Patient_First_Name + " " +
+                                                             patient.Patient_Last_Name;
+                                }
+
+                                Response.Redirect("~/PrivatePages/PatientDashboard.aspx");
+                                return;
+                            }
+
+                            // -------------------------------------------------
+                            // STAFF: look up Employee record
+                            // -------------------------------------------------
+                            if (selectedRole == "Dentist" || selectedRole == "Receptionist")
+                            {
+                                using (var db = new DSEntity())
                                 {
                                     var emp = db.Employees
                                         .FirstOrDefault(x => x.AspNetUserId == user.Id);
@@ -175,24 +211,14 @@ namespace MTKhan_Dentist.Account
                                     if (emp != null)
                                     {
                                         Session["EmployeeId"] = emp.Employee_ID;
-                                        Session["EmployeeName"] = emp.Employee_First_Name
-                                                                  + " " + emp.Employee_Last_Name;
+                                        Session["EmployeeName"] = emp.Employee_First_Name + " " +
+                                                                  emp.Employee_Last_Name;
                                         Session["EmployeeRole"] = emp.Employee_Role;
                                     }
                                 }
-                            }
 
-                            if (selectedRole == "Patient")
-                            {
-                                Response.Redirect("~/PrivatePages/PatientDashboard.aspx");
-                            }
-                            else if (selectedRole == "Dentist")
-                            {
                                 Response.Redirect("~/PrivatePages/StaffDashboard.aspx");
-                            }
-                            else if (selectedRole == "Receptionist")
-                            {
-                                Response.Redirect("~/PrivatePages/StaffDashboard.aspx");
+                                return;
                             }
                         }
                         else
@@ -202,9 +228,7 @@ namespace MTKhan_Dentist.Account
 
                             Context.GetOwinContext()
                                 .Authentication
-                                .SignOut(
-                                    DefaultAuthenticationTypes.ApplicationCookie
-                                );
+                                .SignOut(DefaultAuthenticationTypes.ApplicationCookie);
 
                             FailureText.Text =
                                 "You are not authorized to login as "
