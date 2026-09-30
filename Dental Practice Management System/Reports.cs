@@ -38,6 +38,20 @@ namespace Dental_Practice_Management_System
             {
                 tabControl1.TabPages.Remove(hiddenTabTreatment);
             }
+
+            //Patient History Tab
+           
+            TabPage tabPatientHistory = new TabPage("Patient History");
+            tabPatientHistory.BackColor = tabControl1.TabPages[0].BackColor;
+
+            PatientHistoryViewer historyForm = new PatientHistoryViewer();
+            historyForm.TopLevel = false;
+            historyForm.FormBorderStyle = FormBorderStyle.None;
+            historyForm.Dock = DockStyle.Fill;
+
+            tabPatientHistory.Controls.Add(historyForm);
+            tabControl1.TabPages.Add(tabPatientHistory);
+            historyForm.Show();
         }
 
         private void SetReportLogon(ReportDocument report)
