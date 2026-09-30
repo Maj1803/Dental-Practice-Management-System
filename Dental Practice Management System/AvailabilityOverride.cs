@@ -340,7 +340,7 @@ namespace Dental_Practice_Management_System
                         sql = @"SELECT COUNT(*) FROM Appointment
                                 WHERE Employee_ID = @EmployeeID
                                 AND Appointment_Date = @AppointmentDate
-                                AND Appointment_Status = 'Scheduled'";
+                                AND Appointment_Status IN ('Scheduled', 'Requested')";
                     }
                     else
                     {
@@ -348,7 +348,7 @@ namespace Dental_Practice_Management_System
                                 WHERE Employee_ID = @EmployeeID
                                 AND Appointment_Date = @AppointmentDate
                                 AND Timeslot_ID = @TimeslotID
-                                AND Appointment_Status = 'Scheduled'";
+                                AND Appointment_Status IN ('Scheduled', 'Requested')";
                     }
 
                     SqlCommand cmd = new SqlCommand(sql, con);
@@ -563,5 +563,10 @@ namespace Dental_Practice_Management_System
         private void btnSave_MouseLeave(object sender, EventArgs e) { btCancel.ForeColor = Color.Indigo; }
         private void btCancel_MouseEnter(object sender, EventArgs e) { btCancel.ForeColor = Color.White; }
         private void btCancel_MouseLeave(object sender, EventArgs e) { btCancel.ForeColor = Color.DimGray; }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

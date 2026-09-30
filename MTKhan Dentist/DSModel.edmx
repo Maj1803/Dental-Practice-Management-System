@@ -185,6 +185,21 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="SystemLink">
+          <Key>
+            <PropertyRef Name="Link_ID" />
+          </Key>
+          <Property Name="Link_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Source_App" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Target_App" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Reference_No" Type="varchar" MaxLength="20" />
+          <Property Name="Patient_ID" Type="int" />
+          <Property Name="Appointment_ID" Type="int" />
+          <Property Name="Message_Type" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Message_Text" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Created_At" Type="datetime" />
+          <Property Name="Is_Read" Type="bit" />
+        </EntityType>
         <EntityType Name="Timeslot">
           <Key>
             <PropertyRef Name="Timeslot_ID" />
@@ -410,6 +425,7 @@
           <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StaffMessage" EntityType="Self.StaffMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemLink" EntityType="Self.SystemLink" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Timeslot" EntityType="Self.Timeslot" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Appointme__Emplo__5BE2A6F2" Association="Self.FK__Appointme__Emplo__5BE2A6F2">
@@ -923,6 +939,7 @@
             <End Role="Appointment" EntitySet="Appointments" />
             <End Role="PatientTreatment" EntitySet="PatientTreatments" />
           </AssociationSet>
+          <EntitySet Name="SystemLinks" EntityType="DSModel.SystemLink" />
         </EntityContainer>
         <Association Name="FK_PatientTreatment_Appointment">
           <End Type="DSModel.Appointment" Role="Appointment" Multiplicity="1" />
@@ -936,6 +953,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SystemLink">
+          <Key>
+            <PropertyRef Name="Link_ID" />
+          </Key>
+          <Property Name="Link_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Source_App" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Target_App" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Reference_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Patient_ID" Type="Int32" />
+          <Property Name="Appointment_ID" Type="Int32" />
+          <Property Name="Message_Type" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Message_Text" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Created_At" Type="DateTime" Precision="3" />
+          <Property Name="Is_Read" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1157,6 +1189,22 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="SystemLinks">
+            <EntityTypeMapping TypeName="DSModel.SystemLink">
+              <MappingFragment StoreEntitySet="SystemLink">
+                <ScalarProperty Name="Is_Read" ColumnName="Is_Read" />
+                <ScalarProperty Name="Created_At" ColumnName="Created_At" />
+                <ScalarProperty Name="Message_Text" ColumnName="Message_Text" />
+                <ScalarProperty Name="Message_Type" ColumnName="Message_Type" />
+                <ScalarProperty Name="Appointment_ID" ColumnName="Appointment_ID" />
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+                <ScalarProperty Name="Reference_No" ColumnName="Reference_No" />
+                <ScalarProperty Name="Target_App" ColumnName="Target_App" />
+                <ScalarProperty Name="Source_App" ColumnName="Source_App" />
+                <ScalarProperty Name="Link_ID" ColumnName="Link_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

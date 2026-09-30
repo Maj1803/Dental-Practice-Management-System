@@ -76,5 +76,175 @@ namespace MTKhan_Dentist
                 }
             }
         }
+
+        //cancel req form
+        protected void btnShowRequestForm_Click(object sender, EventArgs e)
+        {
+            pnlRequestForm.Visible = true;
+            lblRequestResult.Text = "";
+        }
+
+        protected void btnCancelRequest_Click(object sender, EventArgs e)
+        {
+            pnlRequestForm.Visible = false;
+            txtPreferredDate.Text = "";
+            txtPreferredTime.Text = "";
+            txtReason.Text = "";
+            lblRequestResult.Text = "";
+        }
+
+        //submit req 
+        protected void btnSubmitRequest_Click(object sender, EventArgs e)
+        {
+            int patientId = (int)Session["PatientId"];
+
+            if (string.IsNullOrWhiteSpace(txtPreferredDate.Text) ||
+                string.IsNullOrWhiteSpace(txtPreferredTime.Text))
+            {
+                lblRequestResult.ForeColor = System.Drawing.Color.Red;
+                lblRequestResult.Text = "Please choose a preferred date and time.";
+                return;
+            }
+
+            DateTime preferred;
+            if (!DateTime.TryParse(
+                    txtPreferredDate.Text + " " + txtPreferredTime.Text, out preferred))
+            {
+                lblRequestResult.ForeColor = System.Drawing.Color.Red;
+                lblRequestResult.Text = "Invalid date or time.";
+                return;
+            }
+            if (preferred <= DateTime.Now)
+            {
+                lblRequestResult.ForeColor = System.Drawing.Color.Red;
+                lblRequestResult.Text = "Please pick a date in the future.";
+                return;
+            }
+
+            string referenceNo = "REQ-" + DateTime.Now.ToString("HHmmss");
+
+            try
+            {
+                using (var db = new DSEntity())
+                {
+                    // 1. Fetch patient details via EF
+                    var patient = db.Patients
+                        .Where(p => p.Patient_ID == patientId)
+                        .Select(p => new
+                        {
+                            Name = p.Patient_First_Name + " " + p.Patient_Last_Name,
+                            Phone = p.Patient_Phone_Number
+                        }).FirstOrDefault();
+
+                    if (patient == null)
+                    {
+                        lblRequestResult.ForeColor = System.Drawing.Color.Red;
+                        lblRequestResult.Text = "Patient record not found.";
+                        return;
+                    }
+
+                    // 2. Create a placeholder Appointment with status 'Requested'
+                    var newAppointment = new Appointment
+                    {
+                        Patient_ID = patientId,
+                        Employee_ID = 1,
+                        Timeslot_ID = 1,
+                        Appointment_Date = preferred,
+                        Appointment_Notes = "Patient requested: " + txtReason.Text,
+                        Appointment_Status = "Requested"
+                    };
+
+                    db.Appointments.Add(newAppointment);
+                    db.SaveChanges();
+
+                    // 3. Write the SystemLink message for the FES
+                    string messageText =
+                        $"New appointment request for {patient.Name} ({patient.Phone}) " +
+                        $"on {preferred:dd MMM yyyy HH:mm}. Reason: {txtReason.Text}";
+
+                    var link = new SystemLink
+                    {
+                        Source_App = "Website",
+                        Target_App = "FES",
+                        Reference_No = referenceNo,
+                        Patient_ID = patientId,
+                        Appointment_ID = newAppointment.Appointment_ID,
+                        Message_Type = "AppointmentRequested",
+                        Message_Text = messageText,
+                        Created_At = DateTime.Now,
+                        Is_Read = false
+                    };
+
+                    db.SystemLinks.Add(link);
+                    db.SaveChanges();
+                }
+                lblRequestResult.ForeColor = System.Drawing.Color.Green;
+                lblRequestResult.Text =
+                    $"✔ Request submitted! Reference <strong>{referenceNo}</strong>. " +
+                    $"The receptionist will confirm shortly.";
+
+                txtPreferredDate.Text = "";
+                txtPreferredTime.Text = "";
+                txtReason.Text = "";
+
+                LoadDashboard();
+            }
+            catch (Exception ex)
+            {
+                lblRequestResult.ForeColor = System.Drawing.Color.Red;
+                lblRequestResult.Text = "Error: " + ex.Message;
+            }
+        }
+        //load messages 
+        private void LoadMessages()
+        {
+            int patientId = (int)Session["PatientId"];
+
+            try
+            {
+                using (var db = new DSEntity())
+                {
+                    var messages = db.SystemLinks
+                        .Where(sl => sl.Target_App == "Website"
+                                  && sl.Patient_ID == patientId
+                                  && sl.Is_Read == false)
+                        .OrderByDescending(sl => sl.Created_At)
+                        .Select(sl => new
+                        {
+                            sl.Message_Type,
+                            sl.Message_Text,
+                            sl.Created_At
+                        }).ToList();
+
+                    if (messages.Count > 0)
+                    {
+                        rptMessages.DataSource = messages;
+                        rptMessages.DataBind();
+                        pnlMessages.Visible = true;
+
+                        // Mark as read using EF
+                        var toMark = db.SystemLinks
+                            .Where(sl => sl.Target_App == "Website"
+                                      && sl.Patient_ID == patientId
+                                      && sl.Is_Read == false)
+                            .ToList();
+
+                        foreach (var row in toMark)
+                            row.Is_Read = true;
+
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        pnlMessages.Visible = false;
+                    }
+                }
+            }
+            catch
+            {
+                pnlMessages.Visible = false;
+            }
+        }
+
     }
 }

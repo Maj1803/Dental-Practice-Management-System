@@ -183,7 +183,7 @@ namespace Dental_Practice_Management_System
                     SELECT a.Timeslot_ID FROM Appointment a
                     WHERE CAST(a.Appointment_Date AS DATE) = @date
                     AND a.Employee_ID = @employeeID
-                    AND a.Appointment_Status != 'Cancelled'
+                    AND a.Appointment_Status NOT IN ('Cancelled', 'Declined')
                 )
                 AND t.Timeslot_ID NOT IN (
                     SELECT ao.Timeslot_ID FROM Availability_Override ao

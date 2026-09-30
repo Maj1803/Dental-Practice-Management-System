@@ -42,5 +42,6 @@ namespace MTKhan_Dentist
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Timeslot> Timeslots { get; set; }
         public virtual DbSet<Treatment> Treatments { get; set; }
+        public virtual DbSet<SystemLink> SystemLinks { get; set; }
     }
 }

@@ -530,6 +530,9 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>DSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SystemLink.cs">
+      <DependentUpon>DSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Timeslot.cs">
       <DependentUpon>DSModel.tt</DependentUpon>
     </Compile>

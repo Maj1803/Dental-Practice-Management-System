@@ -36,6 +36,7 @@
         <AssociationConnector Association="DSModel.FK_Payment_Payment" ManuallyRouted="false" />
         <AssociationConnector Association="DSModel.AspNetUserRoles" ManuallyRouted="false" />
         <AssociationConnector Association="DSModel.FK_PatientTreatment_Appointment" />
+        <EntityTypeShape EntityType="DSModel.SystemLink" Width="1.5" PointX="10.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

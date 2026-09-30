@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Mahdiya\Desktop\UKZN\Year 3\Semester 1\ISTN3AS\New Git\Dental-Practice-Management-System\MTKhan Dentist\DSModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Projects\Dental-Practice-Management-System\MTKhan Dentist\DSModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

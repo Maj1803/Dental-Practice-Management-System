@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Dental_Practice_Management_System
 {
@@ -22,9 +23,9 @@ namespace Dental_Practice_Management_System
             LoadDashboardData();
         }
 
-        
+
         // SIMPLE DATA HOLDER FOR A PATIENT'S OUTSTANDING BALANCE
-       
+
 
         private class PatientBalance
         {
@@ -34,15 +35,15 @@ namespace Dental_Practice_Management_System
         }
 
         // LOAD DASHBOARD DATA
-      
+
 
         private void LoadDashboardData()
         {
             try
             {
-               
+
                 // STAFF MESSAGES
-               
+
 
                 this.staffMessageTableAdapter.Fill(
                     this.dsDentist.StaffMessage);
@@ -57,9 +58,9 @@ namespace Dental_Practice_Management_System
                     conn.Open();
 
 
-                  
+
                     // 1. APPOINTMENTS TODAY
-                  
+
 
                     using (SqlCommand cmd1 = new SqlCommand(
                         @"SELECT COUNT(*)
@@ -73,9 +74,9 @@ namespace Dental_Practice_Management_System
                     }
 
 
-                   
+
                     // 2. MONTH-TO-DATE REVENUE
-                  
+
 
                     using (SqlCommand cmd2 = new SqlCommand(
                         @"SELECT ISNULL(SUM(payment_amount), 0)
@@ -98,7 +99,7 @@ namespace Dental_Practice_Management_System
                     }
 
 
-                
+
 
                     List<PatientBalance> owingPatients =
                         GetPatientsOwing(conn);
@@ -107,9 +108,9 @@ namespace Dental_Practice_Management_System
                         owingPatients.Count.ToString();
 
 
-                  
+
                     // 4. TODAY'S SCHEDULE
-                  
+
 
                     using (SqlCommand cmd4 = new SqlCommand(
                         @"SELECT
@@ -185,7 +186,7 @@ namespace Dental_Practice_Management_System
         }
 
 
-        
+
 
         private List<PatientBalance> GetPatientsOwing(SqlConnection conn)
         {
@@ -241,7 +242,7 @@ namespace Dental_Practice_Management_System
 
 
         // DASHBOARD LOAD
-   
+
 
         private void Dashboard_Load(
             object sender,
@@ -259,6 +260,9 @@ namespace Dental_Practice_Management_System
                 dgvSchedule.ClearSelection();
 
                 dgvSchedule.CurrentCell = null;
+
+                // NEW: load pending website appointment requests
+                LoadWebsiteRequests();
             }
             catch (Exception ex)
             {
@@ -272,9 +276,9 @@ namespace Dental_Practice_Management_System
         }
 
 
-       
+
         // SAVE STAFF MESSAGE
-      
+
 
         private void staffMessageBindingNavigatorSaveItem_Click(
             object sender,
@@ -290,7 +294,7 @@ namespace Dental_Practice_Management_System
 
 
         // SEND MESSAGE
-    
+
 
         private void btnSend_Click(
             object sender,
@@ -329,7 +333,7 @@ namespace Dental_Practice_Management_System
         }
 
         // SCROLL TO BOTTOM
-     
+
 
         private void ScrollToBottom()
         {
@@ -341,7 +345,7 @@ namespace Dental_Practice_Management_System
         }
 
         // MESSAGE TEXTBOX ENTER
-     
+
 
         private void txtMessages_Enter(
             object sender,
@@ -358,9 +362,9 @@ namespace Dental_Practice_Management_System
         }
 
 
-    
+
         // MESSAGE TEXTBOX LEAVE
-   
+
 
         private void txtMessages_Leave(
             object sender,
@@ -379,7 +383,7 @@ namespace Dental_Practice_Management_System
 
 
         // MESSAGE LIST
-     
+
 
         private void lstMessages_SelectedIndexChanged(
             object sender,
@@ -392,9 +396,9 @@ namespace Dental_Practice_Management_System
         }
 
 
-  
+
         // GROUP BOX
-  
+
 
         private void groupBox1_Enter(
             object sender,
@@ -422,7 +426,7 @@ namespace Dental_Practice_Management_System
 
 
                 // NO PATIENTS OWING
-          
+
 
                 if (owingPatients.Count == 0)
                 {
@@ -436,9 +440,9 @@ namespace Dental_Practice_Management_System
                 }
 
 
-             
+
                 // BUILD MESSAGE
-              
+
 
                 var sb = new StringBuilder();
                 decimal totalOutstanding = 0;
@@ -461,7 +465,7 @@ namespace Dental_Practice_Management_System
                   .Append(totalOutstanding.ToString("N2"));
 
                 // SHOW PATIENTS OWING
-              
+
 
                 MessageBox.Show(
                     sb.ToString(),
@@ -478,6 +482,110 @@ namespace Dental_Practice_Management_System
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+
+        // ============================================================
+        // WEBSITE REQUESTS PANEL
+        // ============================================================
+
+        private void LoadWebsiteRequests()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(
+                    Properties.Settings.Default.dentistConnStr))
+                {
+                    conn.Open();
+
+                    string sql = @"
+                        SELECT Link_ID,
+                               Reference_No,
+                               Created_At,
+                               Patient_ID,
+                               Appointment_ID,
+                               Message_Text
+                        FROM SystemLink
+                        WHERE Target_App = 'FES'
+                          AND Message_Type = 'AppointmentRequested'
+                          AND Is_Read = 0
+                        ORDER BY Created_At DESC";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        // Reset the binding to force a full refresh
+                        dgvWebsiteRequests.DataSource = null;
+                        dgvWebsiteRequests.DataSource = table;
+
+                        // Tidy the columns
+                        if (dgvWebsiteRequests.Columns.Contains("Link_ID"))
+                            dgvWebsiteRequests.Columns["Link_ID"].Visible = false;
+                        if (dgvWebsiteRequests.Columns.Contains("Patient_ID"))
+                            dgvWebsiteRequests.Columns["Patient_ID"].Visible = false;
+                        if (dgvWebsiteRequests.Columns.Contains("Appointment_ID"))
+                            dgvWebsiteRequests.Columns["Appointment_ID"].Visible = false;
+
+                        if (dgvWebsiteRequests.Columns.Contains("Reference_No"))
+                            dgvWebsiteRequests.Columns["Reference_No"].HeaderText = "Reference";
+
+                        if (dgvWebsiteRequests.Columns.Contains("Created_At"))
+                        {
+                            dgvWebsiteRequests.Columns["Created_At"].HeaderText = "Received";
+                            dgvWebsiteRequests.Columns["Created_At"]
+                                .DefaultCellStyle.Format = "dd MMM HH:mm";
+                        }
+
+                        if (dgvWebsiteRequests.Columns.Contains("Message_Text"))
+                            dgvWebsiteRequests.Columns["Message_Text"].HeaderText = "Request Details";
+
+                        lblRequestsStatus.Text =
+                            $"Pending: {table.Rows.Count} — refreshed {DateTime.Now:HH:mm:ss}";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblRequestsStatus.Text = "Error: " + ex.Message;
+            }
+        }
+
+        private void btnRefreshRequests_Click(object sender, EventArgs e)
+        {
+            LoadWebsiteRequests();
+        }
+
+        private void btnOpenRequest_Click(object sender, EventArgs e)
+        {
+            if (dgvWebsiteRequests.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a request from the list.");
+                return;
+            }
+
+            try
+            {
+                string referenceNo = dgvWebsiteRequests.CurrentRow
+                    .Cells["Reference_No"].Value.ToString();
+
+                AppointmentRequestForm frm = new AppointmentRequestForm(referenceNo);
+                frm.ShowDialog();
+
+                // Reload so handled requests disappear
+                LoadWebsiteRequests();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening request: " + ex.Message);
+            }
+        }
+
+        private void tmrRequests_Tick(object sender, EventArgs e)
+        {
+            LoadWebsiteRequests();
         }
     }
 }
