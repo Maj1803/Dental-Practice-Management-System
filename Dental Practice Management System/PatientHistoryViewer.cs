@@ -113,8 +113,13 @@ namespace Dental_Practice_Management_System
                 dtpEnd.Format = DateTimePickerFormat.Custom;
                 dtpEnd.CustomFormat = "yyyy/MM/dd";
 
-                dtpStart.Value = DateTime.Now.AddMonths(-3);
-                dtpEnd.Value = DateTime.Now;
+                DateTime yesterday = DateTime.Today.AddDays(-1);
+
+                dtpStart.MaxDate = yesterday;   
+                dtpEnd.MaxDate = DateTime.Today;
+
+                dtpStart.Value = yesterday.AddMonths(-3);
+                dtpEnd.Value = yesterday;
                 this.BeginInvoke(new Action(() => btnGenerate_Click(this, EventArgs.Empty)));
             }
             catch (Exception ex)
