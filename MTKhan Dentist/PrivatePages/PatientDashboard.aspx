@@ -81,57 +81,14 @@
 
         <!-- Buttons -->
         <div class="mb-4">
-            <asp:Button ID="btnShowRequestForm" runat="server"
-                        Text="📅  Request an Appointment"
-                        CssClass="btn btn-success px-4 me-2"
-                        OnClick="btnShowRequestForm_Click" />
+            <a href="RequestApp.aspx" class="btn btn-success px-4 me-2">
+              Request an Appointment
+              </a>
 
             <a href="MyAppointments.aspx" class="btn btn-primary px-4">
                 View Appointment Schedule
             </a>
         </div>
-
-        <!-- Inline request form -->
-        <asp:Panel ID="pnlRequestForm" runat="server" Visible="false"
-                   CssClass="card shadow-sm border-0 mb-4">
-            <div class="card-body">
-                <h4 class="mb-3" style="color:#1e7f5e;">Request a New Appointment</h4>
-                <p class="text-muted">Our receptionist will confirm your request shortly.</p>
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Preferred Date</label>
-                        <asp:TextBox ID="txtPreferredDate" runat="server"
-                                     TextMode="Date" CssClass="form-control" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Preferred Time</label>
-                        <asp:TextBox ID="txtPreferredTime" runat="server"
-                                     TextMode="Time" CssClass="form-control" />
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Reason for Visit</label>
-                    <asp:TextBox ID="txtReason" runat="server" TextMode="MultiLine"
-                                 Rows="3" CssClass="form-control"
-                                 placeholder="e.g. Tooth pain on lower left" />
-                </div>
-
-                <asp:Button ID="btnSubmitRequest" runat="server"
-                            Text="Submit Request"
-                            CssClass="btn btn-success px-4 me-2"
-                            OnClick="btnSubmitRequest_Click" />
-
-                <asp:Button ID="btnCancelRequest" runat="server"
-                            Text="Cancel"
-                            CssClass="btn btn-outline-secondary"
-                            OnClick="btnCancelRequest_Click" />
-
-                <br /><br />
-                <asp:Label ID="lblRequestResult" runat="server" Font-Bold="true" />
-            </div>
-        </asp:Panel>
 
         <!-- Messages from FES -->
         <asp:Panel ID="pnlMessages" runat="server" Visible="false"

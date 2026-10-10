@@ -28,6 +28,7 @@ namespace Dental_Practice_Management_System
 
         private void LoadDetails()
         {
+            MessageBox.Show("Loading details for reference: [" + _referenceNo + "]");   // DEbug
             try
             {
                 using (SqlConnection conn = new SqlConnection(

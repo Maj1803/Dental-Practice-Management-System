@@ -205,6 +205,7 @@
             this.Name = "AppointmentRequestForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Appointment Request";
+            this.Load += new System.EventHandler(this.AppointmentRequestForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

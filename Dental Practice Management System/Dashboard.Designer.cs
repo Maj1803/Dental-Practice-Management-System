@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.pnlAppointments = new System.Windows.Forms.Panel();
@@ -62,12 +62,12 @@
             this.staffMessageTableAdapter = new Dental_Practice_Management_System.dsDentistTableAdapters.StaffMessageTableAdapter();
             this.tableAdapterManager = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
             this.grpWebsiteRequests = new System.Windows.Forms.GroupBox();
-            this.dgvWebsiteRequests = new System.Windows.Forms.DataGridView();
-            this.btnRefreshRequests = new System.Windows.Forms.Button();
-            this.btnOpenRequest = new System.Windows.Forms.Button();
-            this.lblRequestStatus = new System.Windows.Forms.Label();
-            this.tmrRequests = new System.Windows.Forms.Timer(this.components);
             this.lblRequestsStatus = new System.Windows.Forms.Label();
+            this.lblRequestStatus = new System.Windows.Forms.Label();
+            this.btnOpenRequest = new System.Windows.Forms.Button();
+            this.btnRefreshRequests = new System.Windows.Forms.Button();
+            this.dgvWebsiteRequests = new System.Windows.Forms.DataGridView();
+            this.tmrRequests = new System.Windows.Forms.Timer(this.components);
             this.pnlAppointments.SuspendLayout();
             this.pnlPatients.SuspendLayout();
             this.pnlInvoices.SuspendLayout();
@@ -294,14 +294,14 @@
             this.dgvSchedule.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSchedule.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvSchedule.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPatient,
@@ -446,6 +446,8 @@
             // 
             // grpWebsiteRequests
             // 
+            this.grpWebsiteRequests.AutoSize = true;
+            this.grpWebsiteRequests.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpWebsiteRequests.BackColor = System.Drawing.Color.White;
             this.grpWebsiteRequests.Controls.Add(this.lblRequestsStatus);
             this.grpWebsiteRequests.Controls.Add(this.lblRequestStatus);
@@ -454,41 +456,30 @@
             this.grpWebsiteRequests.Controls.Add(this.dgvWebsiteRequests);
             this.grpWebsiteRequests.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.grpWebsiteRequests.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpWebsiteRequests.Location = new System.Drawing.Point(890, 390);
+            this.grpWebsiteRequests.Location = new System.Drawing.Point(843, 390);
             this.grpWebsiteRequests.Name = "grpWebsiteRequests";
-            this.grpWebsiteRequests.Size = new System.Drawing.Size(559, 260);
+            this.grpWebsiteRequests.Size = new System.Drawing.Size(514, 265);
             this.grpWebsiteRequests.TabIndex = 10;
             this.grpWebsiteRequests.TabStop = false;
             this.grpWebsiteRequests.Text = "Incoming Website Requests";
             // 
-            // dgvWebsiteRequests
+            // lblRequestsStatus
             // 
-            this.dgvWebsiteRequests.AllowUserToAddRows = false;
-            this.dgvWebsiteRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvWebsiteRequests.BackgroundColor = System.Drawing.Color.White;
-            this.dgvWebsiteRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWebsiteRequests.Location = new System.Drawing.Point(23, 31);
-            this.dgvWebsiteRequests.MultiSelect = false;
-            this.dgvWebsiteRequests.Name = "dgvWebsiteRequests";
-            this.dgvWebsiteRequests.ReadOnly = true;
-            this.dgvWebsiteRequests.RowHeadersVisible = false;
-            this.dgvWebsiteRequests.RowHeadersWidth = 51;
-            this.dgvWebsiteRequests.RowTemplate.Height = 24;
-            this.dgvWebsiteRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWebsiteRequests.Size = new System.Drawing.Size(485, 150);
-            this.dgvWebsiteRequests.TabIndex = 0;
+            this.lblRequestsStatus.AutoSize = true;
+            this.lblRequestsStatus.Location = new System.Drawing.Point(372, 206);
+            this.lblRequestsStatus.Name = "lblRequestsStatus";
+            this.lblRequestsStatus.Size = new System.Drawing.Size(59, 23);
+            this.lblRequestsStatus.TabIndex = 4;
+            this.lblRequestsStatus.Text = "label2";
             // 
-            // btnRefreshRequests
+            // lblRequestStatus
             // 
-            this.btnRefreshRequests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
-            this.btnRefreshRequests.ForeColor = System.Drawing.Color.White;
-            this.btnRefreshRequests.Location = new System.Drawing.Point(35, 199);
-            this.btnRefreshRequests.Name = "btnRefreshRequests";
-            this.btnRefreshRequests.Size = new System.Drawing.Size(94, 37);
-            this.btnRefreshRequests.TabIndex = 1;
-            this.btnRefreshRequests.Text = "Refresh";
-            this.btnRefreshRequests.UseVisualStyleBackColor = false;
-            this.btnRefreshRequests.Click += new System.EventHandler(this.btnRefreshRequests_Click);
+            this.lblRequestStatus.AutoSize = true;
+            this.lblRequestStatus.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRequestStatus.Location = new System.Drawing.Point(388, 206);
+            this.lblRequestStatus.Name = "lblRequestStatus";
+            this.lblRequestStatus.Size = new System.Drawing.Size(0, 23);
+            this.lblRequestStatus.TabIndex = 3;
             // 
             // btnOpenRequest
             // 
@@ -502,29 +493,41 @@
             this.btnOpenRequest.UseVisualStyleBackColor = false;
             this.btnOpenRequest.Click += new System.EventHandler(this.btnOpenRequest_Click);
             // 
-            // lblRequestStatus
+            // btnRefreshRequests
             // 
-            this.lblRequestStatus.AutoSize = true;
-            this.lblRequestStatus.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRequestStatus.Location = new System.Drawing.Point(388, 206);
-            this.lblRequestStatus.Name = "lblRequestStatus";
-            this.lblRequestStatus.Size = new System.Drawing.Size(0, 23);
-            this.lblRequestStatus.TabIndex = 3;
+            this.btnRefreshRequests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
+            this.btnRefreshRequests.ForeColor = System.Drawing.Color.White;
+            this.btnRefreshRequests.Location = new System.Drawing.Point(35, 199);
+            this.btnRefreshRequests.Name = "btnRefreshRequests";
+            this.btnRefreshRequests.Size = new System.Drawing.Size(94, 37);
+            this.btnRefreshRequests.TabIndex = 1;
+            this.btnRefreshRequests.Text = "Refresh";
+            this.btnRefreshRequests.UseVisualStyleBackColor = false;
+            this.btnRefreshRequests.Click += new System.EventHandler(this.btnRefreshRequests_Click);
+            // 
+            // dgvWebsiteRequests
+            // 
+            this.dgvWebsiteRequests.AllowUserToAddRows = false;
+            this.dgvWebsiteRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvWebsiteRequests.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvWebsiteRequests.BackgroundColor = System.Drawing.Color.White;
+            this.dgvWebsiteRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWebsiteRequests.Location = new System.Drawing.Point(23, 31);
+            this.dgvWebsiteRequests.MultiSelect = false;
+            this.dgvWebsiteRequests.Name = "dgvWebsiteRequests";
+            this.dgvWebsiteRequests.ReadOnly = true;
+            this.dgvWebsiteRequests.RowHeadersVisible = false;
+            this.dgvWebsiteRequests.RowHeadersWidth = 51;
+            this.dgvWebsiteRequests.RowTemplate.Height = 24;
+            this.dgvWebsiteRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvWebsiteRequests.Size = new System.Drawing.Size(485, 150);
+            this.dgvWebsiteRequests.TabIndex = 0;
             // 
             // tmrRequests
             // 
             this.tmrRequests.Enabled = true;
             this.tmrRequests.Interval = 15000;
             this.tmrRequests.Tick += new System.EventHandler(this.tmrRequests_Tick);
-            // 
-            // lblRequestsStatus
-            // 
-            this.lblRequestsStatus.AutoSize = true;
-            this.lblRequestsStatus.Location = new System.Drawing.Point(372, 206);
-            this.lblRequestsStatus.Name = "lblRequestsStatus";
-            this.lblRequestsStatus.Size = new System.Drawing.Size(59, 23);
-            this.lblRequestsStatus.TabIndex = 4;
-            this.lblRequestsStatus.Text = "label2";
             // 
             // Dashboard
             // 
