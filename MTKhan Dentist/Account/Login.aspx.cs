@@ -7,267 +7,147 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 
-
 namespace MTKhan_Dentist.Account
 {
     public partial class Login : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (!IsPostBack)
-            {
-                // Patient is selected by default
-                rbPatient.Checked = true;
-
-                // Staff roles are HIDDEN by default
-                pnlStaffRoles.Visible = false;
-
-                // Set default button styles
-                SetButtonStyles();
-            }
-
-            // Forgot Password link
             ForgotPasswordHyperLink.NavigateUrl = "Forgot";
-
-            // Return URL
-            var returnUrl = HttpUtility.UrlEncode(
-                Request.QueryString["ReturnUrl"]
-            );
         }
 
-        protected void UserType_Changed(object sender, EventArgs e)
-        {
-            // Show/hide staff roles based on selection
-            if (rbStaff.Checked)
-            {
-                // Staff is selected - SHOW Receptionist/Dentist
-                pnlStaffRoles.Visible = true;
-
-                // Update button styles
-                lblStaff.CssClass = "btn btn-info";
-                lblPatient.CssClass = "btn btn-outline-info";
-
-                // Set default staff role if none selected
-                if (!rbReceptionist.Checked && !rbDentist.Checked)
-                {
-                    rbReceptionist.Checked = true;
-                }
-                SetStaffRoleStyles();
-            }
-            else
-            {
-                // Patient is selected - HIDE Receptionist/Dentist
-                pnlStaffRoles.Visible = false;
-
-                // Update button styles
-                lblPatient.CssClass = "btn btn-info";
-                lblStaff.CssClass = "btn btn-outline-info";
-            }
-        }
-
-        protected void StaffRole_Changed(object sender, EventArgs e)
-        {
-            SetStaffRoleStyles();
-        }
-
-        private void SetButtonStyles()
-        {
-            // Set initial user type styles
-            if (rbStaff.Checked)
-            {
-                lblStaff.CssClass = "btn btn-info";
-                lblPatient.CssClass = "btn btn-outline-info";
-                pnlStaffRoles.Visible = true;
-            }
-            else
-            {
-                lblPatient.CssClass = "btn btn-info";
-                lblStaff.CssClass = "btn btn-outline-info";
-                pnlStaffRoles.Visible = false;
-            }
-
-            // Set initial staff role styles
-            SetStaffRoleStyles();
-        }
-
-        private void SetStaffRoleStyles()
-        {
-            if (rbReceptionist.Checked)
-            {
-                lblReceptionist.CssClass = "btn btn-secondary";
-                lblDentist.CssClass = "btn btn-outline-secondary";
-            }
-            else if (rbDentist.Checked)
-            {
-                lblDentist.CssClass = "btn btn-secondary";
-                lblReceptionist.CssClass = "btn btn-outline-secondary";
-            }
-        }
         protected void LogIn(object sender, EventArgs e)
         {
-            if (IsValid)
+            if (!IsValid) return;
+
+            var manager = Context.GetOwinContext()
+                .GetUserManager<ApplicationUserManager>();
+            var signinManager = Context.GetOwinContext()
+                .GetUserManager<ApplicationSignInManager>();
+
+            // STEP 1: does the email exist?
+            var user = manager.FindByEmail(Email.Text);
+            if (user == null)
             {
-                // Determine which role was selected
-                string selectedRole;
+                FailureText.Text = "Invalid username / email.";
+                ErrorMessage.Visible = true;
+                return;
+            }
 
-                if (rbPatient.Checked)
-                {
-                    selectedRole = "Patient";
-                }
-                else if (rbDentist.Checked)
-                {
-                    selectedRole = "Dentist";
-                }
-                else
-                {
-                    selectedRole = "Receptionist";
-                }
+            // STEP 2: is the password correct?
+            if (!manager.CheckPassword(user, Password.Text))
+            {
+                FailureText.Text = "Incorrect password.";
+                ErrorMessage.Visible = true;
+                return;
+            }
 
-                // Get User Manager
-                var manager = Context.GetOwinContext()
-                    .GetUserManager<ApplicationUserManager>();
+            // STEP 3: sign in
+            var result = signinManager.PasswordSignIn(
+                Email.Text, Password.Text, isPersistent: false, shouldLockout: false);
 
-                // Get Sign In Manager
-                var signinManager = Context.GetOwinContext()
-                    .GetUserManager<ApplicationSignInManager>();
+            switch (result)
+            {
+                case SignInStatus.Success:
 
-                // Validate username and password
-                var result = signinManager.PasswordSignIn(
-                    Email.Text,
-                    Password.Text,
-                    RememberMe.Checked,
-                    shouldLockout: false
-                );
+                    string dbRole = manager.GetRoles(user.Id).FirstOrDefault();
+                    if (string.IsNullOrEmpty(dbRole))
+                    {
+                        SignOut();
+                        FailureText.Text = "No role is assigned to this account. Contact admin.";
+                        ErrorMessage.Visible = true;
+                        return;
+                    }
 
-                switch (result)
-                {
-                    case SignInStatus.Success:
+                    dbRole = dbRole.Trim();
 
-                        // Get the user
-                        var user = manager.FindByEmail(Email.Text);
+                    Session["UserId"] = user.Id;
+                    Session["UserEmail"] = user.Email;
+                    Session["Role"] = dbRole;
 
-                        if (user == null)
+                    string displayName = user.Email;
+
+                    using (var db = new DSEntity())
+                    {
+                        if (dbRole.Equals("Patient", StringComparison.OrdinalIgnoreCase))
                         {
-                            FailureText.Text = "User account could not be found.";
-                            ErrorMessage.Visible = true;
+                            var patient = db.Patients
+                                .FirstOrDefault(p => p.AspNetUserId == user.Id);
+
+                            if (patient == null)
+                            {
+                                SignOut();
+                                FailureText.Text =
+                                    "No patient record is linked to this account. " +
+                                    "Please contact reception.";
+                                ErrorMessage.Visible = true;
+                                return;
+                            }
+
+                            Session["PatientId"] = patient.Patient_ID;
+                            displayName = (patient.Patient_First_Name + " " +
+                                           patient.Patient_Last_Name).Trim();
+                            Session["DisplayName"] = displayName;
+
+                            Response.Redirect("~/PrivatePages/PatientDashboard.aspx");
                             return;
                         }
-
-                        // Check whether the user has the selected role
-                        bool isInRole = manager.IsInRole(user.Id, selectedRole);
-
-                        if (isInRole)
+                        else if (dbRole.Equals("Receptionist", StringComparison.OrdinalIgnoreCase) ||
+                                 dbRole.Equals("Dentist", StringComparison.OrdinalIgnoreCase))
                         {
-                            Session["UserId"] = user.Id;
-                            Session["UserEmail"] = user.Email;
-                            Session["UserRole"] = selectedRole;
-                            Session["UserType"] = (selectedRole == "Patient") ? "Patient" : "Staff";
+                            var emp = db.Employees
+                                .FirstOrDefault(x => x.AspNetUserId == user.Id);
 
-                            // -------------------------------------------------
-                            // PATIENT: look up Patient record, store Patient_ID
-                            // -------------------------------------------------
-                            if (selectedRole == "Patient")
+                            if (emp == null)
                             {
-                                using (var db = new DSEntity())
-                                {
-                                    var patient = db.Patients
-                                        .FirstOrDefault(p => p.AspNetUserId == user.Id);
-
-                                    if (patient == null)
-                                    {
-                                        // Signed in OK but no Patient row is linked.
-                                        // Don't let them through — sign them out.
-                                        Context.GetOwinContext()
-                                            .Authentication
-                                            .SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-                                        FailureText.Text =
-                                            "No patient record is linked to this account. " +
-                                            "Please contact reception.";
-                                        ErrorMessage.Visible = true;
-                                        return;
-                                    }
-
-                                    Session["PatientId"] = patient.Patient_ID;
-                                    Session["PatientName"] = patient.Patient_First_Name + " " +
-                                                             patient.Patient_Last_Name;
-                                }
-
-                                Response.Redirect("~/PrivatePages/PatientDashboard.aspx");
+                                SignOut();
+                                FailureText.Text =
+                                    "No employee record is linked to this account. " +
+                                    "Please contact admin.";
+                                ErrorMessage.Visible = true;
                                 return;
                             }
 
-                            // -------------------------------------------------
-                            // STAFF: look up Employee record
-                            // -------------------------------------------------
-                            if (selectedRole == "Dentist" || selectedRole == "Receptionist")
-                            {
-                                using (var db = new DSEntity())
-                                {
-                                    var emp = db.Employees
-                                        .FirstOrDefault(x => x.AspNetUserId == user.Id);
+                            Session["EmployeeId"] = emp.Employee_ID;
+                            displayName = (emp.Employee_First_Name + " " +
+                                           emp.Employee_Last_Name).Trim();
+                            Session["DisplayName"] = displayName;
 
-                                    if (emp != null)
-                                    {
-                                        Session["EmployeeId"] = emp.Employee_ID;
-                                        Session["EmployeeName"] = emp.Employee_First_Name + " " +
-                                                                  emp.Employee_Last_Name;
-                                        Session["EmployeeRole"] = emp.Employee_Role;
-                                    }
-                                }
-
-                                Response.Redirect("~/PrivatePages/StaffDashboard.aspx");
-                                return;
-                            }
+                            Response.Redirect("~/PrivatePages/StaffDashboard.aspx");
+                            return;
                         }
                         else
                         {
-                            // Password was correct but the selected role
-                            // does not match the user's assigned role.
-
-                            Context.GetOwinContext()
-                                .Authentication
-                                .SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-                            FailureText.Text =
-                                "You are not authorized to login as "
-                                + selectedRole + ".";
-
+                            SignOut();
+                            FailureText.Text = "Unknown role: " + dbRole;
                             ErrorMessage.Visible = true;
+                            return;
                         }
+                    }
 
-                        break;
+                case SignInStatus.LockedOut:
+                    Response.Redirect("/Account/Lockout");
+                    break;
 
-                    case SignInStatus.LockedOut:
+                case SignInStatus.RequiresVerification:
+                    Response.Redirect(String.Format(
+                        "/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
+                        Request.QueryString["ReturnUrl"], false), true);
+                    break;
 
-                        Response.Redirect("/Account/Lockout");
-                        break;
-
-                    case SignInStatus.RequiresVerification:
-
-                        Response.Redirect(
-                            String.Format(
-                                "/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
-                                Request.QueryString["ReturnUrl"],
-                                RememberMe.Checked
-                            ),
-                            true
-                        );
-
-                        break;
-
-                    case SignInStatus.Failure:
-
-                    default:
-
-                        FailureText.Text = "Invalid login attempt";
-                        ErrorMessage.Visible = true;
-                        break;
-                        
-                
-                }
+                case SignInStatus.Failure:
+                default:
+                    FailureText.Text = "Unable to log you in. Please try again.";
+                    ErrorMessage.Visible = true;
+                    break;
             }
+        }
+
+        private void SignOut()
+        {
+            Context.GetOwinContext()
+                .Authentication
+                .SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
     }
 }
