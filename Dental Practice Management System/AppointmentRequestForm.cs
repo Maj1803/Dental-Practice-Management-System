@@ -217,15 +217,13 @@ namespace Dental_Practice_Management_System
 
             try
             {
-                // ---------------- CHANGE THESE 4 LINES ----------------
-                // ---------------- CHANGE THESE 4 LINES ----------------
+                
                 string smtpHost = "smtp.gmail.com";
                 int smtpPort = 587;
-                string smtpUser = "practiceadminmtk@gmail.com"; // Your full Gmail address
-                string smtpPass = "PracticeKhan12@";      // The 16-letter App Password (no spaces)
-                string fromAddress = "practiceadminmtk@gmail.com"; // Must match the smtpUser
-                                                                 // -------------------------------------------------------
-                                                                 // -------------------------------------------------------
+                string smtpUser = "practiceadminmtk@gmail.com"; 
+                string smtpPass = "reuvgjfgmflqfkct";      // The 16-letter App Password 
+                string fromAddress = "practiceadminmtk@gmail.com"; 
+                                                                 
 
                 using (MailMessage mail = new MailMessage())
                 {
@@ -233,7 +231,7 @@ namespace Dental_Practice_Management_System
                     mail.To.Add(_patientEmail);
                     mail.Subject = "Your dental appointment is confirmed";
 
-                    // HTML Body with Link
+                    
                     mail.IsBodyHtml = true;
                     mail.Body = $@"
                         <p>Dear {_patientName},</p>
