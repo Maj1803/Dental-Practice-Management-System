@@ -79,11 +79,7 @@
 
         </div>
 
-        <!-- Buttons -->
-        <div class="mb-4">
-            <a href="RequestApp.aspx" class="btn btn-success px-4 me-2">
-              Request an Appointment
-              </a>
+        
 
             <a href="MyAppointments.aspx" class="btn btn-primary px-4">
                 View Appointment Schedule
