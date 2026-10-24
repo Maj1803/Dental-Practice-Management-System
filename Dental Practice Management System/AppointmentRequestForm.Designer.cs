@@ -38,8 +38,11 @@
             this.lblReasonHeader = new System.Windows.Forms.Label();
             this.lblReason = new System.Windows.Forms.Label();
             this.btnDecline = new System.Windows.Forms.Button();
-            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnBook = new System.Windows.Forms.Button();
             this.btnCloseForm = new System.Windows.Forms.Button();
+            this.cmbAvailableSlots = new System.Windows.Forms.ComboBox();
+            this.lblSlotStatus = new System.Windows.Forms.Label();
+            this.btnCommunicate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -145,7 +148,7 @@
             this.btnDecline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDecline.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnDecline.ForeColor = System.Drawing.Color.White;
-            this.btnDecline.Location = new System.Drawing.Point(260, 340);
+            this.btnDecline.Location = new System.Drawing.Point(444, 380);
             this.btnDecline.Name = "btnDecline";
             this.btnDecline.Size = new System.Drawing.Size(130, 45);
             this.btnDecline.TabIndex = 9;
@@ -153,19 +156,19 @@
             this.btnDecline.UseVisualStyleBackColor = false;
             this.btnDecline.Click += new System.EventHandler(this.btnDecline_Click);
             // 
-            // btnConfirm
+            // btnBook
             // 
-            this.btnConfirm.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(20, 340);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(220, 45);
-            this.btnConfirm.TabIndex = 10;
-            this.btnConfirm.Text = "Confirm Appointment";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnBook.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBook.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBook.ForeColor = System.Drawing.Color.White;
+            this.btnBook.Location = new System.Drawing.Point(20, 380);
+            this.btnBook.Name = "btnBook";
+            this.btnBook.Size = new System.Drawing.Size(220, 45);
+            this.btnBook.TabIndex = 10;
+            this.btnBook.Text = "Book Appointment";
+            this.btnBook.UseVisualStyleBackColor = false;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click_1);
             // 
             // btnCloseForm
             // 
@@ -173,22 +176,59 @@
             this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseForm.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnCloseForm.ForeColor = System.Drawing.Color.White;
-            this.btnCloseForm.Location = new System.Drawing.Point(410, 340);
+            this.btnCloseForm.Location = new System.Drawing.Point(601, 380);
             this.btnCloseForm.Name = "btnCloseForm";
-            this.btnCloseForm.Size = new System.Drawing.Size(120, 45);
+            this.btnCloseForm.Size = new System.Drawing.Size(81, 45);
             this.btnCloseForm.TabIndex = 11;
             this.btnCloseForm.Text = "Close";
             this.btnCloseForm.UseVisualStyleBackColor = false;
             this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
+            // 
+            // cmbAvailableSlots
+            // 
+            this.cmbAvailableSlots.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAvailableSlots.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAvailableSlots.FormattingEnabled = true;
+            this.cmbAvailableSlots.Location = new System.Drawing.Point(20, 257);
+            this.cmbAvailableSlots.Name = "cmbAvailableSlots";
+            this.cmbAvailableSlots.Size = new System.Drawing.Size(220, 28);
+            this.cmbAvailableSlots.TabIndex = 12;
+            // 
+            // lblSlotStatus
+            // 
+            this.lblSlotStatus.AutoSize = true;
+            this.lblSlotStatus.ForeColor = System.Drawing.Color.Green;
+            this.lblSlotStatus.Location = new System.Drawing.Point(24, 316);
+            this.lblSlotStatus.Name = "lblSlotStatus";
+            this.lblSlotStatus.Size = new System.Drawing.Size(96, 16);
+            this.lblSlotStatus.TabIndex = 13;
+            this.lblSlotStatus.Text = "Loading slots...";
+            // 
+            // btnCommunicate
+            // 
+            this.btnCommunicate.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCommunicate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCommunicate.ForeColor = System.Drawing.Color.White;
+            this.btnCommunicate.Location = new System.Drawing.Point(272, 381);
+            this.btnCommunicate.Name = "btnCommunicate";
+            this.btnCommunicate.Size = new System.Drawing.Size(144, 45);
+            this.btnCommunicate.TabIndex = 14;
+            this.btnCommunicate.Text = "Communicate";
+            this.btnCommunicate.UseVisualStyleBackColor = false;
+            this.btnCommunicate.Visible = false;
+            this.btnCommunicate.Click += new System.EventHandler(this.btnCommunicate_Click);
             // 
             // AppointmentRequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(542, 413);
+            this.ClientSize = new System.Drawing.Size(694, 469);
+            this.Controls.Add(this.btnCommunicate);
+            this.Controls.Add(this.lblSlotStatus);
+            this.Controls.Add(this.cmbAvailableSlots);
             this.Controls.Add(this.btnCloseForm);
-            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnBook);
             this.Controls.Add(this.btnDecline);
             this.Controls.Add(this.lblReason);
             this.Controls.Add(this.lblReasonHeader);
@@ -223,7 +263,10 @@
         private System.Windows.Forms.Label lblReasonHeader;
         private System.Windows.Forms.Label lblReason;
         private System.Windows.Forms.Button btnDecline;
-        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnBook;
         private System.Windows.Forms.Button btnCloseForm;
+        private System.Windows.Forms.ComboBox cmbAvailableSlots;
+        private System.Windows.Forms.Label lblSlotStatus;
+        private System.Windows.Forms.Button btnCommunicate;
     }
 }

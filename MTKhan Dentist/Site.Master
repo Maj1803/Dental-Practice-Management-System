@@ -94,7 +94,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Dr MT KHAN DENTAL 2026</p>
             </footer>
         </div>
     </form>
