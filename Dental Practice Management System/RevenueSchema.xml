@@ -1,0 +1,72 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- Design-time field list for RevenueReport.rpt. Sample rows are for the designer preview only;
+     at runtime RevenueViewer.cs replaces them with real data from the database. -->
+<RevenueData>
+  <xs:schema id="RevenueData" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="RevenueData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Revenue">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Payment_ID" type="xs:int" minOccurs="0" />
+                <xs:element name="Invoice_ID" type="xs:int" minOccurs="0" />
+                <xs:element name="Payment_Date" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Payment_Method" type="xs:string" minOccurs="0" />
+                <xs:element name="Payment_Amount" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Invoice_Total" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Invoice_Status" type="xs:string" minOccurs="0" />
+                <xs:element name="Patient_Name" type="xs:string" minOccurs="0" />
+                <xs:element name="Dentist_Name" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Revenue>
+    <Payment_ID>1</Payment_ID>
+    <Invoice_ID>101</Invoice_ID>
+    <Payment_Date>2026-07-03T10:15:00</Payment_Date>
+    <Payment_Method>Card</Payment_Method>
+    <Payment_Amount>850.00</Payment_Amount>
+    <Invoice_Total>850.00</Invoice_Total>
+    <Invoice_Status>Paid</Invoice_Status>
+    <Patient_Name>Sample Patient A</Patient_Name>
+    <Dentist_Name>Sample Dentist 1</Dentist_Name>
+  </Revenue>
+  <Revenue>
+    <Payment_ID>2</Payment_ID>
+    <Invoice_ID>102</Invoice_ID>
+    <Payment_Date>2026-07-03T14:40:00</Payment_Date>
+    <Payment_Method>Cash</Payment_Method>
+    <Payment_Amount>400.00</Payment_Amount>
+    <Invoice_Total>1200.00</Invoice_Total>
+    <Invoice_Status>Partially Paid</Invoice_Status>
+    <Patient_Name>Sample Patient B</Patient_Name>
+    <Dentist_Name>Sample Dentist 2</Dentist_Name>
+  </Revenue>
+  <Revenue>
+    <Payment_ID>3</Payment_ID>
+    <Invoice_ID>102</Invoice_ID>
+    <Payment_Date>2026-08-12T09:05:00</Payment_Date>
+    <Payment_Method>EFT</Payment_Method>
+    <Payment_Amount>800.00</Payment_Amount>
+    <Invoice_Total>1200.00</Invoice_Total>
+    <Invoice_Status>Paid</Invoice_Status>
+    <Patient_Name>Sample Patient B</Patient_Name>
+    <Dentist_Name>Sample Dentist 2</Dentist_Name>
+  </Revenue>
+  <Revenue>
+    <Payment_ID>4</Payment_ID>
+    <Invoice_ID>103</Invoice_ID>
+    <Payment_Date>2026-09-21T11:30:00</Payment_Date>
+    <Payment_Method>Card</Payment_Method>
+    <Payment_Amount>1650.00</Payment_Amount>
+    <Invoice_Total>1650.00</Invoice_Total>
+    <Invoice_Status>Paid</Invoice_Status>
+    <Patient_Name>Sample Patient C</Patient_Name>
+    <Dentist_Name>Sample Dentist 1</Dentist_Name>
+  </Revenue>
+</RevenueData>

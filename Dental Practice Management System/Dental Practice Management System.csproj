@@ -116,6 +116,18 @@
     <Compile Include="PrescriptionReportViewercs.Designer.cs">
       <DependentUpon>PrescriptionReportViewercs.cs</DependentUpon>
     </Compile>
+    <Compile Include="RevenueReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RevenueReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RevenueViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevenueViewer.Designer.cs">
+      <DependentUpon>RevenueViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptAppointments.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -254,6 +266,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PatientHistoryViewer.resx">
       <DependentUpon>PatientHistoryViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevenueReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RevenueReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptAppointments.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -52,6 +52,22 @@ namespace Dental_Practice_Management_System
             tabPatientHistory.Controls.Add(historyForm);
             tabControl1.TabPages.Add(tabPatientHistory);
             historyForm.Show();
+
+
+            // Revenue Tab
+            TabPage tabRevenue = new TabPage("Revenue Report");
+            tabRevenue.BackColor = tabControl1.TabPages[0].BackColor;
+
+            RevenueViewer revenueForm = new RevenueViewer();
+            revenueForm.TopLevel = false;
+            revenueForm.FormBorderStyle = FormBorderStyle.None;
+            revenueForm.Dock = DockStyle.Fill;
+
+            tabRevenue.Controls.Add(revenueForm);
+            tabControl1.TabPages.Add(tabRevenue);
+            revenueForm.Show();
+
+
         }
 
         private void SetReportLogon(ReportDocument report)
