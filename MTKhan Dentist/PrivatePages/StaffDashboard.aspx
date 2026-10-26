@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StaffDashboard.aspx.cs" Inherits="MTKhan_Dentist.StaffDashboard" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StaffDashboard.aspx.cs" Inherits="MTKhan_Dentist.StaffDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -27,6 +28,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm border-0 h-100">
                     <div class="card-body d-flex gap-3 align-items-center">
@@ -37,6 +39,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm border-0 h-100">
                     <div class="card-body d-flex gap-3 align-items-center">
@@ -59,6 +62,7 @@
                                 <label class="form-label small text-muted mb-1">Patient Name</label>
                                 <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="e.g. Smith"></asp:TextBox>
                             </div>
+
                             <div class="col-md-2">
                                 <label class="form-label small text-muted mb-1">Status</label>
                                 <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="btnSearch_Click">
@@ -68,17 +72,28 @@
                                     <asp:ListItem Text="Cancelled" Value="Cancelled"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
+
                             <div class="col-md-3" id="divDentistFilter" runat="server">
                                 <label class="form-label small text-muted mb-1">Dentist</label>
                                 <asp:DropDownList ID="ddlDentist" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="btnSearch_Click">
                                     <asp:ListItem Text="All Dentists" Value=""></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                            <div class="col-md-2"><label class="form-label small text-muted mb-1">&nbsp;</label><asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary w-100" OnClick="btnSearch_Click" /></div>
-                            <div class="col-md-2"><label class="form-label small text-muted mb-1">&nbsp;</label><asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-outline-secondary w-100" OnClick="btnClear_Click" /></div>
+
+                            <div class="col-md-2">
+                                <label class="form-label small text-muted mb-1">&nbsp;</label>
+                                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary w-100" OnClick="btnSearch_Click" />
+                            </div>
+
+                            <div class="col-md-2">
+                                <label class="form-label small text-muted mb-1">&nbsp;</label>
+                                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-outline-secondary w-100" OnClick="btnClear_Click" />
+                            </div>
                         </div>
+
                         <asp:Label ID="lblSearchInfo" runat="server" CssClass="small text-muted mt-2 d-block"></asp:Label>
                     </div>
+
                     <asp:GridView ID="GVToday" runat="server" AutoGenerateColumns="False" CssClass="table mb-0" GridLines="None">
                         <Columns>
                             <asp:BoundField DataField="Patient" HeaderText="Patient" />
@@ -90,11 +105,15 @@
                     </asp:GridView>
                 </div>
             </div>
+
+            <!-- Quick Actions -->
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-white fw-semibold">Quick Actions</div>
                     <div class="card-body d-flex flex-column gap-2">
                         <a href="ManageSchedule.aspx" class="btn btn-primary">Manage Schedule</a>
+
+                        <a href="StaffMessages.aspx" class="btn btn-success">Message Board</a>
                     </div>
                 </div>
             </div>

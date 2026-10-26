@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Linq;
 using System.Web.UI;
 using System.Data.Entity;
@@ -9,10 +10,12 @@ namespace MTKhan_Dentist
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // TEMP: replace with real value once login sets Session["PatientId"]
+            // The login page must set Session["PatientId"].
+            // Do not use a hardcoded patient ID.
             if (Session["PatientId"] == null)
             {
-                Session["PatientId"] = 2014;
+                Response.Redirect("~/Login.aspx");
+                return;
             }
 
             if (!IsPostBack)
@@ -24,25 +27,36 @@ namespace MTKhan_Dentist
 
         private void LoadDashboard()
         {
-            int patientId = (int)Session["PatientId"];
+            if (Session["PatientId"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+                return;
+            }
+
+            int patientId = Convert.ToInt32(Session["PatientId"]);
 
             using (var db = new DSEntity())
             {
-                var patient = db.Patients.FirstOrDefault(p => p.Patient_ID == patientId);
+                var patient = db.Patients
+                    .FirstOrDefault(p => p.Patient_ID == patientId);
 
                 if (patient == null)
                 {
+                    Session.Remove("PatientId");
                     Response.Redirect("~/Login.aspx");
                     return;
                 }
 
-                lblPatientName.Text = patient.Patient_First_Name + " " + patient.Patient_Last_Name;
+                lblPatientName.Text = patient.Patient_First_Name + " "
+                    + patient.Patient_Last_Name;
+
                 lblWelcomeName.Text = patient.Patient_First_Name;
 
                 var nextAppointment = db.Appointments
                     .Where(a => a.Patient_ID == patientId
                              && a.Appointment_Status == "Scheduled"
-                             && a.Appointment_Date >= DbFunctions.TruncateTime(DateTime.Now))
+                             && a.Appointment_Date >=
+                                DbFunctions.TruncateTime(DateTime.Now))
                     .OrderBy(a => a.Appointment_Date)
                     .ThenBy(a => a.Timeslot.Slot_Start_Time)
                     .Select(a => new
@@ -59,11 +73,19 @@ namespace MTKhan_Dentist
 
                 if (nextAppointment != null)
                 {
-                    lblNextApptDate.Text = nextAppointment.Appointment_Date.ToString("dd MMM yyyy")
-                        + ", " + nextAppointment.Slot_Start_Time.ToString(@"hh\:mm");
-                    lblNextApptDetails.Text = "Dr. " + nextAppointment.DentistLastName
-                        + " — " + (nextAppointment.TreatmentName ?? "Appointment");
-                    lblNextApptStatus.Text = nextAppointment.Appointment_Status;
+                    lblNextApptDate.Text =
+                        nextAppointment.Appointment_Date.ToString("dd MMM yyyy")
+                        + ", "
+                        + nextAppointment.Slot_Start_Time.ToString(@"hh\:mm");
+
+                    lblNextApptDetails.Text =
+                        "Dr. " + nextAppointment.DentistLastName
+                        + " — "
+                        + (nextAppointment.TreatmentName ?? "Appointment");
+
+                    lblNextApptStatus.Text =
+                        nextAppointment.Appointment_Status;
+
                     pnlNextAppointment.Visible = true;
                     pnlNoAppointment.Visible = false;
                 }
@@ -77,7 +99,10 @@ namespace MTKhan_Dentist
 
         private void LoadMessages()
         {
-            int patientId = (int)Session["PatientId"];
+            if (Session["PatientId"] == null)
+                return;
+
+            int patientId = Convert.ToInt32(Session["PatientId"]);
 
             try
             {
@@ -102,7 +127,7 @@ namespace MTKhan_Dentist
                         rptMessages.DataBind();
                         pnlMessages.Visible = true;
 
-                        // Mark as read
+                        // Preserve the existing FES notification behaviour.
                         var toMark = db.SystemLinks
                             .Where(sl => sl.Target_App == "Website"
                                       && sl.Patient_ID == patientId
@@ -110,7 +135,9 @@ namespace MTKhan_Dentist
                             .ToList();
 
                         foreach (var row in toMark)
+                        {
                             row.Is_Read = true;
+                        }
 
                         db.SaveChanges();
                     }
@@ -120,8 +147,9 @@ namespace MTKhan_Dentist
                     }
                 }
             }
-            catch
+            catch (Exception)
             {
+                // Keep notification errors from breaking the dashboard.
                 pnlMessages.Visible = false;
             }
         }
