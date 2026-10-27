@@ -78,6 +78,15 @@ namespace MTKhan_Dentist
         protected global::System.Web.UI.WebControls.Calendar calSchedule;
 
         /// <summary>
+        /// pnlFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFilter;
+
+        /// <summary>
         /// ddlPractitioner control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace MTKhan_Dentist
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBlockDate;
+
+        /// <summary>
+        /// ddlReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlReason;
 
         /// <summary>
         /// txtReason control.

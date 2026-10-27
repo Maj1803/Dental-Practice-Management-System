@@ -60,6 +60,7 @@ namespace MTKhan_Dentist
             }
 
             pnlMarkUnavailable.Visible = IsDentist;
+            pnlFilter.Visible = IsReceptionist;
             pageReady = true;
 
             if (!IsPostBack)
@@ -128,7 +129,13 @@ namespace MTKhan_Dentist
                 slotId = parsed;
             }
 
-            ProcessBlock(date, full, slotId, txtReason.Text.Trim(), false);
+            ProcessBlock(date, full, slotId, GetReason(), false);
+        }
+
+        private string GetReason()
+        {
+            if (ddlReason.SelectedValue == "Other") return txtReason.Text.Trim();
+            return ddlReason.SelectedValue.Trim();
         }
 
         protected void btnConfirmBlock_Click(object sender, EventArgs e)
@@ -254,16 +261,6 @@ namespace MTKhan_Dentist
             {
                 ddlPractitioner.Items.Add(new ListItem(d.Display, d.Id.ToString()));
             }
-
-            if (IsDentist)
-            {
-                ListItem own = ddlPractitioner.Items.FindByValue(employeeId.ToString());
-                if (own != null)
-                {
-                    ddlPractitioner.ClearSelection();
-                    own.Selected = true;
-                }
-            }
         }
 
         private void LoadTimeslotOptions()
@@ -315,6 +312,7 @@ namespace MTKhan_Dentist
 
         private int GetPractitionerFilter()
         {
+            if (IsDentist) return employeeId;
             int id;
             return int.TryParse(ddlPractitioner.SelectedValue, out id) ? id : 0;
         }
@@ -733,7 +731,7 @@ namespace MTKhan_Dentist
             }
             if (reason.Length == 0)
             {
-                ShowOverrideMessage("Enter a reason.", false);
+                ShowOverrideMessage("Select a reason, or choose Other and type one.", false);
                 return;
             }
             if (txtReason.MaxLength > 0 && reason.Length > txtReason.MaxLength)
@@ -796,6 +794,7 @@ namespace MTKhan_Dentist
                 }
 
                 txtReason.Text = "";
+                ddlReason.SelectedIndex = 0;
                 chkFullDay.Checked = false;
                 if (ddlTimeslot.Items.Count > 0) ddlTimeslot.SelectedIndex = 0;
                 ShowOverrideMessage(message, success);

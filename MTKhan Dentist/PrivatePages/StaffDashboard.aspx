@@ -1,5 +1,4 @@
-﻿
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StaffDashboard.aspx.cs" Inherits="MTKhan_Dentist.StaffDashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StaffDashboard.aspx.cs" Inherits="MTKhan_Dentist.StaffDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -10,6 +9,8 @@
     </style>
 
     <div class="container mt-4 mb-5">
+        <asp:Label ID="lblPageError" runat="server" CssClass="alert alert-danger d-block" Visible="false"></asp:Label>
+
         <div class="hero-banner rounded-4 mb-4">
             <span class="pill-label mb-2">STAFF PORTAL</span>
             <h2 class="fw-bold mt-3 mb-2" style="color:#2b2b2b;"><asp:Label ID="lblWelcome" runat="server" Text="Welcome back"></asp:Label></h2>
@@ -117,7 +118,6 @@
                         <a href="StaffMessages.aspx" class="btn btn-success w-100">Message Board</a>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>

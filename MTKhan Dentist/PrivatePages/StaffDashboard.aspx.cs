@@ -8,6 +8,10 @@ namespace MTKhan_Dentist
 {
     public partial class StaffDashboard : Page
     {
+        private int employeeId;
+        private string employeeRole;
+        private bool pageReady;
+
         private string GetRole()
         {
             if (User.IsInRole("Dentist")) return "Dentist";
@@ -16,22 +20,37 @@ namespace MTKhan_Dentist
             return null;
         }
 
-        private string GetEmployeeName(out int empId)
+        private static string NormaliseRole(string role)
         {
-            empId = 0; string name = null;
+            if (string.Equals(role, "Dentist", StringComparison.OrdinalIgnoreCase)) return "Dentist";
+            if (string.Equals(role, "Receptionist", StringComparison.OrdinalIgnoreCase)) return "Receptionist";
+            return null;
+        }
+
+        private string GetEmployeeName(out int empId, out string dbRole)
+        {
+            empId = 0; dbRole = null; string name = null;
             string email = User.Identity.Name;
             if (string.IsNullOrEmpty(email)) return null;
             string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connStr))
             {
                 con.Open();
-                string sql = "SELECT Employee_ID, Employee_First_Name + ' ' + Employee_Last_Name FROM Employee WHERE Employee_Email = @email";
+                string sql = @"SELECT TOP 1 e.Employee_ID, e.Employee_First_Name + ' ' + e.Employee_Last_Name, e.Employee_Role
+                               FROM Employee e
+                               LEFT JOIN AspNetUsers u ON u.Id = e.AspNetUserId
+                               WHERE e.Employee_Email = @email OR u.UserName = @email OR u.Email = @email";
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@email", email);
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        if (dr.Read()) { empId = Convert.ToInt32(dr[0]); name = dr[1].ToString(); }
+                        if (dr.Read())
+                        {
+                            empId = Convert.ToInt32(dr[0]);
+                            name = dr[1].ToString();
+                            dbRole = dr[2].ToString().Trim();
+                        }
                     }
                 }
             }
@@ -124,7 +143,7 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
                 string baseWhere = " WHERE CAST(Appointment_Date AS DATE) = CAST(GETDATE() AS DATE) ";
                 if (role == "Dentist") baseWhere += " AND Employee_ID = @empId ";
 
-                string sql1 = "SELECT COUNT(*) FROM Appointment " + baseWhere + " AND Appointment_Status <> 'Cancelled'";
+                string sql1 = "SELECT COUNT(DISTINCT Patient_ID) FROM Appointment " + baseWhere + " AND Appointment_Status <> 'Cancelled'";
                 string sql2 = "SELECT COUNT(*) FROM Appointment " + baseWhere + " AND Appointment_Status = 'Scheduled'";
                 string sql3 = "SELECT COUNT(*) FROM Appointment " + baseWhere + " AND Appointment_Status = 'Cancelled'";
 
@@ -139,39 +158,81 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
             }
         }
 
+        private void ShowError()
+        {
+            lblPageError.Text = "The database could not be reached. Check your connection and refresh the page.";
+            lblPageError.Visible = true;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            string displayName;
+            try
+            {
+                string dbRole;
+                displayName = GetEmployeeName(out employeeId, out dbRole);
+                employeeRole = NormaliseRole(GetRole()) ?? NormaliseRole(dbRole);
+            }
+            catch (SqlException)
+            {
+                ShowError();
+                return;
+            }
+
+            if (employeeId == 0 || employeeRole == null)
+            {
+                Response.Redirect("~/");
+                return;
+            }
+
+            pageReady = true;
+            divDentistFilter.Visible = (employeeRole != "Dentist");
+            divManageSchedule.Visible = (employeeRole == "Dentist");
+
             if (!IsPostBack)
             {
-                int empId; string displayName = GetEmployeeName(out empId);
                 if (string.IsNullOrEmpty(displayName)) displayName = User.Identity.Name;
                 lblWelcome.Text = "Welcome back, " + displayName;
-                string role = GetRole();
-                if (!string.IsNullOrEmpty(role)) lblRole.Text = role;
-                ViewState["empId"] = empId; ViewState["role"] = role;
+                lblRole.Text = employeeRole;
 
-                LoadDentists();
-                divDentistFilter.Visible = (role != "Dentist");
-                divManageSchedule.Visible = (role == "Dentist");
-
-                BindTodayAppointments(empId, role, null, null, null);
-                BindCounts(empId, role);
+                try
+                {
+                    LoadDentists();
+                    BindTodayAppointments(employeeId, employeeRole, null, null, null);
+                    BindCounts(employeeId, employeeRole);
+                }
+                catch (SqlException)
+                {
+                    ShowError();
+                }
             }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            int empId = ViewState["empId"] != null ? (int)ViewState["empId"] : 0;
-            string role = ViewState["role"] as string;
-            BindTodayAppointments(empId, role, txtSearch.Text.Trim(), ddlStatus.SelectedValue, ddlDentist.SelectedValue);
+            if (!pageReady) return;
+            try
+            {
+                BindTodayAppointments(employeeId, employeeRole, txtSearch.Text.Trim(), ddlStatus.SelectedValue, ddlDentist.SelectedValue);
+            }
+            catch (SqlException)
+            {
+                ShowError();
+            }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
+            if (!pageReady) return;
             txtSearch.Text = ""; ddlStatus.SelectedIndex = 0; ddlDentist.SelectedIndex = 0;
-            int empId = ViewState["empId"] != null ? (int)ViewState["empId"] : 0;
-            string role = ViewState["role"] as string;
-            BindTodayAppointments(empId, role, null, null, null);
+            try
+            {
+                BindTodayAppointments(employeeId, employeeRole, null, null, null);
+            }
+            catch (SqlException)
+            {
+                ShowError();
+            }
         }
     }
 }

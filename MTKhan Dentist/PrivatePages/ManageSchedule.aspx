@@ -11,6 +11,7 @@
         .doctor-header { display: flex; align-items: center; gap: 8px; padding: 10px; }
         .doctor-avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #fff; flex-shrink: 0; }
         .appt-block { border-radius: 8px; padding: 8px 10px; margin: 4px 0; font-size: 0.8rem; }
+        .icon-circle { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     </style>
 
     <a href="StaffDashboard.aspx" class="btn btn-outline-primary mb-4">
@@ -31,33 +32,41 @@
         <div class="row mb-4">
             <div class="col-md-3 mb-3">
                 <div class="card shadow-sm border-0 h-100">
-                    <div class="card-body">
-                        <p class="text-muted mb-1 small">Today's Appointments</p>
-                        <h3 class="mb-0 fw-bold"><asp:Label ID="lblTodayCount" runat="server" Text="0"></asp:Label></h3>
+                    <div class="card-body d-flex gap-3 align-items-center">
+                        <div class="icon-circle" style="background:#e6f4f1; color:#2a9d8f;">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        </div>
+                        <div><p class="text-muted mb-1 small">Today's Appointments</p><h3 class="mb-0 fw-bold"><asp:Label ID="lblTodayCount" runat="server" Text="0"></asp:Label></h3></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 mb-3">
                 <div class="card shadow-sm border-0 h-100">
-                    <div class="card-body">
-                        <p class="text-muted mb-1 small">Scheduled</p>
-                        <h3 class="mb-0 fw-bold text-success"><asp:Label ID="lblScheduled" runat="server" Text="0"></asp:Label></h3>
+                    <div class="card-body d-flex gap-3 align-items-center">
+                        <div class="icon-circle" style="background:#e6f4f1; color:#2a9d8f;">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <div><p class="text-muted mb-1 small">Scheduled</p><h3 class="mb-0 fw-bold text-success"><asp:Label ID="lblScheduled" runat="server" Text="0"></asp:Label></h3></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 mb-3">
                 <div class="card shadow-sm border-0 h-100">
-                    <div class="card-body">
-                        <p class="text-muted mb-1 small">Completed</p>
-                        <h3 class="mb-0 fw-bold text-secondary"><asp:Label ID="lblCompleted" runat="server" Text="0"></asp:Label></h3>
+                    <div class="card-body d-flex gap-3 align-items-center">
+                        <div class="icon-circle" style="background:#eef0f2; color:#6c757d;">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l3 3 5-6"/></svg>
+                        </div>
+                        <div><p class="text-muted mb-1 small">Completed</p><h3 class="mb-0 fw-bold text-secondary"><asp:Label ID="lblCompleted" runat="server" Text="0"></asp:Label></h3></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 mb-3">
                 <div class="card shadow-sm border-0 h-100">
-                    <div class="card-body">
-                        <p class="text-muted mb-1 small">Cancelled</p>
-                        <h3 class="mb-0 fw-bold text-danger"><asp:Label ID="lblCancelled" runat="server" Text="0"></asp:Label></h3>
+                    <div class="card-body d-flex gap-3 align-items-center">
+                        <div class="icon-circle" style="background:#fde8e8; color:#e76f51;">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                        </div>
+                        <div><p class="text-muted mb-1 small">Cancelled</p><h3 class="mb-0 fw-bold text-danger"><asp:Label ID="lblCancelled" runat="server" Text="0"></asp:Label></h3></div>
                     </div>
                 </div>
             </div>
@@ -79,13 +88,13 @@
                     </div>
                 </div>
 
-                <div class="card shadow-sm border-0">
+                <asp:Panel ID="pnlFilter" runat="server" CssClass="card shadow-sm border-0">
                     <div class="card-body">
                         <p class="fw-semibold small mb-2">Filters</p>
                         <label class="form-label small text-muted mb-1">Practitioner</label>
                         <asp:DropDownList ID="ddlPractitioner" runat="server" CssClass="form-select form-select-sm" AutoPostBack="True"></asp:DropDownList>
                     </div>
-                </div>
+                </asp:Panel>
 
                 <asp:Panel ID="pnlMarkUnavailable" runat="server" CssClass="card shadow-sm border-0 mt-3">
                     <div class="card-body">
@@ -93,7 +102,18 @@
                         <p class="small text-muted mb-2"><asp:Label ID="lblBlockDate" runat="server"></asp:Label></p>
 
                         <label class="form-label small text-muted mb-1">Reason</label>
-                        <asp:TextBox ID="txtReason" runat="server" CssClass="form-control form-control-sm mb-2" placeholder="e.g. Emergency"></asp:TextBox>
+                        <asp:DropDownList ID="ddlReason" runat="server" CssClass="form-select form-select-sm mb-2">
+                            <asp:ListItem Value="" Text="Select a reason"></asp:ListItem>
+                            <asp:ListItem>Emergency</asp:ListItem>
+                            <asp:ListItem>Personal Matter</asp:ListItem>
+                            <asp:ListItem>Leave</asp:ListItem>
+                            <asp:ListItem>Dental Conference / Training</asp:ListItem>
+                            <asp:ListItem>Meeting / Admin Work</asp:ListItem>
+                            <asp:ListItem>Complex Surgery Preparation</asp:ListItem>
+                            <asp:ListItem>Lunch Break</asp:ListItem>
+                            <asp:ListItem>Other</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:TextBox ID="txtReason" runat="server" CssClass="form-control form-control-sm mb-2" placeholder="If Other, type the reason"></asp:TextBox>
 
                         <label class="form-label small text-muted mb-1">Timeslot</label>
                         <asp:DropDownList ID="ddlTimeslot" runat="server" CssClass="form-select form-select-sm mb-2"></asp:DropDownList>
