@@ -152,6 +152,7 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
 
                 LoadDentists();
                 divDentistFilter.Visible = (role != "Dentist");
+                divManageSchedule.Visible = (role == "Dentist");
 
                 BindTodayAppointments(empId, role, null, null, null);
                 BindCounts(empId, role);

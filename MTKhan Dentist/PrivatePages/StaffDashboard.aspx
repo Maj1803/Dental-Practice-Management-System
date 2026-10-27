@@ -106,16 +106,18 @@
                 </div>
             </div>
 
-            <!-- Quick Actions -->
+             <!-- Quick Actions -->
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-white fw-semibold">Quick Actions</div>
                     <div class="card-body d-flex flex-column gap-2">
-                        <a href="ManageSchedule.aspx" class="btn btn-primary">Manage Schedule</a>
-
-                        <a href="StaffMessages.aspx" class="btn btn-success">Message Board</a>
+                        <div id="divManageSchedule" runat="server">
+                            <a href="ManageSchedule.aspx" class="btn btn-primary w-100 mb-2">Manage Schedule</a>
+                        </div>
+                        <a href="StaffMessages.aspx" class="btn btn-success w-100">Message Board</a>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
