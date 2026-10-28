@@ -42,6 +42,24 @@ namespace MTKhan_Dentist
         protected global::System.Web.UI.WebControls.GridView gvConversations;
 
         /// <summary>
+        /// pnlNoArchivedConversations control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNoArchivedConversations;
+
+        /// <summary>
+        /// gvArchivedConversations control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvArchivedConversations;
+
+        /// <summary>
         /// pnlConversation control.
         /// </summary>
         /// <remarks>
@@ -85,6 +103,24 @@ namespace MTKhan_Dentist
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSendReply;
+
+        /// <summary>
+        /// btnRefreshConversation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRefreshConversation;
+
+        /// <summary>
+        /// btnArchiveConversation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnArchiveConversation;
 
         /// <summary>
         /// btnCloseConversation control.

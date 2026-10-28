@@ -55,8 +55,11 @@ namespace MTKhan_Dentist
                 new SqlConnection(ConnectionString))
             {
                 string sql = @"
-                    SELECT Message_ID, Sender_Type,
-                           Message_Text, Sent_At
+                    SELECT Message_ID,
+                           Sender_Type,
+                           Message_Text,
+                           Sent_At,
+                           Is_Read
                     FROM dbo.PatientStaffMessage
                     WHERE Patient_ID = @PatientID
                     ORDER BY Sent_At ASC, Message_ID ASC";
@@ -79,6 +82,8 @@ namespace MTKhan_Dentist
                     pnlNoMessages.Visible = (dt.Rows.Count == 0);
                 }
 
+                // Mark staff messages as read when the patient
+                // opens or refreshes their conversation.
                 string updateSql = @"
                     UPDATE dbo.PatientStaffMessage
                     SET Is_Read = 1
@@ -113,14 +118,16 @@ namespace MTKhan_Dentist
             if (string.IsNullOrWhiteSpace(message))
             {
                 lblStatus.CssClass = "alert alert-warning d-block";
-                lblStatus.Text = "Please enter a message before sending.";
+                lblStatus.Text =
+                    "Please enter a message before sending.";
                 return;
             }
 
             if (message.Length > 1000)
             {
                 lblStatus.CssClass = "alert alert-warning d-block";
-                lblStatus.Text = "Your message cannot exceed 1000 characters.";
+                lblStatus.Text =
+                    "Your message cannot exceed 1000 characters.";
                 return;
             }
 
@@ -145,20 +152,31 @@ namespace MTKhan_Dentist
 
                     if (patientExists == 0)
                     {
-                        lblStatus.CssClass = "alert alert-danger d-block";
+                        lblStatus.CssClass =
+                            "alert alert-danger d-block";
+
                         lblStatus.Text =
                             "Your patient account could not be verified. Please log in again.";
+
                         return;
                     }
                 }
 
                 string insertSql = @"
                     INSERT INTO dbo.PatientStaffMessage
-                        (Patient_ID, Sender_Type, Sender_Employee_ID,
-                         Message_Text, Sent_At, Is_Read)
+                        (Patient_ID,
+                         Sender_Type,
+                         Sender_Employee_ID,
+                         Message_Text,
+                         Sent_At,
+                         Is_Read)
                     VALUES
-                        (@PatientID, 'Patient', NULL,
-                         @Message, SYSDATETIME(), 0)";
+                        (@PatientID,
+                         'Patient',
+                         NULL,
+                         @Message,
+                         SYSDATETIME(),
+                         0)";
 
                 using (SqlCommand cmd =
                     new SqlCommand(insertSql, con))
@@ -175,10 +193,33 @@ namespace MTKhan_Dentist
 
             txtMessage.Text = "";
 
-            lblStatus.CssClass = "alert alert-success d-block";
-            lblStatus.Text = "Your message has been sent to the practice.";
+            lblStatus.CssClass =
+                "alert alert-success d-block";
+
+            lblStatus.Text =
+                "Your message has been sent to the practice.";
 
             LoadConversation(patientId);
+        }
+
+        protected void btnRefreshMessages_Click(
+            object sender, EventArgs e)
+        {
+            int patientId = GetPatientId();
+
+            if (patientId <= 0)
+            {
+                Response.Redirect("~/Login.aspx");
+                return;
+            }
+
+            LoadConversation(patientId);
+
+            lblStatus.CssClass =
+                "alert alert-info d-block";
+
+            lblStatus.Text =
+                "Your conversation has been refreshed.";
         }
     }
 }
