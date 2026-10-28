@@ -18,6 +18,10 @@ namespace Dental_Practice_Management_System
         private TabPage hiddenTabInvoice;
         private TabPage hiddenTabTreatment;
 
+        string constr = @"Server=146.230.177.46;User Id=GroupWst33;Password=9d3dx;Encrypt=True;TrustServerCertificate=True;";
+
+        private AllInvoicesViewer invoiceViewer;
+
         public Reports()
         {
             InitializeComponent();
@@ -30,17 +34,18 @@ namespace Dental_Practice_Management_System
             this.rptAppointments1 = new Dental_Practice_Management_System.rptAppointments();
 
             if (tabControl1.TabPages.Contains(hiddenTabInvoice))
-            {
-                tabControl1.TabPages.Remove(hiddenTabInvoice);
-            }
+             {
+                 tabControl1.TabPages.Remove(hiddenTabInvoice);
+             }
 
-            if (tabControl1.TabPages.Contains(hiddenTabTreatment))
-            {
-                tabControl1.TabPages.Remove(hiddenTabTreatment);
-            }
+             if (tabControl1.TabPages.Contains(hiddenTabTreatment))
+             {
+                 tabControl1.TabPages.Remove(hiddenTabTreatment);
+             }                      
+
 
             //Patient History Tab
-           
+
             TabPage tabPatientHistory = new TabPage("Patient History");
             tabPatientHistory.BackColor = tabControl1.TabPages[0].BackColor;
 
@@ -240,8 +245,33 @@ namespace Dental_Practice_Management_System
         {
 
         }
+
+        public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPage4)
+            {
+                try
+                {
+                    if (invoiceViewer == null || invoiceViewer.IsDisposed)
+                    {
+                        invoiceViewer = new AllInvoicesViewer(constr);
+                    }
+
+                    invoiceViewer.ShowInsideTab(tabPage4);
+                    
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show($"Failed to load Invoice Viewer: {ex.Message}",
+                                     "Invoice Viewer Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+            }
+        }
     }
 }
+    
 
 public class ComboItem
 {

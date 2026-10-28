@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InvoiceListDataset" targetNamespace="http://tempuri.org/InvoiceListDataset.xsd" xmlns:mstns="http://tempuri.org/InvoiceListDataset.xsd" xmlns="http://tempuri.org/InvoiceListDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InvoiceListDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="InvoiceListDataset" msprop:Generator_DataSetName="InvoiceListDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="InvoiceList" msprop:Generator_RowEvHandlerName="InvoiceListRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceListRowDeleted" msprop:Generator_RowDeletingName="InvoiceListRowDeleting" msprop:Generator_RowEvArgName="InvoiceListRowChangeEvent" msprop:Generator_TablePropName="InvoiceList" msprop:Generator_RowChangedName="InvoiceListRowChanged" msprop:Generator_RowChangingName="InvoiceListRowChanging" msprop:Generator_TableClassName="InvoiceListDataTable" msprop:Generator_RowClassName="InvoiceListRow" msprop:Generator_TableVarName="tableInvoiceList" msprop:Generator_UserTableName="InvoiceList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InvoiceID" msprop:Generator_ColumnPropNameInRow="InvoiceID" msprop:Generator_ColumnPropNameInTable="InvoiceIDColumn" msprop:Generator_ColumnVarNameInTable="columnInvoiceID" msprop:Generator_UserColumnName="InvoiceID" type="xs:int" minOccurs="0" />
+              <xs:element name="PatientName" msprop:Generator_ColumnPropNameInRow="PatientName" msprop:Generator_ColumnPropNameInTable="PatientNameColumn" msprop:Generator_ColumnVarNameInTable="columnPatientName" msprop:Generator_UserColumnName="PatientName" type="xs:string" minOccurs="0" />
+              <xs:element name="PatientID" msprop:Generator_ColumnPropNameInRow="PatientID" msprop:Generator_ColumnPropNameInTable="PatientIDColumn" msprop:Generator_ColumnVarNameInTable="columnPatientID" msprop:Generator_UserColumnName="PatientID" type="xs:int" minOccurs="0" />
+              <xs:element name="InvoiceDate" msprop:Generator_ColumnPropNameInRow="InvoiceDate" msprop:Generator_ColumnPropNameInTable="InvoiceDateColumn" msprop:Generator_ColumnVarNameInTable="columnInvoiceDate" msprop:Generator_UserColumnName="InvoiceDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InvoiceStatus" msprop:Generator_ColumnPropNameInRow="InvoiceStatus" msprop:Generator_ColumnPropNameInTable="InvoiceStatusColumn" msprop:Generator_ColumnVarNameInTable="columnInvoiceStatus" msprop:Generator_UserColumnName="InvoiceStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="BalanceDue" msprop:Generator_ColumnPropNameInRow="BalanceDue" msprop:Generator_ColumnPropNameInTable="BalanceDueColumn" msprop:Generator_ColumnVarNameInTable="columnBalanceDue" msprop:Generator_UserColumnName="BalanceDue" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

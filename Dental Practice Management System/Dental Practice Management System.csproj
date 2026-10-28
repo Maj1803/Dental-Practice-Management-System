@@ -54,6 +54,12 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllInvoicesViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllInvoicesViewer.Designer.cs">
+      <DependentUpon>AllInvoicesViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppointmentRequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,25 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceListDataset.cs">
+      <DependentUpon>InvoiceListDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceListDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceListDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceListing.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceListing.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InvoiceListingDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceListingDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="InvoiceViewer.cs">
       <SubType>Form</SubType>
@@ -257,6 +282,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InvoiceBreakdown.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceListing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceListing.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="InvoiceViewer.resx">
       <DependentUpon>InvoiceViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +388,28 @@
     </None>
     <None Include="InvoiceDataSet.xss">
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceListDataset.xsc">
+      <DependentUpon>InvoiceListDataset.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceListDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceListDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="InvoiceListDataset.xss">
+      <DependentUpon>InvoiceListDataset.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceListingDataSet.xsc">
+      <DependentUpon>InvoiceListingDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceListingDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceListingDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="InvoiceListingDataSet.xss">
+      <DependentUpon>InvoiceListingDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

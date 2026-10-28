@@ -60,6 +60,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbPatientID = new System.Windows.Forms.ComboBox();
             this.cmbPatientName = new System.Windows.Forms.ComboBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.CrystalReport11 = new Dental_Practice_Management_System.CrystalReport1();
             this.dsDentist1 = new Dental_Practice_Management_System.dsDentist();
             this.tableAdapterManager1 = new Dental_Practice_Management_System.dsDentistTableAdapters.TableAdapterManager();
@@ -83,22 +84,26 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1063, 571);
+            this.tabControl1.Size = new System.Drawing.Size(1417, 703);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.crystalReportViewer1);
             this.tabPage1.Controls.Add(this.panel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 35);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1055, 538);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1409, 664);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Appointments Reports";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -109,10 +114,11 @@
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 90);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(4, 111);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = this.rptAppointments1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1049, 445);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1401, 549);
             this.crystalReportViewer1.TabIndex = 0;
             // 
             // panel3
@@ -128,17 +134,19 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Location = new System.Drawing.Point(4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1049, 87);
+            this.panel3.Size = new System.Drawing.Size(1401, 107);
             this.panel3.TabIndex = 1;
             // 
             // cmbDentistFilter
             // 
             this.cmbDentistFilter.FormattingEnabled = true;
-            this.cmbDentistFilter.Location = new System.Drawing.Point(538, 51);
+            this.cmbDentistFilter.Location = new System.Drawing.Point(717, 63);
+            this.cmbDentistFilter.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDentistFilter.Name = "cmbDentistFilter";
-            this.cmbDentistFilter.Size = new System.Drawing.Size(223, 28);
+            this.cmbDentistFilter.Size = new System.Drawing.Size(296, 34);
             this.cmbDentistFilter.TabIndex = 9;
             // 
             // cmbStatusFilter
@@ -149,18 +157,20 @@
             "Cancelled",
             "Scheduled",
             "All"});
-            this.cmbStatusFilter.Location = new System.Drawing.Point(226, 53);
+            this.cmbStatusFilter.Location = new System.Drawing.Point(301, 65);
+            this.cmbStatusFilter.Margin = new System.Windows.Forms.Padding(4);
             this.cmbStatusFilter.Name = "cmbStatusFilter";
-            this.cmbStatusFilter.Size = new System.Drawing.Size(215, 28);
+            this.cmbStatusFilter.Size = new System.Drawing.Size(285, 34);
             this.cmbStatusFilter.TabIndex = 8;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(469, 51);
+            this.label9.Location = new System.Drawing.Point(625, 63);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 22);
+            this.label9.Size = new System.Drawing.Size(86, 26);
             this.label9.TabIndex = 7;
             this.label9.Text = "Dentist:";
             // 
@@ -168,9 +178,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(154, 56);
+            this.label8.Location = new System.Drawing.Point(205, 69);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 22);
+            this.label8.Size = new System.Drawing.Size(80, 26);
             this.label8.TabIndex = 6;
             this.label8.Text = "Status:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -181,9 +192,10 @@
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerate.ForeColor = System.Drawing.Color.White;
-            this.btnGenerate.Location = new System.Drawing.Point(915, 20);
+            this.btnGenerate.Location = new System.Drawing.Point(1220, 25);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(120, 44);
+            this.btnGenerate.Size = new System.Drawing.Size(160, 54);
             this.btnGenerate.TabIndex = 5;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = false;
@@ -192,26 +204,29 @@
             // dtpEnd
             // 
             this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEnd.Location = new System.Drawing.Point(538, 14);
+            this.dtpEnd.Location = new System.Drawing.Point(717, 17);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(4);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(223, 27);
+            this.dtpEnd.Size = new System.Drawing.Size(296, 32);
             this.dtpEnd.TabIndex = 4;
             // 
             // dtpStart
             // 
             this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpStart.Location = new System.Drawing.Point(226, 14);
+            this.dtpStart.Location = new System.Drawing.Point(301, 17);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(4);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(215, 27);
+            this.dtpStart.Size = new System.Drawing.Size(285, 32);
             this.dtpStart.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(133, 16);
+            this.label7.Location = new System.Drawing.Point(177, 20);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 22);
+            this.label7.Size = new System.Drawing.Size(116, 26);
             this.label7.TabIndex = 2;
             this.label7.Text = "Start Date:";
             // 
@@ -219,9 +234,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(450, 16);
+            this.label6.Location = new System.Drawing.Point(600, 20);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 22);
+            this.label6.Size = new System.Drawing.Size(109, 26);
             this.label6.TabIndex = 1;
             this.label6.Text = "End Date:";
             // 
@@ -229,9 +245,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 16);
+            this.label5.Location = new System.Drawing.Point(12, 20);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 22);
+            this.label5.Size = new System.Drawing.Size(147, 26);
             this.label5.TabIndex = 0;
             this.label5.Text = "Filter by Date:";
             // 
@@ -239,10 +256,11 @@
             // 
             this.tabPage2.Controls.Add(this.crystalReportViewer2);
             this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 35);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1055, 538);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1409, 664);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Invoice Summary";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -253,10 +271,11 @@
             this.crystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer2.Location = new System.Drawing.Point(3, 44);
+            this.crystalReportViewer2.Location = new System.Drawing.Point(4, 54);
+            this.crystalReportViewer2.Margin = new System.Windows.Forms.Padding(4);
             this.crystalReportViewer2.Name = "crystalReportViewer2";
             this.crystalReportViewer2.ReportSource = this.InvoiceSummary1;
-            this.crystalReportViewer2.Size = new System.Drawing.Size(1049, 491);
+            this.crystalReportViewer2.Size = new System.Drawing.Size(1401, 606);
             this.crystalReportViewer2.TabIndex = 0;
             // 
             // panel2
@@ -266,26 +285,29 @@
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.comboBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1049, 41);
+            this.panel2.Size = new System.Drawing.Size(1401, 50);
             this.panel2.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(427, 9);
+            this.label3.Location = new System.Drawing.Point(569, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 22);
+            this.label3.Size = new System.Drawing.Size(118, 26);
             this.label3.TabIndex = 3;
             this.label3.Text = "Patient ID";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 10);
+            this.label4.Location = new System.Drawing.Point(11, 12);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(200, 22);
+            this.label4.Size = new System.Drawing.Size(239, 26);
             this.label4.TabIndex = 2;
             this.label4.Text = "Search patient name:";
             // 
@@ -293,9 +315,10 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(531, 7);
+            this.comboBox1.Location = new System.Drawing.Point(708, 9);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 28);
+            this.comboBox1.Size = new System.Drawing.Size(239, 34);
             this.comboBox1.TabIndex = 1;
             // 
             // comboBox2
@@ -303,9 +326,10 @@
             this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(208, 9);
+            this.comboBox2.Location = new System.Drawing.Point(277, 11);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(195, 28);
+            this.comboBox2.Size = new System.Drawing.Size(259, 34);
             this.comboBox2.TabIndex = 0;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -313,9 +337,10 @@
             // 
             this.tabPage3.Controls.Add(this.crystalReportViewer3);
             this.tabPage3.Controls.Add(this.panel1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 35);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1055, 538);
+            this.tabPage3.Size = new System.Drawing.Size(1409, 664);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Treatment History";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -326,11 +351,13 @@
             this.crystalReportViewer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer3.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer3.Location = new System.Drawing.Point(0, 41);
+            this.crystalReportViewer3.Location = new System.Drawing.Point(0, 50);
+            this.crystalReportViewer3.Margin = new System.Windows.Forms.Padding(4);
             this.crystalReportViewer3.Name = "crystalReportViewer3";
             this.crystalReportViewer3.ReportSource = this.TreatmentHistory1;
-            this.crystalReportViewer3.Size = new System.Drawing.Size(1055, 497);
+            this.crystalReportViewer3.Size = new System.Drawing.Size(1409, 614);
             this.crystalReportViewer3.TabIndex = 0;
+            this.crystalReportViewer3.ToolPanelWidth = 267;
             // 
             // panel1
             // 
@@ -340,43 +367,58 @@
             this.panel1.Controls.Add(this.cmbPatientName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1055, 41);
+            this.panel1.Size = new System.Drawing.Size(1409, 50);
             this.panel1.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(427, 9);
+            this.label2.Location = new System.Drawing.Point(569, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 22);
+            this.label2.Size = new System.Drawing.Size(118, 26);
             this.label2.TabIndex = 3;
             this.label2.Text = "Patient ID";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 10);
+            this.label1.Location = new System.Drawing.Point(11, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 22);
+            this.label1.Size = new System.Drawing.Size(239, 26);
             this.label1.TabIndex = 2;
             this.label1.Text = "Search patient name:";
             // 
             // cmbPatientID
             // 
             this.cmbPatientID.FormattingEnabled = true;
-            this.cmbPatientID.Location = new System.Drawing.Point(531, 7);
+            this.cmbPatientID.Location = new System.Drawing.Point(708, 9);
+            this.cmbPatientID.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPatientID.Name = "cmbPatientID";
-            this.cmbPatientID.Size = new System.Drawing.Size(180, 28);
+            this.cmbPatientID.Size = new System.Drawing.Size(239, 34);
             this.cmbPatientID.TabIndex = 1;
             // 
             // cmbPatientName
             // 
             this.cmbPatientName.FormattingEnabled = true;
-            this.cmbPatientName.Location = new System.Drawing.Point(208, 9);
+            this.cmbPatientName.Location = new System.Drawing.Point(277, 11);
+            this.cmbPatientName.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPatientName.Name = "cmbPatientName";
-            this.cmbPatientName.Size = new System.Drawing.Size(195, 28);
+            this.cmbPatientName.Size = new System.Drawing.Size(259, 34);
             this.cmbPatientName.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 35);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1409, 664);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Outstanding Balances";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // dsDentist1
             // 
@@ -447,11 +489,12 @@
             // 
             // Reports
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1063, 571);
+            this.ClientSize = new System.Drawing.Size(1417, 703);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Reports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
@@ -511,5 +554,6 @@
         private System.Windows.Forms.ComboBox cmbDentistFilter;
         private System.Windows.Forms.ComboBox cmbStatusFilter;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }
