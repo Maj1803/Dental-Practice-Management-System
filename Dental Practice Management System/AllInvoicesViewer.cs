@@ -40,7 +40,7 @@ namespace Dental_Practice_Management_System
 
             Panel filterPanel = new Panel();
             filterPanel.Dock = DockStyle.Top;
-            filterPanel.Height = 105;
+            filterPanel.Height = 110;
             filterPanel.Padding = new Padding(10);
             filterPanel.BackColor = Color.WhiteSmoke;
 
@@ -55,11 +55,11 @@ namespace Dental_Practice_Management_System
 
             Label lblStatus = new Label();
             lblStatus.Text = "Status:";
-            lblStatus.Location = new Point(300, 15);
+            lblStatus.Location = new Point(10, 15);
             lblStatus.AutoSize = true;
-
+          
             cmbStatus = new ComboBox();
-            cmbStatus.Location = new Point(350, 12);
+            cmbStatus.Location = new Point(80, 12);
             cmbStatus.Width = 130;
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.Items.Add("All");
@@ -71,11 +71,11 @@ namespace Dental_Practice_Management_System
             // Start date
             Label lblStartDate = new Label();
             lblStartDate.Text = "Start Date:";
-            lblStartDate.Location = new Point(10, 55);
+            lblStartDate.Location = new Point(10, 58);
             lblStartDate.AutoSize = true;
 
             dtpStartDate = new DateTimePicker();
-            dtpStartDate.Location = new Point(100, 52);
+            dtpStartDate.Location = new Point(105, 54);
             dtpStartDate.Width = 180;
             dtpStartDate.Format = DateTimePickerFormat.Short;
             dtpStartDate.ShowCheckBox = true;
@@ -84,25 +84,28 @@ namespace Dental_Practice_Management_System
             // End date
             Label lblEndDate = new Label();
             lblEndDate.Text = "End Date:";
-            lblEndDate.Location = new Point(300, 55);
+            lblEndDate.Location = new Point(380, 58);
             lblEndDate.AutoSize = true;
 
             dtpEndDate = new DateTimePicker();
-            dtpEndDate.Location = new Point(350, 52);
-            dtpEndDate.Width = 130;
+            dtpEndDate.Location = new Point(420, 54);
+            dtpEndDate.Width = 160;
             dtpEndDate.Format = DateTimePickerFormat.Short;
             dtpEndDate.ShowCheckBox = true;
             dtpEndDate.Checked = false;
 
+
+            // Generate Button
             btnApplyFilters = new Button();
             btnApplyFilters.Text = "Generate";
-            btnApplyFilters.Location = new Point(510, 12);
+            btnApplyFilters.Location = new Point(620, 12);
             btnApplyFilters.Size = new Size(120, 32);
             btnApplyFilters.Click += BtnApplyFilters_Click;
 
+            //Clear Filters
             btnClearFilters = new Button();
             btnClearFilters.Text = "Clear Filters";
-            btnClearFilters.Location = new Point(510, 52);
+            btnClearFilters.Location = new Point(620, 52);
             btnClearFilters.Size = new Size(120, 32);
             btnClearFilters.Click += BtnClearFilters_Click;
 
@@ -132,6 +135,12 @@ namespace Dental_Practice_Management_System
 
         private void BtnApplyFilters_Click(object sender, EventArgs e)
         {
+            if (dtpStartDate.Checked && dtpStartDate.Value.Date == DateTime.Today)
+            {
+                MessageBox.Show("The Start Date cannot be the same as today's date.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (dtpStartDate.Checked &&
                 dtpEndDate.Checked &&
                 dtpStartDate.Value.Date > dtpEndDate.Value.Date)
@@ -172,7 +181,8 @@ namespace Dental_Practice_Management_System
                     P.Patient_ID AS PatientID,
                     I.invoice_date AS InvoiceDate,
                     I.invoice_status AS InvoiceStatus,
-                    I.invoice_balance_due AS BalanceDue
+                    I.invoice_balance_due AS BalanceDue,
+                    I.invoice_total_amount AS InvoiceAmount
                 FROM Invoice I
                 INNER JOIN Appointment A
                     ON I.appointment_id = A.Appointment_ID
@@ -252,7 +262,7 @@ namespace Dental_Practice_Management_System
         private void DisplayInvoiceReport(DataTable invoiceTable)
         {
             string reportPath = Path.Combine(
-                Directory.GetCurrentDirectory(),
+                Application.StartupPath,
                 "InvoiceListing.rpt"
             );
 

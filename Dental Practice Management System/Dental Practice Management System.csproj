@@ -111,6 +111,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoiceListing.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="InvoiceListingDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -282,10 +283,11 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InvoiceBreakdown.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="InvoiceListing.rpt">
+    <Content Include="InvoiceListing.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InvoiceListing.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="InvoiceViewer.resx">
       <DependentUpon>InvoiceViewer.cs</DependentUpon>
     </EmbeddedResource>

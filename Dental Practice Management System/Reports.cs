@@ -262,7 +262,7 @@ namespace Dental_Practice_Management_System
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show($"Failed to load Invoice Viewer: {ex.Message}",
+                    MessageBox.Show($"Failed to load Oustanding Balances: {ex.Message}",
                                      "Invoice Viewer Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 

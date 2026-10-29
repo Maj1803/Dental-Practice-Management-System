@@ -291,6 +291,8 @@ namespace Dental_Practice_Management_System {
             
             private global::System.Data.DataColumn columnBalanceDue;
             
+            private global::System.Data.DataColumn columnInvoiceAmount;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public InvoiceListDataTable() {
@@ -374,6 +376,14 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn InvoiceAmountColumn {
+                get {
+                    return this.columnInvoiceAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -409,7 +419,7 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public InvoiceListRow AddInvoiceListRow(int InvoiceID, string PatientName, int PatientID, System.DateTime InvoiceDate, string InvoiceStatus, decimal BalanceDue) {
+            public InvoiceListRow AddInvoiceListRow(int InvoiceID, string PatientName, int PatientID, System.DateTime InvoiceDate, string InvoiceStatus, decimal BalanceDue, decimal InvoiceAmount) {
                 InvoiceListRow rowInvoiceListRow = ((InvoiceListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         InvoiceID,
@@ -417,7 +427,8 @@ namespace Dental_Practice_Management_System {
                         PatientID,
                         InvoiceDate,
                         InvoiceStatus,
-                        BalanceDue};
+                        BalanceDue,
+                        InvoiceAmount};
                 rowInvoiceListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInvoiceListRow);
                 return rowInvoiceListRow;
@@ -446,6 +457,7 @@ namespace Dental_Practice_Management_System {
                 this.columnInvoiceDate = base.Columns["InvoiceDate"];
                 this.columnInvoiceStatus = base.Columns["InvoiceStatus"];
                 this.columnBalanceDue = base.Columns["BalanceDue"];
+                this.columnInvoiceAmount = base.Columns["InvoiceAmount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -463,6 +475,8 @@ namespace Dental_Practice_Management_System {
                 base.Columns.Add(this.columnInvoiceStatus);
                 this.columnBalanceDue = new global::System.Data.DataColumn("BalanceDue", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBalanceDue);
+                this.columnInvoiceAmount = new global::System.Data.DataColumn("InvoiceAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoiceAmount);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -701,6 +715,22 @@ namespace Dental_Practice_Management_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public decimal InvoiceAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableInvoiceList.InvoiceAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceAmount\' in table \'InvoiceList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceList.InvoiceAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsInvoiceIDNull() {
                 return this.IsNull(this.tableInvoiceList.InvoiceIDColumn);
             }
@@ -769,6 +799,18 @@ namespace Dental_Practice_Management_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetBalanceDueNull() {
                 this[this.tableInvoiceList.BalanceDueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsInvoiceAmountNull() {
+                return this.IsNull(this.tableInvoiceList.InvoiceAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetInvoiceAmountNull() {
+                this[this.tableInvoiceList.InvoiceAmountColumn] = global::System.Convert.DBNull;
             }
         }
         
