@@ -133,6 +133,127 @@ namespace Dental_Practice_Management_System
             FormClosed += AllInvoicesViewer_FormClosed;
         }
 
+
+        //private void InitializeViewer()
+        //{
+        //    Text = "Outstanding Balances";
+        //    StartPosition = FormStartPosition.CenterScreen;
+        //    WindowState = FormWindowState.Maximized;
+        //    MinimumSize = new Size(900, 600);
+
+        //    // Shared styles (tweak these to match your Appointments tab exactly)
+        //    Font labelFont = new Font("Segoe UI", 12F, FontStyle.Regular);
+        //    Font boldFont = new Font("Segoe UI", 12F, FontStyle.Bold);
+        //    Color tealColor = Color.FromArgb(0, 128, 150);
+        //    const string dateFormat = "dddd , dd MMMM yyyy";
+
+        //    Panel filterPanel = new Panel();
+        //    filterPanel.Dock = DockStyle.Top;
+        //    filterPanel.Height = 120;
+        //    filterPanel.BackColor = Color.WhiteSmoke;
+
+        //    // ---------- Row 1 ----------
+        //    Label lblFilter = new Label();
+        //    lblFilter.Text = "Filter by Date:";
+        //    lblFilter.Font = boldFont;
+        //    lblFilter.AutoSize = true;
+        //    lblFilter.Location = new Point(15, 20);
+
+        //    Label lblStartDate = new Label();
+        //    lblStartDate.Text = "Start Date:";
+        //    lblStartDate.Font = boldFont;
+        //    lblStartDate.AutoSize = true;
+        //    lblStartDate.Location = new Point(150, 20);
+
+        //    dtpStartDate = new DateTimePicker();
+        //    dtpStartDate.Location = new Point(255, 16);
+        //    dtpStartDate.Width = 290;
+        //    dtpStartDate.Font = labelFont;
+        //    dtpStartDate.Format = DateTimePickerFormat.Custom;
+        //    dtpStartDate.CustomFormat = dateFormat;
+        //    dtpStartDate.ShowCheckBox = true;   // keeps the "optional filter" behaviour
+        //    dtpStartDate.Checked = false;
+
+        //    Label lblEndDate = new Label();
+        //    lblEndDate.Text = "End Date:";
+        //    lblEndDate.Font = boldFont;
+        //    lblEndDate.AutoSize = true;
+        //    lblEndDate.Location = new Point(575, 20);
+
+        //    dtpEndDate = new DateTimePicker();
+        //    dtpEndDate.Location = new Point(670, 16);
+        //    dtpEndDate.Width = 290;
+        //    dtpEndDate.Font = labelFont;
+        //    dtpEndDate.Format = DateTimePickerFormat.Custom;
+        //    dtpEndDate.CustomFormat = dateFormat;
+        //    dtpEndDate.ShowCheckBox = true;
+        //    dtpEndDate.Checked = false;
+
+        //    // ---------- Row 2 (Status under Start Date) ----------
+        //    Label lblStatus = new Label();
+        //    lblStatus.Text = "Status:";
+        //    lblStatus.Font = boldFont;
+        //    lblStatus.AutoSize = true;
+        //    lblStatus.Location = new Point(150, 68);
+
+        //    cmbStatus = new ComboBox();
+        //    cmbStatus.Location = new Point(255, 64);
+        //    cmbStatus.Width = 290;
+        //    cmbStatus.Font = labelFont;
+        //    cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+        //    cmbStatus.Items.Add("All");
+        //    cmbStatus.Items.Add("Paid");
+        //    cmbStatus.Items.Add("Partial");
+        //    cmbStatus.Items.Add("Unpaid");
+        //    cmbStatus.SelectedIndex = 0;
+
+        //    // ---------- Buttons (right side, Clear under Generate) ----------
+        //    btnApplyFilters = new Button();
+        //    btnApplyFilters.Text = "Generate";
+        //    btnApplyFilters.Location = new Point(1000, 14);
+        //    btnApplyFilters.Size = new Size(150, 42);
+        //    btnApplyFilters.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+        //    btnApplyFilters.BackColor = tealColor;
+        //    btnApplyFilters.ForeColor = Color.White;
+        //    btnApplyFilters.FlatStyle = FlatStyle.Flat;
+        //    btnApplyFilters.FlatAppearance.BorderSize = 0;
+        //    btnApplyFilters.Cursor = Cursors.Hand;
+        //    btnApplyFilters.Click += BtnApplyFilters_Click;
+
+        //    btnClearFilters = new Button();
+        //    btnClearFilters.Text = "Clear";
+        //    btnClearFilters.Location = new Point(1000, 64);
+        //    btnClearFilters.Size = new Size(150, 42);
+        //    btnClearFilters.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+        //    btnClearFilters.BackColor = tealColor;
+        //    btnClearFilters.ForeColor = Color.White;
+        //    btnClearFilters.FlatStyle = FlatStyle.Flat;
+        //    btnClearFilters.FlatAppearance.BorderSize = 0;
+        //    btnClearFilters.Cursor = Cursors.Hand;
+        //    btnClearFilters.Click += BtnClearFilters_Click;
+
+        //    filterPanel.Controls.Add(lblFilter);
+        //    filterPanel.Controls.Add(lblStartDate);
+        //    filterPanel.Controls.Add(dtpStartDate);
+        //    filterPanel.Controls.Add(lblEndDate);
+        //    filterPanel.Controls.Add(dtpEndDate);
+        //    filterPanel.Controls.Add(lblStatus);
+        //    filterPanel.Controls.Add(cmbStatus);
+        //    filterPanel.Controls.Add(btnApplyFilters);
+        //    filterPanel.Controls.Add(btnClearFilters);
+
+        //    // Crystal Reports viewer
+        //    crystalReportViewer = new CrystalReportViewer();
+        //    crystalReportViewer.Dock = DockStyle.Fill;
+        //    crystalReportViewer.ToolPanelView = ToolPanelViewType.None;
+        //    crystalReportViewer.ShowGroupTreeButton = false;
+
+        //    Controls.Add(crystalReportViewer);
+        //    Controls.Add(filterPanel);
+
+        //    FormClosed += AllInvoicesViewer_FormClosed;
+        //}
+
         private void BtnApplyFilters_Click(object sender, EventArgs e)
         {
             if (dtpStartDate.Checked && dtpStartDate.Value.Date == DateTime.Today)
