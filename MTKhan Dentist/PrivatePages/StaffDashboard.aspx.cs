@@ -163,9 +163,25 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
             lblPageError.Text = "The database could not be reached. Check your connection and refresh the page.";
             lblPageError.Visible = true;
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            // 1. Check if they are logged
+            if (Session["Role"] == null)
+            {
+                Response.Redirect("~/Account/Login");
+                return;
+            }
+
+            // 2. ROLE CHECK
+            string sessionRole = Session["Role"].ToString();
+            if (!sessionRole.Equals("Dentist", StringComparison.OrdinalIgnoreCase) &&
+                !sessionRole.Equals("Receptionist", StringComparison.OrdinalIgnoreCase))
+            {
+                // If they are a patient, send them to the patient dashboard
+                Response.Redirect("~/PrivatePages/PatientDashboard.aspx");
+                return;
+            }
+
             string displayName;
             try
             {
@@ -181,7 +197,8 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
 
             if (employeeId == 0 || employeeRole == null)
             {
-                Response.Redirect("~/");
+                //  log them out or redirect home
+                Response.Redirect("~/Account/Login");
                 return;
             }
 

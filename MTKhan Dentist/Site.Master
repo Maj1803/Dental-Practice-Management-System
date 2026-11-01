@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MTKhan_Dentist.SiteMaster" %>
+<%@ Import Namespace="System" %>
 
 <!DOCTYPE html>
 
@@ -19,8 +20,6 @@
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
@@ -32,45 +31,64 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
-        
-      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <div class="container-fluid px-4">
-           <a class="navbar-brand d-flex align-items-center" runat="server" href="~/">
-    <img src="~/Images/new-logo.png" alt="Dr Mt Khan Dental Logo" style="height: 45px; margin-right: 10px; margin-top: -6px;" runat="server" />
-    DR MT KHAN DENTAL
-</a>
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand d-flex align-items-center" runat="server" href="~/">
+                    <img src="~/Images/new-logo.png" alt="Dr Mt Khan Dental Logo" style="height: 45px; margin-right: 10px; margin-top: -6px;" runat="server" />
+                    DR MT KHAN DENTAL
+                </a>
+                
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
-                       <li class="nav-item dropdown">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="privateAreaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="privateAreaDropdown">
-                        <li><h6 class="dropdown-header">Patient</h6></li>
-                         <li><a class="dropdown-item" href="/PrivatePages/PatientDashboard.aspx">Patient Dashboard</a></li>
-                        <li><a class="dropdown-item" href="/PrivatePages/MyAppointments.aspx">My Appointments</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><h6 class="dropdown-header">Staff</h6></li>
-                        <li><a class="dropdown-item" href="/PrivatePages/StaffDashboard.aspx">Staff Dashboard</a></li>
-                        <li><a class="dropdown-item" href="/PrivatePages/ManageSchedule.aspx">Manage Schedule</a></li>
-                        <li><a class="dropdown-item" href="/PrivatePages/Reports.aspx">Reports</a></li>
-                                        </ul>
-                </li>
-                <li class="nav-item">
-    <a class="nav-link" runat="server" href="~/RequestApp.aspx">Request Appointment</a>
-</li>
-                           <li class="nav-item"><a class="nav-link" runat="server" href="~/Help">Help</a></li>
+                        
+                        <!-- MY ACCOUNT DROPDOWN -->
+                        <% if (Session["Role"] != null) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="privateAreaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="privateAreaDropdown">
+                                
+                                <%-- CHECK IF USER IS PATIENT --%>
+                                <% if (Session["Role"].ToString().Equals("Patient", StringComparison.OrdinalIgnoreCase)) { %>
+                                    <li><h6 class="dropdown-header">Patient</h6></li>
+                                    <li><a class="dropdown-item" href="/PrivatePages/PatientDashboard.aspx">Patient Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="/PrivatePages/MyAppointments.aspx">My Appointments</a></li>
+                                <% } %>
+
+                                <%-- CHECK IF USER IS STAFF (Dentist / Receptionist) --%>
+                                <% if (Session["Role"].ToString().Equals("Dentist", StringComparison.OrdinalIgnoreCase) || 
+                                       Session["Role"].ToString().Equals("Receptionist", StringComparison.OrdinalIgnoreCase)) { %>
+                                    <li><h6 class="dropdown-header">Staff</h6></li>
+                                    <li><a class="dropdown-item" href="/PrivatePages/StaffDashboard.aspx">Staff Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="/PrivatePages/ManageSchedule.aspx">Manage Schedule</a></li>
+                                    <li><a class="dropdown-item" href="/PrivatePages/Reports.aspx">Reports</a></li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <% } %>
+
+                        <!-- REQUEST APPOINTMENT (Only visible to Patients and Anonymous users) -->
+                        <% if (Session["Role"] == null || Session["Role"].ToString().Equals("Patient", StringComparison.OrdinalIgnoreCase)) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/RequestApp.aspx">Request Appointment</a>
+                        </li>
+                        <% } %>
+
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/Help">Help</a>
+                        </li>
                     </ul>
+                    
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="navbar-nav navbar-right">
@@ -90,6 +108,7 @@
                 </div>
             </div>
         </nav>
+        
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -101,5 +120,6 @@
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.bundle.js") %>
-    </asp:PlaceHolder></body>
+    </asp:PlaceHolder>
+</body>
 </html>
