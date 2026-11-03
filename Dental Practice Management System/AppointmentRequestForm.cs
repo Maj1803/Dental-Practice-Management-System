@@ -112,6 +112,12 @@ namespace Dental_Practice_Management_System
                         AND a.Appointment_ID != @aid
                         AND a.Appointment_Status NOT IN ('Cancelled', 'Declined')
                   )
+                                 AND NOT EXISTS (
+                      SELECT 1 FROM Availability_Override o
+                      WHERE o.Employee_ID = (SELECT ap.Employee_ID FROM Appointment ap WHERE ap.Appointment_ID = @aid)
+                        AND o.Target_Date = CAST(@reqDate AS DATE)
+                        AND (o.Is_Full_Day = 1 OR o.Timeslot_ID = t.Timeslot_ID)
+                  )
                 ORDER BY t.Slot_Start_Time";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -374,6 +380,27 @@ namespace Dental_Practice_Management_System
                                 "Double Booked", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             LoadAvailableSlots(); // Refresh list
                             return;
+                        }
+
+                        string overrideSql = @"
+                        SELECT COUNT(*) FROM Availability_Override o
+                        WHERE o.Employee_ID = (SELECT ap.Employee_ID FROM Appointment ap WHERE ap.Appointment_ID = @aid)
+                          AND o.Target_Date = CAST(@reqDate AS DATE)
+                          AND (o.Is_Full_Day = 1 OR o.Timeslot_ID = @tid)";
+
+                        using (SqlCommand overrideCmd = new SqlCommand(overrideSql, conn))
+                        {
+                            overrideCmd.Parameters.AddWithValue("@tid", selectedItem.TimeslotId);
+                            overrideCmd.Parameters.AddWithValue("@reqDate", _requestedDate.Date);
+                            overrideCmd.Parameters.AddWithValue("@aid", _appointmentId);
+
+                            if ((int)overrideCmd.ExecuteScalar() > 0)
+                            {
+                                MessageBox.Show("The dentist is unavailable at this time. Please select another time.",
+                                    "Dentist Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                LoadAvailableSlots();
+                                return;
+                            }
                         }
                     }
 
