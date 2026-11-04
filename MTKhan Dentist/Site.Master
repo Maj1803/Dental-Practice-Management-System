@@ -63,6 +63,9 @@
                                     <li><h6 class="dropdown-header">Patient</h6></li>
                                     <li><a class="dropdown-item" href="/PrivatePages/PatientDashboard.aspx">Patient Dashboard</a></li>
                                     <li><a class="dropdown-item" href="/PrivatePages/MyAppointments.aspx">My Appointments</a></li>
+                                    <li><a class="dropdown-item" href="/PrivatePages/PatientMessages.aspx">Messages</a></li>
+                                    <li><a class="dropdown-item" href="/Account/Manage.aspx">Manage Profile</a></li>
+                                    
                                 <% } %>
 
                                 <%-- CHECK IF USER IS STAFF (Dentist / Receptionist) --%>
@@ -98,7 +101,7 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="navbar-nav navbar-right">
-                                <li><a runat="server" class="nav-link" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li><a runat="server" class="nav-link" href="~/PrivatePages/PatientDashboard.aspx" title="Profile">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>

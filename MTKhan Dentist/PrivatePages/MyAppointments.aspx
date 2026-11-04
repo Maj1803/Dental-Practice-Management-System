@@ -70,20 +70,21 @@
                 </h5>
 
                 <div class="table-responsive">
-
+                    
+                <asp:Label ID="lblCancelStatus" runat="server" EnableViewState="false" />
                     <table class="table appointment-table mb-0">
     <thead>
         <tr>
             <th>Date</th>
             <th>Time</th>
             <th>Dentist</th>
-            <th>Appointment</th>
+            <th>Treatment</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <asp:Repeater ID="rptUpcoming" runat="server">
+        <asp:Repeater ID="rptUpcoming" runat="server" OnItemCommand="rptUpcoming_ItemCommand">
             <ItemTemplate>
                 <tr>
                     <td><%# Eval("Appointment_Date", "{0:dd MMM yyyy}") %></td>
@@ -96,8 +97,12 @@
                         </span>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-outline-primary rounded-pill" disabled>Reschedule</button>
-                        <button type="button" class="btn btn-sm btn-outline-danger rounded-pill" disabled>Cancel</button>
+                        <asp:Button runat="server" Text="Request Cancellation"
+                                CssClass="btn btn-sm btn-outline-danger rounded-pill"
+                                CommandName="RequestCancel"
+                                CommandArgument='<%# Eval("Appointment_ID") %>'
+                                Visible='<%# CanRequestCancel(Eval("Appointment_Status")) %>'
+                                OnClientClick="return confirm('Send a cancellation request to reception?');" />
                     </td>
                 </tr>
             </ItemTemplate>
@@ -132,7 +137,7 @@
             <th>Date</th>
             <th>Time</th>
             <th>Dentist</th>
-            <th>Appointment</th>
+            <th>Treatment</th>
             <th>Status</th>
         </tr>
     </thead>

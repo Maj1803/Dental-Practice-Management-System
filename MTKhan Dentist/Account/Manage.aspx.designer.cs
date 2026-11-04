@@ -7,11 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MTKhan_Dentist.Account {
-    
-    
-    public partial class Manage {
-        
+
+namespace MTKhan_Dentist.Account
+{
+
+
+    public partial class Manage
+    {
+
         /// <summary>
         /// successMessage control.
         /// </summary>
@@ -20,7 +23,43 @@ namespace MTKhan_Dentist.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder successMessage;
-        
+
+        /// <summary>
+        /// lblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatus;
+
+        /// <summary>
+        /// txtEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        /// <summary>
+        /// txtPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPhone;
+
+        /// <summary>
+        /// btnSaveProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveProfile;
+
         /// <summary>
         /// ChangePassword control.
         /// </summary>
@@ -29,7 +68,7 @@ namespace MTKhan_Dentist.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
-        
+
         /// <summary>
         /// CreatePassword control.
         /// </summary>
@@ -38,14 +77,6 @@ namespace MTKhan_Dentist.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink CreatePassword;
-        
-        /// <summary>
-        /// PhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PhoneNumber;
+
     }
 }

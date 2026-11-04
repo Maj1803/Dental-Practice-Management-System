@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="MTKhan_Dentist.Account.Manage" %>
+﻿<%@ Page Title="My Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="MTKhan_Dentist.Account.Manage" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
@@ -14,64 +14,49 @@
 
         <div class="col-md-12">
             <div class="row">
-                <h4>Change your account settings</h4>
-                <hr />
                 <dl class="dl-horizontal">
-                    <dt>Password:</dt>
-                    <dd>
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
-                    </dd>
-                    <dt>External Logins:</dt>
-                    <dd><%: LoginsCount %>
-                        <asp:HyperLink NavigateUrl="/Account/ManageLogins" Text="[Manage]" runat="server" />
+                    <div class="col-md-8">
+                        <hr />
 
-                    </dd>
-                    <%--
-                        Phone Numbers can used as a second factor of verification in a two-factor authentication system.
-                        See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                        for details on setting up this ASP.NET application to support two-factor authentication using SMS.
-                        Uncomment the following blocks after you have set up two-factor authentication
-                    --%>
-                    <%--
-                    <dt>Phone Number:</dt>
-                    <% if (HasPhoneNumber)
-                        { %>
-                    <dd>
-                        <asp:HyperLink NavigateUrl="/Account/AddPhoneNumber" runat="server" Text="[Add]" />
-                    </dd>
-                    <% }
-                        else
-                        { %>
-                    <dd>
-                        <asp:Label Text="" ID="PhoneNumber" runat="server" />
-                        <asp:HyperLink NavigateUrl="/Account/AddPhoneNumber" runat="server" Text="[Change]" /> &nbsp;|&nbsp;
-                        <asp:LinkButton Text="[Remove]" OnClick="RemovePhone_Click" runat="server" />
-                    </dd>
-                    <% } %>
-                    --%>
+                        <asp:Label ID="lblStatus" runat="server" CssClass="d-block mb-3" EnableViewState="false" />
 
-                    <dt>Two-Factor Authentication:</dt>
-                    <dd>
-                        <p>
-                            There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                            for details on setting up this ASP.NET application to support two-factor authentication.
-                        </p>
-                        <% if (TwoFactorEnabled)
-                            { %> 
-                        <%--
-                        Enabled
-                        <asp:LinkButton Text="[Disable]" runat="server" CommandArgument="false" OnClick="TwoFactorDisable_Click" />
-                        --%>
-                        <% }
-                            else
-                            { %> 
-                        <%--
-                        Disabled
-                        <asp:LinkButton Text="[Enable]" CommandArgument="true" OnClick="TwoFactorEnable_Click" runat="server" />
-                        --%>
-                        <% } %>
-                    </dd>
+                        <div class="mb-3">
+                            <label class="form-label">Email address</label>
+                            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" MaxLength="150" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmail" ValidationGroup="Profile"
+                                ErrorMessage="Email is required." CssClass="text-danger small" Display="Dynamic" />
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEmail" ValidationGroup="Profile"
+                                ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" ErrorMessage="Enter a valid email."
+                                CssClass="text-danger small" Display="Dynamic" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone number</label>
+                            <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" TextMode="Phone" MaxLength="20" />
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="txtPhone" ValidationGroup="Profile"
+                                ValidationExpression="^[0-9+\s\-()]{7,20}$" ErrorMessage="Enter a valid phone number."
+                                CssClass="text-danger small" Display="Dynamic" />
+                        </div>
+
+                        <div class="py-4">
+                        <asp:Button ID="btnSaveProfile" runat="server" Text="Save changes" ValidationGroup="Profile"
+                            CssClass="btn btn-success px-4" OnClick="btnSaveProfile_Click" />
+
+                        <h4 class="mt-5">Password</h4>
+                        <hr />
+                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Change my password" Visible="false"
+                            ID="ChangePassword" runat="server" CssClass="btn btn-outline-dark" />
+                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="Create a password" Visible="false"
+                            ID="CreatePassword" runat="server" CssClass="btn btn-outline-dark" />
+
+                        </div>
+
+                        <div class="py-4">
+                            <hr />
+                            <a href="~/PrivatePages/PatientDashboard.aspx" runat="server" class="btn btn-primary px-4">← Back to dashboard</a>
+
+                        </div>
+                    </div>
                 </dl>
             </div>
         </div>

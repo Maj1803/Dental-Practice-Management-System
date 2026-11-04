@@ -97,6 +97,8 @@
                                     No upcoming appointments
                                 </p>
                             </asp:Panel>
+                            
+                        <a href="~/PrivatePages/MyAppointments.aspx" runat="server" class="stretched-link" aria-label="Manage my profile"></a>
                         </div>
 
                     </div>
@@ -123,7 +125,7 @@
                                 <asp:Label ID="lblPatientName" runat="server" />
                             </p>
                         </div>
-
+                        <a href="~/Account/Manage" runat="server" class="stretched-link" aria-label="Manage my profile"></a>
                     </div>
                 </div>
             </div>

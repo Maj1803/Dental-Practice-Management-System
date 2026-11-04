@@ -24,6 +24,17 @@ namespace MTKhan_Dentist.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Role"] == null || Session["PatientId"] == null)
+            {
+                Response.Redirect("~/Account/Login");
+                return;
+            }
+            if (!Session["Role"].ToString().Equals("Patient", StringComparison.OrdinalIgnoreCase))
+            {
+                Response.Redirect("~/PrivatePages/StaffDashboard.aspx");
+                return;
+            }
+
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             if (!IsPostBack)
