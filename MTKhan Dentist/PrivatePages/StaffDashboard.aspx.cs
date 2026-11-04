@@ -95,6 +95,7 @@ JOIN Patient p ON a.Patient_ID = p.Patient_ID
 JOIN Employee e ON a.Employee_ID = e.Employee_ID
 JOIN Timeslot t ON a.Timeslot_ID = t.Timeslot_ID
 WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
+   AND ISNULL(a.Appointment_Status, '') NOT IN ('Declined', 'Requested')
 ";
                 if (role == "Dentist")
                     sql += " AND a.Employee_ID = @empId ";
@@ -140,7 +141,7 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
             using (SqlConnection con = new SqlConnection(connStr))
             {
                 con.Open();
-                string baseWhere = " WHERE CAST(Appointment_Date AS DATE) = CAST(GETDATE() AS DATE) ";
+                string baseWhere = " WHERE CAST(Appointment_Date AS DATE) = CAST(GETDATE() AS DATE) AND ISNULL(Appointment_Status, '') NOT IN ('Declined', 'Requested') ";
                 if (role == "Dentist") baseWhere += " AND Employee_ID = @empId ";
 
                 string sql1 = "SELECT COUNT(DISTINCT Patient_ID) FROM Appointment " + baseWhere + " AND Appointment_Status <> 'Cancelled'";
@@ -155,6 +156,38 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
                 lblTodayPatients.Text = c1.ToString();
                 lblRemaining.Text = c2.ToString();
                 lblCancellations.Text = c3.ToString();
+            }
+        }
+
+        private void BindPendingBadge()
+        {
+            // Pending = a website request that the FES has not confirmed or declined yet.
+            // Wrapped so that any problem here never breaks the rest of the dashboard.
+            try
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(connStr))
+                {
+                    string sql = @"SELECT COUNT(*)
+                                   FROM SystemLink s
+                                   INNER JOIN Appointment a ON a.Appointment_ID = s.Appointment_ID
+                                   WHERE s.Message_Type = 'AppointmentRequested'
+                                     AND ISNULL(a.Appointment_Status, '') NOT IN ('Declined', 'Cancelled')
+                                     AND NOT EXISTS (SELECT 1 FROM SystemLink r
+                                                     WHERE r.Reference_No = s.Reference_No
+                                                       AND r.Message_Type IN ('AppointmentConfirmed', 'AppointmentDeclined'))";
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        con.Open();
+                        int pending = Convert.ToInt32(cmd.ExecuteScalar());
+                        lblPendingBadge.Text = pending > 0 ? pending.ToString() : "";
+                        lblPendingBadge.Visible = pending > 0;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                lblPendingBadge.Visible = false;
             }
         }
 
@@ -205,6 +238,7 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
             pageReady = true;
             divDentistFilter.Visible = (employeeRole != "Dentist");
             divManageSchedule.Visible = (employeeRole == "Dentist");
+            divIncomingRequests.Visible = (employeeRole == "Receptionist");
 
             if (!IsPostBack)
             {
@@ -222,6 +256,8 @@ WHERE CAST(a.Appointment_Date AS DATE) = CAST(GETDATE() AS DATE)
                 {
                     ShowError();
                 }
+
+                if (employeeRole == "Receptionist") BindPendingBadge();
             }
         }
 

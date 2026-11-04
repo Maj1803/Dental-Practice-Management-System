@@ -45,26 +45,28 @@ namespace MTKhan_Dentist
                 return;
             }
 
-            string referenceNo = "REQ-" + DateTime.Now.ToString("HHmmss");
+            string referenceNo = "REQ-" + DateTime.Now.ToString("yyMMddHHmmss");
 
             try
             {
                 using (var db = new DSEntity())
                 {
                     // ---------- 1. Find or create the patient ----------
-                    var patient = db.Patients
-                        .FirstOrDefault(p => p.Patient_Phone_Number == phone);
+                    string[] nameParts = name.Split(new[] { ' ' }, 2);
+                    string firstName = nameParts[0];
+                    string lastName = nameParts.Length > 1 ? nameParts[1] : "";
+
+                    var patient = db.Patients.FirstOrDefault(p =>
+                        p.Patient_Phone_Number == phone &&
+                        p.Patient_First_Name == firstName &&
+                        p.Patient_Last_Name == lastName);
 
                     if (patient == null)
                     {
-                        string[] parts = name.Split(new[] { ' ' }, 2);
-                        string first = parts[0];
-                        string last = parts.Length > 1 ? parts[1] : "";
-
                         patient = new Patient
                         {
-                            Patient_First_Name = first,
-                            Patient_Last_Name = last,
+                            Patient_First_Name = firstName,
+                            Patient_Last_Name = lastName,
                             Patient_Phone_Number = phone,
                             Patient_Street = "Not provided",
                             Patient_Suburb = "Not provided",
@@ -117,9 +119,12 @@ namespace MTKhan_Dentist
                     string patientName = patient.Patient_First_Name + " " +
                                          patient.Patient_Last_Name;
 
+                    string timeText = ddlTimePref.SelectedItem.Text;
+
                     string messageText =
                         $"New appointment request for {patientName} ({phone}) " +
-                        $"on {preferred:dd MMM yyyy HH:mm}. " +
+                        $"on {preferred:dd MMM yyyy}. " +
+                        $"Time preference: {timeText}. " +
                         $"Concern: {concern}. Notes: {notes}";
 
                     var link = new SystemLink

@@ -53,7 +53,8 @@ namespace MTKhan_Dentist
                 return;
             }
 
-            if (!found || !(IsDentist || IsReceptionist))
+        
+            if (!found || !IsDentist)
             {
                 Response.Redirect("~/");
                 return;
@@ -370,10 +371,11 @@ namespace MTKhan_Dentist
         private void BindCounts()
         {
             int practitionerId = GetPractitionerFilter();
+  
             string sql = "SELECT COUNT(*), " +
                          "ISNULL(SUM(CASE WHEN Appointment_Status = 'Completed' THEN 1 ELSE 0 END), 0), " +
                          "ISNULL(SUM(CASE WHEN Appointment_Status = 'Cancelled' THEN 1 ELSE 0 END), 0) " +
-                         "FROM Appointment WHERE Appointment_Date = @today";
+                         "FROM Appointment WHERE Appointment_Date = @today AND ISNULL(Appointment_Status, '') NOT IN ('Declined', 'Requested')";
             if (practitionerId > 0) sql += " AND Employee_ID = @emp";
 
             int total = 0;
@@ -405,6 +407,7 @@ namespace MTKhan_Dentist
 
         private DataTable LoadAppointments(DateTime date)
         {
+            // CHANGED: declined appointments no longer appear on the schedule grid
             const string sql = @"SELECT a.Employee_ID, a.Appointment_Status, ts.Slot_Start_Time,
                                         p.Patient_First_Name + ' ' + p.Patient_Last_Name AS PatientName,
                                         (SELECT TOP 1 tr.TreatmentName
@@ -415,7 +418,8 @@ namespace MTKhan_Dentist
                                  FROM Appointment a
                                  INNER JOIN Patient p ON p.Patient_ID = a.Patient_ID
                                  INNER JOIN Timeslot ts ON ts.Timeslot_ID = a.Timeslot_ID
-                                 WHERE a.Appointment_Date = @date";
+                                 WHERE a.Appointment_Date = @date
+                                AND ISNULL(a.Appointment_Status, '') NOT IN ('Declined', 'Requested')";
             return Fill(sql, cmd => cmd.Parameters.Add("@date", SqlDbType.Date).Value = date);
         }
 
@@ -649,12 +653,13 @@ namespace MTKhan_Dentist
         private List<string> GetClashingAppointments(DateTime date, int? slotId)
         {
             List<string> clashes = new List<string>();
+         
             const string sql = @"SELECT ts.Slot_Start_Time, p.Patient_First_Name + ' ' + p.Patient_Last_Name AS PatientName
                                  FROM Appointment a
                                  INNER JOIN Patient p ON p.Patient_ID = a.Patient_ID
                                  INNER JOIN Timeslot ts ON ts.Timeslot_ID = a.Timeslot_ID
                                  WHERE a.Employee_ID = @emp AND a.Appointment_Date = @date
-                                 AND ISNULL(a.Appointment_Status, '') NOT IN ('Cancelled', 'Completed')
+                                 AND ISNULL(a.Appointment_Status, '') NOT IN ('Cancelled', 'Completed', 'Declined', 'Requested')
                                  AND (@slot IS NULL OR a.Timeslot_ID = @slot)
                                  ORDER BY ts.Slot_Start_Time";
 

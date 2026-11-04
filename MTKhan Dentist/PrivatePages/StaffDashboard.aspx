@@ -115,6 +115,9 @@
                         <div id="divManageSchedule" runat="server">
                             <a href="ManageSchedule.aspx" class="btn btn-primary w-100 mb-2">Manage Schedule</a>
                         </div>
+                        <div id="divIncomingRequests" runat="server">
+                            <a href="IncomingRequests.aspx" class="btn btn-primary w-100 mb-2">Incoming Requests <asp:Label ID="lblPendingBadge" runat="server" CssClass="badge bg-light text-dark ms-1"></asp:Label></a>
+                        </div>
                         <a href="StaffMessages.aspx" class="btn btn-success w-100">Message Board</a>
                     </div>
                 </div>

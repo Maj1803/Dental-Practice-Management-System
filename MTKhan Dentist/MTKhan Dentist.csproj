@@ -179,6 +179,7 @@
     <Content Include="Images\google-icon.jpeg" />
     <Content Include="Images\new-logo.png" />
     <Content Include="logo\dental-logo.png" />
+    <Content Include="PrivatePages\IncomingRequests.aspx" />
     <Content Include="PrivatePages\PatientMessages.aspx" />
     <Content Include="RequestApp.aspx" />
     <Content Include="Contact.aspx" />
@@ -448,6 +449,13 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Patient.cs">
       <DependentUpon>DSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrivatePages\IncomingRequests.aspx.cs">
+      <DependentUpon>IncomingRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrivatePages\IncomingRequests.aspx.designer.cs">
+      <DependentUpon>IncomingRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="PrivatePages\PatientMessages.aspx.cs">
       <DependentUpon>PatientMessages.aspx</DependentUpon>
