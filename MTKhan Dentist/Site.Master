@@ -52,33 +52,39 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
                         
-                        <!-- MY ACCOUNT DROPDOWN -->
-                        <% if (Session["Role"] != null) { %>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="privateAreaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="privateAreaDropdown">
-                                
-                                <%-- CHECK IF USER IS PATIENT --%>
-                                <% if (Session["Role"].ToString().Equals("Patient", StringComparison.OrdinalIgnoreCase)) { %>
-                                    <li><h6 class="dropdown-header">Patient</h6></li>
-                                    <li><a class="dropdown-item" href="/PrivatePages/PatientDashboard.aspx">Patient Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="/PrivatePages/MyAppointments.aspx">My Appointments</a></li>
-                                    <li><a class="dropdown-item" href="/PrivatePages/PatientMessages.aspx">Messages</a></li>
-                                    <li><a class="dropdown-item" href="/Account/Manage.aspx">Manage Profile</a></li>
-                                    
-                                <% } %>
+                <!-- MY ACCOUNT DROPDOWN -->
+                <% if (Session["Role"] != null) { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="privateAreaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="privateAreaDropdown">
 
-                                <%-- CHECK IF USER IS STAFF (Dentist / Receptionist) --%>
-                                <% if (Session["Role"].ToString().Equals("Dentist", StringComparison.OrdinalIgnoreCase) || 
-                                       Session["Role"].ToString().Equals("Receptionist", StringComparison.OrdinalIgnoreCase)) { %>
-                                    <li><h6 class="dropdown-header">Staff</h6></li>
-                                    <li><a class="dropdown-item" href="/PrivatePages/StaffDashboard.aspx">Staff Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="/PrivatePages/ManageSchedule.aspx">Manage Schedule</a></li>
-                                    <li><a class="dropdown-item" href="/PrivatePages/Reports.aspx">Reports</a></li>
-                                <% } %>
-                            </ul>
-                        </li>
+                        <%-- CHECK IF USER IS PATIENT --%>
+                        <% if (Session["Role"].ToString().Equals("Patient", StringComparison.OrdinalIgnoreCase)) { %>
+                            <li><h6 class="dropdown-header">Patient</h6></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/PatientDashboard.aspx">Patient Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/MyAppointments.aspx">My Appointments</a></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/PatientMessages.aspx">Messages</a></li>
+                            <li><a class="dropdown-item" href="/Account/Manage.aspx">Manage Profile</a></li>
                         <% } %>
+
+                        <%-- CHECK IF USER IS RECEPTIONIST --%>
+                        <% if (Session["Role"].ToString().Equals("Receptionist", StringComparison.OrdinalIgnoreCase)) { %>
+                            <li><h6 class="dropdown-header">Staff</h6></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/StaffDashboard.aspx">Staff Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/StaffMessages.aspx">Message Board</a></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/IncomingRequests.aspx">Incoming Requests</a></li>
+                        <% } %>
+
+                        <%-- CHECK IF USER IS DENTIST --%>
+                        <% if (Session["Role"].ToString().Equals("Dentist", StringComparison.OrdinalIgnoreCase)) { %>
+                            <li><h6 class="dropdown-header">Staff</h6></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/StaffDashboard.aspx">Staff Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/StaffMessages.aspx">Message Board</a></li>
+                            <li><a class="dropdown-item" href="/PrivatePages/ManageSchedule.aspx">Manage Schedule</a></li>
+                        <% } %>
+                    </ul>
+                </li>
+                <% } %>                                        
 
                         <!-- REQUEST APPOINTMENT (Only visible to Patients and Anonymous users) -->
                         <% if (Session["Role"] == null || Session["Role"].ToString().Equals("Patient", StringComparison.OrdinalIgnoreCase)) { %>
