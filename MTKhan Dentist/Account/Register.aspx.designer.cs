@@ -33,6 +33,33 @@ namespace MTKhan_Dentist.Account
         protected global::System.Web.UI.WebControls.Literal FailureText;
 
         /// <summary>
+        /// pnlSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSuccess;
+
+        /// <summary>
+        /// litNewUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litNewUsername;
+
+        /// <summary>
+        /// pnlForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlForm;
+
+        /// <summary>
         /// PatientFirstName control.
         /// </summary>
         /// <remarks>
@@ -121,6 +148,24 @@ namespace MTKhan_Dentist.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PatientCode;
+
+        /// <summary>
+        /// PatientPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PatientPassword;
+
+        /// <summary>
+        /// PatientConfirmPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PatientConfirmPassword;
 
         /// <summary>
         /// BtnRegisterPatient control.

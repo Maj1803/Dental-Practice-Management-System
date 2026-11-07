@@ -18,6 +18,20 @@
                             </p>
                         </asp:PlaceHolder>
 
+                        <!-- SUCCESS MESSAGE (shown after the account is created) -->
+                        <asp:Panel runat="server" ID="pnlSuccess" Visible="false" CssClass="text-center">
+                            <div class="alert alert-success" role="alert">
+                                <strong>Your account has been created.</strong><br />
+                                You can now log in with your email
+                                <strong><asp:Literal runat="server" ID="litNewUsername" Mode="Encode" /></strong>
+                                and the password you chose.
+                            </div>
+                            <asp:HyperLink runat="server" NavigateUrl="~/Account/Login" CssClass="btn btn-primary btn-lg w-100">Go to Log in</asp:HyperLink>
+                        </asp:Panel>
+
+                        <!-- REGISTRATION FORM -->
+                        <asp:Panel runat="server" ID="pnlForm" DefaultButton="BtnRegisterPatient">
+
                         <!-- FIRST NAME -->
                             <div class="mb-3">
                                 <asp:Label runat="server" AssociatedControlID="PatientFirstName" CssClass="form-label">First Name</asp:Label>
@@ -90,6 +104,31 @@
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="PatientCode" ValidationGroup="PatientValidation" CssClass="text-danger" ErrorMessage="Postal code is required." Display="Dynamic" />
                             </div>
 
+                            <!-- LOGIN DETAILS SECTION -->
+                            <p class="text-muted mb-2 mt-4" style="font-size: 0.85rem; letter-spacing: 1px; border-bottom: 1px solid #dee2e6; padding-bottom: 6px;">Login Details</p>
+
+                            <p class="text-muted small mb-3">You'll log in with the email address you entered above.</p>
+
+                            <!-- PASSWORD -->
+                            <div class="mb-3">
+                                <asp:Label runat="server" AssociatedControlID="PatientPassword" CssClass="form-label">Password</asp:Label>
+                                <asp:TextBox runat="server" ID="PatientPassword" CssClass="form-control" TextMode="Password" autocomplete="new-password" placeholder="Create a password" />
+                                <small class="form-text text-muted">At least 6 characters, with an uppercase letter, a lowercase letter, a number and a symbol.</small>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger d-block" ErrorMessage="Password is required." Display="Dynamic" />
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger d-block" Display="Dynamic"
+                                    ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{6,}$"
+                                    ErrorMessage="Password must be at least 6 characters and include an uppercase letter, a lowercase letter, a number and a symbol." />
+                            </div>
+
+                            <!-- CONFIRM PASSWORD -->
+                            <div class="mb-4">
+                                <asp:Label runat="server" AssociatedControlID="PatientConfirmPassword" CssClass="form-label">Confirm Password</asp:Label>
+                                <asp:TextBox runat="server" ID="PatientConfirmPassword" CssClass="form-control" TextMode="Password" autocomplete="new-password" placeholder="Re-enter your password" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PatientConfirmPassword" ValidationGroup="PatientValidation" CssClass="text-danger d-block" ErrorMessage="Please confirm your password." Display="Dynamic" />
+                                <asp:CompareValidator runat="server" ControlToValidate="PatientConfirmPassword" ControlToCompare="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger d-block" Display="Dynamic"
+                                    ErrorMessage="The passwords do not match." />
+                            </div>
+
                             <!-- REGISTER PATIENT BUTTON -->
                             <div class="d-grid">
                                 <asp:Button runat="server" ID="BtnRegisterPatient" OnClick="BtnRegisterPatient_Click" Text="Register" CssClass="btn btn-primary btn-lg" ValidationGroup="PatientValidation" />
@@ -102,6 +141,8 @@
                                 <asp:HyperLink runat="server" ID="LoginHyperLink" NavigateUrl="~/Account/Login">Log in</asp:HyperLink>
                             </p>
                         </div>
+
+                        </asp:Panel>
 
                     </div>
                 </div>
