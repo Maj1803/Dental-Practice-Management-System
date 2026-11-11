@@ -4,7 +4,7 @@
 
     <style>
         .hero-banner { background: #e8f5f0; text-align: center; padding: 2.5rem 2rem; }
-        .pill-label { background: #56cc9d; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; padding: 6px 18px; border-radius: 999px; display: inline-block; }
+                .pill-label { color: #2a9d8f; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; display: inline-block; }
         .icon-circle { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .request-card { border-left: 4px solid #adb5bd; }
         .request-card.pending { border-left-color: #f4b740; }
@@ -91,7 +91,7 @@
                             <span class="fw-semibold"><%#: Eval("Reference_No") %></span>
                             <span class='<%# Eval("BadgeClass") %>'><%#: Eval("Request_Status") %></span>
                         </div>
-                        <p class="mb-1 text-muted"><%#: Eval("Message_Text") %></p>
+                        <p class="mb-1 text-muted"><%# Eval("MessageHtml") %></p>
                         <span class="small text-muted"><%#: Eval("ReceivedText") %></span>
                     </div>
                 </div>

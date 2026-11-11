@@ -523,6 +523,7 @@ namespace MTKhan_Dentist
                 foreach (DentistInfo d in dentists)
                 {
                     rows.Append("<td>");
+                    bool hasAppointment = false;
 
                     foreach (DataRow a in appointments.Select("Employee_ID = " + d.Id))
                     {
@@ -538,6 +539,7 @@ namespace MTKhan_Dentist
                         rows.Append("<div class=\"appt-block " + css + "\">" + Server.HtmlEncode(Convert.ToString(a["PatientName"])) +
                                     "<br><small class=\"text-muted\">" + Server.HtmlEncode(detail) + "</small></div>");
                         appointmentCount++;
+                        hasAppointment = true;
                     }
 
                     string unavailableReason = null;
@@ -560,7 +562,7 @@ namespace MTKhan_Dentist
                     if (unavailableReason != null)
                     {
                         rows.Append("<div class=\"appt-block bg-warning bg-opacity-25\">Unavailable" +
-                                    (unavailableReason.Length > 0 ? "<br><small class=\"text-muted\">" + Server.HtmlEncode(unavailableReason) + "</small>" : "") +
+                                    (hasAppointment ? " <span class=\"badge bg-danger ms-1\">Conflict: reschedule</span>" : "") +
                                     "</div>");
                     }
 

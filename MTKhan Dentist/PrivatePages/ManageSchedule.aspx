@@ -4,7 +4,7 @@
 
     <style>
         .hero-banner { background: #e8f5f0; text-align: center; padding: 3rem 2rem; }
-        .pill-label { background: #56cc9d; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; padding: 6px 18px; border-radius: 999px; display: inline-block; }
+               .pill-label { color: #2a9d8f; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; display: inline-block; }
         .schedule-calendar { font-size: 0.8rem; }
         .schedule-calendar td, .schedule-calendar th { padding: 4px 0; }
         .schedule-calendar a { text-decoration: none; }

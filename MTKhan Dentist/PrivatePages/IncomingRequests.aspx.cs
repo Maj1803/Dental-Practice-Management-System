@@ -96,6 +96,7 @@ namespace MTKhan_Dentist
             result.Columns.Add("PatientName", typeof(string));
             result.Columns.Add("Rank", typeof(int));
             result.Columns.Add("SortDate", typeof(DateTime));
+            result.Columns.Add("MessageHtml", typeof(string));
 
             foreach (DataRow r in raw.Rows)
             {
@@ -136,10 +137,15 @@ namespace MTKhan_Dentist
                 if (patient.Length > 0) received = "Patient: " + patient;
                 if (when.Length > 0) received += (received.Length > 0 ? " \u00B7 " : "") + "Appointment: " + when;
 
+                string msg = Server.HtmlEncode(Convert.ToString(r["Message_Text"]));
+                msg = msg.Replace(" Time preference:", "<br />Time preference:")
+                         .Replace(" Concern:", "<br />Concern:")
+                         .Replace(" Notes:", "<br />Notes:");
+
                 result.Rows.Add(
                     Convert.ToString(r["Reference_No"]),
                     Convert.ToString(r["Message_Text"]),
-                    label, cardClass, badgeClass, received, patient, rank, date);
+                    label, cardClass, badgeClass, received, patient, rank, date, msg);
             }
 
             return result;

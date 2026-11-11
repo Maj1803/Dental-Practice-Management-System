@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .hero-banner { background: #e8f5f0; text-align: center; padding: 2rem 1.5rem; }
-        .pill-label { background: #56cc9d; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; padding: 6px 18px; border-radius: 999px; display: inline-block; }
-        .role-badge { background: #eafaff; color: #1597ad; font-size: 0.8rem; font-weight: 600; padding: 7px 16px; border-radius: 999px; display: inline-block; border: 1px solid #98e9fb; }
+                .pill-label { color: #2a9d8f; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; display: inline-block; }
+               .role-badge { color: #1597ad; font-size: 0.9rem; font-weight: 600; display: inline-block; }
         .icon-circle { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     </style>
 
