@@ -142,8 +142,10 @@ namespace Dental_Practice_Management_System
             MinimumSize = new Size(900, 600);
 
             // Shared styles (tweak these to match your Appointments tab exactly)
-            Font labelFont = new Font("Segoe UI", 12F, FontStyle.Regular);
-            Font boldFont = new Font("Segoe UI", 12F, FontStyle.Bold);
+            //Font labelFont = new Font("Segoe UI", 12F, FontStyle.Regular);
+            //Font boldFont = new Font("Segoe UI", 12F, FontStyle.Bold);
+            Font labelFont = new Font("Segoe UI", 13F, FontStyle.Regular); // labels + date pickers
+            Font comboFont = new Font("Segoe UI", 13F, FontStyle.Bold);    // combo box text (bold, like Appointments)
             Color tealColor = Color.FromArgb(0, 128, 150);
             const string dateFormat = "dddd , dd MMMM yyyy";
 
@@ -155,13 +157,13 @@ namespace Dental_Practice_Management_System
             // ---------- Row 1 ----------
             Label lblFilter = new Label();
             lblFilter.Text = "Filter by Date:";
-            lblFilter.Font = boldFont;
+            lblFilter.Font = labelFont;
             lblFilter.AutoSize = true;
             lblFilter.Location = new Point(15, 20);
 
             Label lblStartDate = new Label();
             lblStartDate.Text = "Start Date:";
-            lblStartDate.Font = boldFont;
+            lblStartDate.Font = labelFont;
             lblStartDate.AutoSize = true;
             lblStartDate.Location = new Point(150, 20);
 
@@ -176,7 +178,7 @@ namespace Dental_Practice_Management_System
 
             Label lblEndDate = new Label();
             lblEndDate.Text = "End Date:";
-            lblEndDate.Font = boldFont;
+            lblEndDate.Font = labelFont;
             lblEndDate.AutoSize = true;
             lblEndDate.Location = new Point(575, 20);
 
@@ -192,14 +194,14 @@ namespace Dental_Practice_Management_System
             // ---------- Row 2 (Status under Start Date) ----------
             Label lblStatus = new Label();
             lblStatus.Text = "Status:";
-            lblStatus.Font = boldFont;
+            lblStatus.Font = labelFont;
             lblStatus.AutoSize = true;
             lblStatus.Location = new Point(150, 68);
 
             cmbStatus = new ComboBox();
             cmbStatus.Location = new Point(255, 64);
             cmbStatus.Width = 290;
-            cmbStatus.Font = labelFont;
+            cmbStatus.Font = comboFont;
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.Items.Add("All");
             cmbStatus.Items.Add("Paid");
