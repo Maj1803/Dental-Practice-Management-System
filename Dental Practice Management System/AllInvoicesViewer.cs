@@ -31,107 +31,7 @@ namespace Dental_Practice_Management_System
             LoadAllInvoices();
         }
 
-        //private void InitializeViewer()
-        //{
-        //    Text = "Outstanding Balances";
-        //    StartPosition = FormStartPosition.CenterScreen;
-        //    WindowState = FormWindowState.Maximized;
-        //    MinimumSize = new Size(900, 600);
-
-        //    Panel filterPanel = new Panel();
-        //    filterPanel.Dock = DockStyle.Top;
-        //    filterPanel.Height = 110;
-        //    filterPanel.Padding = new Padding(10);
-        //    filterPanel.BackColor = Color.WhiteSmoke;
-
-        //    /*Label lblPatientName = new Label();
-        //    lblPatientName.Text = "Patient Name:";
-        //    lblPatientName.Location = new Point(10, 15);
-        //    lblPatientName.AutoSize = true;
-
-        //    txtPatientName = new TextBox();
-        //    txtPatientName.Location = new Point(100, 12);
-        //    txtPatientName.Width = 180;*/
-
-        //    Label lblStatus = new Label();
-        //    lblStatus.Text = "Status:";
-        //    lblStatus.Location = new Point(10, 15);
-        //    lblStatus.AutoSize = true;
-          
-        //    cmbStatus = new ComboBox();
-        //    cmbStatus.Location = new Point(80, 12);
-        //    cmbStatus.Width = 130;
-        //    cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-        //    cmbStatus.Items.Add("All");
-        //    cmbStatus.Items.Add("Paid");
-        //    cmbStatus.Items.Add("Partial");
-        //    cmbStatus.Items.Add("Unpaid");
-        //    cmbStatus.SelectedIndex = 0;
-
-        //    // Start date
-        //    Label lblStartDate = new Label();
-        //    lblStartDate.Text = "Start Date:";
-        //    lblStartDate.Location = new Point(10, 58);
-        //    lblStartDate.AutoSize = true;
-
-        //    dtpStartDate = new DateTimePicker();
-        //    dtpStartDate.Location = new Point(105, 54);
-        //    dtpStartDate.Width = 180;
-        //    dtpStartDate.Format = DateTimePickerFormat.Short;
-        //    dtpStartDate.ShowCheckBox = true;
-        //    dtpStartDate.Checked = false;
-
-        //    // End date
-        //    Label lblEndDate = new Label();
-        //    lblEndDate.Text = "End Date:";
-        //    lblEndDate.Location = new Point(380, 58);
-        //    lblEndDate.AutoSize = true;
-
-        //    dtpEndDate = new DateTimePicker();
-        //    dtpEndDate.Location = new Point(420, 54);
-        //    dtpEndDate.Width = 160;
-        //    dtpEndDate.Format = DateTimePickerFormat.Short;
-        //    dtpEndDate.ShowCheckBox = true;
-        //    dtpEndDate.Checked = false;
-
-
-        //    // Generate Button
-        //    btnApplyFilters = new Button();
-        //    btnApplyFilters.Text = "Generate";
-        //    btnApplyFilters.Location = new Point(620, 12);
-        //    btnApplyFilters.Size = new Size(120, 32);
-        //    btnApplyFilters.Click += BtnApplyFilters_Click;
-
-        //    //Clear Filters
-        //    btnClearFilters = new Button();
-        //    btnClearFilters.Text = "Clear Filters";
-        //    btnClearFilters.Location = new Point(620, 52);
-        //    btnClearFilters.Size = new Size(120, 32);
-        //    btnClearFilters.Click += BtnClearFilters_Click;
-
-        //    //filterPanel.Controls.Add(lblPatientName);
-        //    //filterPanel.Controls.Add(txtPatientName);
-        //    filterPanel.Controls.Add(lblStatus);
-        //    filterPanel.Controls.Add(cmbStatus);
-        //    filterPanel.Controls.Add(lblStartDate);
-        //    filterPanel.Controls.Add(dtpStartDate);
-        //    filterPanel.Controls.Add(lblEndDate);
-        //    filterPanel.Controls.Add(dtpEndDate);
-        //    filterPanel.Controls.Add(btnApplyFilters);
-        //    filterPanel.Controls.Add(btnClearFilters);
-
-        //    // Crystal Reports viewer
-        //    crystalReportViewer = new CrystalReportViewer();
-        //    crystalReportViewer.Dock = DockStyle.Fill;
-        //    crystalReportViewer.ToolPanelView =
-        //        ToolPanelViewType.None;
-        //    crystalReportViewer.ShowGroupTreeButton = false;
-
-        //    Controls.Add(crystalReportViewer);
-        //    Controls.Add(filterPanel);
-
-        //    FormClosed += AllInvoicesViewer_FormClosed;
-        //}
+        
 
 
         private void InitializeViewer()
@@ -141,11 +41,12 @@ namespace Dental_Practice_Management_System
             WindowState = FormWindowState.Maximized;
             MinimumSize = new Size(900, 600);
 
-            // Shared styles (tweak these to match your Appointments tab exactly)
-            //Font labelFont = new Font("Segoe UI", 12F, FontStyle.Regular);
-            //Font boldFont = new Font("Segoe UI", 12F, FontStyle.Bold);
-            Font labelFont = new Font("Segoe UI", 13F, FontStyle.Regular); // labels + date pickers
-            Font comboFont = new Font("Segoe UI", 13F, FontStyle.Bold);    // combo box text (bold, like Appointments)
+
+            //Font labelFont = new Font("Segoe UI", 13F, FontStyle.Bold); // labels + date pickers
+            //Font comboFont = new Font("Segoe UI", 13F, FontStyle.Bold);    // combo box text (bold, like Appointments)
+           
+            Font labelFont = new Font("Segoe UI", 12F, FontStyle.Regular);
+            Font comboFont = new Font("Segoe UI", 12F, FontStyle.Regular);
             Color tealColor = Color.FromArgb(0, 128, 150);
             const string dateFormat = "dddd , dd MMMM yyyy";
 
@@ -173,7 +74,7 @@ namespace Dental_Practice_Management_System
             dtpStartDate.Font = labelFont;
             dtpStartDate.Format = DateTimePickerFormat.Custom;
             dtpStartDate.CustomFormat = dateFormat;
-            dtpStartDate.ShowCheckBox = true;   // keeps the "optional filter" behaviour
+            dtpStartDate.ShowCheckBox = true;   
             dtpStartDate.Checked = false;
 
             Label lblEndDate = new Label();
