@@ -104,18 +104,14 @@
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="PatientCode" ValidationGroup="PatientValidation" CssClass="text-danger" ErrorMessage="Postal code is required." Display="Dynamic" />
                             </div>
 
-                            <!-- LOGIN DETAILS SECTION -->
-                            <p class="text-muted mb-2 mt-4" style="font-size: 0.85rem; letter-spacing: 1px; border-bottom: 1px solid #dee2e6; padding-bottom: 6px;">Login Details</p>
-
-                            <p class="text-muted small mb-3">You'll log in with the email address you entered above.</p>
 
                             <!-- PASSWORD -->
                             <div class="mb-3">
                                 <asp:Label runat="server" AssociatedControlID="PatientPassword" CssClass="form-label">Password</asp:Label>
                                 <asp:TextBox runat="server" ID="PatientPassword" CssClass="form-control" TextMode="Password" autocomplete="new-password" placeholder="Create a password" />
                                 <small class="form-text text-muted">At least 6 characters, with an uppercase letter, a lowercase letter, a number and a symbol.</small>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger d-block" ErrorMessage="Password is required." Display="Dynamic" />
-                                <asp:RegularExpressionValidator runat="server" ControlToValidate="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger d-block" Display="Dynamic"
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger" ErrorMessage="Password is required." Display="Dynamic" />
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger" Display="Dynamic"
                                     ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{6,}$"
                                     ErrorMessage="Password must be at least 6 characters and include an uppercase letter, a lowercase letter, a number and a symbol." />
                             </div>
@@ -124,8 +120,8 @@
                             <div class="mb-4">
                                 <asp:Label runat="server" AssociatedControlID="PatientConfirmPassword" CssClass="form-label">Confirm Password</asp:Label>
                                 <asp:TextBox runat="server" ID="PatientConfirmPassword" CssClass="form-control" TextMode="Password" autocomplete="new-password" placeholder="Re-enter your password" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PatientConfirmPassword" ValidationGroup="PatientValidation" CssClass="text-danger d-block" ErrorMessage="Please confirm your password." Display="Dynamic" />
-                                <asp:CompareValidator runat="server" ControlToValidate="PatientConfirmPassword" ControlToCompare="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger d-block" Display="Dynamic"
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PatientConfirmPassword" ValidationGroup="PatientValidation" CssClass="text-danger" ErrorMessage="Please confirm your password." Display="Dynamic" />
+                                <asp:CompareValidator runat="server" ControlToValidate="PatientConfirmPassword" ControlToCompare="PatientPassword" ValidationGroup="PatientValidation" CssClass="text-danger" Display="Dynamic"
                                     ErrorMessage="The passwords do not match." />
                             </div>
 
