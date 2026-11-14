@@ -23,6 +23,9 @@ namespace Dental_Practice_Management_System
         public TreatmentMedicine()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.ControlBox = false;
+            this.Text = string.Empty;
             HideAllPanels();
         }
         private void HideAllPanels()

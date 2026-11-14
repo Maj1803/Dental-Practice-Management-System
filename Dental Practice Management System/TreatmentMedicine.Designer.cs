@@ -764,7 +764,6 @@
             this.pnlTreatmentHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlTreatmentHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlTreatmentHistory.Controls.Add(this.grpTreatmentHistory);
             this.pnlTreatmentHistory.Location = new System.Drawing.Point(24, 153);
             this.pnlTreatmentHistory.Name = "pnlTreatmentHistory";
@@ -789,7 +788,7 @@
             this.grpTreatmentHistory.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpTreatmentHistory.Location = new System.Drawing.Point(11, 13);
             this.grpTreatmentHistory.Name = "grpTreatmentHistory";
-            this.grpTreatmentHistory.Size = new System.Drawing.Size(1206, 1260);
+            this.grpTreatmentHistory.Size = new System.Drawing.Size(1208, 1262);
             this.grpTreatmentHistory.TabIndex = 2;
             this.grpTreatmentHistory.TabStop = false;
             this.grpTreatmentHistory.Text = "Treatment History";
@@ -806,7 +805,7 @@
             this.dgvTreatmentHistory.ReadOnly = true;
             this.dgvTreatmentHistory.RowHeadersWidth = 51;
             this.dgvTreatmentHistory.RowTemplate.Height = 24;
-            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1164, 244);
+            this.dgvTreatmentHistory.Size = new System.Drawing.Size(1166, 246);
             this.dgvTreatmentHistory.TabIndex = 18;
             // 
             // btnSearch
@@ -1135,7 +1134,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Treatment";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TreatmentMedicine_Load);
             this.pnlPatientDetails.ResumeLayout(false);
             this.pnlPatientDetails.PerformLayout();
