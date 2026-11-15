@@ -42,11 +42,9 @@ namespace Dental_Practice_Management_System
             MinimumSize = new Size(900, 600);
 
 
-            //Font labelFont = new Font("Segoe UI", 13F, FontStyle.Bold); // labels + date pickers
-            //Font comboFont = new Font("Segoe UI", 13F, FontStyle.Bold);    // combo box text (bold, like Appointments)
            
-            Font labelFont = new Font("Segoe UI", 12F, FontStyle.Regular);
-            Font comboFont = new Font("Segoe UI", 12F, FontStyle.Regular);
+            Font labelFont = new Font("Segoe UI", 12F, FontStyle.Bold);
+            Font comboFont = new Font("Segoe UI", 12F, FontStyle.Bold);
             Color tealColor = Color.FromArgb(0, 128, 150);
             const string dateFormat = "dddd , dd MMMM yyyy";
 
